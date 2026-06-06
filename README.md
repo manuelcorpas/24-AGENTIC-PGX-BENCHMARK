@@ -25,7 +25,7 @@ Key scripts (`code/`): `02-run-benchmark-v3.py` (no_spec/with_spec), `15-build-c
 
 ## Data
 
-The primary dataset (raw model responses, the locked rescored three-arm dataset, adversarial and chunking results, and figure input CSVs) is archived on Zenodo: **DOI: <to be added on deposit>**. Download and unpack it into `data/` to reproduce the analyses and figures. See `data/README.md` for the expected files.
+The primary dataset (raw model responses, the locked rescored three-arm dataset, adversarial and chunking results, and figure input CSVs) is archived on Zenodo: **DOI: 10.5281/zenodo.20567743**. Download and unpack it into `data/` to reproduce the analyses and figures. See `data/README.md` for the expected files.
 
 ## Reproducing the analysis
 

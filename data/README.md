@@ -2,7 +2,7 @@
 
 The benchmark dataset is archived on Zenodo (not stored in git):
 
-**DOI: <to be added on deposit>**
+**DOI: 10.5281/zenodo.20567743**
 
 Download the archive and unpack its contents into this `data/` directory. Expected files:
 
