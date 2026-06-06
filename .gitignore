@@ -1,0 +1,15 @@
+__pycache__/
+*.pyc
+.env
+.DS_Store
+# Primary dataset is archived on Zenodo, not in git (see data/README.md)
+data/*.json
+data/*.csv
+# Intermediate run artefacts
+*_checkpoint*
+*_partial*
+*_dry*
+*cost*
+LOGS/
+# Syncthing conflict copies
+* 2.*

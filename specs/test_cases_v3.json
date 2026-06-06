@@ -1,0 +1,1652 @@
+[
+  {
+    "id": "cyp2d6_codeine_pm",
+    "gene": "CYP2D6",
+    "drug": "codeine",
+    "genotype": "rs3892097 T/T (homozygous)",
+    "gt_diplotype": "*4/*4",
+    "gt_phenotype": "Poor Metaboliser",
+    "gt_drug": "codeine: AVOID (no analgesic benefit; use non-opioid or non-CYP2D6 opioid)",
+    "gt_activity": "0.0",
+    "pop_note": {
+      "EUR": "CYP2D6*4 ~20% in Europeans; PM ~7%. *1xN (UM) ~1-3%.",
+      "AMR": "CYP2D6*4 ~10% in admixed Latin Americans; *10 and *17 more common in indigenous populations.",
+      "AFR": "CYP2D6*4 ~6% in Africans; *17 (reduced function) ~20-35%, often missed by EUR-centric panels."
+    }
+  },
+  {
+    "id": "cyp2d6_codeine_im",
+    "gene": "CYP2D6",
+    "drug": "codeine",
+    "genotype": "rs3892097 C/T (heterozygous)",
+    "gt_diplotype": "*1/*4",
+    "gt_phenotype": "Intermediate Metaboliser",
+    "gt_drug": "codeine: standard starting dose; monitor for reduced analgesia",
+    "gt_activity": "1.0",
+    "pop_note": {
+      "EUR": "CYP2D6*4 ~20% in Europeans; PM ~7%. *1xN (UM) ~1-3%.",
+      "AMR": "CYP2D6*4 ~10% in admixed Latin Americans; *10 and *17 more common in indigenous populations.",
+      "AFR": "CYP2D6*4 ~6% in Africans; *17 (reduced function) ~20-35%, often missed by EUR-centric panels."
+    }
+  },
+  {
+    "id": "cyp2d6_codeine_nm",
+    "gene": "CYP2D6",
+    "drug": "codeine",
+    "genotype": "All CYP2D6 SNPs homozygous reference",
+    "gt_diplotype": "*1/*1",
+    "gt_phenotype": "Normal Metaboliser",
+    "gt_drug": "codeine: standard dosing",
+    "gt_activity": "2.0",
+    "pop_note": {
+      "EUR": "CYP2D6*4 ~20% in Europeans; PM ~7%. *1xN (UM) ~1-3%.",
+      "AMR": "CYP2D6*4 ~10% in admixed Latin Americans; *10 and *17 more common in indigenous populations.",
+      "AFR": "CYP2D6*4 ~6% in Africans; *17 (reduced function) ~20-35%, often missed by EUR-centric panels."
+    }
+  },
+  {
+    "id": "cyp2d6_codeine_um",
+    "gene": "CYP2D6",
+    "drug": "codeine",
+    "genotype": "CYP2D6 *1xN duplication detected by copy-number assay (qPCR/MLPA/long-range PCR); duplications are structural variants with no defining single SNV",
+    "gt_diplotype": "*1/*1xN (gene duplication)",
+    "gt_phenotype": "Ultra-rapid Metaboliser",
+    "gt_drug": "codeine: AVOID (potentially LETHAL morphine accumulation; respiratory depression risk)",
+    "gt_activity": "\u22653.0",
+    "pop_note": {
+      "EUR": "CYP2D6*4 ~20% in Europeans; PM ~7%. *1xN (UM) ~1-3%.",
+      "AMR": "CYP2D6*4 ~10% in admixed Latin Americans; *10 and *17 more common in indigenous populations.",
+      "AFR": "CYP2D6*4 ~6% in Africans; *17 (reduced function) ~20-35%, often missed by EUR-centric panels."
+    }
+  },
+  {
+    "id": "cyp2d6_codeine_im_decreased",
+    "gene": "CYP2D6",
+    "drug": "codeine",
+    "genotype": "rs3892097 C/T + rs1065852 G/A (compound)",
+    "gt_diplotype": "*4/*10",
+    "gt_phenotype": "Intermediate Metaboliser",
+    "gt_drug": "codeine: reduce dose or alternative; *10 reduced function compounding *4 null",
+    "gt_activity": "0.5",
+    "pop_note": {
+      "EUR": "CYP2D6*4 ~20% in Europeans; PM ~7%. *1xN (UM) ~1-3%.",
+      "AMR": "CYP2D6*4 ~10% in admixed Latin Americans; *10 and *17 more common in indigenous populations.",
+      "AFR": "CYP2D6*4 ~6% in Africans; *17 (reduced function) ~20-35%, often missed by EUR-centric panels."
+    }
+  },
+  {
+    "id": "cyp2d6_tamox_pm",
+    "gene": "CYP2D6",
+    "drug": "tamoxifen",
+    "genotype": "rs3892097 T/T (homozygous)",
+    "gt_diplotype": "*4/*4",
+    "gt_phenotype": "Poor Metaboliser",
+    "gt_drug": "tamoxifen: alternative endocrine therapy (e.g. aromatase inhibitor)",
+    "gt_activity": "0.0",
+    "pop_note": {
+      "EUR": "CYP2D6*4 ~20% in Europeans; PM ~7% \u2014 relevant for breast cancer endocrine therapy.",
+      "AMR": "CYP2D6*4 ~10% in admixed Latin Americans; tamoxifen response variable.",
+      "AFR": "CYP2D6*17 ~20-35% in Africans causes intermediate metaboliser status not detected by *4-only panels."
+    }
+  },
+  {
+    "id": "cyp2d6_tamox_im",
+    "gene": "CYP2D6",
+    "drug": "tamoxifen",
+    "genotype": "rs3892097 C/T (heterozygous)",
+    "gt_diplotype": "*1/*4",
+    "gt_phenotype": "Intermediate Metaboliser",
+    "gt_drug": "tamoxifen: consider higher dose or alternative; reduced endoxifen formation",
+    "gt_activity": "1.0",
+    "pop_note": {
+      "EUR": "CYP2D6*4 ~20% in Europeans; PM ~7% \u2014 relevant for breast cancer endocrine therapy.",
+      "AMR": "CYP2D6*4 ~10% in admixed Latin Americans; tamoxifen response variable.",
+      "AFR": "CYP2D6*17 ~20-35% in Africans causes intermediate metaboliser status not detected by *4-only panels."
+    }
+  },
+  {
+    "id": "cyp2d6_tamox_nm",
+    "gene": "CYP2D6",
+    "drug": "tamoxifen",
+    "genotype": "All CYP2D6 SNPs homozygous reference",
+    "gt_diplotype": "*1/*1",
+    "gt_phenotype": "Normal Metaboliser",
+    "gt_drug": "tamoxifen: standard dosing",
+    "gt_activity": "2.0",
+    "pop_note": {
+      "EUR": "CYP2D6*4 ~20% in Europeans; PM ~7% \u2014 relevant for breast cancer endocrine therapy.",
+      "AMR": "CYP2D6*4 ~10% in admixed Latin Americans; tamoxifen response variable.",
+      "AFR": "CYP2D6*17 ~20-35% in Africans causes intermediate metaboliser status not detected by *4-only panels."
+    }
+  },
+  {
+    "id": "cyp2d6_tamox_um",
+    "gene": "CYP2D6",
+    "drug": "tamoxifen",
+    "genotype": "CYP2D6 *1xN duplication detected by copy-number assay (qPCR/MLPA/long-range PCR); structural variant, no defining single SNV",
+    "gt_diplotype": "*1/*1xN",
+    "gt_phenotype": "Ultra-rapid Metaboliser",
+    "gt_drug": "tamoxifen: standard dosing (UM is acceptable for tamoxifen efficacy)",
+    "gt_activity": "\u22653.0",
+    "pop_note": {
+      "EUR": "CYP2D6*4 ~20% in Europeans; PM ~7% \u2014 relevant for breast cancer endocrine therapy.",
+      "AMR": "CYP2D6*4 ~10% in admixed Latin Americans; tamoxifen response variable.",
+      "AFR": "CYP2D6*17 ~20-35% in Africans causes intermediate metaboliser status not detected by *4-only panels."
+    }
+  },
+  {
+    "id": "cyp2d6_ondan_pm",
+    "gene": "CYP2D6",
+    "drug": "ondansetron",
+    "genotype": "rs3892097 T/T",
+    "gt_diplotype": "*4/*4",
+    "gt_phenotype": "Poor Metaboliser",
+    "gt_drug": "ondansetron: standard dosing (PM acceptable for antiemetic efficacy)",
+    "gt_activity": "0.0",
+    "pop_note": {
+      "EUR": "CYP2D6*1xN (UM) ~1-3% in Europeans.",
+      "AMR": "CYP2D6 UM frequency variable in admixed Latin American populations.",
+      "AFR": "CYP2D6 UM (*1xN, *2xN) up to 28% in some North/East African populations."
+    }
+  },
+  {
+    "id": "cyp2d6_ondan_nm",
+    "gene": "CYP2D6",
+    "drug": "ondansetron",
+    "genotype": "All CYP2D6 SNPs homozygous reference",
+    "gt_diplotype": "*1/*1",
+    "gt_phenotype": "Normal Metaboliser",
+    "gt_drug": "ondansetron: standard dosing",
+    "gt_activity": "2.0",
+    "pop_note": {
+      "EUR": "CYP2D6*1xN (UM) ~1-3% in Europeans.",
+      "AMR": "CYP2D6 UM frequency variable in admixed Latin American populations.",
+      "AFR": "CYP2D6 UM (*1xN, *2xN) up to 28% in some North/East African populations."
+    }
+  },
+  {
+    "id": "cyp2d6_ondan_um",
+    "gene": "CYP2D6",
+    "drug": "ondansetron",
+    "genotype": "CYP2D6 *1xN duplication detected by copy-number assay (qPCR/MLPA/long-range PCR); structural variant, no defining single SNV",
+    "gt_diplotype": "*1/*1xN",
+    "gt_phenotype": "Ultra-rapid Metaboliser",
+    "gt_drug": "ondansetron: alternative antiemetic (e.g. granisetron); reduced efficacy in UM",
+    "gt_activity": "\u22653.0",
+    "pop_note": {
+      "EUR": "CYP2D6*1xN (UM) ~1-3% in Europeans.",
+      "AMR": "CYP2D6 UM frequency variable in admixed Latin American populations.",
+      "AFR": "CYP2D6 UM (*1xN, *2xN) up to 28% in some North/East African populations."
+    }
+  },
+  {
+    "id": "cyp2d6_parox_pm",
+    "gene": "CYP2D6",
+    "drug": "paroxetine",
+    "genotype": "rs3892097 T/T",
+    "gt_diplotype": "*4/*4",
+    "gt_phenotype": "Poor Metaboliser",
+    "gt_drug": "paroxetine: alternative SSRI not metabolised by CYP2D6",
+    "gt_activity": "0.0",
+    "pop_note": {
+      "EUR": "CYP2D6 PM ~7% in Europeans relevant for SSRI choice.",
+      "AMR": "CYP2D6 phenotype distribution variable in admixed populations; testing recommended.",
+      "AFR": "CYP2D6*17 + UM duplications affect SSRI dosing; population data sparse."
+    }
+  },
+  {
+    "id": "cyp2d6_parox_im",
+    "gene": "CYP2D6",
+    "drug": "paroxetine",
+    "genotype": "rs3892097 C/T",
+    "gt_diplotype": "*1/*4",
+    "gt_phenotype": "Intermediate Metaboliser",
+    "gt_drug": "paroxetine: standard starting dose; monitor for adverse effects",
+    "gt_activity": "1.0",
+    "pop_note": {
+      "EUR": "CYP2D6 PM ~7% in Europeans relevant for SSRI choice.",
+      "AMR": "CYP2D6 phenotype distribution variable in admixed populations; testing recommended.",
+      "AFR": "CYP2D6*17 + UM duplications affect SSRI dosing; population data sparse."
+    }
+  },
+  {
+    "id": "cyp2d6_parox_nm",
+    "gene": "CYP2D6",
+    "drug": "paroxetine",
+    "genotype": "All CYP2D6 SNPs homozygous reference",
+    "gt_diplotype": "*1/*1",
+    "gt_phenotype": "Normal Metaboliser",
+    "gt_drug": "paroxetine: standard dosing",
+    "gt_activity": "2.0",
+    "pop_note": {
+      "EUR": "CYP2D6 PM ~7% in Europeans relevant for SSRI choice.",
+      "AMR": "CYP2D6 phenotype distribution variable in admixed populations; testing recommended.",
+      "AFR": "CYP2D6*17 + UM duplications affect SSRI dosing; population data sparse."
+    }
+  },
+  {
+    "id": "cyp2d6_parox_um",
+    "gene": "CYP2D6",
+    "drug": "paroxetine",
+    "genotype": "CYP2D6 *1xN duplication detected by copy-number assay (qPCR/MLPA/long-range PCR); structural variant, no defining single SNV",
+    "gt_diplotype": "*1/*1xN",
+    "gt_phenotype": "Ultra-rapid Metaboliser",
+    "gt_drug": "paroxetine: alternative SSRI; reduced efficacy due to rapid clearance",
+    "gt_activity": "\u22653.0",
+    "pop_note": {
+      "EUR": "CYP2D6 PM ~7% in Europeans relevant for SSRI choice.",
+      "AMR": "CYP2D6 phenotype distribution variable in admixed populations; testing recommended.",
+      "AFR": "CYP2D6*17 + UM duplications affect SSRI dosing; population data sparse."
+    }
+  },
+  {
+    "id": "cyp2d6_amitrip_pm",
+    "gene": "CYP2D6",
+    "drug": "amitriptyline",
+    "genotype": "rs3892097 T/T",
+    "gt_diplotype": "*4/*4",
+    "gt_phenotype": "Poor Metaboliser",
+    "gt_drug": "amitriptyline: avoid use; consider alternative not metabolised by CYP2D6",
+    "gt_activity": "0.0",
+    "pop_note": {
+      "EUR": "TCA dosing affected by CYP2D6*4 (PM) and *1xN (UM) \u2014 common testing in psychiatry.",
+      "AMR": "CYP2D6 phenotype variable in admixed populations.",
+      "AFR": "CYP2D6*17 prevalent \u2014 affects TCA dosing through reduced 2D6 activity."
+    }
+  },
+  {
+    "id": "cyp2d6_amitrip_im",
+    "gene": "CYP2D6",
+    "drug": "amitriptyline",
+    "genotype": "rs3892097 C/T",
+    "gt_diplotype": "*1/*4",
+    "gt_phenotype": "Intermediate Metaboliser",
+    "gt_drug": "amitriptyline: 25% dose reduction; monitor",
+    "gt_activity": "1.0",
+    "pop_note": {
+      "EUR": "TCA dosing affected by CYP2D6*4 (PM) and *1xN (UM) \u2014 common testing in psychiatry.",
+      "AMR": "CYP2D6 phenotype variable in admixed populations.",
+      "AFR": "CYP2D6*17 prevalent \u2014 affects TCA dosing through reduced 2D6 activity."
+    }
+  },
+  {
+    "id": "cyp2d6_amitrip_nm",
+    "gene": "CYP2D6",
+    "drug": "amitriptyline",
+    "genotype": "All CYP2D6 SNPs homozygous reference",
+    "gt_diplotype": "*1/*1",
+    "gt_phenotype": "Normal Metaboliser",
+    "gt_drug": "amitriptyline: standard dosing",
+    "gt_activity": "2.0",
+    "pop_note": {
+      "EUR": "TCA dosing affected by CYP2D6*4 (PM) and *1xN (UM) \u2014 common testing in psychiatry.",
+      "AMR": "CYP2D6 phenotype variable in admixed populations.",
+      "AFR": "CYP2D6*17 prevalent \u2014 affects TCA dosing through reduced 2D6 activity."
+    }
+  },
+  {
+    "id": "cyp2d6_amitrip_um",
+    "gene": "CYP2D6",
+    "drug": "amitriptyline",
+    "genotype": "CYP2D6 *1xN duplication detected by copy-number assay (qPCR/MLPA/long-range PCR); structural variant, no defining single SNV",
+    "gt_diplotype": "*1/*1xN",
+    "gt_phenotype": "Ultra-rapid Metaboliser",
+    "gt_drug": "amitriptyline: avoid use; alternative TCA not affected by CYP2D6",
+    "gt_activity": "\u22653.0",
+    "pop_note": {
+      "EUR": "TCA dosing affected by CYP2D6*4 (PM) and *1xN (UM) \u2014 common testing in psychiatry.",
+      "AMR": "CYP2D6 phenotype variable in admixed populations.",
+      "AFR": "CYP2D6*17 prevalent \u2014 affects TCA dosing through reduced 2D6 activity."
+    }
+  },
+  {
+    "id": "cyp2c19_clop_pm",
+    "gene": "CYP2C19",
+    "drug": "clopidogrel",
+    "genotype": "rs4244285 A/A (homozygous)",
+    "gt_diplotype": "*2/*2",
+    "gt_phenotype": "Poor Metaboliser",
+    "gt_drug": "clopidogrel: AVOID (alternative antiplatelet \u2014 prasugrel or ticagrelor; reduced active metabolite, increased thrombotic risk)",
+    "gt_activity": "0.0",
+    "pop_note": {
+      "EUR": "CYP2C19*2 ~15% in EUR; PM ~2%. *17 ~21%.",
+      "AMR": "CYP2C19*2 ~10-15% in admixed Latin Americans.",
+      "AFR": "CYP2C19*2 ~15-18% in African populations; PM ~3-5%. *17 ~16-26%."
+    }
+  },
+  {
+    "id": "cyp2c19_clop_im",
+    "gene": "CYP2C19",
+    "drug": "clopidogrel",
+    "genotype": "rs4244285 G/A (heterozygous)",
+    "gt_diplotype": "*1/*2",
+    "gt_phenotype": "Intermediate Metaboliser",
+    "gt_drug": "clopidogrel: alternative antiplatelet recommended; reduced active metabolite",
+    "gt_activity": "1.0",
+    "pop_note": {
+      "EUR": "CYP2C19*2 ~15% in EUR; PM ~2%. *17 ~21%.",
+      "AMR": "CYP2C19*2 ~10-15% in admixed Latin Americans.",
+      "AFR": "CYP2C19*2 ~15-18% in African populations; PM ~3-5%. *17 ~16-26%."
+    }
+  },
+  {
+    "id": "cyp2c19_clop_nm",
+    "gene": "CYP2C19",
+    "drug": "clopidogrel",
+    "genotype": "All CYP2C19 SNPs homozygous reference",
+    "gt_diplotype": "*1/*1",
+    "gt_phenotype": "Normal Metaboliser",
+    "gt_drug": "clopidogrel: standard dosing",
+    "gt_activity": "2.0",
+    "pop_note": {
+      "EUR": "CYP2C19*2 ~15% in EUR; PM ~2%. *17 ~21%.",
+      "AMR": "CYP2C19*2 ~10-15% in admixed Latin Americans.",
+      "AFR": "CYP2C19*2 ~15-18% in African populations; PM ~3-5%. *17 ~16-26%."
+    }
+  },
+  {
+    "id": "cyp2c19_clop_rm",
+    "gene": "CYP2C19",
+    "drug": "clopidogrel",
+    "genotype": "rs12248560 C/T (heterozygous)",
+    "gt_diplotype": "*1/*17",
+    "gt_phenotype": "Rapid Metaboliser",
+    "gt_drug": "clopidogrel: standard dosing",
+    "gt_activity": "1.5",
+    "pop_note": {
+      "EUR": "CYP2C19*2 ~15% in EUR; PM ~2%. *17 ~21%.",
+      "AMR": "CYP2C19*2 ~10-15% in admixed Latin Americans.",
+      "AFR": "CYP2C19*2 ~15-18% in African populations; PM ~3-5%. *17 ~16-26%."
+    }
+  },
+  {
+    "id": "cyp2c19_clop_um",
+    "gene": "CYP2C19",
+    "drug": "clopidogrel",
+    "genotype": "rs12248560 T/T (homozygous)",
+    "gt_diplotype": "*17/*17",
+    "gt_phenotype": "Ultra-rapid Metaboliser",
+    "gt_drug": "clopidogrel: standard dosing (UM may have increased bleeding risk; monitor)",
+    "gt_activity": "1.5+",
+    "pop_note": {
+      "EUR": "CYP2C19*2 ~15% in EUR; PM ~2%. *17 ~21%.",
+      "AMR": "CYP2C19*2 ~10-15% in admixed Latin Americans.",
+      "AFR": "CYP2C19*2 ~15-18% in African populations; PM ~3-5%. *17 ~16-26%."
+    }
+  },
+  {
+    "id": "cyp2c19_vori_pm",
+    "gene": "CYP2C19",
+    "drug": "voriconazole",
+    "genotype": "rs4244285 A/A",
+    "gt_diplotype": "*2/*2",
+    "gt_phenotype": "Poor Metaboliser",
+    "gt_drug": "voriconazole: alternative antifungal (toxic accumulation expected)",
+    "gt_activity": "0.0",
+    "pop_note": {
+      "EUR": "CYP2C19*17 ~21% \u2014 RM/UM common, voriconazole TDM recommended.",
+      "AMR": "CYP2C19*17 ~15% in admixed Latin Americans.",
+      "AFR": "CYP2C19*17 ~16-26% in African populations affecting voriconazole levels."
+    }
+  },
+  {
+    "id": "cyp2c19_vori_im",
+    "gene": "CYP2C19",
+    "drug": "voriconazole",
+    "genotype": "rs4244285 G/A",
+    "gt_diplotype": "*1/*2",
+    "gt_phenotype": "Intermediate Metaboliser",
+    "gt_drug": "voriconazole: standard dosing with therapeutic drug monitoring",
+    "gt_activity": "1.0",
+    "pop_note": {
+      "EUR": "CYP2C19*17 ~21% \u2014 RM/UM common, voriconazole TDM recommended.",
+      "AMR": "CYP2C19*17 ~15% in admixed Latin Americans.",
+      "AFR": "CYP2C19*17 ~16-26% in African populations affecting voriconazole levels."
+    }
+  },
+  {
+    "id": "cyp2c19_vori_nm",
+    "gene": "CYP2C19",
+    "drug": "voriconazole",
+    "genotype": "All CYP2C19 SNPs homozygous reference",
+    "gt_diplotype": "*1/*1",
+    "gt_phenotype": "Normal Metaboliser",
+    "gt_drug": "voriconazole: standard dosing",
+    "gt_activity": "2.0",
+    "pop_note": {
+      "EUR": "CYP2C19*17 ~21% \u2014 RM/UM common, voriconazole TDM recommended.",
+      "AMR": "CYP2C19*17 ~15% in admixed Latin Americans.",
+      "AFR": "CYP2C19*17 ~16-26% in African populations affecting voriconazole levels."
+    }
+  },
+  {
+    "id": "cyp2c19_vori_rm",
+    "gene": "CYP2C19",
+    "drug": "voriconazole",
+    "genotype": "rs12248560 C/T",
+    "gt_diplotype": "*1/*17",
+    "gt_phenotype": "Rapid Metaboliser",
+    "gt_drug": "voriconazole: alternative antifungal (subtherapeutic levels likely)",
+    "gt_activity": "1.5",
+    "pop_note": {
+      "EUR": "CYP2C19*17 ~21% \u2014 RM/UM common, voriconazole TDM recommended.",
+      "AMR": "CYP2C19*17 ~15% in admixed Latin Americans.",
+      "AFR": "CYP2C19*17 ~16-26% in African populations affecting voriconazole levels."
+    }
+  },
+  {
+    "id": "cyp2c19_vori_um",
+    "gene": "CYP2C19",
+    "drug": "voriconazole",
+    "genotype": "rs12248560 T/T",
+    "gt_diplotype": "*17/*17",
+    "gt_phenotype": "Ultra-rapid Metaboliser",
+    "gt_drug": "voriconazole: alternative antifungal (subtherapeutic levels \u2014 treatment failure risk)",
+    "gt_activity": "1.5+",
+    "pop_note": {
+      "EUR": "CYP2C19*17 ~21% \u2014 RM/UM common, voriconazole TDM recommended.",
+      "AMR": "CYP2C19*17 ~15% in admixed Latin Americans.",
+      "AFR": "CYP2C19*17 ~16-26% in African populations affecting voriconazole levels."
+    }
+  },
+  {
+    "id": "cyp2c19_cital_pm",
+    "gene": "CYP2C19",
+    "drug": "citalopram",
+    "genotype": "rs4244285 A/A",
+    "gt_diplotype": "*2/*2",
+    "gt_phenotype": "Poor Metaboliser",
+    "gt_drug": "citalopram: 50% dose reduction or alternative SSRI",
+    "gt_activity": "0.0",
+    "pop_note": {
+      "EUR": "CYP2C19*2/*17 distribution well characterised in psychiatric SSRI dosing.",
+      "AMR": "CYP2C19 phenotypes variable in admixed Latin Americans.",
+      "AFR": "CYP2C19*2 ~15-18%, *17 ~16-26% \u2014 population-specific dosing relevant."
+    }
+  },
+  {
+    "id": "cyp2c19_cital_im",
+    "gene": "CYP2C19",
+    "drug": "citalopram",
+    "genotype": "rs4244285 G/A",
+    "gt_diplotype": "*1/*2",
+    "gt_phenotype": "Intermediate Metaboliser",
+    "gt_drug": "citalopram: standard dosing; monitor for adverse effects",
+    "gt_activity": "1.0",
+    "pop_note": {
+      "EUR": "CYP2C19*2/*17 distribution well characterised in psychiatric SSRI dosing.",
+      "AMR": "CYP2C19 phenotypes variable in admixed Latin Americans.",
+      "AFR": "CYP2C19*2 ~15-18%, *17 ~16-26% \u2014 population-specific dosing relevant."
+    }
+  },
+  {
+    "id": "cyp2c19_cital_nm",
+    "gene": "CYP2C19",
+    "drug": "citalopram",
+    "genotype": "All CYP2C19 SNPs homozygous reference",
+    "gt_diplotype": "*1/*1",
+    "gt_phenotype": "Normal Metaboliser",
+    "gt_drug": "citalopram: standard dosing",
+    "gt_activity": "2.0",
+    "pop_note": {
+      "EUR": "CYP2C19*2/*17 distribution well characterised in psychiatric SSRI dosing.",
+      "AMR": "CYP2C19 phenotypes variable in admixed Latin Americans.",
+      "AFR": "CYP2C19*2 ~15-18%, *17 ~16-26% \u2014 population-specific dosing relevant."
+    }
+  },
+  {
+    "id": "cyp2c19_cital_rm",
+    "gene": "CYP2C19",
+    "drug": "citalopram",
+    "genotype": "rs12248560 C/T",
+    "gt_diplotype": "*1/*17",
+    "gt_phenotype": "Rapid Metaboliser",
+    "gt_drug": "citalopram: alternative SSRI (subtherapeutic likely)",
+    "gt_activity": "1.5",
+    "pop_note": {
+      "EUR": "CYP2C19*2/*17 distribution well characterised in psychiatric SSRI dosing.",
+      "AMR": "CYP2C19 phenotypes variable in admixed Latin Americans.",
+      "AFR": "CYP2C19*2 ~15-18%, *17 ~16-26% \u2014 population-specific dosing relevant."
+    }
+  },
+  {
+    "id": "cyp2c19_cital_um",
+    "gene": "CYP2C19",
+    "drug": "citalopram",
+    "genotype": "rs12248560 T/T",
+    "gt_diplotype": "*17/*17",
+    "gt_phenotype": "Ultra-rapid Metaboliser",
+    "gt_drug": "citalopram: alternative SSRI (treatment failure risk)",
+    "gt_activity": "1.5+",
+    "pop_note": {
+      "EUR": "CYP2C19*2/*17 distribution well characterised in psychiatric SSRI dosing.",
+      "AMR": "CYP2C19 phenotypes variable in admixed Latin Americans.",
+      "AFR": "CYP2C19*2 ~15-18%, *17 ~16-26% \u2014 population-specific dosing relevant."
+    }
+  },
+  {
+    "id": "cyp2c19_omep_pm",
+    "gene": "CYP2C19",
+    "drug": "omeprazole",
+    "genotype": "rs4244285 A/A",
+    "gt_diplotype": "*2/*2",
+    "gt_phenotype": "Poor Metaboliser",
+    "gt_drug": "omeprazole: standard dose may be excessive; consider 25-50% reduction",
+    "gt_activity": "0.0",
+    "pop_note": {
+      "EUR": "CYP2C19 phenotyping common for H. pylori eradication regimens.",
+      "AMR": "CYP2C19*17 RM/UM ~15%+ \u2014 affects PPI choice.",
+      "AFR": "CYP2C19*17 ~16-26% \u2014 treatment-failure risk for H. pylori with omeprazole."
+    }
+  },
+  {
+    "id": "cyp2c19_omep_im",
+    "gene": "CYP2C19",
+    "drug": "omeprazole",
+    "genotype": "rs4244285 G/A",
+    "gt_diplotype": "*1/*2",
+    "gt_phenotype": "Intermediate Metaboliser",
+    "gt_drug": "omeprazole: standard dosing",
+    "gt_activity": "1.0",
+    "pop_note": {
+      "EUR": "CYP2C19 phenotyping common for H. pylori eradication regimens.",
+      "AMR": "CYP2C19*17 RM/UM ~15%+ \u2014 affects PPI choice.",
+      "AFR": "CYP2C19*17 ~16-26% \u2014 treatment-failure risk for H. pylori with omeprazole."
+    }
+  },
+  {
+    "id": "cyp2c19_omep_nm",
+    "gene": "CYP2C19",
+    "drug": "omeprazole",
+    "genotype": "All CYP2C19 SNPs homozygous reference",
+    "gt_diplotype": "*1/*1",
+    "gt_phenotype": "Normal Metaboliser",
+    "gt_drug": "omeprazole: standard dosing",
+    "gt_activity": "2.0",
+    "pop_note": {
+      "EUR": "CYP2C19 phenotyping common for H. pylori eradication regimens.",
+      "AMR": "CYP2C19*17 RM/UM ~15%+ \u2014 affects PPI choice.",
+      "AFR": "CYP2C19*17 ~16-26% \u2014 treatment-failure risk for H. pylori with omeprazole."
+    }
+  },
+  {
+    "id": "cyp2c19_omep_rm",
+    "gene": "CYP2C19",
+    "drug": "omeprazole",
+    "genotype": "rs12248560 C/T",
+    "gt_diplotype": "*1/*17",
+    "gt_phenotype": "Rapid Metaboliser",
+    "gt_drug": "omeprazole: increase dose 50-100% or alternative PPI; reduced efficacy",
+    "gt_activity": "1.5",
+    "pop_note": {
+      "EUR": "CYP2C19 phenotyping common for H. pylori eradication regimens.",
+      "AMR": "CYP2C19*17 RM/UM ~15%+ \u2014 affects PPI choice.",
+      "AFR": "CYP2C19*17 ~16-26% \u2014 treatment-failure risk for H. pylori with omeprazole."
+    }
+  },
+  {
+    "id": "cyp2c19_omep_um",
+    "gene": "CYP2C19",
+    "drug": "omeprazole",
+    "genotype": "rs12248560 T/T",
+    "gt_diplotype": "*17/*17",
+    "gt_phenotype": "Ultra-rapid Metaboliser",
+    "gt_drug": "omeprazole: increase dose or alternative PPI (treatment failure for H. pylori, reflux)",
+    "gt_activity": "1.5+",
+    "pop_note": {
+      "EUR": "CYP2C19 phenotyping common for H. pylori eradication regimens.",
+      "AMR": "CYP2C19*17 RM/UM ~15%+ \u2014 affects PPI choice.",
+      "AFR": "CYP2C19*17 ~16-26% \u2014 treatment-failure risk for H. pylori with omeprazole."
+    }
+  },
+  {
+    "id": "cyp2c9_warf_pm",
+    "gene": "CYP2C9",
+    "drug": "warfarin",
+    "genotype": "rs1057910 C/C (homozygous alt)",
+    "gt_diplotype": "*3/*3",
+    "gt_phenotype": "Poor Metaboliser",
+    "gt_drug": "warfarin: use validated pharmacogenetic dosing algorithm (e.g., IWPC or Gage) incorporating CYP2C9, VKORC1, and (in African ancestry) CYP2C9*5/*6/*8/*11; expected maintenance dose substantially lower than standard; consider alternative anticoagulant if algorithm unavailable",
+    "gt_activity": "0.0",
+    "pop_note": {
+      "EUR": "CYP2C9*2 ~13%, *3 ~7% in EUR; combined with VKORC1 explains ~30-40% of dose variance.",
+      "AMR": "CYP2C9*2 ~5-10%, *3 ~3-5% in admixed Latin Americans.",
+      "AFR": "CYP2C9*3 rare (<1%) in African populations; *5, *6, *8, *11 more relevant \u2014 often missed."
+    }
+  },
+  {
+    "id": "cyp2c9_warf_im",
+    "gene": "CYP2C9",
+    "drug": "warfarin",
+    "genotype": "rs1057910 A/C (heterozygous)",
+    "gt_diplotype": "*1/*3",
+    "gt_phenotype": "Intermediate Metaboliser",
+    "gt_drug": "warfarin: use validated pharmacogenetic dosing algorithm (e.g., IWPC or Gage) incorporating CYP2C9, VKORC1, and (in African ancestry) CYP2C9*5/*6/*8/*11",
+    "gt_activity": "1.0",
+    "pop_note": {
+      "EUR": "CYP2C9*2 ~13%, *3 ~7% in EUR; combined with VKORC1 explains ~30-40% of dose variance.",
+      "AMR": "CYP2C9*2 ~5-10%, *3 ~3-5% in admixed Latin Americans.",
+      "AFR": "CYP2C9*3 rare (<1%) in African populations; *5, *6, *8, *11 more relevant \u2014 often missed."
+    }
+  },
+  {
+    "id": "cyp2c9_warf_nm",
+    "gene": "CYP2C9",
+    "drug": "warfarin",
+    "genotype": "All CYP2C9 SNPs homozygous reference",
+    "gt_diplotype": "*1/*1",
+    "gt_phenotype": "Normal Metaboliser",
+    "gt_drug": "warfarin: use validated pharmacogenetic dosing algorithm (e.g., IWPC or Gage); standard starting dose acceptable if algorithm unavailable",
+    "gt_activity": "2.0",
+    "pop_note": {
+      "EUR": "CYP2C9*2 ~13%, *3 ~7% in EUR; combined with VKORC1 explains ~30-40% of dose variance.",
+      "AMR": "CYP2C9*2 ~5-10%, *3 ~3-5% in admixed Latin Americans.",
+      "AFR": "CYP2C9*3 rare (<1%) in African populations; *5, *6, *8, *11 more relevant \u2014 often missed."
+    }
+  },
+  {
+    "id": "cyp2c9_phen_pm",
+    "gene": "CYP2C9",
+    "drug": "phenytoin",
+    "genotype": "rs1057910 C/C",
+    "gt_diplotype": "*3/*3",
+    "gt_phenotype": "Poor Metaboliser",
+    "gt_drug": "phenytoin: 50% dose reduction; monitor levels closely",
+    "gt_activity": "0.0",
+    "pop_note": {
+      "EUR": "CYP2C9*3 ~7% \u2014 phenytoin toxicity risk in PM/IM.",
+      "AMR": "CYP2C9*3 ~3-5% in admixed Latin Americans.",
+      "AFR": "CYP2C9*3 rare in Africans; *8, *11 more frequent and clinically actionable."
+    }
+  },
+  {
+    "id": "cyp2c9_phen_im",
+    "gene": "CYP2C9",
+    "drug": "phenytoin",
+    "genotype": "rs1057910 A/C",
+    "gt_diplotype": "*1/*3",
+    "gt_phenotype": "Intermediate Metaboliser",
+    "gt_drug": "phenytoin: 25% dose reduction with TDM",
+    "gt_activity": "1.0",
+    "pop_note": {
+      "EUR": "CYP2C9*3 ~7% \u2014 phenytoin toxicity risk in PM/IM.",
+      "AMR": "CYP2C9*3 ~3-5% in admixed Latin Americans.",
+      "AFR": "CYP2C9*3 rare in Africans; *8, *11 more frequent and clinically actionable."
+    }
+  },
+  {
+    "id": "cyp2c9_phen_nm",
+    "gene": "CYP2C9",
+    "drug": "phenytoin",
+    "genotype": "All CYP2C9 SNPs homozygous reference",
+    "gt_diplotype": "*1/*1",
+    "gt_phenotype": "Normal Metaboliser",
+    "gt_drug": "phenytoin: standard dosing",
+    "gt_activity": "2.0",
+    "pop_note": {
+      "EUR": "CYP2C9*3 ~7% \u2014 phenytoin toxicity risk in PM/IM.",
+      "AMR": "CYP2C9*3 ~3-5% in admixed Latin Americans.",
+      "AFR": "CYP2C9*3 rare in Africans; *8, *11 more frequent and clinically actionable."
+    }
+  },
+  {
+    "id": "cyp2c9_celec_pm",
+    "gene": "CYP2C9",
+    "drug": "celecoxib",
+    "genotype": "rs1057910 C/C",
+    "gt_diplotype": "*3/*3",
+    "gt_phenotype": "Poor Metaboliser",
+    "gt_drug": "celecoxib: 50% dose reduction or alternative NSAID",
+    "gt_activity": "0.0",
+    "pop_note": {
+      "EUR": "CYP2C9*3 PM ~0.4% \u2014 relevant for chronic NSAID therapy.",
+      "AMR": "CYP2C9*3 ~3-5% in Latin Americans \u2014 IM common.",
+      "AFR": "CYP2C9 African-specific alleles (*5, *8, *11) affect NSAID metabolism."
+    }
+  },
+  {
+    "id": "cyp2c9_celec_im",
+    "gene": "CYP2C9",
+    "drug": "celecoxib",
+    "genotype": "rs1057910 A/C",
+    "gt_diplotype": "*1/*3",
+    "gt_phenotype": "Intermediate Metaboliser",
+    "gt_drug": "celecoxib: standard dosing with caution",
+    "gt_activity": "1.0",
+    "pop_note": {
+      "EUR": "CYP2C9*3 PM ~0.4% \u2014 relevant for chronic NSAID therapy.",
+      "AMR": "CYP2C9*3 ~3-5% in Latin Americans \u2014 IM common.",
+      "AFR": "CYP2C9 African-specific alleles (*5, *8, *11) affect NSAID metabolism."
+    }
+  },
+  {
+    "id": "cyp2c9_celec_nm",
+    "gene": "CYP2C9",
+    "drug": "celecoxib",
+    "genotype": "All CYP2C9 SNPs homozygous reference",
+    "gt_diplotype": "*1/*1",
+    "gt_phenotype": "Normal Metaboliser",
+    "gt_drug": "celecoxib: standard dosing",
+    "gt_activity": "2.0",
+    "pop_note": {
+      "EUR": "CYP2C9*3 PM ~0.4% \u2014 relevant for chronic NSAID therapy.",
+      "AMR": "CYP2C9*3 ~3-5% in Latin Americans \u2014 IM common.",
+      "AFR": "CYP2C9 African-specific alleles (*5, *8, *11) affect NSAID metabolism."
+    }
+  },
+  {
+    "id": "cyp3a5_tacr_nm_expressor",
+    "gene": "CYP3A5",
+    "drug": "tacrolimus",
+    "genotype": "rs776746 A/A (homozygous *1)",
+    "gt_diplotype": "*1/*1",
+    "gt_phenotype": "Normal Metaboliser (Expressor)",
+    "gt_drug": "tacrolimus: increase dose 1.5-2x; rapid clearance",
+    "gt_activity": "2.0",
+    "pop_note": {
+      "EUR": "CYP3A5*3 ~85-95% in EUR \u2014 most are non-expressors with standard tacrolimus dosing.",
+      "AMR": "CYP3A5*3 ~70-80% in admixed Latin Americans.",
+      "AFR": "CYP3A5*1 (expressor) common in Africans (~50-70%) \u2014 higher tacrolimus dose required."
+    }
+  },
+  {
+    "id": "cyp3a5_tacr_im",
+    "gene": "CYP3A5",
+    "drug": "tacrolimus",
+    "genotype": "rs776746 A/G (heterozygous)",
+    "gt_diplotype": "*1/*3",
+    "gt_phenotype": "Intermediate Metaboliser",
+    "gt_drug": "tacrolimus: increase dose 1.5x; partial expression",
+    "gt_activity": "1.0",
+    "pop_note": {
+      "EUR": "CYP3A5*3 ~85-95% in EUR \u2014 most are non-expressors with standard tacrolimus dosing.",
+      "AMR": "CYP3A5*3 ~70-80% in admixed Latin Americans.",
+      "AFR": "CYP3A5*1 (expressor) common in Africans (~50-70%) \u2014 higher tacrolimus dose required."
+    }
+  },
+  {
+    "id": "cyp3a5_tacr_pm_nonexpressor",
+    "gene": "CYP3A5",
+    "drug": "tacrolimus",
+    "genotype": "rs776746 G/G (homozygous)",
+    "gt_diplotype": "*3/*3",
+    "gt_phenotype": "Poor Metaboliser (Non-expressor)",
+    "gt_drug": "tacrolimus: standard dosing (slow clearance, normal target levels)",
+    "gt_activity": "0.0",
+    "pop_note": {
+      "EUR": "CYP3A5*3 ~85-95% in EUR \u2014 most are non-expressors with standard tacrolimus dosing.",
+      "AMR": "CYP3A5*3 ~70-80% in admixed Latin Americans.",
+      "AFR": "CYP3A5*1 (expressor) common in Africans (~50-70%) \u2014 higher tacrolimus dose required."
+    }
+  },
+  {
+    "id": "cyp2b6_efa_pm",
+    "gene": "CYP2B6",
+    "drug": "efavirenz",
+    "genotype": "rs3745274 T/T (homozygous)",
+    "gt_diplotype": "*6/*6",
+    "gt_phenotype": "Poor Metaboliser",
+    "gt_drug": "efavirenz: 50% dose reduction or alternative ART; CNS toxicity risk",
+    "gt_activity": "0.0",
+    "pop_note": {
+      "EUR": "CYP2B6*6 ~25% in EUR. Efavirenz largely replaced by integrase inhibitors.",
+      "AMR": "CYP2B6*6 ~30-40% in admixed Latin Americans. Efavirenz still used in some HIV programmes.",
+      "AFR": "CYP2B6*6 ~40-50% in East Africa. Efavirenz remains first-line in many African HIV programmes \u2014 HIGH IMPACT."
+    }
+  },
+  {
+    "id": "cyp2b6_efa_im",
+    "gene": "CYP2B6",
+    "drug": "efavirenz",
+    "genotype": "rs3745274 G/T (heterozygous)",
+    "gt_diplotype": "*1/*6",
+    "gt_phenotype": "Intermediate Metaboliser",
+    "gt_drug": "efavirenz: standard dosing with monitoring; CNS adverse effect risk",
+    "gt_activity": "1.0",
+    "pop_note": {
+      "EUR": "CYP2B6*6 ~25% in EUR. Efavirenz largely replaced by integrase inhibitors.",
+      "AMR": "CYP2B6*6 ~30-40% in admixed Latin Americans. Efavirenz still used in some HIV programmes.",
+      "AFR": "CYP2B6*6 ~40-50% in East Africa. Efavirenz remains first-line in many African HIV programmes \u2014 HIGH IMPACT."
+    }
+  },
+  {
+    "id": "cyp2b6_efa_nm",
+    "gene": "CYP2B6",
+    "drug": "efavirenz",
+    "genotype": "All CYP2B6 SNPs homozygous reference",
+    "gt_diplotype": "*1/*1",
+    "gt_phenotype": "Normal Metaboliser",
+    "gt_drug": "efavirenz: standard dosing",
+    "gt_activity": "2.0",
+    "pop_note": {
+      "EUR": "CYP2B6*6 ~25% in EUR. Efavirenz largely replaced by integrase inhibitors.",
+      "AMR": "CYP2B6*6 ~30-40% in admixed Latin Americans. Efavirenz still used in some HIV programmes.",
+      "AFR": "CYP2B6*6 ~40-50% in East Africa. Efavirenz remains first-line in many African HIV programmes \u2014 HIGH IMPACT."
+    }
+  },
+  {
+    "id": "cyp2b6_efa_rm",
+    "gene": "CYP2B6",
+    "drug": "efavirenz",
+    "genotype": "rs2279343 A/G (heterozygous)",
+    "gt_diplotype": "*1/*4",
+    "gt_phenotype": "Rapid Metaboliser",
+    "gt_drug": "efavirenz: standard dosing; possible subtherapeutic levels",
+    "gt_activity": "1.5",
+    "pop_note": {
+      "EUR": "CYP2B6*6 ~25% in EUR. Efavirenz largely replaced by integrase inhibitors.",
+      "AMR": "CYP2B6*6 ~30-40% in admixed Latin Americans. Efavirenz still used in some HIV programmes.",
+      "AFR": "CYP2B6*6 ~40-50% in East Africa. Efavirenz remains first-line in many African HIV programmes \u2014 HIGH IMPACT."
+    }
+  },
+  {
+    "id": "dpyd_fu_pm",
+    "gene": "DPYD",
+    "drug": "fluorouracil",
+    "genotype": "rs3918290 T/T (homozygous)",
+    "gt_diplotype": "*2A/*2A",
+    "gt_phenotype": "Poor Metaboliser",
+    "gt_drug": "fluorouracil: AVOID (potentially LETHAL \u2014 complete DPD deficiency causes severe toxicity)",
+    "gt_activity": "0.0",
+    "pop_note": {
+      "EUR": "DPYD*2A ~1% in EUR. Pre-treatment testing mandated by EMA (2020) in many EU countries.",
+      "AMR": "DPYD*2A poorly characterised in Latin American populations. Testing infrastructure limited.",
+      "AFR": "DPYD variant frequencies poorly studied in African populations \u2014 risk of undetected DPD deficiency."
+    }
+  },
+  {
+    "id": "dpyd_fu_im_2a",
+    "gene": "DPYD",
+    "drug": "fluorouracil",
+    "genotype": "rs3918290 C/T (heterozygous)",
+    "gt_diplotype": "*1/*2A",
+    "gt_phenotype": "Intermediate Metaboliser",
+    "gt_drug": "fluorouracil: reduce starting dose by 50%",
+    "gt_activity": "1.0",
+    "pop_note": {
+      "EUR": "DPYD*2A ~1% in EUR. Pre-treatment testing mandated by EMA (2020) in many EU countries.",
+      "AMR": "DPYD*2A poorly characterised in Latin American populations. Testing infrastructure limited.",
+      "AFR": "DPYD variant frequencies poorly studied in African populations \u2014 risk of undetected DPD deficiency."
+    }
+  },
+  {
+    "id": "dpyd_fu_im_hapb3",
+    "gene": "DPYD",
+    "drug": "fluorouracil",
+    "genotype": "rs56038477 C/T (HapB3 marker)",
+    "gt_diplotype": "*1/HapB3",
+    "gt_phenotype": "Intermediate Metaboliser",
+    "gt_drug": "fluorouracil: reduce starting dose by 50%; HapB3 reduced function",
+    "gt_activity": "1.0",
+    "pop_note": {
+      "EUR": "DPYD*2A ~1% in EUR. Pre-treatment testing mandated by EMA (2020) in many EU countries.",
+      "AMR": "DPYD*2A poorly characterised in Latin American populations. Testing infrastructure limited.",
+      "AFR": "DPYD variant frequencies poorly studied in African populations \u2014 risk of undetected DPD deficiency."
+    }
+  },
+  {
+    "id": "dpyd_fu_nm",
+    "gene": "DPYD",
+    "drug": "fluorouracil",
+    "genotype": "All DPYD risk variants reference",
+    "gt_diplotype": "*1/*1",
+    "gt_phenotype": "Normal Metaboliser",
+    "gt_drug": "fluorouracil: standard dosing",
+    "gt_activity": "2.0",
+    "pop_note": {
+      "EUR": "DPYD*2A ~1% in EUR. Pre-treatment testing mandated by EMA (2020) in many EU countries.",
+      "AMR": "DPYD*2A poorly characterised in Latin American populations. Testing infrastructure limited.",
+      "AFR": "DPYD variant frequencies poorly studied in African populations \u2014 risk of undetected DPD deficiency."
+    }
+  },
+  {
+    "id": "dpyd_cape_pm",
+    "gene": "DPYD",
+    "drug": "capecitabine",
+    "genotype": "rs3918290 T/T",
+    "gt_diplotype": "*2A/*2A",
+    "gt_phenotype": "Poor Metaboliser",
+    "gt_drug": "capecitabine: AVOID (potentially LETHAL \u2014 same DPD deficiency mechanism as 5-FU)",
+    "gt_activity": "0.0",
+    "pop_note": {
+      "EUR": "DPYD pre-treatment testing recommended for capecitabine in EU.",
+      "AMR": "[CHECK] DPYD frequencies in admixed Latin Americans \u2014 testing infrastructure varies.",
+      "AFR": "[CHECK] DPYD genotyping rare in African oncology \u2014 risk of unmonitored toxicity."
+    }
+  },
+  {
+    "id": "dpyd_cape_im",
+    "gene": "DPYD",
+    "drug": "capecitabine",
+    "genotype": "rs3918290 C/T",
+    "gt_diplotype": "*1/*2A",
+    "gt_phenotype": "Intermediate Metaboliser",
+    "gt_drug": "capecitabine: reduce starting dose by 50%",
+    "gt_activity": "1.0",
+    "pop_note": {
+      "EUR": "DPYD pre-treatment testing recommended for capecitabine in EU.",
+      "AMR": "[CHECK] DPYD frequencies in admixed Latin Americans \u2014 testing infrastructure varies.",
+      "AFR": "[CHECK] DPYD genotyping rare in African oncology \u2014 risk of unmonitored toxicity."
+    }
+  },
+  {
+    "id": "dpyd_cape_nm",
+    "gene": "DPYD",
+    "drug": "capecitabine",
+    "genotype": "All DPYD risk variants reference",
+    "gt_diplotype": "*1/*1",
+    "gt_phenotype": "Normal Metaboliser",
+    "gt_drug": "capecitabine: standard dosing",
+    "gt_activity": "2.0",
+    "pop_note": {
+      "EUR": "DPYD pre-treatment testing recommended for capecitabine in EU.",
+      "AMR": "[CHECK] DPYD frequencies in admixed Latin Americans \u2014 testing infrastructure varies.",
+      "AFR": "[CHECK] DPYD genotyping rare in African oncology \u2014 risk of unmonitored toxicity."
+    }
+  },
+  {
+    "id": "tpmt_aza_pm",
+    "gene": "TPMT",
+    "drug": "azathioprine",
+    "genotype": "rs1800460 T/T + rs1142345 C/C (forward-genomic; transcript: c.460G>A + c.719A>G; TPMT on minus strand)",
+    "gt_diplotype": "*3A/*3A",
+    "gt_phenotype": "Poor Metaboliser",
+    "gt_drug": "azathioprine: AVOID (potentially LETHAL myelosuppression) or reduce dose by 90%",
+    "gt_activity": "0.0",
+    "pop_note": {
+      "EUR": "TPMT*3A ~5% in EUR; PM ~0.3%. Pre-treatment testing routine in IBD/transplant.",
+      "AMR": "TPMT variant frequencies similar to EUR in admixed populations.",
+      "AFR": "TPMT*3C more common than *3A in African populations (~5-8%) \u2014 *3A-only panels miss this."
+    }
+  },
+  {
+    "id": "tpmt_aza_im_3b",
+    "gene": "TPMT",
+    "drug": "azathioprine",
+    "genotype": "rs1800460 C/T (heterozygous, forward-genomic; transcript: c.460G>A; TPMT on minus strand)",
+    "gt_diplotype": "*1/*3B",
+    "gt_phenotype": "Intermediate Metaboliser",
+    "gt_drug": "azathioprine: reduce dose by 30-70%; monitor blood counts",
+    "gt_activity": "1.0",
+    "pop_note": {
+      "EUR": "TPMT*3A ~5% in EUR; PM ~0.3%. Pre-treatment testing routine in IBD/transplant.",
+      "AMR": "TPMT variant frequencies similar to EUR in admixed populations.",
+      "AFR": "TPMT*3C more common than *3A in African populations (~5-8%) \u2014 *3A-only panels miss this."
+    }
+  },
+  {
+    "id": "tpmt_aza_im_3c",
+    "gene": "TPMT",
+    "drug": "azathioprine",
+    "genotype": "rs1142345 T/C (heterozygous)",
+    "gt_diplotype": "*1/*3C",
+    "gt_phenotype": "Intermediate Metaboliser",
+    "gt_drug": "azathioprine: reduce dose by 30-70%; monitor blood counts",
+    "gt_activity": "1.0",
+    "pop_note": {
+      "EUR": "TPMT*3A ~5% in EUR; PM ~0.3%. Pre-treatment testing routine in IBD/transplant.",
+      "AMR": "TPMT variant frequencies similar to EUR in admixed populations.",
+      "AFR": "TPMT*3C more common than *3A in African populations (~5-8%) \u2014 *3A-only panels miss this."
+    }
+  },
+  {
+    "id": "tpmt_aza_nm",
+    "gene": "TPMT",
+    "drug": "azathioprine",
+    "genotype": "All TPMT SNPs homozygous reference",
+    "gt_diplotype": "*1/*1",
+    "gt_phenotype": "Normal Metaboliser",
+    "gt_drug": "azathioprine: standard dosing",
+    "gt_activity": "2.0",
+    "pop_note": {
+      "EUR": "TPMT*3A ~5% in EUR; PM ~0.3%. Pre-treatment testing routine in IBD/transplant.",
+      "AMR": "TPMT variant frequencies similar to EUR in admixed populations.",
+      "AFR": "TPMT*3C more common than *3A in African populations (~5-8%) \u2014 *3A-only panels miss this."
+    }
+  },
+  {
+    "id": "nudt15_thio_pm",
+    "gene": "NUDT15",
+    "drug": "thiopurines",
+    "genotype": "rs116855232 T/T (homozygous)",
+    "gt_diplotype": "*3/*3",
+    "gt_phenotype": "Poor Metaboliser",
+    "gt_drug": "thiopurines: AVOID (potentially LETHAL myelosuppression) or reduce dose by 90%",
+    "gt_activity": "0.0",
+    "pop_note": {
+      "EUR": "NUDT15*3 rare in EUR (~0.2%) \u2014 TPMT testing prioritised.",
+      "AMR": "NUDT15*3 ~3-5% in admixed Latin Americans (Indigenous ancestry).",
+      "AFR": "NUDT15*3 rare in Africans \u2014 TPMT remains primary marker."
+    }
+  },
+  {
+    "id": "nudt15_thio_im",
+    "gene": "NUDT15",
+    "drug": "thiopurines",
+    "genotype": "rs116855232 C/T (heterozygous)",
+    "gt_diplotype": "*1/*3",
+    "gt_phenotype": "Intermediate Metaboliser",
+    "gt_drug": "thiopurines: reduce dose by 30-50%",
+    "gt_activity": "1.0",
+    "pop_note": {
+      "EUR": "NUDT15*3 rare in EUR (~0.2%) \u2014 TPMT testing prioritised.",
+      "AMR": "NUDT15*3 ~3-5% in admixed Latin Americans (Indigenous ancestry).",
+      "AFR": "NUDT15*3 rare in Africans \u2014 TPMT remains primary marker."
+    }
+  },
+  {
+    "id": "nudt15_thio_nm",
+    "gene": "NUDT15",
+    "drug": "thiopurines",
+    "genotype": "rs116855232 C/C (reference)",
+    "gt_diplotype": "*1/*1",
+    "gt_phenotype": "Normal Metaboliser",
+    "gt_drug": "thiopurines: standard dosing",
+    "gt_activity": "2.0",
+    "pop_note": {
+      "EUR": "NUDT15*3 rare in EUR (~0.2%) \u2014 TPMT testing prioritised.",
+      "AMR": "NUDT15*3 ~3-5% in admixed Latin Americans (Indigenous ancestry).",
+      "AFR": "NUDT15*3 rare in Africans \u2014 TPMT remains primary marker."
+    }
+  },
+  {
+    "id": "slco1b1_simva_poor",
+    "gene": "SLCO1B1",
+    "drug": "simvastatin",
+    "genotype": "rs4149056 C/C (homozygous)",
+    "gt_diplotype": "*5/*5",
+    "gt_phenotype": "Poor Function",
+    "gt_drug": "simvastatin: avoid high dose (\u226540mg); myopathy risk; alternative statin",
+    "gt_activity": "0.0",
+    "pop_note": {
+      "EUR": "SLCO1B1*5 ~15% in EUR; homozygous ~2%.",
+      "AMR": "SLCO1B1*5 ~10-15% in admixed Latin Americans.",
+      "AFR": "SLCO1B1*5 ~2-3% in Africans \u2014 lower statin myopathy risk at population level."
+    }
+  },
+  {
+    "id": "slco1b1_simva_decr",
+    "gene": "SLCO1B1",
+    "drug": "simvastatin",
+    "genotype": "rs4149056 T/C (heterozygous)",
+    "gt_diplotype": "*1a/*5",
+    "gt_phenotype": "Decreased Function",
+    "gt_drug": "simvastatin: limit to 20mg/day or alternative statin",
+    "gt_activity": "1.0",
+    "pop_note": {
+      "EUR": "SLCO1B1*5 ~15% in EUR; homozygous ~2%.",
+      "AMR": "SLCO1B1*5 ~10-15% in admixed Latin Americans.",
+      "AFR": "SLCO1B1*5 ~2-3% in Africans \u2014 lower statin myopathy risk at population level."
+    }
+  },
+  {
+    "id": "slco1b1_simva_normal",
+    "gene": "SLCO1B1",
+    "drug": "simvastatin",
+    "genotype": "rs4149056 T/T (reference)",
+    "gt_diplotype": "*1a/*1a",
+    "gt_phenotype": "Normal Function",
+    "gt_drug": "simvastatin: standard dosing",
+    "gt_activity": "2.0",
+    "pop_note": {
+      "EUR": "SLCO1B1*5 ~15% in EUR; homozygous ~2%.",
+      "AMR": "SLCO1B1*5 ~10-15% in admixed Latin Americans.",
+      "AFR": "SLCO1B1*5 ~2-3% in Africans \u2014 lower statin myopathy risk at population level."
+    }
+  },
+  {
+    "id": "slco1b1_atorv_poor",
+    "gene": "SLCO1B1",
+    "drug": "atorvastatin",
+    "genotype": "rs4149056 C/C",
+    "gt_diplotype": "*5/*5",
+    "gt_phenotype": "Poor Function",
+    "gt_drug": "atorvastatin: standard dose acceptable; lower myopathy risk than simvastatin",
+    "gt_activity": "0.0",
+    "pop_note": {
+      "EUR": "SLCO1B1*5 carriers can use atorvastatin instead of simvastatin.",
+      "AMR": "Atorvastatin preferred over simvastatin in *5 carriers.",
+      "AFR": "Atorvastatin generally safe across SLCO1B1 phenotypes."
+    }
+  },
+  {
+    "id": "slco1b1_atorv_decr",
+    "gene": "SLCO1B1",
+    "drug": "atorvastatin",
+    "genotype": "rs4149056 T/C",
+    "gt_diplotype": "*1a/*5",
+    "gt_phenotype": "Decreased Function",
+    "gt_drug": "atorvastatin: standard dosing",
+    "gt_activity": "1.0",
+    "pop_note": {
+      "EUR": "SLCO1B1*5 carriers can use atorvastatin instead of simvastatin.",
+      "AMR": "Atorvastatin preferred over simvastatin in *5 carriers.",
+      "AFR": "Atorvastatin generally safe across SLCO1B1 phenotypes."
+    }
+  },
+  {
+    "id": "slco1b1_atorv_normal",
+    "gene": "SLCO1B1",
+    "drug": "atorvastatin",
+    "genotype": "rs4149056 T/T",
+    "gt_diplotype": "*1a/*1a",
+    "gt_phenotype": "Normal Function",
+    "gt_drug": "atorvastatin: standard dosing",
+    "gt_activity": "2.0",
+    "pop_note": {
+      "EUR": "SLCO1B1*5 carriers can use atorvastatin instead of simvastatin.",
+      "AMR": "Atorvastatin preferred over simvastatin in *5 carriers.",
+      "AFR": "Atorvastatin generally safe across SLCO1B1 phenotypes."
+    }
+  },
+  {
+    "id": "ugt1a1_iri_pm",
+    "gene": "UGT1A1",
+    "drug": "irinotecan",
+    "genotype": "rs8175347 TA7/TA7 (homozygous)",
+    "gt_diplotype": "*28/*28",
+    "gt_phenotype": "Poor Metaboliser",
+    "gt_drug": "irinotecan: reduce dose by 30%; severe neutropenia/diarrhoea risk",
+    "gt_activity": "0.0",
+    "pop_note": {
+      "EUR": "UGT1A1*28 ~35% in EUR; homozygous ~10%.",
+      "AMR": "UGT1A1*28 ~30-40% in admixed Latin Americans.",
+      "AFR": "UGT1A1*28 ~40-56% in African populations \u2014 higher homozygous frequency."
+    }
+  },
+  {
+    "id": "ugt1a1_iri_im",
+    "gene": "UGT1A1",
+    "drug": "irinotecan",
+    "genotype": "rs8175347 TA6/TA7 (heterozygous)",
+    "gt_diplotype": "*1/*28",
+    "gt_phenotype": "Intermediate Metaboliser",
+    "gt_drug": "irinotecan: standard dosing with monitoring; possible dose reduction at high doses",
+    "gt_activity": "1.0",
+    "pop_note": {
+      "EUR": "UGT1A1*28 ~35% in EUR; homozygous ~10%.",
+      "AMR": "UGT1A1*28 ~30-40% in admixed Latin Americans.",
+      "AFR": "UGT1A1*28 ~40-56% in African populations \u2014 higher homozygous frequency."
+    }
+  },
+  {
+    "id": "ugt1a1_iri_nm",
+    "gene": "UGT1A1",
+    "drug": "irinotecan",
+    "genotype": "rs8175347 TA6/TA6 (reference)",
+    "gt_diplotype": "*1/*1",
+    "gt_phenotype": "Normal Metaboliser",
+    "gt_drug": "irinotecan: standard dosing",
+    "gt_activity": "2.0",
+    "pop_note": {
+      "EUR": "UGT1A1*28 ~35% in EUR; homozygous ~10%.",
+      "AMR": "UGT1A1*28 ~30-40% in admixed Latin Americans.",
+      "AFR": "UGT1A1*28 ~40-56% in African populations \u2014 higher homozygous frequency."
+    }
+  },
+  {
+    "id": "ugt1a1_ataz_pm",
+    "gene": "UGT1A1",
+    "drug": "atazanavir",
+    "genotype": "rs8175347 TA7/TA7",
+    "gt_diplotype": "*28/*28",
+    "gt_phenotype": "Poor Metaboliser",
+    "gt_drug": "atazanavir: alternative protease inhibitor; hyperbilirubinaemia / jaundice risk",
+    "gt_activity": "0.0",
+    "pop_note": {
+      "EUR": "UGT1A1*28 ~35% \u2014 hyperbilirubinaemia common in HIV patients on atazanavir.",
+      "AMR": "UGT1A1*28 ~30-40% \u2014 relevant for HIV protease inhibitor choice.",
+      "AFR": "UGT1A1*28 ~40-56% \u2014 high prevalence affects atazanavir tolerability."
+    }
+  },
+  {
+    "id": "ugt1a1_ataz_im",
+    "gene": "UGT1A1",
+    "drug": "atazanavir",
+    "genotype": "rs8175347 TA6/TA7",
+    "gt_diplotype": "*1/*28",
+    "gt_phenotype": "Intermediate Metaboliser",
+    "gt_drug": "atazanavir: standard dosing; monitor bilirubin",
+    "gt_activity": "1.0",
+    "pop_note": {
+      "EUR": "UGT1A1*28 ~35% \u2014 hyperbilirubinaemia common in HIV patients on atazanavir.",
+      "AMR": "UGT1A1*28 ~30-40% \u2014 relevant for HIV protease inhibitor choice.",
+      "AFR": "UGT1A1*28 ~40-56% \u2014 high prevalence affects atazanavir tolerability."
+    }
+  },
+  {
+    "id": "ugt1a1_ataz_nm",
+    "gene": "UGT1A1",
+    "drug": "atazanavir",
+    "genotype": "rs8175347 TA6/TA6",
+    "gt_diplotype": "*1/*1",
+    "gt_phenotype": "Normal Metaboliser",
+    "gt_drug": "atazanavir: standard dosing",
+    "gt_activity": "2.0",
+    "pop_note": {
+      "EUR": "UGT1A1*28 ~35% \u2014 hyperbilirubinaemia common in HIV patients on atazanavir.",
+      "AMR": "UGT1A1*28 ~30-40% \u2014 relevant for HIV protease inhibitor choice.",
+      "AFR": "UGT1A1*28 ~40-56% \u2014 high prevalence affects atazanavir tolerability."
+    }
+  },
+  {
+    "id": "hlab5701_aba_pos",
+    "gene": "HLA-B*57:01",
+    "drug": "abacavir",
+    "genotype": "rs2395029 G/T or G/G (any positive)",
+    "gt_diplotype": "HLA-B*57:01 positive",
+    "gt_phenotype": "Positive",
+    "gt_drug": "abacavir: AVOID (potentially LETHAL hypersensitivity reaction with rechallenge)",
+    "gt_activity": "carrier",
+    "pop_note": {
+      "EUR": "HLA-B*57:01 ~5-8% in EUR \u2014 pre-treatment testing standard of care.",
+      "AMR": "HLA-B*57:01 ~3-5% in admixed Latin Americans.",
+      "AFR": "HLA-B*57:01 <1% in most African populations \u2014 abacavir hypersensitivity rare."
+    }
+  },
+  {
+    "id": "hlab5701_aba_neg",
+    "gene": "HLA-B*57:01",
+    "drug": "abacavir",
+    "genotype": "rs2395029 T/T (no risk allele)",
+    "gt_diplotype": "HLA-B*57:01 negative",
+    "gt_phenotype": "Negative",
+    "gt_drug": "abacavir: standard dosing",
+    "gt_activity": "non-carrier",
+    "pop_note": {
+      "EUR": "HLA-B*57:01 ~5-8% in EUR \u2014 pre-treatment testing standard of care.",
+      "AMR": "HLA-B*57:01 ~3-5% in admixed Latin Americans.",
+      "AFR": "HLA-B*57:01 <1% in most African populations \u2014 abacavir hypersensitivity rare."
+    }
+  },
+  {
+    "id": "hlab1502_carba_pos",
+    "gene": "HLA-B*15:02",
+    "drug": "carbamazepine",
+    "genotype": "HLA-B typing positive for *15:02",
+    "gt_diplotype": "HLA-B*15:02 positive",
+    "gt_phenotype": "Positive",
+    "gt_drug": "carbamazepine: AVOID (potentially LETHAL \u2014 Stevens-Johnson syndrome / TEN risk)",
+    "gt_activity": "carrier",
+    "pop_note": {
+      "EUR": "HLA-B*15:02 <0.1% in EUR \u2014 testing not routine.",
+      "AMR": "HLA-B*15:02 <0.5% in admixed Latin Americans.",
+      "AFR": "HLA-B*15:02 absent in most African populations."
+    }
+  },
+  {
+    "id": "hlab1502_carba_neg",
+    "gene": "HLA-B*15:02",
+    "drug": "carbamazepine",
+    "genotype": "HLA-B typing negative for *15:02",
+    "gt_diplotype": "HLA-B*15:02 negative",
+    "gt_phenotype": "Negative",
+    "gt_drug": "carbamazepine: standard dosing",
+    "gt_activity": "non-carrier",
+    "pop_note": {
+      "EUR": "HLA-B*15:02 <0.1% in EUR \u2014 testing not routine.",
+      "AMR": "HLA-B*15:02 <0.5% in admixed Latin Americans.",
+      "AFR": "HLA-B*15:02 absent in most African populations."
+    }
+  },
+  {
+    "id": "hlab1502_oxcarba_pos",
+    "gene": "HLA-B*15:02",
+    "drug": "oxcarbazepine",
+    "genotype": "HLA-B typing positive for *15:02",
+    "gt_diplotype": "HLA-B*15:02 positive",
+    "gt_phenotype": "Positive",
+    "gt_drug": "oxcarbazepine: AVOID (potentially LETHAL \u2014 SJS/TEN risk, cross-reactivity with carbamazepine)",
+    "gt_activity": "carrier",
+    "pop_note": {
+      "EUR": "HLA-B*15:02 testing not routine in EUR populations.",
+      "AMR": "HLA-B*15:02 <0.5% in admixed Latin Americans.",
+      "AFR": "HLA-B*15:02 absent in most African populations."
+    }
+  },
+  {
+    "id": "hlab1502_oxcarba_neg",
+    "gene": "HLA-B*15:02",
+    "drug": "oxcarbazepine",
+    "genotype": "HLA-B typing negative for *15:02",
+    "gt_diplotype": "HLA-B*15:02 negative",
+    "gt_phenotype": "Negative",
+    "gt_drug": "oxcarbazepine: standard dosing",
+    "gt_activity": "non-carrier",
+    "pop_note": {
+      "EUR": "HLA-B*15:02 testing not routine in EUR populations.",
+      "AMR": "HLA-B*15:02 <0.5% in admixed Latin Americans.",
+      "AFR": "HLA-B*15:02 absent in most African populations."
+    }
+  },
+  {
+    "id": "hlaa3101_carba_pos",
+    "gene": "HLA-A*31:01",
+    "drug": "carbamazepine",
+    "genotype": "HLA-A typing positive for *31:01",
+    "gt_diplotype": "HLA-A*31:01 positive",
+    "gt_phenotype": "Positive",
+    "gt_drug": "carbamazepine: AVOID (potentially LETHAL \u2014 DRESS/SJS/TEN risk)",
+    "gt_activity": "carrier",
+    "pop_note": {
+      "EUR": "HLA-A*31:01 ~2-5% in EUR \u2014 testing recommended in some guidelines.",
+      "AMR": "HLA-A*31:01 ~5-10% in indigenous Latin Americans (Quechua, Aymara).",
+      "AFR": "HLA-A*31:01 ~1-3% in African populations."
+    }
+  },
+  {
+    "id": "hlaa3101_carba_neg",
+    "gene": "HLA-A*31:01",
+    "drug": "carbamazepine",
+    "genotype": "HLA-A typing negative for *31:01",
+    "gt_diplotype": "HLA-A*31:01 negative",
+    "gt_phenotype": "Negative",
+    "gt_drug": "carbamazepine: standard dosing",
+    "gt_activity": "non-carrier",
+    "pop_note": {
+      "EUR": "HLA-A*31:01 ~2-5% in EUR \u2014 testing recommended in some guidelines.",
+      "AMR": "HLA-A*31:01 ~5-10% in indigenous Latin Americans (Quechua, Aymara).",
+      "AFR": "HLA-A*31:01 ~1-3% in African populations."
+    }
+  },
+  {
+    "id": "hlab5801_allo_pos",
+    "gene": "HLA-B*58:01",
+    "drug": "allopurinol",
+    "genotype": "HLA-B typing positive for *58:01",
+    "gt_diplotype": "HLA-B*58:01 positive",
+    "gt_phenotype": "Positive",
+    "gt_drug": "allopurinol: AVOID (potentially LETHAL SJS/TEN/DRESS risk)",
+    "gt_activity": "carrier",
+    "pop_note": {
+      "EUR": "HLA-B*58:01 ~1-2% in EUR.",
+      "AMR": "HLA-B*58:01 ~3-7% in admixed Latin Americans.",
+      "AFR": "HLA-B*58:01 ~3-5% in African populations."
+    }
+  },
+  {
+    "id": "hlab5801_allo_neg",
+    "gene": "HLA-B*58:01",
+    "drug": "allopurinol",
+    "genotype": "HLA-B typing negative for *58:01",
+    "gt_diplotype": "HLA-B*58:01 negative",
+    "gt_phenotype": "Negative",
+    "gt_drug": "allopurinol: standard dosing",
+    "gt_activity": "non-carrier",
+    "pop_note": {
+      "EUR": "HLA-B*58:01 ~1-2% in EUR.",
+      "AMR": "HLA-B*58:01 ~3-7% in admixed Latin Americans.",
+      "AFR": "HLA-B*58:01 ~3-5% in African populations."
+    }
+  },
+  {
+    "id": "g6pd_rasb_def_severe",
+    "gene": "G6PD",
+    "drug": "rasburicase",
+    "genotype": "rs5030868 A (hemizygous male) or A/A (homozygous female) [forward-genomic; transcript c.563C>T, p.Ser188Phe; G6PD on minus strand of X]",
+    "gt_diplotype": "G6PD Mediterranean (hemizygous male or homozygous female)",
+    "gt_phenotype": "Deficient",
+    "gt_drug": "rasburicase: AVOID (potentially LETHAL acute haemolytic anaemia; Class II severe deficiency)",
+    "gt_activity": "0.0",
+    "pop_note": {
+      "EUR": "G6PD Mediterranean ~5-8% in Mediterranean populations; rare in northern EUR.",
+      "AMR": "G6PD A- ~5-10% in admixed Latin Americans with African ancestry; testing recommended.",
+      "AFR": "G6PD A- ~10-15% in West/Central African populations; A- haplotype (202A in cis with 376G) most common."
+    }
+  },
+  {
+    "id": "g6pd_rasb_def_mild",
+    "gene": "G6PD",
+    "drug": "rasburicase",
+    "genotype": "rs1050828 T + rs1050829 C in cis (compound A- haplotype; hemizygous male) or rs1050828 T/T + rs1050829 C/C (homozygous female) [forward-genomic; transcript c.202G>A + c.376A>G; G6PD on minus strand of X]",
+    "gt_diplotype": "G6PD A- haplotype (hemizygous male or homozygous female)",
+    "gt_phenotype": "Deficient",
+    "gt_drug": "rasburicase: AVOID (haemolysis risk; Class III moderate deficiency, lower severity than Mediterranean)",
+    "gt_activity": "0.5",
+    "pop_note": {
+      "EUR": "G6PD Mediterranean ~5-8% in Mediterranean populations; rare in northern EUR.",
+      "AMR": "G6PD A- ~5-10% in admixed Latin Americans with African ancestry; testing recommended.",
+      "AFR": "G6PD A- ~10-15% in West/Central African populations; A- haplotype (202A in cis with 376G) most common."
+    }
+  },
+  {
+    "id": "g6pd_rasb_normal",
+    "gene": "G6PD",
+    "drug": "rasburicase",
+    "genotype": "rs1050828 C + rs5030868 G (no deficiency variants; hemizygous male) or C/C + G/G (homozygous female) [forward-genomic; G6PD on minus strand of X]",
+    "gt_diplotype": "G6PD B (wildtype, hemizygous male or homozygous female)",
+    "gt_phenotype": "Normal",
+    "gt_drug": "rasburicase: standard dosing",
+    "gt_activity": "2.0",
+    "pop_note": {
+      "EUR": "G6PD Mediterranean ~5-8% in Mediterranean populations; rare in northern EUR.",
+      "AMR": "G6PD A- ~5-10% in admixed Latin Americans with African ancestry; testing recommended.",
+      "AFR": "G6PD A- ~10-15% in West/Central African populations; A- haplotype (202A in cis with 376G) most common."
+    }
+  },
+  {
+    "id": "g6pd_prim_def",
+    "gene": "G6PD",
+    "drug": "primaquine",
+    "genotype": "rs1050828 T + rs1050829 C in cis (compound A- haplotype) [forward-genomic; transcript c.202G>A + c.376A>G; G6PD on minus strand of X]",
+    "gt_diplotype": "G6PD A- haplotype (hemizygous male or homozygous female)",
+    "gt_phenotype": "Deficient",
+    "gt_drug": "primaquine: AVOID (potentially LETHAL haemolysis in deficient individuals)",
+    "gt_activity": "0.5",
+    "pop_note": {
+      "EUR": "G6PD deficiency rare in northern EUR; Mediterranean variants higher in southern EUR.",
+      "AMR": "G6PD A- ~5-10% in Latin Americans with African ancestry; relevant for malaria treatment.",
+      "AFR": "G6PD A- ~10-15% in West/Central Africa; primaquine for vivax malaria requires testing."
+    }
+  },
+  {
+    "id": "g6pd_prim_int",
+    "gene": "G6PD",
+    "drug": "primaquine",
+    "genotype": "rs1050828 C/T + rs1050829 T/C or T/T (heterozygous female; X-inactivation creates variable enzyme activity) [forward-genomic]",
+    "gt_diplotype": "G6PD B/A- (heterozygous female)",
+    "gt_phenotype": "Variable",
+    "gt_drug": "primaquine: caution; assess quantitative G6PD enzyme activity before treatment",
+    "gt_activity": "1.0",
+    "pop_note": {
+      "EUR": "G6PD deficiency rare in northern EUR; Mediterranean variants higher in southern EUR.",
+      "AMR": "G6PD A- ~5-10% in Latin Americans with African ancestry; relevant for malaria treatment.",
+      "AFR": "G6PD A- ~10-15% in West/Central Africa; primaquine for vivax malaria requires testing."
+    }
+  },
+  {
+    "id": "g6pd_prim_normal",
+    "gene": "G6PD",
+    "drug": "primaquine",
+    "genotype": "rs1050828 C + rs5030868 G (no deficiency variants) [forward-genomic; G6PD on minus strand of X]",
+    "gt_diplotype": "G6PD B (wildtype, hemizygous male or homozygous female)",
+    "gt_phenotype": "Normal",
+    "gt_drug": "primaquine: standard dosing",
+    "gt_activity": "2.0",
+    "pop_note": {
+      "EUR": "G6PD deficiency rare in northern EUR; Mediterranean variants higher in southern EUR.",
+      "AMR": "G6PD A- ~5-10% in Latin Americans with African ancestry; relevant for malaria treatment.",
+      "AFR": "G6PD A- ~10-15% in West/Central Africa; primaquine for vivax malaria requires testing."
+    }
+  },
+  {
+    "id": "ifnl3_pegifn_fav",
+    "gene": "IFNL3",
+    "drug": "PEG-IFN-\u03b1",
+    "genotype": "rs12979860 C/C (homozygous reference)",
+    "gt_diplotype": "rs12979860 C/C (favourable)",
+    "gt_phenotype": "Favourable Response",
+    "gt_drug": "PEG-IFN-\u03b1: higher response rate; standard dosing",
+    "gt_activity": "responder",
+    "pop_note": {
+      "EUR": "IFNL3 rs12979860 C ~70% in EUR.",
+      "AMR": "IFNL3 rs12979860 C ~50-70% in admixed Latin Americans.",
+      "AFR": "IFNL3 rs12979860 T-allele ~50-60% \u2014 lower PEG-IFN response in African populations."
+    }
+  },
+  {
+    "id": "ifnl3_pegifn_unf",
+    "gene": "IFNL3",
+    "drug": "PEG-IFN-\u03b1",
+    "genotype": "rs12979860 T/T (homozygous variant)",
+    "gt_diplotype": "rs12979860 T/T (unfavourable)",
+    "gt_phenotype": "Unfavourable Response",
+    "gt_drug": "PEG-IFN-\u03b1: lower response rate; consider direct-acting antivirals if available",
+    "gt_activity": "poor responder",
+    "pop_note": {
+      "EUR": "IFNL3 rs12979860 C ~70% in EUR.",
+      "AMR": "IFNL3 rs12979860 C ~50-70% in admixed Latin Americans.",
+      "AFR": "IFNL3 rs12979860 T-allele ~50-60% \u2014 lower PEG-IFN response in African populations."
+    }
+  },
+  {
+    "id": "vkorc1_warf_sens",
+    "gene": "VKORC1",
+    "drug": "warfarin",
+    "genotype": "rs9923231 A/A (homozygous, -1639 promoter)",
+    "gt_diplotype": "rs9923231 A/A (homozygous)",
+    "gt_phenotype": "Sensitive",
+    "gt_drug": "warfarin: use validated pharmacogenetic dosing algorithm (e.g., IWPC or Gage) incorporating VKORC1 + CYP2C9; expected lower maintenance dose",
+    "gt_activity": "low expression",
+    "pop_note": {
+      "EUR": "VKORC1 -1639A allele ~40% in EUR.",
+      "AMR": "VKORC1 -1639A ~30-50% in admixed Latin Americans.",
+      "AFR": "VKORC1 -1639A ~10-15% in African populations \u2014 explains higher warfarin doses."
+    }
+  },
+  {
+    "id": "vkorc1_warf_normal",
+    "gene": "VKORC1",
+    "drug": "warfarin",
+    "genotype": "rs9923231 G/G (homozygous reference)",
+    "gt_diplotype": "rs9923231 G/G (wildtype)",
+    "gt_phenotype": "Normal",
+    "gt_drug": "warfarin: use validated pharmacogenetic dosing algorithm (e.g., IWPC or Gage); standard dosing acceptable if algorithm unavailable",
+    "gt_activity": "normal expression",
+    "pop_note": {
+      "EUR": "VKORC1 -1639A allele ~40% in EUR.",
+      "AMR": "VKORC1 -1639A ~30-50% in admixed Latin Americans.",
+      "AFR": "VKORC1 -1639A ~10-15% in African populations \u2014 explains higher warfarin doses."
+    }
+  },
+  {
+    "id": "cyp4f2_warf_decr",
+    "gene": "CYP4F2",
+    "drug": "warfarin",
+    "genotype": "rs2108622 T/T (homozygous)",
+    "gt_diplotype": "*3/*3",
+    "gt_phenotype": "Decreased Function",
+    "gt_drug": "warfarin: use validated pharmacogenetic dosing algorithm incorporating CYP2C9 + VKORC1 + CYP4F2; CYP4F2*3 contributes ~5-10% higher maintenance dose only when combined with the other markers",
+    "gt_activity": "0.5",
+    "pop_note": {
+      "EUR": "CYP4F2*3 ~30% in EUR \u2014 minor warfarin dose effect.",
+      "AMR": "CYP4F2*3 ~20-30% in admixed Latin Americans.",
+      "AFR": "CYP4F2*3 ~10% in African populations."
+    }
+  },
+  {
+    "id": "cyp4f2_warf_normal",
+    "gene": "CYP4F2",
+    "drug": "warfarin",
+    "genotype": "rs2108622 C/C (reference)",
+    "gt_diplotype": "*1/*1",
+    "gt_phenotype": "Normal Function",
+    "gt_drug": "warfarin: use validated pharmacogenetic dosing algorithm; standard dosing acceptable if algorithm unavailable",
+    "gt_activity": "2.0",
+    "pop_note": {
+      "EUR": "CYP4F2*3 ~30% in EUR \u2014 minor warfarin dose effect.",
+      "AMR": "CYP4F2*3 ~20-30% in admixed Latin Americans.",
+      "AFR": "CYP4F2*3 ~10% in African populations."
+    }
+  },
+  {
+    "id": "cftr_iva_resp",
+    "gene": "CFTR",
+    "drug": "ivacaftor",
+    "genotype": "rs75527207 G/A or A/A (G551D positive)",
+    "gt_diplotype": "G551D mutation present",
+    "gt_phenotype": "Responsive",
+    "gt_drug": "ivacaftor: indicated; gating mutation responsive",
+    "gt_activity": "responder",
+    "pop_note": {
+      "EUR": "CFTR F508del most common in EUR (~70% of CF mutations).",
+      "AMR": "CFTR mutation spectrum diverse in admixed Latin Americans.",
+      "AFR": "CFTR mutations less characterised in African populations; F508del less common."
+    }
+  },
+  {
+    "id": "cftr_iva_nonresp",
+    "gene": "CFTR",
+    "drug": "ivacaftor",
+    "genotype": "rs113993960 (F508del homozygous)",
+    "gt_diplotype": "F508del homozygous (no gating mutation)",
+    "gt_phenotype": "Non-responsive",
+    "gt_drug": "ivacaftor: not indicated (use combination therapy with elexacaftor/tezacaftor)",
+    "gt_activity": "non-responder",
+    "pop_note": {
+      "EUR": "CFTR F508del most common in EUR (~70% of CF mutations).",
+      "AMR": "CFTR mutation spectrum diverse in admixed Latin Americans.",
+      "AFR": "CFTR mutations less characterised in African populations; F508del less common."
+    }
+  },
+  {
+    "id": "mtrnr1_amino_var",
+    "gene": "MT-RNR1",
+    "drug": "aminoglycosides",
+    "genotype": "m.1555A>G (homoplasmic mitochondrial variant)",
+    "gt_diplotype": "m.1555A>G",
+    "gt_phenotype": "Variant Carrier",
+    "gt_drug": "aminoglycosides: AVOID (potentially LETHAL ototoxicity \u2014 irreversible deafness)",
+    "gt_activity": "carrier",
+    "pop_note": {
+      "EUR": "MT-RNR1 m.1555A>G ~0.2% in EUR populations.",
+      "AMR": "MT-RNR1 m.1555A>G frequency unknown in most Latin American populations.",
+      "AFR": "MT-RNR1 m.1555A>G poorly characterised in African populations."
+    }
+  },
+  {
+    "id": "mtrnr1_amino_wt",
+    "gene": "MT-RNR1",
+    "drug": "aminoglycosides",
+    "genotype": "m.1555A (no variant)",
+    "gt_diplotype": "m.1555A (wildtype)",
+    "gt_phenotype": "Normal",
+    "gt_drug": "aminoglycosides: standard dosing",
+    "gt_activity": "wildtype",
+    "pop_note": {
+      "EUR": "MT-RNR1 m.1555A>G ~0.2% in EUR populations.",
+      "AMR": "MT-RNR1 m.1555A>G frequency unknown in most Latin American populations.",
+      "AFR": "MT-RNR1 m.1555A>G poorly characterised in African populations."
+    }
+  },
+  {
+    "id": "ryr1_anaes_susc",
+    "gene": "RYR1",
+    "drug": "volatile-anaesthetics",
+    "genotype": "RYR1 mutation (e.g. p.Arg614Cys, c.1840C>T)",
+    "gt_diplotype": "RYR1 pathogenic variant present",
+    "gt_phenotype": "Malignant Hyperthermia Susceptible",
+    "gt_drug": "volatile-anaesthetics: AVOID (potentially LETHAL malignant hyperthermia)",
+    "gt_activity": "carrier",
+    "pop_note": {
+      "EUR": "RYR1 pathogenic variants ~1:2000 in EUR \u2014 anaesthesia screening relevant.",
+      "AMR": "RYR1 pathogenic variant frequency variable in Latin Americans.",
+      "AFR": "RYR1 pathogenic variants poorly characterised in African populations."
+    }
+  },
+  {
+    "id": "ryr1_anaes_norm",
+    "gene": "RYR1",
+    "drug": "volatile-anaesthetics",
+    "genotype": "RYR1 no pathogenic variant",
+    "gt_diplotype": "RYR1 wildtype",
+    "gt_phenotype": "Normal",
+    "gt_drug": "volatile-anaesthetics: standard use",
+    "gt_activity": "non-carrier",
+    "pop_note": {
+      "EUR": "RYR1 pathogenic variants ~1:2000 in EUR \u2014 anaesthesia screening relevant.",
+      "AMR": "RYR1 pathogenic variant frequency variable in Latin Americans.",
+      "AFR": "RYR1 pathogenic variants poorly characterised in African populations."
+    }
+  }
+]
