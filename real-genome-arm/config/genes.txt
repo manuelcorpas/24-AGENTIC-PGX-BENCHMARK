@@ -1,0 +1,22 @@
+# PGx genes called in the real-genome arm (PyPGx, GRCh37).
+# Autosomal genes callable from SNP-array / imputed chip data.
+# G6PD (chrX) and MT-RNR1 (chrM) are excluded: the autosomal genotype sets used
+# here (UGR, Peru chip) do not cover them. CYP2D6 copy-number (gene duplications/
+# deletions) cannot be resolved from chip SNV data and is reported as called.
+CACNA1S
+CFTR
+CYP2B6
+CYP2C9
+CYP2C19
+CYP2D6
+CYP3A5
+CYP4F2
+DPYD
+IFNL3
+NAT2
+NUDT15
+RYR1
+SLCO1B1
+TPMT
+UGT1A1
+VKORC1
