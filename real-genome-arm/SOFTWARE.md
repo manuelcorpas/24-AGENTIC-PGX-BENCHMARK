@@ -8,7 +8,7 @@ macOS (Apple Silicon) and Linux; commands assume a POSIX shell.
 | Tool | Version | Purpose | Install |
 |---|---|---|---|
 | PLINK2 | v2.0.0-a.7.1 (4 May 2026) | extract PGx gene regions from PLINK sets; export VCF | https://www.cog-genomics.org/plink/2.0/ (static binary, no sudo) |
-| PyPGx | 0.26.0 | star-allele diplotype calling (single consistent caller, GRCh37) | `pip install pypgx==0.26.0` |
+| PyPGx | 0.26.0 | star-allele diplotype calling (single consistent caller, GRCh37) | `pip install pypgx==0.26.0` in a **Python 3.10** env with **pandas==2.0.3, numpy==1.26.4** (see note) |
 | pypgx-bundle | git HEAD (1KGP GRCh37 phasing panels) | reference panels PyPGx requires | `git clone https://github.com/sbslee/pypgx-bundle` → set `PYPGX_BUNDLE` or place at `~/pypgx-bundle` |
 | Beagle | 22Jul22.46e | haplotype phasing (invoked by PyPGx) | ships inside the PyPGx package |
 | Java (OpenJDK) | 17 | runs Beagle | any JDK 17+; ensure `java` is on PATH (keg-only JDKs are not by default) |
@@ -22,11 +22,17 @@ conversion errors and keeping one caller for every cohort).
 
 ## Python
 
-Python >= 3.11 (results produced under 3.13.12). Install Python deps:
+Two environments are used:
 
-```bash
-pip install -r requirements.txt
-```
+- **PyPGx caller (steps 1–3)**: a dedicated **Python 3.10** environment with pinned
+  `pandas==2.0.3` and `numpy==1.26.4`. This pin is required: PyPGx 0.26.0's results
+  step fails under pandas >= 2.1 with `ValueError: setting an array element with a
+  sequence`. Create it with:
+  ```bash
+  conda create -n pypgx python=3.10 -y
+  conda run -n pypgx pip install -r requirements.txt
+  ```
+- **Agent step (step 4)** and scoring (step 5): any modern Python (3.11+) is fine.
 
 ## Environment / configuration
 
