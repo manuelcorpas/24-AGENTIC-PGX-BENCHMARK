@@ -13,3 +13,45 @@ data/*.csv
 LOGS/
 # Syncthing conflict copies
 * 2.*
+
+# =============================================================================
+# PUBLIC REPO: genomic data and secrets must NEVER be committed.
+# The real-genome cohorts (Uganda Genome Resource, Peruvian Genome Project,
+# Corpas family) are controlled-access / personal data. Reviewers reproduce by
+# obtaining them through the routes in real-genome-arm/DATA-ACCESS.md.
+# =============================================================================
+*.vcf
+*.vcf.gz
+*.vcf.gz.tbi
+*.vcf.bgz
+*.vcf.bgz.tbi
+*.bcf
+*.bed
+*.bim
+*.fam
+*.bam
+*.cram
+*.crai
+*.bai
+*.tar.gz
+*.tgz
+# keep the small config region BED (coordinates only, not genotype data)
+!real-genome-arm/config/*.bed
+# reference genomes / phasing panels (large; fetch separately)
+*.fa
+*.fa.gz
+*.fna
+*.fna.gz
+*.fna.bgz
+*.chain
+*.chain.gz
+pypgx-bundle/
+# caller outputs that may contain individual-level calls
+**/results.zip
+**/*-variants.zip
+**/per_individual*
+# secrets / tokens
+*.token
+*token*.json
+rclone.conf
+.config/rclone/

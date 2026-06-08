@@ -1,0 +1,12 @@
+# Frontier model panel for the agent (diplotype -> phenotype interpretation).
+# Provider model IDs as called in scripts/04_run_agent_realgenome.py.
+# Mistral Large 2 is excluded from the headline panel (documented rate-limit
+# artefact under concurrency; see the main manuscript Methods).
+Claude Opus 4        claude-opus-4-20250514       anthropic
+Claude Sonnet 4      claude-sonnet-4-20250514     anthropic
+GPT-5.2              gpt-5.2                       openai-reasoning
+GPT-4.1              gpt-4.1                       openai
+o3                   o3                            openai-reasoning
+o4-mini              o4-mini                       openai-reasoning
+Gemini 2.5 Flash     gemini-2.5-flash              google
+DeepSeek V3          deepseek-chat                 deepseek
