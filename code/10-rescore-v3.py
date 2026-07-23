@@ -22,7 +22,7 @@ from collections import Counter, defaultdict
 
 BASE = Path(__file__).resolve().parent.parent
 RAW = BASE / "RESULTS" / "v3_raw.json"
-CASES = BASE / "SPECS" / "test_cases_v3.json"
+CASES = BASE / "specs" / "test_cases_v3.json"
 OUT = BASE / "RESULTS" / "v3_raw_rescored.json"
 REPORT = BASE / "RESULTS" / "v3_rescore_report.txt"
 DIFF = BASE / "RESULTS" / "v3_rescore_diff.json"

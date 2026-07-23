@@ -21,18 +21,18 @@ from pathlib import Path
 import openai, anthropic
 
 BASE = Path(__file__).resolve().parent.parent
-CORPUS = BASE / "SPECS" / "cpic_rag_corpus_v3.json"
-CASES = BASE / "SPECS" / "test_cases_v3.json"
+CORPUS = BASE / "specs" / "cpic_rag_corpus_v3.json"
+CASES = BASE / "specs" / "test_cases_v3.json"
 BASELINE = BASE / "RESULTS" / "v3_raw_rescored_three_arm.json"
 OUT = BASE / "RESULTS" / "v3_rag_genedrug_chunking.json"
 REPORT = BASE / "RESULTS" / "v3_rag_genedrug_chunking_report.txt"
-ENV = Path("/Users/manuelcorpas1/dev/AGENTIC-AI/.env")
+ENV = BASE / ".env"   # repo-relative; environment variables used if .env absent (see .env.example)
 
 WORST = ["CYP2D6", "CYP2C19", "CYP2C9", "UGT1A1", "SLCO1B1", "IFNL3"]
 N_REPS = 2
 
-keys = {}
-for line in ENV.read_text().splitlines():
+keys = dict(os.environ)
+for line in (ENV.read_text().splitlines() if ENV.exists() else []):
     line = line.strip()
     if "=" in line and not line.startswith("#"):
         k, _, v = line.partition("="); keys[k.strip()] = v.strip().strip('"').strip("'")

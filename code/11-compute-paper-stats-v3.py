@@ -6,7 +6,7 @@ key points, results, and tables.
 
 Reads:
   ../RESULTS/v3_raw_rescored.json  (output of 10-rescore-v3.py)
-  ../SPECS/test_cases_v3.json
+  ../specs/test_cases_v3.json
 
 Writes:
   ../RESULTS/v3_paper_stats.txt    (human-readable)
@@ -22,7 +22,7 @@ from pathlib import Path
 
 BASE = Path(__file__).resolve().parent.parent
 RAW = BASE / "RESULTS" / "v3_raw_rescored.json"
-CASES = BASE / "SPECS" / "test_cases_v3.json"
+CASES = BASE / "specs" / "test_cases_v3.json"
 OUT_TXT = BASE / "RESULTS" / "v3_paper_stats.txt"
 OUT_JSON = BASE / "RESULTS" / "v3_paper_stats.json"
 

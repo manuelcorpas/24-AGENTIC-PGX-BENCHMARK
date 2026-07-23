@@ -21,10 +21,10 @@ The PharmGKB bundle is cached locally so the build is reproducible offline
 once the cache exists.
 
 Outputs:
-  ../SPECS/cpic_rag_corpus_v3.json
-  ../SPECS/cpic_rag_cache/_pharmgkb_bundle/<timestamp>/  (raw fetch)
-  ../SPECS/cpic_rag_cache/<gene_safe>/sources.json
-  ../SPECS/cpic_rag_cache/<gene_safe>/extracted/<paid>.txt
+  ../specs/cpic_rag_corpus_v3.json
+  ../specs/cpic_rag_cache/_pharmgkb_bundle/<timestamp>/  (raw fetch)
+  ../specs/cpic_rag_cache/<gene_safe>/sources.json
+  ../specs/cpic_rag_cache/<gene_safe>/extracted/<paid>.txt
   ../LOGS/v3_rag_corpus_<UTC-timestamp>.log
 
 Usage:
@@ -49,7 +49,7 @@ from collections import defaultdict
 from pathlib import Path
 
 BASE = Path(__file__).resolve().parent.parent
-SPECS_DIR = BASE / "SPECS"
+SPECS_DIR = BASE / "specs"
 CASES_FILE = SPECS_DIR / "test_cases_v3.json"
 CACHE_DIR = SPECS_DIR / "cpic_rag_cache"
 BUNDLE_PARENT = CACHE_DIR / "_pharmgkb_bundle"

@@ -5,7 +5,7 @@ the merged three-arm dataset.
 
 Reads:
   ../RESULTS/v3_raw_rescored_three_arm.json  (output of 17-merge-rag-results.py)
-  ../SPECS/test_cases_v3.json
+  ../specs/test_cases_v3.json
 
 Writes:
   ../RESULTS/v3_three_arm_analysis_report.txt
@@ -34,7 +34,7 @@ from pathlib import Path
 
 BASE = Path(__file__).resolve().parent.parent
 MERGED = BASE / "RESULTS" / "v3_raw_rescored_three_arm.json"
-CASES_FILE = BASE / "SPECS" / "test_cases_v3.json"
+CASES_FILE = BASE / "specs" / "test_cases_v3.json"
 OUT_TXT = BASE / "RESULTS" / "v3_three_arm_analysis_report.txt"
 OUT_JSON = BASE / "RESULTS" / "v3_three_arm_analysis_summary.json"
 OUT_PERCASE_CSV = BASE / "RESULTS" / "v3_three_arm_per_case_a1.csv"

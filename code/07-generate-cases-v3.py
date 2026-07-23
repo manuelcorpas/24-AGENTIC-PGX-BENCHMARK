@@ -10,16 +10,16 @@ either retained from v1 (curated by H. Guio and S. Fatumo) for the original
 where curated review is still pending.
 
 Outputs:
-  ../SPECS/test_cases_v3.json      — full case list, runner-ready
-  ../SPECS/spot_check_sample.md    — 10 representative cases for manual review
-  ../SPECS/generation_log.txt      — case count by gene/tier
+  ../specs/test_cases_v3.json      — full case list, runner-ready
+  ../specs/spot_check_sample.md    — 10 representative cases for manual review
+  ../specs/generation_log.txt      — case count by gene/tier
 """
 from __future__ import annotations
 import json
 from pathlib import Path
 
 BASE = Path(__file__).resolve().parent.parent
-SPECS = BASE / "SPECS"
+SPECS = BASE / "specs"
 SPECS.mkdir(exist_ok=True)
 
 # ---------------------------------------------------------------------------

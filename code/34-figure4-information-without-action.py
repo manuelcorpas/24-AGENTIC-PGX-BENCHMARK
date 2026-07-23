@@ -19,7 +19,7 @@ the alignment line:
 Inputs:
   RESULTS/v3_raw_rescored_three_arm.json    (per-gene lethal-class means)
   RESULTS/v3_three_arm_lethal_a3_errors.csv (sanity-check counts)
-  SPECS/test_cases_v3.json                  (lethal-flag per case)
+  specs/test_cases_v3.json                  (lethal-flag per case)
 
 Outputs (PNG 300 DPI + TIFF 600 DPI LZW):
   FIGURES/Figure4_information_without_action.png
@@ -48,7 +48,7 @@ import numpy as np
 BASE = Path(__file__).resolve().parent.parent
 MAIN = BASE / "RESULTS" / "v3_raw_rescored_three_arm.json"
 LETHAL_CSV = BASE / "RESULTS" / "v3_three_arm_lethal_a3_errors.csv"
-CASES_FILE = BASE / "SPECS" / "test_cases_v3.json"
+CASES_FILE = BASE / "specs" / "test_cases_v3.json"
 FIGDIR = BASE / "FIGURES"
 
 CONDITIONS = ["no_spec", "cpic_rag", "with_spec"]

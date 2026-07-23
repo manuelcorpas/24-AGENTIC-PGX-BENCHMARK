@@ -17,8 +17,8 @@ Pipeline position:
               19-validate-three-arm.py (post-merge integrity gate)
 
 Inputs:
-  ../SPECS/test_cases_v3.json
-  ../SPECS/cpic_rag_corpus_v3.json
+  ../specs/test_cases_v3.json
+  ../specs/cpic_rag_corpus_v3.json
   env: ANTHROPIC_API_KEY, OPENAI_API_KEY, DEEPSEEK_API_KEY, GEMINI_API_KEY,
        MISTRAL_API_KEY (defaults to embedded production credentials)
 
@@ -63,9 +63,9 @@ import anthropic
 import requests
 
 BASE = Path(__file__).resolve().parent.parent
-PYDIR = BASE / "PYTHON"
-SPECS_FILE = BASE / "SPECS" / "test_cases_v3.json"
-CORPUS_FILE = BASE / "SPECS" / "cpic_rag_corpus_v3.json"
+PYDIR = BASE / "code"
+SPECS_FILE = BASE / "specs" / "test_cases_v3.json"
+CORPUS_FILE = BASE / "specs" / "cpic_rag_corpus_v3.json"
 RESULTS = BASE / "RESULTS"
 LOGS = BASE / "LOGS"
 RESULTS.mkdir(exist_ok=True)

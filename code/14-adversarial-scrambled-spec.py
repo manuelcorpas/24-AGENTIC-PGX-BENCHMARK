@@ -33,7 +33,7 @@ import openai
 import anthropic
 
 BASE = Path(__file__).resolve().parent.parent
-SPECS = BASE / "SPECS" / "test_cases_v3.json"
+SPECS = BASE / "specs" / "test_cases_v3.json"
 OUT = BASE / "RESULTS" / "v3_adversarial_scrambled.json"
 REPORT = BASE / "RESULTS" / "v3_adversarial_report.txt"
 
