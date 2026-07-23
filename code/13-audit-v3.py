@@ -27,9 +27,9 @@ from importlib.util import spec_from_file_location, module_from_spec
 from pathlib import Path
 
 BASE = Path(__file__).resolve().parent.parent
-PYDIR = BASE / "PYTHON"
+PYDIR = BASE / "code"
 RAW = BASE / "RESULTS" / "v3_raw_rescored.json"
-CASES = BASE / "SPECS" / "test_cases_v3.json"
+CASES = BASE / "specs" / "test_cases_v3.json"
 REPORT = BASE / "RESULTS" / "v3_audit_report.txt"
 
 # Import scorer

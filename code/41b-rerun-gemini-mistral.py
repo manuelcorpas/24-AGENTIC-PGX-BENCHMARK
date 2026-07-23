@@ -8,7 +8,7 @@ from collections import defaultdict
 from concurrent.futures import ThreadPoolExecutor
 import importlib.util
 BASE = Path(__file__).resolve().parent.parent
-spec = importlib.util.spec_from_file_location("m", str(BASE/"PYTHON"/"41-armA9-armBv2.py"))
+spec = importlib.util.spec_from_file_location("m", str(BASE/"code"/"41-armA9-armBv2.py"))
 m = importlib.util.module_from_spec(spec); spec.loader.exec_module(m)
 
 # fix 1: Gemini token budget (thinking model needs room for reasoning + output)

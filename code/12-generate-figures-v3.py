@@ -24,7 +24,7 @@ import numpy as np
 
 BASE = Path(__file__).resolve().parent.parent
 RAW = BASE / "RESULTS" / "v3_raw_rescored.json"
-CASES = BASE / "SPECS" / "test_cases_v3.json"
+CASES = BASE / "specs" / "test_cases_v3.json"
 FIGDIR = BASE / "FIGURES"
 FIGDIR.mkdir(exist_ok=True)
 

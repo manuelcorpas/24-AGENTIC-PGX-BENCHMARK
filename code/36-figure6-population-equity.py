@@ -22,7 +22,7 @@ Two-panel design:
 Inputs:
   RESULTS/v3_raw_rescored_three_arm.json
   RESULTS/v3_three_arm_analysis_summary.json (cross-check section_1 aggregate)
-  SPECS/test_cases_v3.json
+  specs/test_cases_v3.json
 
 Outputs (PNG 300 DPI + TIFF 600 DPI LZW):
   FIGURES/Figure6_population_equity.png

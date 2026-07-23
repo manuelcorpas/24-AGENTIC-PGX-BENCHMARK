@@ -30,7 +30,7 @@ Inputs:
   RESULTS/v3_raw_rescored_three_arm.json
   RESULTS/v3_three_arm_analysis_summary.json (cross-check)
   RESULTS/v3_three_arm_lethal_a3_errors.csv  (cross-check)
-  SPECS/test_cases_v3.json                   (lethal flag per case)
+  specs/test_cases_v3.json                   (lethal flag per case)
 
 Outputs (PNG 300 DPI + TIFF 600 DPI LZW):
   FIGURES/Figure5_correctness_by_coincidence.png
@@ -60,7 +60,7 @@ BASE = Path(__file__).resolve().parent.parent
 MAIN = BASE / "RESULTS" / "v3_raw_rescored_three_arm.json"
 SUMMARY = BASE / "RESULTS" / "v3_three_arm_analysis_summary.json"
 LETHAL_CSV = BASE / "RESULTS" / "v3_three_arm_lethal_a3_errors.csv"
-CASES_FILE = BASE / "SPECS" / "test_cases_v3.json"
+CASES_FILE = BASE / "specs" / "test_cases_v3.json"
 FIGDIR = BASE / "FIGURES"
 
 CONDITIONS = ["no_spec", "cpic_rag", "with_spec"]

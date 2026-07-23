@@ -13,7 +13,7 @@ Arm B v2: model maps the genotype to ONE diplotype from the skill's controlled v
 caps + retry-backoff for maximum safe throughput.
 """
 from __future__ import annotations
-import json, re, time, threading, requests
+import json, os, re, time, threading, requests
 from pathlib import Path
 from collections import defaultdict
 from importlib.util import spec_from_file_location, module_from_spec
@@ -21,24 +21,29 @@ from concurrent.futures import ThreadPoolExecutor
 import openai, anthropic
 
 BASE = Path(__file__).resolve().parent.parent
-CASES = BASE / "SPECS" / "test_cases_v3.json"
+CASES = BASE / "specs" / "test_cases_v3.json"
 OUT = BASE / "RESULTS" / "v3_armA9_armBv2.json"
 REPORT = BASE / "RESULTS" / "v3_armA9_armBv2_report.txt"
-ENV = Path("/Users/manuelcorpas1/dev/AGENTIC-AI/.env")
+ENV = BASE / ".env"   # repo-relative; environment variables take precedence (see .env.example)
 N_REPS = 2
 
-_spec = spec_from_file_location("rescore", str(BASE / "PYTHON" / "10-rescore-v3.py"))
+_spec = spec_from_file_location("rescore", str(BASE / "code" / "10-rescore-v3.py"))
 rs = module_from_spec(_spec); _spec.loader.exec_module(rs)
 
-keys = {}
-for line in ENV.read_text().splitlines():
-    line = line.strip()
-    if "=" in line and not line.startswith("#"):
-        k, _, v = line.partition("="); keys[k.strip()] = v.strip().strip('"').strip("'")
-ant = anthropic.Anthropic(api_key=keys["ANTHROPIC_API_KEY"])
-oai = openai.OpenAI(api_key=keys["OPENAI_API_KEY"])
-dsk = openai.OpenAI(api_key=keys["DEEPSEEK_API_KEY"], base_url="https://api.deepseek.com")
-GKEY = keys["GOOGLE_API_KEY"]; MKEY = keys["MISTRAL_API_KEY"]
+keys = dict(os.environ)
+if ENV.exists():
+    for line in ENV.read_text().splitlines():
+        line = line.strip()
+        if "=" in line and not line.startswith("#"):
+            k, _, v = line.partition("="); keys.setdefault(k.strip(), v.strip().strip('"').strip("'"))
+def _key(*names):
+    for nm in names:
+        if keys.get(nm): return keys[nm]
+    raise KeyError(f"Missing API key: set one of {names} in the environment or {ENV} (see .env.example)")
+ant = anthropic.Anthropic(api_key=_key("ANTHROPIC_API_KEY"))
+oai = openai.OpenAI(api_key=_key("OPENAI_API_KEY"))
+dsk = openai.OpenAI(api_key=_key("DEEPSEEK_API_KEY"), base_url="https://api.deepseek.com")
+GKEY = _key("GEMINI_API_KEY", "GOOGLE_API_KEY"); MKEY = _key("MISTRAL_API_KEY")
 
 # provider concurrency caps
 sem = {"anthropic": threading.Semaphore(20), "openai": threading.Semaphore(20),

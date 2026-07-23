@@ -19,8 +19,8 @@ Design:
 
 Call count: 110 cases x 2 arms x 8 models x 3 pops x 1 rep = 5,280 calls.
 
-Run:   python3 PYTHON/42-armAB-population-sweep.py
-Smoke: python3 PYTHON/42-armAB-population-sweep.py --smoke   (build tasks, no API calls)
+Run:   python3 code/42-armAB-population-sweep.py
+Smoke: python3 code/42-armAB-population-sweep.py --smoke   (build tasks, no API calls)
 """
 from __future__ import annotations
 import sys
@@ -36,7 +36,7 @@ OUT = BASE / "RESULTS" / "v3_armA9_armBv2_POP.json"
 REPORT = BASE / "RESULTS" / "v3_armA9_armBv2_POP_report.txt"
 
 # reuse the validated harness (run_one, prompts, skill rules, model adapters)
-_sp = spec_from_file_location("h41", str(BASE / "PYTHON" / "41-armA9-armBv2.py"))
+_sp = spec_from_file_location("h41", str(BASE / "code" / "41-armA9-armBv2.py"))
 h = module_from_spec(_sp)
 
 POPULATIONS = [

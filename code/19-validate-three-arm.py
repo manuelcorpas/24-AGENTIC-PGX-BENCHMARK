@@ -28,7 +28,7 @@ Pre-flight: pass ../RESULTS/v3_raw_rescored.json to verify the gate passes
 
 Reads:
   <input json>
-  ../SPECS/test_cases_v3.json
+  ../specs/test_cases_v3.json
 Writes:
   ../RESULTS/v3_three_arm_validation_report.txt
 """
@@ -41,10 +41,10 @@ from importlib.util import spec_from_file_location, module_from_spec
 from pathlib import Path
 
 BASE = Path(__file__).resolve().parent.parent
-PYDIR = BASE / "PYTHON"
+PYDIR = BASE / "code"
 DEFAULT_RAW = BASE / "RESULTS" / "v3_raw_rescored_three_arm.json"
 PREFLIGHT_RAW = BASE / "RESULTS" / "v3_raw_rescored.json"
-CASES_FILE = BASE / "SPECS" / "test_cases_v3.json"
+CASES_FILE = BASE / "specs" / "test_cases_v3.json"
 REPORT = BASE / "RESULTS" / "v3_three_arm_validation_report.txt"
 
 _spec = spec_from_file_location("rescore", PYDIR / "10-rescore-v3.py")

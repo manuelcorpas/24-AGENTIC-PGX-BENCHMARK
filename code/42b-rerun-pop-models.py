@@ -12,8 +12,8 @@ Fixes carried over the main run that 42 missed:
     across populations rather than concentrated on the one that runs last.
 
 Usage:
-  python3 PYTHON/42b-rerun-pop-models.py "Gemini 2.5 Flash"
-  python3 PYTHON/42b-rerun-pop-models.py "o3" "o4-mini" "GPT-5.2" "GPT-4.1"   # after OpenAI top-up
+  python3 code/42b-rerun-pop-models.py "Gemini 2.5 Flash"
+  python3 code/42b-rerun-pop-models.py "o3" "o4-mini" "GPT-5.2" "GPT-4.1"   # after OpenAI top-up
 """
 from __future__ import annotations
 import sys
@@ -27,7 +27,7 @@ from importlib.util import spec_from_file_location, module_from_spec
 BASE = Path(__file__).resolve().parent.parent
 POP = BASE / "RESULTS" / "v3_armA9_armBv2_POP.json"
 
-_sw = spec_from_file_location("sw", str(BASE / "PYTHON" / "42-armAB-population-sweep.py"))
+_sw = spec_from_file_location("sw", str(BASE / "code" / "42-armAB-population-sweep.py"))
 sw = module_from_spec(_sw)
 _sw.loader.exec_module(sw)          # loads sweep module
 sw._sp.loader.exec_module(sw.h)     # loads underlying harness (clients, rules)

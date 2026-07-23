@@ -29,24 +29,29 @@ from importlib.util import spec_from_file_location, module_from_spec
 import openai, anthropic
 
 BASE = Path(__file__).resolve().parent.parent
-CASES = BASE / "SPECS" / "test_cases_v3.json"
+CASES = BASE / "specs" / "test_cases_v3.json"
 OUT = BASE / "RESULTS" / "v3_skill_reasoning_vs_execution.json"
 REPORT = BASE / "RESULTS" / "v3_skill_reasoning_vs_execution_report.txt"
-ENV = Path("/Users/manuelcorpas1/dev/AGENTIC-AI/.env")
+ENV = BASE / ".env"   # repo-relative; environment variables take precedence (see .env.example)
 N_REPS = 2
 
 # published scorer
-_spec = spec_from_file_location("rescore", str(BASE / "PYTHON" / "10-rescore-v3.py"))
+_spec = spec_from_file_location("rescore", str(BASE / "code" / "10-rescore-v3.py"))
 rs = module_from_spec(_spec); _spec.loader.exec_module(rs)
 
-keys = {}
-for line in ENV.read_text().splitlines():
-    line = line.strip()
-    if "=" in line and not line.startswith("#"):
-        k, _, v = line.partition("="); keys[k.strip()] = v.strip().strip('"').strip("'")
-ant = anthropic.Anthropic(api_key=keys["ANTHROPIC_API_KEY"])
-oai = openai.OpenAI(api_key=keys["OPENAI_API_KEY"])
-dsk = openai.OpenAI(api_key=keys["DEEPSEEK_API_KEY"], base_url="https://api.deepseek.com")
+keys = dict(os.environ)
+if ENV.exists():
+    for line in ENV.read_text().splitlines():
+        line = line.strip()
+        if "=" in line and not line.startswith("#"):
+            k, _, v = line.partition("="); keys.setdefault(k.strip(), v.strip().strip('"').strip("'"))
+def _key(*names):
+    for nm in names:
+        if keys.get(nm): return keys[nm]
+    raise KeyError(f"Missing API key: set one of {names} in the environment or {ENV} (see .env.example)")
+ant = anthropic.Anthropic(api_key=_key("ANTHROPIC_API_KEY"))
+oai = openai.OpenAI(api_key=_key("OPENAI_API_KEY"))
+dsk = openai.OpenAI(api_key=_key("DEEPSEEK_API_KEY"), base_url="https://api.deepseek.com")
 def call_ant(p): return ant.messages.create(model="claude-opus-4-20250514", max_tokens=400, messages=[{"role":"user","content":p}]).content[0].text
 def call_oai(p):
     try: return oai.chat.completions.create(model="gpt-5.2", max_tokens=400, messages=[{"role":"user","content":p}]).choices[0].message.content

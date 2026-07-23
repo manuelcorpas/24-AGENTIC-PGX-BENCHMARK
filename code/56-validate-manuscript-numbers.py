@@ -10,7 +10,7 @@ and PASS/FAIL. Any claim that cannot be reproduced from data fails loudly.
 This is the source of truth for every number. If the manuscript and this script
 disagree, the manuscript is wrong, not this script.
 
-  python3 PYTHON/56-validate-manuscript-numbers.py
+  python3 code/56-validate-manuscript-numbers.py
 
 Exit code 0 if all checks pass, 1 otherwise.
 """
@@ -24,7 +24,7 @@ BASE = Path(__file__).resolve().parent.parent
 R = BASE / "RESULTS"
 three = json.loads((R / "v3_raw_rescored_three_arm.json").read_text())
 skill = json.loads((R / "v3_armA9_armBv2.json").read_text())
-cases = {c["id"]: c for c in json.loads((BASE / "SPECS" / "test_cases_v3.json").read_text())}
+cases = {c["id"]: c for c in json.loads((BASE / "specs" / "test_cases_v3.json").read_text())}
 pop_skill = json.loads((R / "v3_armA9_armBv2_POP.json").read_text())
 adv_fwd = json.loads((R / "v3_adversarial_scrambled.json").read_text())
 adv_rev = json.loads((R / "v3_adversarial_reverse.json").read_text())

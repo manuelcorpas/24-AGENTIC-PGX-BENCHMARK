@@ -14,7 +14,7 @@ layer (10b). A2/A3/lethal use the skill runner's deterministic scores.
 Reports every metric two ways: ALL 9 MODELS and EX-MISTRAL (8 models, the headline),
 the Mistral exclusion now applied uniformly to all five conditions.
 
-Run: python3 PYTHON/44-aggregate-five-conditions.py
+Run: python3 code/44-aggregate-five-conditions.py
 """
 from __future__ import annotations
 import json
@@ -26,14 +26,14 @@ BASE = Path(__file__).resolve().parent.parent
 THREE = BASE / "RESULTS" / "v3_raw_rescored_three_arm.json"
 SKILL = BASE / "RESULTS" / "v3_armAB_fullgrid.json"
 SKILL_JSONL = BASE / "RESULTS" / "v3_armAB_fullgrid.jsonl"
-CASES = BASE / "SPECS" / "test_cases_v3.json"
+CASES = BASE / "specs" / "test_cases_v3.json"
 OUT_REPORT = BASE / "RESULTS" / "v3_five_condition_matched_report.txt"
 OUT_JSON = BASE / "RESULTS" / "v3_five_condition_matched.json"
 
 MISTRAL = "Mistral Large 2"
 
 # clinical-equivalence A1 scorer (same one used for the three-arm headline)
-_sp = spec_from_file_location("ce", str(BASE / "PYTHON" / "10b-rescore-v3-clinical-equivalence.py"))
+_sp = spec_from_file_location("ce", str(BASE / "code" / "10b-rescore-v3-clinical-equivalence.py"))
 ce = module_from_spec(_sp); _sp.loader.exec_module(ce)
 
 cases = {c["id"]: c for c in json.loads(CASES.read_text())}

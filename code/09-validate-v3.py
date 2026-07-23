@@ -20,7 +20,7 @@ Sections:
 
 Reads:
   ../RESULTS/v3_raw_rescored.json
-  ../SPECS/test_cases_v3.json
+  ../specs/test_cases_v3.json
 
 Writes:
   ../RESULTS/v3_validation_report.txt
@@ -34,9 +34,9 @@ from importlib.util import spec_from_file_location, module_from_spec
 from pathlib import Path
 
 BASE = Path(__file__).resolve().parent.parent
-PYDIR = BASE / "PYTHON"
+PYDIR = BASE / "code"
 RAW = BASE / "RESULTS" / "v3_raw_rescored.json"
-CASES_FILE = BASE / "SPECS" / "test_cases_v3.json"
+CASES_FILE = BASE / "specs" / "test_cases_v3.json"
 REPORT = BASE / "RESULTS" / "v3_validation_report.txt"
 
 # Import scorer module from sibling file

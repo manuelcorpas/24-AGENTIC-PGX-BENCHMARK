@@ -16,7 +16,7 @@ Reads:
                                                  with scores_rigorous preserved)
   ../RESULTS/v3_rag_raw.json                   (cpic_rag full-run output,
                                                  preliminary scoring at runtime)
-  ../SPECS/test_cases_v3.json
+  ../specs/test_cases_v3.json
 
 Writes:
   ../RESULTS/v3_raw_rescored_three_arm.json    (input to 18- and 19-)
@@ -30,10 +30,10 @@ from importlib.util import spec_from_file_location, module_from_spec
 from pathlib import Path
 
 BASE = Path(__file__).resolve().parent.parent
-PYDIR = BASE / "PYTHON"
+PYDIR = BASE / "code"
 TWO_ARM = BASE / "RESULTS" / "v3_raw_rescored_clinical_eq.json"
 CPIC_RAG_RAW = BASE / "RESULTS" / "v3_rag_raw.json"
-CASES = BASE / "SPECS" / "test_cases_v3.json"
+CASES = BASE / "specs" / "test_cases_v3.json"
 OUT = BASE / "RESULTS" / "v3_raw_rescored_three_arm.json"
 REPORT = BASE / "RESULTS" / "v3_three_arm_merge_report.txt"
 

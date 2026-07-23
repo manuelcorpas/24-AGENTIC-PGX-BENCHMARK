@@ -60,9 +60,9 @@ from importlib.util import spec_from_file_location, module_from_spec
 from pathlib import Path
 
 BASE = Path(__file__).resolve().parent.parent
-PYDIR = BASE / "PYTHON"
+PYDIR = BASE / "code"
 BASELINE = BASE / "RESULTS" / "v3_raw_rescored.json"   # rigorous 10- output
-CASES = BASE / "SPECS" / "test_cases_v3.json"
+CASES = BASE / "specs" / "test_cases_v3.json"
 OUT = BASE / "RESULTS" / "v3_raw_rescored_clinical_eq.json"
 REPORT = BASE / "RESULTS" / "v3_rescore_clinical_eq_report.txt"
 

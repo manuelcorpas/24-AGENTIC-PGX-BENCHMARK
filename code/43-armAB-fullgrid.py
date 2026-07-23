@@ -19,10 +19,10 @@ are reused from 41-armA9-armBv2.py.
 Robustness: every completed call is appended to a JSONL checkpoint immediately, so a
 crash/interruption loses nothing and a re-run resumes (skips completed cells).
 
-Run:    python3 PYTHON/43-armAB-fullgrid.py
-Resume: python3 PYTHON/43-armAB-fullgrid.py            (auto-skips checkpointed cells)
-Smoke:  python3 PYTHON/43-armAB-fullgrid.py --smoke    (counts + sample prompts, no API)
-Test:   python3 PYTHON/43-armAB-fullgrid.py --test1    (one live call per model)
+Run:    python3 code/43-armAB-fullgrid.py
+Resume: python3 code/43-armAB-fullgrid.py            (auto-skips checkpointed cells)
+Smoke:  python3 code/43-armAB-fullgrid.py --smoke    (counts + sample prompts, no API)
+Test:   python3 code/43-armAB-fullgrid.py --test1    (one live call per model)
 """
 from __future__ import annotations
 import json, sys, time, threading
@@ -39,7 +39,7 @@ N_REPS = 3
 
 # reuse the validated 41 harness (MODELS, cases, DIP2PHEN, REC, rules_dip,
 # norm_dip, parse_field, skill_rules_text, rs scorer)
-_sp = spec_from_file_location("h41", str(BASE / "PYTHON" / "41-armA9-armBv2.py"))
+_sp = spec_from_file_location("h41", str(BASE / "code" / "41-armA9-armBv2.py"))
 h = module_from_spec(_sp)
 _sp.loader.exec_module(h)
 

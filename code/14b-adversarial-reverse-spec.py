@@ -23,14 +23,14 @@ from pathlib import Path
 import openai, anthropic
 
 BASE = Path(__file__).resolve().parent.parent
-SPECS = BASE / "SPECS" / "test_cases_v3.json"
+SPECS = BASE / "specs" / "test_cases_v3.json"
 OUT = BASE / "RESULTS" / "v3_adversarial_reverse.json"
 REPORT = BASE / "RESULTS" / "v3_adversarial_reverse_report.txt"
-ENV = Path("/Users/manuelcorpas1/dev/AGENTIC-AI/.env")
+ENV = BASE / ".env"   # repo-relative; environment variables used if .env absent (see .env.example)
 
 # load keys from .env
-keys = {}
-for line in ENV.read_text().splitlines():
+keys = dict(os.environ)
+for line in (ENV.read_text().splitlines() if ENV.exists() else []):
     line = line.strip()
     if "=" in line and not line.startswith("#"):
         k, _, v = line.partition("=")
