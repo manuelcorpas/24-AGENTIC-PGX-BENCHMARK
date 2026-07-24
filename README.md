@@ -67,8 +67,8 @@ Aggregation, validation, figures:
 
 Datasets are archived on Zenodo (not stored in git; see `data/README.md`):
 - **Curated benchmark dataset** (no individual genotypes): DOI 10.5281/zenodo.20567742
-- **Raw rescored three-arm + adversarial datasets**: DOI 10.5281/zenodo.20567743
-- **Raw skill-arm evaluations (17,820)**: `v3_armAB_fullgrid.json` / `.jsonl`: deposited with the revision (new Zenodo version; DOI added on deposit).
+- **Raw rescored three-arm + adversarial datasets**: DOI 10.5281/zenodo.21526742
+- **Raw skill-arm evaluations (17,820)**: `v3_armAB_fullgrid.json` / `.jsonl`: deposited in Zenodo v1.2.0, DOI 10.5281/zenodo.21526742 (concept DOI 10.5281/zenodo.20567742 resolves to latest).
 
 ## Reproducing the analysis
 

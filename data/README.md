@@ -4,7 +4,7 @@ The benchmark datasets are archived on Zenodo (not stored in git; excluded via `
 Download and unpack them into this `data/` directory (or into `../RESULTS/` where a script
 header references that path) to reproduce the analyses and figures.
 
-## Core three conditions + adversarial (DOI 10.5281/zenodo.20567743)
+## Core three conditions + adversarial (DOI 10.5281/zenodo.21526742)
 
 - `v3_raw_rescored_three_arm.json`: locked rescored three-arm dataset (26,730 rows); input for the core-condition analysis and figures
 - `v3_adversarial_scrambled.json`: forward adversarial experiment (lethal -> safe corruption)
