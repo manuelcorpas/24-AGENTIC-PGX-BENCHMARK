@@ -1,0 +1,50 @@
+{
+  "CorpasFamily": {
+    "n_states": 40,
+    "emitted": 9,
+    "correct_emitted": 9,
+    "abstain": {
+      "no_call": 11,
+      "ambiguous": 2,
+      "out_of_scope": 18
+    },
+    "carriers_total": 85,
+    "carriers_emitted": 25,
+    "disagreements": [],
+    "coverage_states": 0.225,
+    "coverage_carriers": 0.29411764705882354,
+    "accuracy_among_emitted": 1.0
+  },
+  "Peru": {
+    "n_states": 73,
+    "emitted": 12,
+    "correct_emitted": 12,
+    "abstain": {
+      "no_call": 31,
+      "ambiguous": 2,
+      "out_of_scope": 28
+    },
+    "carriers_total": 12512,
+    "carriers_emitted": 4615,
+    "disagreements": [],
+    "coverage_states": 0.1643835616438356,
+    "coverage_carriers": 0.3688459079283887,
+    "accuracy_among_emitted": 1.0
+  },
+  "UGR": {
+    "n_states": 289,
+    "emitted": 17,
+    "correct_emitted": 17,
+    "abstain": {
+      "no_call": 99,
+      "ambiguous": 9,
+      "out_of_scope": 164
+    },
+    "carriers_total": 108919,
+    "carriers_emitted": 27918,
+    "disagreements": [],
+    "coverage_states": 0.058823529411764705,
+    "coverage_carriers": 0.25631891589162586,
+    "accuracy_among_emitted": 1.0
+  }
+}
