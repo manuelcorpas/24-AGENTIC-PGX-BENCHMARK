@@ -68,9 +68,17 @@ def test_answer_about_a_different_drug_is_scored_wrong(rs, case):
     assert s["a2_recommendation"] == 0.0
 
 
-def test_drug_match_is_not_fooled_by_the_target_drug_appearing_incidentally(rs, case):
-    s = rs.score_row(row(case, parsed_drug="not codeine; use warfarin instead"), case)
-    assert s["drug_match"] == 0.0
+def test_terse_correct_answers_are_not_scored_as_substitution(rs, case):
+    """A correct recommendation that does not restate the drug name is not a
+    substitution. Requiring the name measured output style and penalised prose
+    cells against execution cells, which emit canonical rule text."""
+    s = rs.score_row(row(case, parsed_drug="Use label recommended age- or weight-specific dosing."), case)
+    assert s["substituted"] is False
+    assert s["drug_match"] == 1.0
+
+
+def test_empty_answer_is_not_a_substitution(rs, case):
+    assert rs.score_row(row(case, parsed_drug=""), case)["substituted"] is False
 
 
 def test_scoring_has_no_per_cell_branch(rs):

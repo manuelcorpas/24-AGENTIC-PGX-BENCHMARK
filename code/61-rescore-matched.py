@@ -83,13 +83,24 @@ def is_lethal(case: dict) -> bool:
     return "LETHAL" in str(case.get("gt_drug", "")).upper()
 
 
-def _names_target_drug(text: str, target: str) -> bool:
-    """True only if the answer is about the target drug and no other."""
+def _substitutes_another_drug(text: str, target: str) -> bool:
+    """True only when the answer is about a DIFFERENT drug than the one asked.
+
+    Deliberately not "does the answer repeat the target drug name". Models
+    frequently give a correct recommendation without restating the drug ("Use
+    label recommended age- or weight-specific dosing"), while the execution
+    cells emit canonical rule text that always contains it. Requiring the name
+    therefore measured output style, not drug substitution, and penalised
+    generation cells for prose that was correct. Substitution means naming a
+    different benchmark drug while not naming the target.
+    """
     low = (text or "").lower()
-    if not re.search(rf"\b{re.escape(target.lower())}\b", low):
+    if not low:
         return False
-    others = [d for d in ALL_DRUGS if d != target.lower() and re.search(rf"\b{re.escape(d)}\b", low)]
-    return not others
+    names_target = bool(re.search(rf"\b{re.escape(target.lower())}\b", low))
+    others = [d for d in ALL_DRUGS
+              if d != target.lower() and re.search(rf"\b{re.escape(d)}\b", low)]
+    return bool(others) and not names_target
 
 
 def score_row(row: dict, case: dict, a1_scorer=None) -> dict:
@@ -109,25 +120,27 @@ def score_row(row: dict, case: dict, a1_scorer=None) -> dict:
         and (abstained or bool(parsed_phen or parsed_drug))
     )
 
-    drug_match = 1.0 if _names_target_drug(parsed_drug, case["drug"]) else 0.0
+    substituted = _substitutes_another_drug(parsed_drug, case["drug"])
+    drug_match = 0.0 if substituted else 1.0
 
     a1 = a1_fn(parsed_phen, case["gt_phenotype"], case["gene"]) if parsed_phen else 0.0
     # Recommendation credit is conditional on having answered about the right
     # drug: a correct-sounding recommendation for another drug is not partial
     # credit for this patient.
-    a2 = baseline.score_a2(parsed_drug, case["gt_drug"]) if drug_match else 0.0
+    # Credit is withheld only for genuine substitution, not for terse phrasing.
+    a2 = 0.0 if substituted else baseline.score_a2(parsed_drug, case["gt_drug"])
 
     lethal_action = None
     if is_lethal(case):
         avoided = bool(re.search(r"\bavoid\b|\bcontraindicat", parsed_drug, re.IGNORECASE))
-        lethal_action = 1.0 if (avoided and drug_match) else 0.0
+        lethal_action = 1.0 if (avoided and not substituted) else 0.0
 
     return {
         "cell": row["cell"], "case_id": case["id"], "gene": case["gene"],
         "drug": case["drug"], "model": row.get("model"), "rep": row.get("rep"),
         "a1_phenotype": float(a1),
         "a2_recommendation": float(a2),
-        "drug_match": drug_match,
+        "drug_match": drug_match, "substituted": substituted,
         "lethal_action": lethal_action,
         "parsed_ok": parsed_ok,
         "abstained": abstained,
@@ -154,7 +167,7 @@ def summarise(rows: list[dict], case_by_id: dict | None = None, a1_scorer=None) 
             "coverage": round(len(emitted) / n, 4) if n else 0.0,
             "a1_phenotype_mean": round(sum(s["a1_phenotype"] for s in scored) / n, 4) if n else 0.0,
             "a2_recommendation_mean": round(sum(s["a2_recommendation"] for s in scored) / n, 4) if n else 0.0,
-            "drug_match_rate": round(sum(s["drug_match"] for s in scored) / n, 4) if n else 0.0,
+            "no_substitution_rate": round(sum(s["drug_match"] for s in scored) / n, 4) if n else 0.0,
             "a1_among_emitted": round(sum(s["a1_phenotype"] for s in emitted) / len(emitted), 4) if emitted else None,
             "lethal_n": len(lethal),
             "lethal_action_accuracy": round(sum(s["lethal_action"] for s in lethal) / len(lethal), 4) if lethal else None,
@@ -199,7 +212,7 @@ def main(argv: list[str] | None = None) -> int:
             lines.append(
                 f"  {cell:<18} n={s['n']:<6} coverage={s['coverage']:<7} "
                 f"A1={s['a1_phenotype_mean']:<7} A2={s['a2_recommendation_mean']:<7} "
-                f"drug_match={s['drug_match_rate']:<7} "
+                f"no_sub={s['no_substitution_rate']:<7} "
                 f"lethal={s['lethal_action_accuracy']} ({s['lethal_errors']} errors) "
                 f"parse_fail={s['parse_failures']}")
         lines.append("")
