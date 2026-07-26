@@ -1,0 +1,41 @@
+HIERARCHICAL / MULTIWAY-CLUSTERED STATISTICS
+
+## free_generation   n=2640  coverage=0.997727  parse_failures=6  abstentions=0
+   mean accuracy               0.743561
+   case-clustered 95% CI       (0.688447, 0.795455)
+   model-clustered 95% CI      (0.693177, 0.789777)
+   two-way clustered 95% CI    (0.664579, 0.818182)
+   variance: case=0.082605314509  model=0.004778323003  framing=0.0  replicate=7.389233e-06  residual=0.100825083218
+   lethal-class                0.839286 (54 errors of 336)
+
+## rag_execution   n=2640  coverage=0.926515  parse_failures=2  abstentions=194
+   mean accuracy               0.899621
+   case-clustered 95% CI       (0.879924, 0.917424)
+   model-clustered 95% CI      (0.763627, 0.983333)
+   two-way clustered 95% CI    (0.753769, 0.985227)
+   variance: case=0.009826245409  model=0.031541408402  framing=0.0  replicate=1.4921947e-05  residual=0.048920311065
+   lethal-class                0.907738 (31 errors of 336)
+
+## rag_generation   n=2640  coverage=0.991667  parse_failures=22  abstentions=0
+   mean accuracy               0.819697
+   case-clustered 95% CI       (0.75965, 0.872348)
+   model-clustered 95% CI      (0.786742, 0.853598)
+   two-way clustered 95% CI    (0.749228, 0.884484)
+   variance: case=0.090588986455  model=0.002251492195  framing=0.0  replicate=3.364612e-05  residual=0.052268207645
+   lethal-class                0.592262 (137 errors of 336)
+
+## skill_execution   n=2639  coverage=0.96097  parse_failures=0  abstentions=103
+   mean accuracy               0.932171
+   case-clustered 95% CI       (0.910572, 0.951876)
+   model-clustered 95% CI      (0.848741, 0.982576)
+   two-way clustered 95% CI    (0.840521, 0.988262)
+   variance: case=0.013189996556  model=0.010997932617  framing=0.0  replicate=2.089762e-06  residual=0.039037968402
+   lethal-class                0.901786 (33 errors of 336)
+
+## skill_generation   n=2640  coverage=0.998106  parse_failures=5  abstentions=0
+   mean accuracy               0.964394
+   case-clustered 95% CI       (0.945076, 0.980682)
+   model-clustered 95% CI      (0.946212, 0.981061)
+   two-way clustered 95% CI    (0.936345, 0.986742)
+   variance: case=0.009685491276  model=0.000610078053  framing=0.0  replicate=5.45225e-06  residual=0.024037247475
+   lethal-class                0.922619 (26 errors of 336)
