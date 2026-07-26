@@ -78,15 +78,15 @@ N_MODELS = 9
 # so the spend figure reported in the paper is computed, not recalled. Update
 # alongside any model-version change and note it in MODEL-VERSIONS.md.
 PRICES: dict[str, tuple[float, float]] = {
-    "Claude Opus 4":    (15.00, 75.00),
-    "Claude Sonnet 4":  (3.00, 15.00),
+    "Claude Opus 4.5":   (5.00, 25.00),
+    "Claude Sonnet 4.5": (3.00, 15.00),
     "GPT-5.2":          (1.25, 10.00),
     "GPT-4.1":          (2.00, 8.00),
     "o3":               (2.00, 8.00),
     "o4-mini":          (1.10, 4.40),
     "Gemini 2.5 Flash": (0.30, 2.50),
     "DeepSeek V3":      (0.27, 1.10),
-    "Mistral Large 2":  (2.00, 6.00),
+    "Mistral Large 2512": (2.00, 6.00),
 }
 # Reasoning models emit hidden reasoning tokens, so their output count is far
 # above the visible answer. Measured by --pilot rather than assumed.
@@ -361,7 +361,7 @@ def load_models() -> dict:
         with sem["mistral"]:
             req = urllib.request.Request(
                 "https://api.mistral.ai/v1/chat/completions",
-                data=json.dumps({"model": "mistral-large-2411", "max_tokens": 320,
+                data=json.dumps({"model": "mistral-large-2512", "max_tokens": 320,
                                  "messages": [{"role": "user", "content": p}]}).encode(),
                 headers={"Content-Type": "application/json",
                          "Authorization": f"Bearer {mkey}"})
@@ -370,16 +370,23 @@ def load_models() -> dict:
             return (body["choices"][0]["message"]["content"],
                     usage.get("prompt_tokens", 0), usage.get("completion_tokens", 0))
 
+    # Claude Opus 4 (claude-opus-4-20250514) and Claude Sonnet 4
+    # (claude-sonnet-4-20250514) were RETIRED by the vendor between submission
+    # and revision and now return 404. mistral-large-2411 was likewise
+    # withdrawn. They are substituted below with the current equivalents and
+    # the substitution is reported in the paper, because a benchmark that
+    # cannot be re-run on its original roster must say so rather than quietly
+    # swap models. See code/MODEL-VERSIONS.md.
     return {
-        "Claude Opus 4":    lambda p: _ant("claude-opus-4-20250514", p),
-        "Claude Sonnet 4":  lambda p: _ant("claude-sonnet-4-20250514", p),
+        "Claude Opus 4.5":   lambda p: _ant("claude-opus-4-5-20251101", p),
+        "Claude Sonnet 4.5": lambda p: _ant("claude-sonnet-4-5-20250929", p),
         "GPT-5.2":          lambda p: _oai("gpt-5.2", p, reasoning=True),
         "GPT-4.1":          lambda p: _oai("gpt-4.1", p),
         "o3":               lambda p: _oai("o3", p, reasoning=True),
         "o4-mini":          lambda p: _oai("o4-mini", p, reasoning=True),
         "Gemini 2.5 Flash": lambda p: _gem(p),
         "DeepSeek V3":      lambda p: _dsk(p),
-        "Mistral Large 2":  lambda p: _mis(p),
+        "Mistral Large 2512": lambda p: _mis(p),
     }
 
 
@@ -403,6 +410,13 @@ def run_one(cell: str, case: dict, model_name: str, fn, rep: int, spend=None) ->
             break
         except Exception as exc:                        # noqa: BLE001 - recorded, not swallowed
             error = f"{type(exc).__name__}: {exc}"
+            # A 429 is a rate limit, not a model failure. Back off and retry
+            # rather than banking an empty response that the scorer would count
+            # as a format failure; that mistake nearly put a false "this model
+            # cannot comply with the output format" claim into a manuscript.
+            if "429" in str(exc) or "rate" in str(exc).lower():
+                import time
+                time.sleep(5 * (attempt + 1))
     row = {
         "cell": cell, "knowledge": CELLS[cell]["knowledge"],
         "mechanism": CELLS[cell]["mechanism"],
@@ -447,6 +461,11 @@ def main(argv: list[str] | None = None) -> int:
     ap.add_argument("--retrieval", choices=["gene", "drug"], default="gene",
                     help="gene-keyed (original, now the ablation) or drug-keyed "
                          "(N4, the strengthened primary retrieval arm)")
+    ap.add_argument("--pace", type=float, default=0.0, metavar="SECONDS",
+                    help="Serialise calls and sleep between them. Required for "
+                         "Mistral, whose tier returns 429 under concurrency; a "
+                         "429 is a rate limit, not a model failure, and must never "
+                         "be scored as one.")
     ap.add_argument("--resume", action="store_true",
                     help="Skip evaluations already present in the JSONL checkpoint")
     args = ap.parse_args(argv)
@@ -525,11 +544,21 @@ def main(argv: list[str] | None = None) -> int:
     results, stopped = [], None
     JSONL.parent.mkdir(exist_ok=True)
     try:
-        with JSONL.open("a") as sink, ThreadPoolExecutor(max_workers=24) as pool:
-            for row in pool.map(lambda t: run_one(*t, spend), tasks):
-                results.append(row)
-                sink.write(json.dumps(row) + "\n")
-                sink.flush()
+        with JSONL.open("a") as sink:
+            if args.pace:
+                import time
+                for t in tasks:
+                    row = run_one(*t, spend)
+                    results.append(row)
+                    sink.write(json.dumps(row) + "\n")
+                    sink.flush()
+                    time.sleep(args.pace)
+            else:
+                with ThreadPoolExecutor(max_workers=24) as pool:
+                    for row in pool.map(lambda t: run_one(*t, spend), tasks):
+                        results.append(row)
+                        sink.write(json.dumps(row) + "\n")
+                        sink.flush()
     except BudgetExceeded as exc:
         stopped = str(exc)
 

@@ -215,8 +215,29 @@ def test_norm_dip_still_matches_the_original_runner():
 # ---------------------------------------------------------------- spend cap
 
 def test_spend_cost_uses_published_prices(mf):
-    """1M in + 1M out on Opus 4 must be 15 + 75 dollars."""
-    assert round(mf.Spend.cost("Claude Opus 4", 1_000_000, 1_000_000), 2) == 90.00
+    """1M in + 1M out on Opus 4.5 must be 5 + 25 dollars."""
+    assert round(mf.Spend.cost("Claude Opus 4.5", 1_000_000, 1_000_000), 2) == 30.00
+
+
+def test_retired_models_are_not_silently_still_listed(mf):
+    """Claude Opus 4 and Sonnet 4 were retired by the vendor between submission
+    and revision and return 404. They must not linger in the roster, because a
+    benchmark that cannot be re-run on its original models has to say so rather
+    than appear to have run them."""
+    assert "Claude Opus 4" not in mf.PRICES
+    assert "Claude Sonnet 4" not in mf.PRICES
+    assert "Claude Opus 4.5" in mf.PRICES
+    assert "Claude Sonnet 4.5" in mf.PRICES
+
+
+def test_paced_mode_exists_for_rate_limited_providers(mf):
+    """Mistral's tier returns 429 under concurrency. A 429 is a rate limit, not
+    a model failure, and scoring one as a format failure previously produced a
+    false claim about a model's compliance."""
+    import inspect
+    src = inspect.getsource(mf.main)
+    assert "--pace" in src
+    assert "429" in inspect.getsource(mf.run_one)
 
 
 def test_spend_check_raises_once_the_cap_is_reached(mf):
