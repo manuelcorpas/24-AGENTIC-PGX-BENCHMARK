@@ -21,7 +21,7 @@ from collections import defaultdict
 from pathlib import Path
 
 BASE = Path(__file__).resolve().parent.parent
-R = BASE / "RESULTS"
+R = BASE / "data"
 three = json.loads((R / "v3_raw_rescored_three_arm.json").read_text())
 skill = json.loads((R / "v3_armA9_armBv2.json").read_text())
 cases = {c["id"]: c for c in json.loads((BASE / "specs" / "test_cases_v3.json").read_text())}

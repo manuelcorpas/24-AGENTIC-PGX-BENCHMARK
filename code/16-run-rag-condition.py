@@ -23,11 +23,11 @@ Inputs:
        MISTRAL_API_KEY (defaults to embedded production credentials)
 
 Outputs:
-  ../RESULTS/v3_rag_raw.json         final 8,910-row dataset (cond=cpic_rag)
-  ../RESULTS/v3_rag_partial.json     saved every 100 calls
-  ../RESULTS/v3_rag_checkpoint.json  resume point
-  ../RESULTS/v3_rag_cost_log.json    per-model token + USD tally
-  ../LOGS/v3_rag_run_<UTC-timestamp>.log
+  ../data/v3_rag_raw.json         final 8,910-row dataset (cond=cpic_rag)
+  ../data/v3_rag_partial.json     saved every 100 calls
+  ../data/v3_rag_checkpoint.json  resume point
+  ../data/v3_rag_cost_log.json    per-model token + USD tally
+  ../logs/v3_rag_run_<UTC-timestamp>.log
 
 Usage:
   python3 16-run-rag-condition.py --dry-run        45 calls (~$0.50)
@@ -66,8 +66,8 @@ BASE = Path(__file__).resolve().parent.parent
 PYDIR = BASE / "code"
 SPECS_FILE = BASE / "specs" / "test_cases_v3.json"
 CORPUS_FILE = BASE / "specs" / "cpic_rag_corpus_v3.json"
-RESULTS = BASE / "RESULTS"
-LOGS = BASE / "LOGS"
+RESULTS = BASE / "data"
+LOGS = BASE / "logs"
 RESULTS.mkdir(exist_ok=True)
 LOGS.mkdir(exist_ok=True)
 

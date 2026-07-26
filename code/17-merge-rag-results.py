@@ -12,15 +12,15 @@ and to allow downstream analyses (e.g. the substring false-positive screen in
 19-validate-three-arm.py R3) to filter out 10b- promotions.
 
 Reads:
-  ../RESULTS/v3_raw_rescored_clinical_eq.json  (two-arm, already 10b- scored,
+  ../data/v3_raw_rescored_clinical_eq.json  (two-arm, already 10b- scored,
                                                  with scores_rigorous preserved)
-  ../RESULTS/v3_rag_raw.json                   (cpic_rag full-run output,
+  ../data/v3_rag_raw.json                   (cpic_rag full-run output,
                                                  preliminary scoring at runtime)
   ../specs/test_cases_v3.json
 
 Writes:
-  ../RESULTS/v3_raw_rescored_three_arm.json    (input to 18- and 19-)
-  ../RESULTS/v3_three_arm_merge_report.txt
+  ../data/v3_raw_rescored_three_arm.json    (input to 18- and 19-)
+  ../data/v3_three_arm_merge_report.txt
 """
 from __future__ import annotations
 import json
@@ -31,11 +31,11 @@ from pathlib import Path
 
 BASE = Path(__file__).resolve().parent.parent
 PYDIR = BASE / "code"
-TWO_ARM = BASE / "RESULTS" / "v3_raw_rescored_clinical_eq.json"
-CPIC_RAG_RAW = BASE / "RESULTS" / "v3_rag_raw.json"
+TWO_ARM = BASE / "data" / "v3_raw_rescored_clinical_eq.json"
+CPIC_RAG_RAW = BASE / "data" / "v3_rag_raw.json"
 CASES = BASE / "specs" / "test_cases_v3.json"
-OUT = BASE / "RESULTS" / "v3_raw_rescored_three_arm.json"
-REPORT = BASE / "RESULTS" / "v3_three_arm_merge_report.txt"
+OUT = BASE / "data" / "v3_raw_rescored_three_arm.json"
+REPORT = BASE / "data" / "v3_three_arm_merge_report.txt"
 
 # Import original rigorous rescorer (for scores_rigorous baseline) and
 # clinical-equivalence rescorer (for headline scores).

@@ -23,9 +23,9 @@ import openai, anthropic
 BASE = Path(__file__).resolve().parent.parent
 CORPUS = BASE / "specs" / "cpic_rag_corpus_v3.json"
 CASES = BASE / "specs" / "test_cases_v3.json"
-BASELINE = BASE / "RESULTS" / "v3_raw_rescored_three_arm.json"
-OUT = BASE / "RESULTS" / "v3_rag_genedrug_chunking.json"
-REPORT = BASE / "RESULTS" / "v3_rag_genedrug_chunking_report.txt"
+BASELINE = BASE / "data" / "v3_raw_rescored_three_arm.json"
+OUT = BASE / "data" / "v3_rag_genedrug_chunking.json"
+REPORT = BASE / "data" / "v3_rag_genedrug_chunking_report.txt"
 ENV = BASE / ".env"   # repo-relative; environment variables used if .env absent (see .env.example)
 
 WORST = ["CYP2D6", "CYP2C19", "CYP2C9", "UGT1A1", "SLCO1B1", "IFNL3"]

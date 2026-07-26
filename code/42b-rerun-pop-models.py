@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Targeted re-run of specific models for the population sweep, merging into
-RESULTS/v3_armA9_armBv2_POP.json (replacing only the named models' rows).
+data/v3_armA9_armBv2_POP.json (replacing only the named models' rows).
 
 Fixes carried over the main run that 42 missed:
   - Gemini 2.5 Flash is a thinking model: maxOutputTokens must be 2048, not 320
@@ -25,7 +25,7 @@ from concurrent.futures import ThreadPoolExecutor
 from importlib.util import spec_from_file_location, module_from_spec
 
 BASE = Path(__file__).resolve().parent.parent
-POP = BASE / "RESULTS" / "v3_armA9_armBv2_POP.json"
+POP = BASE / "data" / "v3_armA9_armBv2_POP.json"
 
 _sw = spec_from_file_location("sw", str(BASE / "code" / "42-armAB-population-sweep.py"))
 sw = module_from_spec(_sw)

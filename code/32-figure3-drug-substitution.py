@@ -24,12 +24,12 @@ Headline: 470/973 (48.3%) of A2 regressions are drug-substitution; combined
 chunk/multi-drug structural confusion = 922/973 (94.8%).
 
 Inputs:
-  RESULTS/v3_raw_rescored_three_arm.json            (per-gene A2 means; 3-run locked)
-  RESULTS/v3_three_arm_a2_regression_classified.csv (worked example + drug-sub rate)
+  data/v3_raw_rescored_three_arm.json            (per-gene A2 means; 3-run locked)
+  data/v3_three_arm_a2_regression_classified.csv (worked example + drug-sub rate)
 
 Outputs (PNG 300 DPI + TIFF 600 DPI LZW):
-  FIGURES/Figure3_drug_substitution.png
-  FIGURES/Figure3_drug_substitution.tiff
+  figures/Figure3_drug_substitution.png
+  figures/Figure3_drug_substitution.tiff
 
 Usage:
   python3 32-figure3-drug-substitution.py             # render
@@ -52,9 +52,9 @@ import numpy as np
 
 
 BASE = Path(__file__).resolve().parent.parent
-MAIN = BASE / "RESULTS" / "v3_raw_rescored_three_arm.json"
-REGRESSIONS = BASE / "RESULTS" / "v3_three_arm_a2_regression_classified.csv"
-FIGDIR = BASE / "FIGURES"
+MAIN = BASE / "data" / "v3_raw_rescored_three_arm.json"
+REGRESSIONS = BASE / "data" / "v3_three_arm_a2_regression_classified.csv"
+FIGDIR = BASE / "figures"
 
 CONDITIONS = ["no_spec", "cpic_rag", "with_spec"]
 CONDITION_LABELS = {

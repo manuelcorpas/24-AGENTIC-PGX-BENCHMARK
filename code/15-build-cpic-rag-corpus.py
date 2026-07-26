@@ -25,7 +25,7 @@ Outputs:
   ../specs/cpic_rag_cache/_pharmgkb_bundle/<timestamp>/  (raw fetch)
   ../specs/cpic_rag_cache/<gene_safe>/sources.json
   ../specs/cpic_rag_cache/<gene_safe>/extracted/<paid>.txt
-  ../LOGS/v3_rag_corpus_<UTC-timestamp>.log
+  ../logs/v3_rag_corpus_<UTC-timestamp>.log
 
 Usage:
   python3 15-build-cpic-rag-corpus.py             # build all 21 genes
@@ -54,7 +54,7 @@ CASES_FILE = SPECS_DIR / "test_cases_v3.json"
 CACHE_DIR = SPECS_DIR / "cpic_rag_cache"
 BUNDLE_PARENT = CACHE_DIR / "_pharmgkb_bundle"
 CORPUS_OUT = SPECS_DIR / "cpic_rag_corpus_v3.json"
-LOGS_DIR = BASE / "LOGS"
+LOGS_DIR = BASE / "logs"
 LOGS_DIR.mkdir(exist_ok=True)
 CACHE_DIR.mkdir(exist_ok=True)
 BUNDLE_PARENT.mkdir(exist_ok=True)

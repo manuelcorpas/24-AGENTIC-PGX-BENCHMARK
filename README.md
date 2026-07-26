@@ -76,7 +76,7 @@ Datasets are archived on Zenodo (not stored in git; see `data/README.md`):
 python -m venv venv && source venv/bin/activate
 pip install -r requirements.txt
 cp .env.example .env   # add your own API keys
-# download the Zenodo datasets into data/ (or RESULTS/ as referenced in script headers), then:
+# download the Zenodo datasets into data/, then:
 python code/44-aggregate-five-conditions.py   # build the five-condition dataset
 python code/57-numbers-engine.py              # regenerate headline numbers + cluster-bootstrap CIs
 python code/56-validate-manuscript-numbers.py # verify every manuscript number

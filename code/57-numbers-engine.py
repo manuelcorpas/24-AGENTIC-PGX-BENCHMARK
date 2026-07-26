@@ -23,7 +23,7 @@ from collections import defaultdict
 import numpy as np
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-RES = os.path.join(HERE, "..", "RESULTS")
+RES = os.path.join(HERE, "..", "data")
 SEED = 20260611
 random.seed(SEED); np.random.seed(SEED)
 B = 10000

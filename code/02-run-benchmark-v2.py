@@ -231,19 +231,19 @@ for run in range(N_RUNS):
                         print(f"  [{count}/{total}] {mname} | {tc['id']} | {pop['id']} | {cond} | run {run}")
                         # Save checkpoint + partial results
                         for cp_path in ["/tmp/clawbio-benchmark/results/v2_checkpoint.json",
-                                        os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "RESULTS", "v2_checkpoint.json")]:
+                                        os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "data", "v2_checkpoint.json")]:
                             os.makedirs(os.path.dirname(cp_path), exist_ok=True)
                             with open(cp_path, "w") as f:
                                 json.dump({"count":count,"total":total,"completed":count}, f)
                     if count % 200 == 0:
                         # Save partial results every 200 calls
-                        partial_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "RESULTS", "v2_partial.json")
+                        partial_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "data", "v2_partial.json")
                         with open(partial_path, "w") as f:
                             json.dump(results, f)
 
 # Save full results to both locations
 for path in ["/tmp/clawbio-benchmark/results/v2_raw.json",
-             os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "RESULTS", "v2_raw.json")]:
+             os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "data", "v2_raw.json")]:
     os.makedirs(os.path.dirname(path), exist_ok=True)
     with open(path, "w") as f:
         json.dump(results, f, indent=2)

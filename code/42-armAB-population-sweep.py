@@ -14,7 +14,7 @@ Design:
   - Clean 8 models (Mistral Large 2 excluded; handled by its own paced rerun).
   - 1 rep per cell (the EUR main run already established reproducibility; this sweep
     measures accuracy invariance across populations, a point estimate per population).
-  - Writes RESULTS/v3_armA9_armBv2_POP.json + _POP_report.txt. Does NOT touch the
+  - Writes data/v3_armA9_armBv2_POP.json + _POP_report.txt. Does NOT touch the
     existing EUR run file.
 
 Call count: 110 cases x 2 arms x 8 models x 3 pops x 1 rep = 5,280 calls.
@@ -32,8 +32,8 @@ from importlib.util import spec_from_file_location, module_from_spec
 from concurrent.futures import ThreadPoolExecutor
 
 BASE = Path(__file__).resolve().parent.parent
-OUT = BASE / "RESULTS" / "v3_armA9_armBv2_POP.json"
-REPORT = BASE / "RESULTS" / "v3_armA9_armBv2_POP_report.txt"
+OUT = BASE / "data" / "v3_armA9_armBv2_POP.json"
+REPORT = BASE / "data" / "v3_armA9_armBv2_POP_report.txt"
 
 # reuse the validated harness (run_one, prompts, skill rules, model adapters)
 _sp = spec_from_file_location("h41", str(BASE / "code" / "41-armA9-armBv2.py"))

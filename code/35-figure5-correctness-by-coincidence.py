@@ -27,14 +27,14 @@ Within the A3 = 1 subset (the handoff's "correctness-by-coincidence" metric):
   with_spec    0/1134 =  0.0%
 
 Inputs:
-  RESULTS/v3_raw_rescored_three_arm.json
-  RESULTS/v3_three_arm_analysis_summary.json (cross-check)
-  RESULTS/v3_three_arm_lethal_a3_errors.csv  (cross-check)
+  data/v3_raw_rescored_three_arm.json
+  data/v3_three_arm_analysis_summary.json (cross-check)
+  data/v3_three_arm_lethal_a3_errors.csv  (cross-check)
   specs/test_cases_v3.json                   (lethal flag per case)
 
 Outputs (PNG 300 DPI + TIFF 600 DPI LZW):
-  FIGURES/Figure5_correctness_by_coincidence.png
-  FIGURES/Figure5_correctness_by_coincidence.tiff
+  figures/Figure5_correctness_by_coincidence.png
+  figures/Figure5_correctness_by_coincidence.tiff
 
 Usage:
   python3 35-figure5-correctness-by-coincidence.py             # render
@@ -57,11 +57,11 @@ import numpy as np
 
 
 BASE = Path(__file__).resolve().parent.parent
-MAIN = BASE / "RESULTS" / "v3_raw_rescored_three_arm.json"
-SUMMARY = BASE / "RESULTS" / "v3_three_arm_analysis_summary.json"
-LETHAL_CSV = BASE / "RESULTS" / "v3_three_arm_lethal_a3_errors.csv"
+MAIN = BASE / "data" / "v3_raw_rescored_three_arm.json"
+SUMMARY = BASE / "data" / "v3_three_arm_analysis_summary.json"
+LETHAL_CSV = BASE / "data" / "v3_three_arm_lethal_a3_errors.csv"
 CASES_FILE = BASE / "specs" / "test_cases_v3.json"
-FIGDIR = BASE / "FIGURES"
+FIGDIR = BASE / "figures"
 
 CONDITIONS = ["no_spec", "cpic_rag", "with_spec"]
 CONDITION_LABELS = {

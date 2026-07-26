@@ -30,8 +30,8 @@ import openai, anthropic
 
 BASE = Path(__file__).resolve().parent.parent
 CASES = BASE / "specs" / "test_cases_v3.json"
-OUT = BASE / "RESULTS" / "v3_skill_reasoning_vs_execution.json"
-REPORT = BASE / "RESULTS" / "v3_skill_reasoning_vs_execution_report.txt"
+OUT = BASE / "data" / "v3_skill_reasoning_vs_execution.json"
+REPORT = BASE / "data" / "v3_skill_reasoning_vs_execution_report.txt"
 ENV = BASE / ".env"   # repo-relative; environment variables take precedence (see .env.example)
 N_REPS = 2
 

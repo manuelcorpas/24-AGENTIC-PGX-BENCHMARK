@@ -18,12 +18,12 @@ The two-panel layout is the load-bearing visual argument: identical models,
 identical prompts, the specification flips and the outputs flip with it.
 
 Inputs:
-  RESULTS/v3_adversarial_scrambled.json     (45 scrambled-spec calls; 5 cases x 3 models x 3 runs)
-  RESULTS/v3_raw_rescored_three_arm.json    (intact-spec baseline from main with_spec arm)
+  data/v3_adversarial_scrambled.json     (45 scrambled-spec calls; 5 cases x 3 models x 3 runs)
+  data/v3_raw_rescored_three_arm.json    (intact-spec baseline from main with_spec arm)
 
 Outputs (PNG 300 DPI + TIFF 600 DPI LZW):
-  FIGURES/Figure2_adversarial_spec.png
-  FIGURES/Figure2_adversarial_spec.tiff
+  figures/Figure2_adversarial_spec.png
+  figures/Figure2_adversarial_spec.tiff
 
 Usage:
   python3 31-figure2-adversarial-spec.py             # render figure
@@ -45,9 +45,9 @@ import numpy as np
 
 
 BASE = Path(__file__).resolve().parent.parent
-ADV = BASE / "RESULTS" / "v3_adversarial_scrambled.json"
-MAIN = BASE / "RESULTS" / "v3_raw_rescored_three_arm.json"
-FIGDIR = BASE / "FIGURES"
+ADV = BASE / "data" / "v3_adversarial_scrambled.json"
+MAIN = BASE / "data" / "v3_raw_rescored_three_arm.json"
+FIGDIR = BASE / "figures"
 
 CASES = [
     ("dpyd_fu_pm", "DPYD / fluorouracil PM\nPM -> NM, AVOID -> standard"),

@@ -5,10 +5,10 @@ with phenotype-tier normalization, hedge detection, and A2 patterns covering all
 v3 gt_drug categories (avoid, reduce, standard, alternative, algorithm, increase,
 limit).
 
-Reads:  ../RESULTS/v3_raw.json
-Writes: ../RESULTS/v3_raw_rescored.json
-        ../RESULTS/v3_rescore_report.txt
-        ../RESULTS/v3_rescore_diff.json (per-row old vs new A1/A2)
+Reads:  ../data/v3_raw.json
+Writes: ../data/v3_raw_rescored.json
+        ../data/v3_rescore_report.txt
+        ../data/v3_rescore_diff.json (per-row old vs new A1/A2)
 
 This module is also imported by 09-validate-v3.py via direct execution; the
 phenotype normalization + tier extraction functions here are the single source
@@ -21,11 +21,11 @@ from pathlib import Path
 from collections import Counter, defaultdict
 
 BASE = Path(__file__).resolve().parent.parent
-RAW = BASE / "RESULTS" / "v3_raw.json"
+RAW = BASE / "data" / "v3_raw.json"
 CASES = BASE / "specs" / "test_cases_v3.json"
-OUT = BASE / "RESULTS" / "v3_raw_rescored.json"
-REPORT = BASE / "RESULTS" / "v3_rescore_report.txt"
-DIFF = BASE / "RESULTS" / "v3_rescore_diff.json"
+OUT = BASE / "data" / "v3_raw_rescored.json"
+REPORT = BASE / "data" / "v3_rescore_report.txt"
+DIFF = BASE / "data" / "v3_rescore_diff.json"
 
 
 # =============================================================================

@@ -5,12 +5,12 @@ the rescored v3 raw data. Single source of truth for numbers in abstract,
 key points, results, and tables.
 
 Reads:
-  ../RESULTS/v3_raw_rescored.json  (output of 10-rescore-v3.py)
+  ../data/v3_raw_rescored.json  (output of 10-rescore-v3.py)
   ../specs/test_cases_v3.json
 
 Writes:
-  ../RESULTS/v3_paper_stats.txt    (human-readable)
-  ../RESULTS/v3_paper_stats.json   (machine-readable, keyed by claim ID)
+  ../data/v3_paper_stats.txt    (human-readable)
+  ../data/v3_paper_stats.json   (machine-readable, keyed by claim ID)
 
 Claim IDs are referenced from the manuscript so reviewers can map any number
 back to its computation.
@@ -21,10 +21,10 @@ from collections import defaultdict
 from pathlib import Path
 
 BASE = Path(__file__).resolve().parent.parent
-RAW = BASE / "RESULTS" / "v3_raw_rescored.json"
+RAW = BASE / "data" / "v3_raw_rescored.json"
 CASES = BASE / "specs" / "test_cases_v3.json"
-OUT_TXT = BASE / "RESULTS" / "v3_paper_stats.txt"
-OUT_JSON = BASE / "RESULTS" / "v3_paper_stats.json"
+OUT_TXT = BASE / "data" / "v3_paper_stats.txt"
+OUT_JSON = BASE / "data" / "v3_paper_stats.json"
 
 
 def parsed_only(rows):
@@ -183,7 +183,7 @@ def main():
             claims[f"tier_b.{cond_label}.{dim}.mean"] = round(mean, 3)
 
     # -------- COST + RUNTIME (from cost log) --------
-    cost_path = BASE / "RESULTS" / "v3_cost_log.json"
+    cost_path = BASE / "data" / "v3_cost_log.json"
     if cost_path.exists():
         cost_log = json.loads(cost_path.read_text())
         total_cost = sum(v["cost"] for v in cost_log.values())

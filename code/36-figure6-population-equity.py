@@ -20,13 +20,13 @@ Two-panel design:
             EUR > AMR > AFR pattern); with_spec is a delta of 0 on every gene.
 
 Inputs:
-  RESULTS/v3_raw_rescored_three_arm.json
-  RESULTS/v3_three_arm_analysis_summary.json (cross-check section_1 aggregate)
+  data/v3_raw_rescored_three_arm.json
+  data/v3_three_arm_analysis_summary.json (cross-check section_1 aggregate)
   specs/test_cases_v3.json
 
 Outputs (PNG 300 DPI + TIFF 600 DPI LZW):
-  FIGURES/Figure6_population_equity.png
-  FIGURES/Figure6_population_equity.tiff
+  figures/Figure6_population_equity.png
+  figures/Figure6_population_equity.tiff
 
 Usage:
   python3 36-figure6-population-equity.py             # render
@@ -48,9 +48,9 @@ import numpy as np
 
 
 BASE = Path(__file__).resolve().parent.parent
-MAIN = BASE / "RESULTS" / "v3_raw_rescored_three_arm.json"
-SUMMARY = BASE / "RESULTS" / "v3_three_arm_analysis_summary.json"
-FIGDIR = BASE / "FIGURES"
+MAIN = BASE / "data" / "v3_raw_rescored_three_arm.json"
+SUMMARY = BASE / "data" / "v3_three_arm_analysis_summary.json"
+FIGDIR = BASE / "figures"
 
 CONDITIONS = ["no_spec", "cpic_rag", "with_spec"]
 CONDITION_LABELS = {

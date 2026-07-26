@@ -22,8 +22,8 @@ warnings.filterwarnings('ignore')
 # ===== PATHS (self-relative) =====
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 BENCHMARK_DIR = os.path.dirname(SCRIPT_DIR)
-RESULTS_DIR = os.path.join(BENCHMARK_DIR, 'RESULTS')
-FIGURES_DIR = os.path.join(BENCHMARK_DIR, 'FIGURES')
+RESULTS_DIR = os.path.join(BENCHMARK_DIR, 'data')
+FIGURES_DIR = os.path.join(BENCHMARK_DIR, 'figures')
 
 # ===== STYLE =====
 plt.style.use('default')

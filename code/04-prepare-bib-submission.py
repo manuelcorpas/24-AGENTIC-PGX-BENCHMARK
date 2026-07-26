@@ -18,8 +18,8 @@ Changes:
 References, formatting and word count are NOT touched in this pass; address those
 once BiB confirms scope/handling.
 
-Reads:  ../DOCS/PLOS-CompBiol-Manuscript-v2.docx
-Writes: ../DOCS/BiB-Manuscript-v1.docx
+Reads:  ../docs/PLOS-CompBiol-Manuscript-v2.docx
+Writes: ../docs/BiB-Manuscript-v1.docx
 """
 from pathlib import Path
 from docx import Document
@@ -27,8 +27,8 @@ from docx.text.paragraph import Paragraph
 from docx.oxml.ns import qn
 
 BASE = Path(__file__).resolve().parent.parent
-SRC = BASE / "DOCS" / "PLOS-CompBiol-Manuscript-v2.docx"
-DST = BASE / "DOCS" / "BiB-Manuscript-v1.docx"
+SRC = BASE / "docs" / "PLOS-CompBiol-Manuscript-v2.docx"
+DST = BASE / "docs" / "BiB-Manuscript-v1.docx"
 
 NEW_BYLINE = (
     "Manuel Corpas1,2,*, Alfredo Iacoangeli3,4,5,6, "

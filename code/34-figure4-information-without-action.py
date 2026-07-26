@@ -17,13 +17,13 @@ the alignment line:
   - above the diagonal           = action without information (low A1, high A3)
 
 Inputs:
-  RESULTS/v3_raw_rescored_three_arm.json    (per-gene lethal-class means)
-  RESULTS/v3_three_arm_lethal_a3_errors.csv (sanity-check counts)
+  data/v3_raw_rescored_three_arm.json    (per-gene lethal-class means)
+  data/v3_three_arm_lethal_a3_errors.csv (sanity-check counts)
   specs/test_cases_v3.json                  (lethal-flag per case)
 
 Outputs (PNG 300 DPI + TIFF 600 DPI LZW):
-  FIGURES/Figure4_information_without_action.png
-  FIGURES/Figure4_information_without_action.tiff
+  figures/Figure4_information_without_action.png
+  figures/Figure4_information_without_action.tiff
 
 Usage:
   python3 34-figure4-information-without-action.py             # render
@@ -46,10 +46,10 @@ import numpy as np
 
 
 BASE = Path(__file__).resolve().parent.parent
-MAIN = BASE / "RESULTS" / "v3_raw_rescored_three_arm.json"
-LETHAL_CSV = BASE / "RESULTS" / "v3_three_arm_lethal_a3_errors.csv"
+MAIN = BASE / "data" / "v3_raw_rescored_three_arm.json"
+LETHAL_CSV = BASE / "data" / "v3_three_arm_lethal_a3_errors.csv"
 CASES_FILE = BASE / "specs" / "test_cases_v3.json"
-FIGDIR = BASE / "FIGURES"
+FIGDIR = BASE / "figures"
 
 CONDITIONS = ["no_spec", "cpic_rag", "with_spec"]
 CONDITION_LABELS = {

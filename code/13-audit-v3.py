@@ -17,7 +17,7 @@ Sections:
   A11 Cross-model agreement on hard cases (independent corroboration)
   A12 Spec-content audit — does spec contain population keyword for B1?
 
-Output: ../RESULTS/v3_audit_report.txt
+Output: ../data/v3_audit_report.txt
 """
 from __future__ import annotations
 import json
@@ -28,9 +28,9 @@ from pathlib import Path
 
 BASE = Path(__file__).resolve().parent.parent
 PYDIR = BASE / "code"
-RAW = BASE / "RESULTS" / "v3_raw_rescored.json"
+RAW = BASE / "data" / "v3_raw_rescored.json"
 CASES = BASE / "specs" / "test_cases_v3.json"
-REPORT = BASE / "RESULTS" / "v3_audit_report.txt"
+REPORT = BASE / "data" / "v3_audit_report.txt"
 
 # Import scorer
 _spec = spec_from_file_location("rescore", PYDIR / "10-rescore-v3.py")

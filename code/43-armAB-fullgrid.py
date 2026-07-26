@@ -32,9 +32,9 @@ from importlib.util import spec_from_file_location, module_from_spec
 from concurrent.futures import ThreadPoolExecutor
 
 BASE = Path(__file__).resolve().parent.parent
-OUT = BASE / "RESULTS" / "v3_armAB_fullgrid.json"
-JSONL = BASE / "RESULTS" / "v3_armAB_fullgrid.jsonl"
-REPORT = BASE / "RESULTS" / "v3_armAB_fullgrid_report.txt"
+OUT = BASE / "data" / "v3_armAB_fullgrid.json"
+JSONL = BASE / "data" / "v3_armAB_fullgrid.jsonl"
+REPORT = BASE / "data" / "v3_armAB_fullgrid_report.txt"
 N_REPS = 3
 
 # reuse the validated 41 harness (MODELS, cases, DIP2PHEN, REC, rules_dip,

@@ -23,12 +23,12 @@ from collections import defaultdict
 from importlib.util import spec_from_file_location, module_from_spec
 
 BASE = Path(__file__).resolve().parent.parent
-THREE = BASE / "RESULTS" / "v3_raw_rescored_three_arm.json"
-SKILL = BASE / "RESULTS" / "v3_armAB_fullgrid.json"
-SKILL_JSONL = BASE / "RESULTS" / "v3_armAB_fullgrid.jsonl"
+THREE = BASE / "data" / "v3_raw_rescored_three_arm.json"
+SKILL = BASE / "data" / "v3_armAB_fullgrid.json"
+SKILL_JSONL = BASE / "data" / "v3_armAB_fullgrid.jsonl"
 CASES = BASE / "specs" / "test_cases_v3.json"
-OUT_REPORT = BASE / "RESULTS" / "v3_five_condition_matched_report.txt"
-OUT_JSON = BASE / "RESULTS" / "v3_five_condition_matched.json"
+OUT_REPORT = BASE / "data" / "v3_five_condition_matched_report.txt"
+OUT_JSON = BASE / "data" / "v3_five_condition_matched.json"
 
 MISTRAL = "Mistral Large 2"
 

@@ -5,9 +5,9 @@ Recompute every quantitative claim in the BiB manuscript body from v2_raw.json.
 Each metric is computed under a documented filter, compared to the claimed
 manuscript value, and reported as PASS / MISMATCH.
 
-Reads:  ../RESULTS/v2_raw.json
-Writes: ../RESULTS/paper_stats.txt   (human-readable report)
-        ../RESULTS/paper_stats.json  (machine-readable values)
+Reads:  ../data/v2_raw.json
+Writes: ../data/paper_stats.txt   (human-readable report)
+        ../data/paper_stats.json  (machine-readable values)
 
 Run from anywhere:  python3 05-compute-paper-stats.py
 """
@@ -20,9 +20,9 @@ from pathlib import Path
 from typing import Any, Callable
 
 BASE = Path(__file__).resolve().parent.parent
-RAW = BASE / "RESULTS" / "v2_raw.json"
-OUT_TXT = BASE / "RESULTS" / "paper_stats.txt"
-OUT_JSON = BASE / "RESULTS" / "paper_stats.json"
+RAW = BASE / "data" / "v2_raw.json"
+OUT_TXT = BASE / "data" / "paper_stats.txt"
+OUT_JSON = BASE / "data" / "paper_stats.json"
 
 # ----------------------------------------------------------------------------
 # Filter primitives

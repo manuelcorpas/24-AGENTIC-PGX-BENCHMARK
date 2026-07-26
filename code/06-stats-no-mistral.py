@@ -16,9 +16,9 @@ from pathlib import Path
 from typing import Any, Callable
 
 BASE = Path(__file__).resolve().parent.parent
-RAW = BASE / "RESULTS" / "v2_raw.json"
-OUT_TXT = BASE / "RESULTS" / "paper_stats_no_mistral.txt"
-OUT_JSON = BASE / "RESULTS" / "paper_stats_no_mistral.json"
+RAW = BASE / "data" / "v2_raw.json"
+OUT_TXT = BASE / "data" / "paper_stats_no_mistral.txt"
+OUT_JSON = BASE / "data" / "paper_stats_no_mistral.json"
 
 EXCLUDE_MODELS = {"Mistral Large 2"}
 

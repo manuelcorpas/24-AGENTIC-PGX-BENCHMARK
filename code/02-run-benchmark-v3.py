@@ -12,10 +12,10 @@ because their per-call latency is higher anyway.
 Live cost tracker aborts the run if projected total exceeds BUDGET_HARD_CAP.
 
 Outputs:
-  ../RESULTS/v3_raw.json        — final result list
-  ../RESULTS/v3_partial.json    — saved every 200 calls
-  ../RESULTS/v3_checkpoint.json — counter, last (run, model, tc, pop, cond) processed
-  ../RESULTS/v3_cost_log.json   — per-model token + cost tally
+  ../data/v3_raw.json        — final result list
+  ../data/v3_partial.json    — saved every 200 calls
+  ../data/v3_checkpoint.json — counter, last (run, model, tc, pop, cond) processed
+  ../data/v3_cost_log.json   — per-model token + cost tally
 """
 from __future__ import annotations
 
@@ -37,7 +37,7 @@ import requests
 
 BASE = Path(__file__).resolve().parent.parent
 SPECS_FILE = BASE / "specs" / "test_cases_v3.json"
-RESULTS = BASE / "RESULTS"
+RESULTS = BASE / "data"
 RESULTS.mkdir(exist_ok=True)
 
 def _output_paths(suffix: str = ""):

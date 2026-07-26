@@ -25,12 +25,12 @@ Direction extraction (gt_drug and cpic_rag DRUG) uses the same regex family as
 the rigorous rescorer in 10-rescore-v3.py: AVOID, ALT, REDUCE, STANDARD, UNCLEAR.
 
 Inputs:
-  RESULTS/v3_raw_rescored_three_arm.json   (merged 3-run dataset)
+  data/v3_raw_rescored_three_arm.json   (merged 3-run dataset)
   specs/test_cases_v3.json                 (queried_drug and gt_drug per tc)
 
 Outputs:
-  RESULTS/v3_three_arm_a2_regression_classified.csv  (overwrites existing)
-  RESULTS/v3_three_arm_a2_regression_summary.txt     (human-readable counts)
+  data/v3_three_arm_a2_regression_classified.csv  (overwrites existing)
+  data/v3_three_arm_a2_regression_summary.txt     (human-readable counts)
 
 The previous CSV (2-run-snapshot snapshot) should be archived before this
 script overwrites it. The script will refuse to overwrite if PRESERVE_OLD=1
@@ -55,10 +55,10 @@ from pathlib import Path
 
 
 BASE = Path(__file__).resolve().parent.parent
-MERGED = BASE / "RESULTS" / "v3_raw_rescored_three_arm.json"
+MERGED = BASE / "data" / "v3_raw_rescored_three_arm.json"
 CASES_FILE = BASE / "specs" / "test_cases_v3.json"
-OUT_CSV = BASE / "RESULTS" / "v3_three_arm_a2_regression_classified.csv"
-OUT_SUMMARY = BASE / "RESULTS" / "v3_three_arm_a2_regression_summary.txt"
+OUT_CSV = BASE / "data" / "v3_three_arm_a2_regression_classified.csv"
+OUT_SUMMARY = BASE / "data" / "v3_three_arm_a2_regression_summary.txt"
 
 CSV_COLUMNS = [
     "category", "model", "tc", "pop",

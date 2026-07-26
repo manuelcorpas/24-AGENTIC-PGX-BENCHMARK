@@ -6,7 +6,7 @@ Study-design schematic (new Figure 1). Three panels:
      (110 cases x 9 models x 3 ancestry framings x 3 replicates; headline ex-Mistral).
   C. The two arms: curated analytical benchmark + real-genome validation across 3 cohorts.
 
-Output: FIGURES/Figure1_study_design.png (300 dpi) + .tiff (600 dpi).
+Output: figures/Figure1_study_design.png (300 dpi) + .tiff (600 dpi).
 """
 from pathlib import Path
 import matplotlib
@@ -15,8 +15,8 @@ import matplotlib.pyplot as plt
 from matplotlib.patches import FancyBboxPatch, FancyArrowPatch
 
 BASE = Path(__file__).resolve().parent.parent
-PNG = BASE / "FIGURES" / "Figure1_study_design.png"
-TIFF = BASE / "FIGURES" / "Figure1_study_design.tiff"
+PNG = BASE / "figures" / "Figure1_study_design.png"
+TIFF = BASE / "figures" / "Figure1_study_design.tiff"
 
 plt.rcParams.update({
     "font.family": ["Arial", "Helvetica", "DejaVu Sans"],

@@ -11,13 +11,13 @@ moves accuracy from 80.6% to 100% on A1, and (paradoxically) increases lethal-cl
 A3 errors from 270 to 414 under RAG before collapsing to 0 under spec.
 
 Inputs:
-  RESULTS/v3_three_arm_analysis_summary.json  (machine-readable summary; primary)
-  RESULTS/v3_three_arm_per_case_a1.csv        (used for self-test cross-check)
-  RESULTS/v3_three_arm_lethal_a3_errors.csv   (per-gene, used by Figure 1 supplement)
+  data/v3_three_arm_analysis_summary.json  (machine-readable summary; primary)
+  data/v3_three_arm_per_case_a1.csv        (used for self-test cross-check)
+  data/v3_three_arm_lethal_a3_errors.csv   (per-gene, used by Figure 1 supplement)
 
 Outputs (PNG 300 DPI + TIFF 600 DPI LZW, Cell Press requirements):
-  FIGURES/Figure1_three_arm_aggregate.png
-  FIGURES/Figure1_three_arm_aggregate.tiff
+  figures/Figure1_three_arm_aggregate.png
+  figures/Figure1_three_arm_aggregate.tiff
 
 Usage:
   python3 30-figure1-three-arm-aggregate.py             # render figure
@@ -38,10 +38,10 @@ import numpy as np
 
 
 BASE = Path(__file__).resolve().parent.parent
-SUMMARY = BASE / "RESULTS" / "v3_three_arm_analysis_summary.json"
-PER_CASE_A1 = BASE / "RESULTS" / "v3_three_arm_per_case_a1.csv"
-LETHAL_BY_GENE = BASE / "RESULTS" / "v3_three_arm_lethal_a3_errors.csv"
-FIGDIR = BASE / "FIGURES"
+SUMMARY = BASE / "data" / "v3_three_arm_analysis_summary.json"
+PER_CASE_A1 = BASE / "data" / "v3_three_arm_per_case_a1.csv"
+LETHAL_BY_GENE = BASE / "data" / "v3_three_arm_lethal_a3_errors.csv"
+FIGDIR = BASE / "figures"
 
 CONDITIONS = ["no_spec", "cpic_rag", "with_spec"]
 CONDITION_LABELS = {

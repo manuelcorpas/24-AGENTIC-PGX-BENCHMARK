@@ -19,11 +19,11 @@ Sections:
   R10 with_spec ceiling — A1=100%, A2=100%, A3=100%
 
 Reads:
-  ../RESULTS/v3_raw_rescored.json
+  ../data/v3_raw_rescored.json
   ../specs/test_cases_v3.json
 
 Writes:
-  ../RESULTS/v3_validation_report.txt
+  ../data/v3_validation_report.txt
 """
 from __future__ import annotations
 import json
@@ -35,9 +35,9 @@ from pathlib import Path
 
 BASE = Path(__file__).resolve().parent.parent
 PYDIR = BASE / "code"
-RAW = BASE / "RESULTS" / "v3_raw_rescored.json"
+RAW = BASE / "data" / "v3_raw_rescored.json"
 CASES_FILE = BASE / "specs" / "test_cases_v3.json"
-REPORT = BASE / "RESULTS" / "v3_validation_report.txt"
+REPORT = BASE / "data" / "v3_validation_report.txt"
 
 # Import scorer module from sibling file
 _spec = spec_from_file_location("rescore", PYDIR / "10-rescore-v3.py")

@@ -3,13 +3,13 @@
 Diff between rigorous 10- rescorer and clinical-equivalence 10b- rescorer.
 
 Reads:
-  ../RESULTS/v3_raw_rescored.json              (rigorous 10- baseline)
-  ../RESULTS/v3_raw_rescored_clinical_eq.json  (10b- with HLA-B*57:01 equiv.)
+  ../data/v3_raw_rescored.json              (rigorous 10- baseline)
+  ../data/v3_raw_rescored_clinical_eq.json  (10b- with HLA-B*57:01 equiv.)
   ../specs/test_cases_v3.json                  (for lethal flag)
 
 Writes:
-  ../RESULTS/v3_rescore_clinical_eq_diff.json  (machine-readable summary)
-  ../RESULTS/v3_rescore_clinical_eq_diff.txt   (human-readable table)
+  ../data/v3_rescore_clinical_eq_diff.json  (machine-readable summary)
+  ../data/v3_rescore_clinical_eq_diff.txt   (human-readable table)
 
 Diff table sections (per agreed spec):
   1. Aggregate per-condition A1 mean before/after (no_spec / with_spec)
@@ -29,11 +29,11 @@ from collections import defaultdict
 from pathlib import Path
 
 BASE = Path(__file__).resolve().parent.parent
-BASELINE = BASE / "RESULTS" / "v3_raw_rescored.json"
-CLIN_EQ = BASE / "RESULTS" / "v3_raw_rescored_clinical_eq.json"
+BASELINE = BASE / "data" / "v3_raw_rescored.json"
+CLIN_EQ = BASE / "data" / "v3_raw_rescored_clinical_eq.json"
 CASES_FILE = BASE / "specs" / "test_cases_v3.json"
-OUT_JSON = BASE / "RESULTS" / "v3_rescore_clinical_eq_diff.json"
-OUT_TXT = BASE / "RESULTS" / "v3_rescore_clinical_eq_diff.txt"
+OUT_JSON = BASE / "data" / "v3_rescore_clinical_eq_diff.json"
+OUT_TXT = BASE / "data" / "v3_rescore_clinical_eq_diff.txt"
 
 
 def is_lethal(tc: dict) -> bool:

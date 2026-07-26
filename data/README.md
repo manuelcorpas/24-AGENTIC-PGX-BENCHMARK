@@ -1,8 +1,8 @@
 # Data
 
 The benchmark datasets are archived on Zenodo (not stored in git; excluded via `.gitignore`).
-Download and unpack them into this `data/` directory (or into `../RESULTS/` where a script
-header references that path) to reproduce the analyses and figures.
+Download and unpack them into this `data/` directory to reproduce the analyses and figures.
+Every script reads and writes here; no renaming or relocation step is required.
 
 ## Core three conditions + adversarial (DOI 10.5281/zenodo.21526742)
 

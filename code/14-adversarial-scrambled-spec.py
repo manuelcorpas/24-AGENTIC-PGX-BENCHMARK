@@ -34,8 +34,8 @@ import anthropic
 
 BASE = Path(__file__).resolve().parent.parent
 SPECS = BASE / "specs" / "test_cases_v3.json"
-OUT = BASE / "RESULTS" / "v3_adversarial_scrambled.json"
-REPORT = BASE / "RESULTS" / "v3_adversarial_report.txt"
+OUT = BASE / "data" / "v3_adversarial_scrambled.json"
+REPORT = BASE / "data" / "v3_adversarial_report.txt"
 
 ANT_KEY = os.environ.get("ANTHROPIC_API_KEY", "")
 OAI_KEY = os.environ.get("OPENAI_API_KEY", "")

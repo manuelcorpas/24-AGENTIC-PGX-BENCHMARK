@@ -24,8 +24,8 @@ import openai, anthropic
 
 BASE = Path(__file__).resolve().parent.parent
 SPECS = BASE / "specs" / "test_cases_v3.json"
-OUT = BASE / "RESULTS" / "v3_adversarial_reverse.json"
-REPORT = BASE / "RESULTS" / "v3_adversarial_reverse_report.txt"
+OUT = BASE / "data" / "v3_adversarial_reverse.json"
+REPORT = BASE / "data" / "v3_adversarial_reverse_report.txt"
 ENV = BASE / ".env"   # repo-relative; environment variables used if .env absent (see .env.example)
 
 # load keys from .env

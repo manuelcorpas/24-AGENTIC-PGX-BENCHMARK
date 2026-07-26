@@ -39,9 +39,9 @@ Safety property — by construction:
   matches AND its tier == target_tier. It never demotes. 1->0 transitions
   cannot occur. The original score is the floor.
 
-Reads:  ../RESULTS/v3_raw_rescored.json   (rigorous 10- baseline, locked)
-Writes: ../RESULTS/v3_raw_rescored_clinical_eq.json
-        ../RESULTS/v3_rescore_clinical_eq_report.txt
+Reads:  ../data/v3_raw_rescored.json   (rigorous 10- baseline, locked)
+Writes: ../data/v3_raw_rescored_clinical_eq.json
+        ../data/v3_rescore_clinical_eq_report.txt
 
 The baseline for comparison is the RIGOROUS 10- score in v3_raw_rescored.json,
 NOT the legacy v2 substring score in v3_raw.json. The clinical-equivalence
@@ -61,10 +61,10 @@ from pathlib import Path
 
 BASE = Path(__file__).resolve().parent.parent
 PYDIR = BASE / "code"
-BASELINE = BASE / "RESULTS" / "v3_raw_rescored.json"   # rigorous 10- output
+BASELINE = BASE / "data" / "v3_raw_rescored.json"   # rigorous 10- output
 CASES = BASE / "specs" / "test_cases_v3.json"
-OUT = BASE / "RESULTS" / "v3_raw_rescored_clinical_eq.json"
-REPORT = BASE / "RESULTS" / "v3_rescore_clinical_eq_report.txt"
+OUT = BASE / "data" / "v3_raw_rescored_clinical_eq.json"
+REPORT = BASE / "data" / "v3_rescore_clinical_eq_report.txt"
 
 # Import original rescorer (file name starts with digit, must use spec loader)
 _spec = spec_from_file_location("rescore_v3", PYDIR / "10-rescore-v3.py")

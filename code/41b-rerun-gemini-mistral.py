@@ -38,9 +38,9 @@ with ThreadPoolExecutor(max_workers=12) as ex:
         if done % 100 == 0: print(f"  [{done}/{len(tasks)}]", flush=True)
 
 # merge: drop old Gemini/Mistral rows, add fixed ones
-old = json.loads((BASE/"RESULTS"/"v3_armA9_armBv2.json").read_text())
+old = json.loads((BASE/"data"/"v3_armA9_armBv2.json").read_text())
 merged = [r for r in old if r["model"] not in RERUN] + new
-(BASE/"RESULTS"/"v3_armA9_armBv2.json").write_text(json.dumps(merged, indent=2))
+(BASE/"data"/"v3_armA9_armBv2.json").write_text(json.dumps(merged, indent=2))
 results = merged
 
 # recompute report
@@ -70,4 +70,4 @@ out.append("=== PER MODEL ===")
 out.append(f"{'model':18}{'A_A1':>8}{'A_repro':>9}{'B_A1':>8}{'B_repro':>9}{'A_leth':>8}{'B_leth':>8}")
 for mm in models:
     out.append(f"{mm:18}{mean('A_reasoning','A1',mm):7.1f}%{repro('A_reasoning',mm):8.1f}%{mean('B_execution','A1',mm):7.1f}%{repro('B_execution',mm):8.1f}%{lethal('A_reasoning',mm):8d}{lethal('B_execution',mm):8d}")
-txt="\n".join(out); (BASE/"RESULTS"/"v3_armA9_armBv2_report.txt").write_text(txt); print("\n"+txt)
+txt="\n".join(out); (BASE/"data"/"v3_armA9_armBv2_report.txt").write_text(txt); print("\n"+txt)

@@ -34,9 +34,9 @@ for i, t in enumerate(tasks, 1):
     new.append(m.run_one(t))
     if i % 50 == 0: print(f"  [{i}/{len(tasks)}]", flush=True)
 
-old = json.loads((BASE/"RESULTS"/"v3_armA9_armBv2.json").read_text())
+old = json.loads((BASE/"data"/"v3_armA9_armBv2.json").read_text())
 results = [r for r in old if r["model"] != M] + new
-(BASE/"RESULTS"/"v3_armA9_armBv2.json").write_text(json.dumps(results, indent=2))
+(BASE/"data"/"v3_armA9_armBv2.json").write_text(json.dumps(results, indent=2))
 
 models = list(m.MODELS.keys())
 def mean(arm, dim, model=None):
@@ -60,4 +60,4 @@ for mm in models:
 out.append("")
 out.append(f"AGGREGATE all 9:        Arm A A1={mean('A_reasoning','A1'):.1f}%  Arm B A1={mean('B_execution','A1'):.1f}%")
 out.append(f"AGGREGATE ex-Mistral:   Arm A A1={agg_ex_mistral('A_reasoning','A1'):.1f}%  Arm B A1={agg_ex_mistral('B_execution','A1'):.1f}%")
-txt="\n".join(out); (BASE/"RESULTS"/"v3_armA9_armBv2_report.txt").write_text(txt); print("\n"+txt)
+txt="\n".join(out); (BASE/"data"/"v3_armA9_armBv2_report.txt").write_text(txt); print("\n"+txt)

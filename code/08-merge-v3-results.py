@@ -6,12 +6,12 @@ Used when the v3 benchmark was run as two parallel processes (Mistral on a
 longer rate-limit interval and the other 8 models on tight spacing).
 
 Reads:
-  ../RESULTS/v3_raw_mistral.json
-  ../RESULTS/v3_raw_others.json
+  ../data/v3_raw_mistral.json
+  ../data/v3_raw_others.json
 Writes:
-  ../RESULTS/v3_raw.json          — combined list, sorted (run, model, tc, pop, cond)
-  ../RESULTS/v3_cost_log.json     — combined cost-by-model
-  ../RESULTS/v3_summary.txt       — quick QC report
+  ../data/v3_raw.json          — combined list, sorted (run, model, tc, pop, cond)
+  ../data/v3_cost_log.json     — combined cost-by-model
+  ../data/v3_summary.txt       — quick QC report
 """
 from __future__ import annotations
 import json
@@ -19,7 +19,7 @@ from pathlib import Path
 from collections import defaultdict
 
 BASE = Path(__file__).resolve().parent.parent
-R = BASE / "RESULTS"
+R = BASE / "data"
 
 MISTRAL = R / "v3_raw_mistral.json"
 OTHERS = R / "v3_raw_others.json"

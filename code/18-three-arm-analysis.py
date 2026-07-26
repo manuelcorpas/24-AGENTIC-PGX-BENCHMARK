@@ -4,15 +4,15 @@ Three-arm analysis: produces the headline numbers and audit candidates from
 the merged three-arm dataset.
 
 Reads:
-  ../RESULTS/v3_raw_rescored_three_arm.json  (output of 17-merge-rag-results.py)
+  ../data/v3_raw_rescored_three_arm.json  (output of 17-merge-rag-results.py)
   ../specs/test_cases_v3.json
 
 Writes:
-  ../RESULTS/v3_three_arm_analysis_report.txt
-  ../RESULTS/v3_three_arm_analysis_summary.json
-  ../RESULTS/v3_three_arm_per_case_a1.csv          (figure data)
-  ../RESULTS/v3_three_arm_lethal_a3_errors.csv     (safety story)
-  ../RESULTS/v3_three_arm_audit_candidates.csv     (per-gene cells where
+  ../data/v3_three_arm_analysis_report.txt
+  ../data/v3_three_arm_analysis_summary.json
+  ../data/v3_three_arm_per_case_a1.csv          (figure data)
+  ../data/v3_three_arm_lethal_a3_errors.csv     (safety story)
+  ../data/v3_three_arm_audit_candidates.csv     (per-gene cells where
                                                     cpic_rag < no_spec)
 
 Sections produced (matching the manuscript questions):
@@ -33,13 +33,13 @@ from collections import defaultdict
 from pathlib import Path
 
 BASE = Path(__file__).resolve().parent.parent
-MERGED = BASE / "RESULTS" / "v3_raw_rescored_three_arm.json"
+MERGED = BASE / "data" / "v3_raw_rescored_three_arm.json"
 CASES_FILE = BASE / "specs" / "test_cases_v3.json"
-OUT_TXT = BASE / "RESULTS" / "v3_three_arm_analysis_report.txt"
-OUT_JSON = BASE / "RESULTS" / "v3_three_arm_analysis_summary.json"
-OUT_PERCASE_CSV = BASE / "RESULTS" / "v3_three_arm_per_case_a1.csv"
-OUT_LETHAL_CSV = BASE / "RESULTS" / "v3_three_arm_lethal_a3_errors.csv"
-OUT_AUDIT_CSV = BASE / "RESULTS" / "v3_three_arm_audit_candidates.csv"
+OUT_TXT = BASE / "data" / "v3_three_arm_analysis_report.txt"
+OUT_JSON = BASE / "data" / "v3_three_arm_analysis_summary.json"
+OUT_PERCASE_CSV = BASE / "data" / "v3_three_arm_per_case_a1.csv"
+OUT_LETHAL_CSV = BASE / "data" / "v3_three_arm_lethal_a3_errors.csv"
+OUT_AUDIT_CSV = BASE / "data" / "v3_three_arm_audit_candidates.csv"
 
 CONDS = ("no_spec", "cpic_rag", "with_spec")
 

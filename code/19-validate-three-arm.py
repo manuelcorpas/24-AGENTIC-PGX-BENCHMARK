@@ -22,15 +22,15 @@ R10 semantics:
 Usage:
   python3 19-validate-three-arm.py [path-to-rescored-json]
 
-Default path: ../RESULTS/v3_raw_rescored_three_arm.json (post-merge)
-Pre-flight: pass ../RESULTS/v3_raw_rescored.json to verify the gate passes
+Default path: ../data/v3_raw_rescored_three_arm.json (post-merge)
+Pre-flight: pass ../data/v3_raw_rescored.json to verify the gate passes
             on the existing two-arm dataset (no cpic_rag rows present).
 
 Reads:
   <input json>
   ../specs/test_cases_v3.json
 Writes:
-  ../RESULTS/v3_three_arm_validation_report.txt
+  ../data/v3_three_arm_validation_report.txt
 """
 from __future__ import annotations
 import json
@@ -42,10 +42,10 @@ from pathlib import Path
 
 BASE = Path(__file__).resolve().parent.parent
 PYDIR = BASE / "code"
-DEFAULT_RAW = BASE / "RESULTS" / "v3_raw_rescored_three_arm.json"
-PREFLIGHT_RAW = BASE / "RESULTS" / "v3_raw_rescored.json"
+DEFAULT_RAW = BASE / "data" / "v3_raw_rescored_three_arm.json"
+PREFLIGHT_RAW = BASE / "data" / "v3_raw_rescored.json"
 CASES_FILE = BASE / "specs" / "test_cases_v3.json"
-REPORT = BASE / "RESULTS" / "v3_three_arm_validation_report.txt"
+REPORT = BASE / "data" / "v3_three_arm_validation_report.txt"
 
 _spec = spec_from_file_location("rescore", PYDIR / "10-rescore-v3.py")
 rescore = module_from_spec(_spec); _spec.loader.exec_module(rescore)
