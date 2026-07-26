@@ -164,3 +164,23 @@ The evaluator is built and covered by six tests, and refuses to run on an empty
 or malformed truth set rather than reporting a vacuous 100%. No truth set was
 improvised: fabricating one in a paper about trustworthy pipelines would be the
 worst possible failure.
+
+## Error localisation, measured on live data
+
+Treating the model as the caller and the benchmark ground truth as external
+truth, across both execution cells, eight models, three replicates
+(`real-genome-arm/scripts/08_caller_truth_eval.py`, 5,273 calls):
+
+    call concordance            0.9579   (222 errors)
+    end-to-end phenotype        0.965 (rag_execution), 0.967 (skill_execution)
+
+End-to-end accuracy tracks call accuracy to within a point, the residue being
+distinct diplotypes that map to the same phenotype. Under execution the pipeline
+has no independent failure mode: fix the caller and you fix the pipeline.
+
+Weakest genes for the model-as-caller, i.e. where a deterministic caller buys
+the most: TPMT 0.811, CYP2B6 0.875, CYP2C9 0.903, SLCO1B1 0.931, DPYD 0.935.
+
+This is the calling-step validation the plan promised, run against curated
+ground truth. GeT-RM remains required for validating the DETERMINISTIC caller
+(PyPGx) on real genomes, and that acquisition is still a manual step.
