@@ -210,3 +210,42 @@ def test_norm_dip_still_matches_the_original_runner():
         return [ln.rstrip() for ln in text.strip().splitlines() if ln.strip()]
 
     assert body(match.group(0)) == body(inspect.getsource(shared.norm_dip))
+
+
+# ---------------------------------------------------------------- spend cap
+
+def test_spend_cost_uses_published_prices(mf):
+    """1M in + 1M out on Opus 4 must be 15 + 75 dollars."""
+    assert round(mf.Spend.cost("Claude Opus 4", 1_000_000, 1_000_000), 2) == 90.00
+
+
+def test_spend_check_raises_once_the_cap_is_reached(mf):
+    s = mf.Spend(cap_usd=0.01)
+    s.check()                                   # under cap: fine
+    s.add("GPT-4.1", 1_000_000, 1_000_000)      # blow through it
+    with pytest.raises(mf.BudgetExceeded):
+        s.check()
+
+
+def test_no_cap_means_no_exception(mf):
+    s = mf.Spend(cap_usd=None)
+    s.add("Claude Opus 4", 10_000_000, 10_000_000)
+    s.check()
+
+
+def test_run_one_checks_the_cap_before_calling_the_model(mf):
+    """The cap must stop a call happening, not merely record that it did."""
+    calls = []
+    s = mf.Spend(cap_usd=0.0)
+    case = next(c for c in mf.CASES if c["id"] == "cyp2d6_codeine_pm")
+    with pytest.raises(mf.BudgetExceeded):
+        mf.run_one("free_generation", case, "GPT-4.1",
+                   lambda p: calls.append(p) or ("x", 1, 1), 0, s)
+    assert calls == [], "a model was called after the budget was exhausted"
+
+
+def test_projection_scales_with_replicates(mf):
+    one = mf.projected_cost(["GPT-4.1"], n_reps=1)["total_usd"]
+    three = mf.projected_cost(["GPT-4.1"], n_reps=3)["total_usd"]
+    # approx, not exact: per-model totals are rounded to cents before summing
+    assert three / one == pytest.approx(3.0, rel=0.01)

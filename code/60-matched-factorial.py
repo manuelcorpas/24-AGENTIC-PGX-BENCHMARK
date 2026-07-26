@@ -74,6 +74,59 @@ execute_skill = rules.make_executor(DIP2PHEN, REC)
 N_REPS = 3
 N_MODELS = 9
 
+# Published list prices, USD per million tokens (input, output), recorded here
+# so the spend figure reported in the paper is computed, not recalled. Update
+# alongside any model-version change and note it in MODEL-VERSIONS.md.
+PRICES: dict[str, tuple[float, float]] = {
+    "Claude Opus 4":    (15.00, 75.00),
+    "Claude Sonnet 4":  (3.00, 15.00),
+    "GPT-5.2":          (1.25, 10.00),
+    "GPT-4.1":          (2.00, 8.00),
+    "o3":               (2.00, 8.00),
+    "o4-mini":          (1.10, 4.40),
+    "Gemini 2.5 Flash": (0.30, 2.50),
+    "DeepSeek V3":      (0.27, 1.10),
+    "Mistral Large 2":  (2.00, 6.00),
+}
+# Reasoning models emit hidden reasoning tokens, so their output count is far
+# above the visible answer. Measured by --pilot rather than assumed.
+DEFAULT_OUT_TOKENS = {"GPT-5.2": 1200, "o3": 1200, "o4-mini": 900}
+
+
+class BudgetExceeded(RuntimeError):
+    """Raised when a run would cross the spend cap. Stops the run, keeps the data."""
+
+
+class Spend:
+    """Live spend tracker with a hard cap.
+
+    A cap that is checked before every call is the difference between a budget
+    and a hope. Partial results are kept: the JSONL checkpoint means an aborted
+    run is resumable, not wasted.
+    """
+
+    def __init__(self, cap_usd: float | None):
+        self.cap = cap_usd
+        self.total = 0.0
+        self.by_model: dict[str, float] = {}
+        self._lock = threading.Lock()
+
+    @staticmethod
+    def cost(model: str, in_tok: int, out_tok: int) -> float:
+        pin, pout = PRICES.get(model, (2.0, 8.0))
+        return (in_tok * pin + out_tok * pout) / 1_000_000
+
+    def check(self) -> None:
+        if self.cap is not None and self.total >= self.cap:
+            raise BudgetExceeded(f"spend cap reached: ${self.total:.2f} of ${self.cap:.2f}")
+
+    def add(self, model: str, in_tok: int, out_tok: int) -> float:
+        c = self.cost(model, in_tok, out_tok)
+        with self._lock:
+            self.total += c
+            self.by_model[model] = self.by_model.get(model, 0.0) + c
+        return c
+
 # Populated by load_models() only when a live run is requested, so that import,
 # --dry-run and the tests need no API keys at all.
 MODELS: dict = {}
@@ -186,6 +239,21 @@ def build_prompt(cell: str, case: dict) -> str:
     ])
 
 
+def projected_cost(models: list[str], n_reps: int = N_REPS, n_cases: int | None = None,
+                   n_cells: int | None = None, in_tokens: int = 1100) -> dict:
+    """Projected spend, per model and total, before a single call is issued."""
+    cells = n_cells if n_cells is not None else sum(1 for c in CELLS.values() if c["rerun"])
+    per_model_calls = cells * (n_cases or len(CASES)) * n_reps
+    per_model = {
+        m: round(per_model_calls * Spend.cost(m, in_tokens, DEFAULT_OUT_TOKENS.get(m, 260)), 2)
+        for m in models
+    }
+    return {"calls_per_model": per_model_calls,
+            "calls_total": per_model_calls * len(models),
+            "per_model_usd": per_model,
+            "total_usd": round(sum(per_model.values()), 2)}
+
+
 def planned_calls(n_models: int = N_MODELS, n_reps: int = N_REPS,
                   n_cases: int | None = None) -> int:
     """New model calls this runner issues. The figure quoted to the editor is
@@ -230,24 +298,24 @@ def load_models() -> dict:
 
     def _ant(model, p):
         with sem["anthropic"]:
-            return ant.messages.create(model=model, max_tokens=320,
-                                       messages=[{"role": "user", "content": p}]).content[0].text
+            r = ant.messages.create(model=model, max_tokens=320,
+                                    messages=[{"role": "user", "content": p}])
+            return r.content[0].text, r.usage.input_tokens, r.usage.output_tokens
 
     def _oai(model, p, reasoning=False):
         with sem["openai"]:
-            if reasoning:
-                return oai.chat.completions.create(
-                    model=model, max_completion_tokens=2000,
-                    messages=[{"role": "user", "content": p}]).choices[0].message.content
-            return oai.chat.completions.create(
-                model=model, max_tokens=320,
-                messages=[{"role": "user", "content": p}]).choices[0].message.content
+            kw = ({"max_completion_tokens": 2000} if reasoning else {"max_tokens": 320})
+            r = oai.chat.completions.create(model=model, messages=[{"role": "user", "content": p}], **kw)
+            return (r.choices[0].message.content,
+                    r.usage.prompt_tokens, r.usage.completion_tokens)
 
     def _dsk(p):
         with sem["deepseek"]:
-            return dsk.chat.completions.create(
+            r = dsk.chat.completions.create(
                 model="deepseek-chat", max_tokens=320,
-                messages=[{"role": "user", "content": p}]).choices[0].message.content
+                messages=[{"role": "user", "content": p}])
+            return (r.choices[0].message.content,
+                    r.usage.prompt_tokens, r.usage.completion_tokens)
 
     def _gem(p):
         import urllib.request
@@ -258,7 +326,9 @@ def load_models() -> dict:
                 data=json.dumps({"contents": [{"parts": [{"text": p}]}]}).encode(),
                 headers={"Content-Type": "application/json"})
             body = json.loads(urllib.request.urlopen(req, timeout=120).read())
-            return body["candidates"][0]["content"]["parts"][0]["text"]
+            usage = body.get("usageMetadata", {})
+            return (body["candidates"][0]["content"]["parts"][0]["text"],
+                    usage.get("promptTokenCount", 0), usage.get("candidatesTokenCount", 0))
 
     def _mis(p):
         import urllib.request
@@ -270,7 +340,9 @@ def load_models() -> dict:
                 headers={"Content-Type": "application/json",
                          "Authorization": f"Bearer {mkey}"})
             body = json.loads(urllib.request.urlopen(req, timeout=120).read())
-            return body["choices"][0]["message"]["content"]
+            usage = body.get("usage", {})
+            return (body["choices"][0]["message"]["content"],
+                    usage.get("prompt_tokens", 0), usage.get("completion_tokens", 0))
 
     return {
         "Claude Opus 4":    lambda p: _ant("claude-opus-4-20250514", p),
@@ -285,14 +357,23 @@ def load_models() -> dict:
     }
 
 
-def run_one(cell: str, case: dict, model_name: str, fn, rep: int) -> dict:
+def run_one(cell: str, case: dict, model_name: str, fn, rep: int, spend=None) -> dict:
     """One evaluation. Execution cells run the model for the CALL only, then the
-    validated skill computes phenotype and recommendation in code."""
+    validated skill computes phenotype and recommendation in code.
+
+    The spend cap is checked BEFORE the call, so an exhausted budget stops the
+    run rather than discovering the overspend afterwards.
+    """
+    if spend is not None:
+        spend.check()
     prompt = build_prompt(cell, case)
-    text, error = "", None
+    text, error, in_tok, out_tok = "", None, 0, 0
     for attempt in range(3):
         try:
-            text = fn(prompt)
+            result = fn(prompt)
+            text, in_tok, out_tok = result if isinstance(result, tuple) else (result, 0, 0)
+            if spend is not None:
+                spend.add(model_name, in_tok, out_tok)
             break
         except Exception as exc:                        # noqa: BLE001 - recorded, not swallowed
             error = f"{type(exc).__name__}: {exc}"
@@ -302,6 +383,8 @@ def run_one(cell: str, case: dict, model_name: str, fn, rep: int) -> dict:
         "case_id": case["id"], "gene": case["gene"], "drug": case["drug"],
         "model": model_name, "rep": rep,
         "raw": text, "error": error,
+        "in_tokens": in_tok, "out_tokens": out_tok,
+        "cost_usd": round(Spend.cost(model_name, in_tok, out_tok), 6),
         "called_diplotype": rules.parse_field(text, "DIPLOTYPE"),
     }
     if CELLS[cell]["mechanism"] == "deterministic_execution":
@@ -326,6 +409,14 @@ def main(argv: list[str] | None = None) -> int:
     ap.add_argument("--cells", nargs="*", default=None,
                     help="Restrict to these cells (default: all rerun cells)")
     ap.add_argument("--models", nargs="*", default=None, help="Restrict to these models")
+    ap.add_argument("--max-spend", type=float, default=None, metavar="USD",
+                    help="Hard cap. The run stops cleanly when reached; the JSONL "
+                         "checkpoint makes it resumable.")
+    ap.add_argument("--pilot", type=int, default=0, metavar="N",
+                    help="Measure real token costs on N calls per model, then print "
+                         "a projection for the full run and exit.")
+    ap.add_argument("--resume", action="store_true",
+                    help="Skip evaluations already present in the JSONL checkpoint")
     args = ap.parse_args(argv)
 
     cases = CASES[:args.limit] if args.limit else CASES
@@ -336,9 +427,14 @@ def main(argv: list[str] | None = None) -> int:
             return 2
 
     if args.estimate:
-        print(f"cases={len(cases)} models={N_MODELS} reps={args.reps}")
-        print(f"rerun cells: {[c for c, v in CELLS.items() if v['rerun']]}")
-        print(f"planned new model calls: {planned_calls(N_MODELS, args.reps, len(cases))}")
+        names = args.models or list(PRICES)
+        proj = projected_cost(names, args.reps, len(cases), len(cells))
+        print(f"cases={len(cases)} models={len(names)} reps={args.reps} cells={cells}")
+        print(f"planned new model calls: {proj['calls_total']}")
+        print(f"projected spend (list prices, estimated tokens): ${proj['total_usd']}")
+        for m, c in sorted(proj["per_model_usd"].items(), key=lambda kv: -kv[1]):
+            print(f"    {m:<18} ${c}")
+        print("Projection only. Run --pilot to measure real token counts first.")
         return 0
 
     if args.dry_run:
@@ -356,20 +452,60 @@ def main(argv: list[str] | None = None) -> int:
     if args.models:
         models = {k: v for k, v in models.items() if k in args.models}
 
+    if args.pilot:
+        spend = Spend(args.max_spend)
+        pilot_cases = cases[:args.pilot]
+        rows = [run_one(cells[0], c, mn, fn, 0, spend)
+                for c in pilot_cases for mn, fn in models.items()]
+        n = len([r for r in rows if not r["error"]])
+        print(f"PILOT: {n} successful calls, actual spend ${spend.total:.4f}")
+        for m, c in sorted(spend.by_model.items(), key=lambda kv: -kv[1]):
+            per_call = c / max(1, len(pilot_cases))
+            full = per_call * len(CASES) * args.reps * len(cells)
+            print(f"    {m:<18} ${c:.4f} measured  ->  ${full:.2f} projected for the full run")
+        total_full = sum(c / max(1, len(pilot_cases)) for c in spend.by_model.values()) \
+            * len(CASES) * args.reps * len(cells)
+        print(f"MEASURED PROJECTION for the full run: ${total_full:.2f}")
+        return 0
+
+    done = set()
+    if args.resume and JSONL.exists():
+        for line in JSONL.read_text().splitlines():
+            try:
+                r = json.loads(line)
+                done.add((r["cell"], r["case_id"], r["model"], r["rep"]))
+            except (ValueError, KeyError):
+                continue
+        print(f"resuming: {len(done)} evaluations already on disk")
+
     tasks = [(cell, c, mn, fn, rep)
              for cell in cells for c in cases
-             for mn, fn in models.items() for rep in range(args.reps)]
-    print(f"issuing {len(tasks)} model calls across {len(cells)} cells")
+             for mn, fn in models.items() for rep in range(args.reps)
+             if (cell, c["id"], mn, rep) not in done]
 
-    results = []
+    spend = Spend(args.max_spend)
+    cap = f", hard cap ${args.max_spend:.2f}" if args.max_spend else " (NO CAP SET)"
+    print(f"issuing {len(tasks)} model calls across {len(cells)} cells{cap}")
+
+    results, stopped = [], None
     JSONL.parent.mkdir(exist_ok=True)
-    with JSONL.open("a") as sink, ThreadPoolExecutor(max_workers=24) as pool:
-        for row in pool.map(lambda t: run_one(*t), tasks):
-            results.append(row)
-            sink.write(json.dumps(row) + "\n")
-            sink.flush()
+    try:
+        with JSONL.open("a") as sink, ThreadPoolExecutor(max_workers=24) as pool:
+            for row in pool.map(lambda t: run_one(*t, spend), tasks):
+                results.append(row)
+                sink.write(json.dumps(row) + "\n")
+                sink.flush()
+    except BudgetExceeded as exc:
+        stopped = str(exc)
+
     OUT.write_text(json.dumps(results, indent=2))
-    print(f"wrote {len(results)} evaluations to {OUT.name}")
+    print(f"wrote {len(results)} evaluations to {OUT.name}; spend ${spend.total:.2f}")
+    for m, c in sorted(spend.by_model.items(), key=lambda kv: -kv[1]):
+        print(f"    {m:<18} ${c:.2f}")
+    if stopped:
+        print(f"STOPPED EARLY: {stopped}")
+        print("Re-run with --resume (and a higher --max-spend) to continue.")
+        return 3
     return 0
 
 
