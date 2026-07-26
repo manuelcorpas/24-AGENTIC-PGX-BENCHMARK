@@ -1,0 +1,18 @@
+ANCESTRY REANALYSIS ON MATCHED DIPLOTYPE STATES
+
+  distinct states 322, observed in >1 cohort: 60
+
+  cohort            states  cov(state)  cov(carrier)  standardised  own-states
+  CorpasFamily          40       0.275        0.3176        0.3904      0.1667
+  Peru                  73      0.1918         0.419        0.3436      0.1875
+  UGR                  289      0.0657        0.2715        0.3435      0.0427
+
+  spread in raw state coverage       0.2093
+  spread after standardisation       0.0469
+  spread on cohort-specific states   0.1448
+
+  Standardisation compares cohorts on states they SHARE, so a small spread
+  there means composition explains the raw gradient on common ground. It is
+  blind to states only one cohort carries, which is where the untypeable
+  rare-allele tail sits; the last column reports those directly. Read the
+  two together: the disparity is relocated and measured, not dissolved.
