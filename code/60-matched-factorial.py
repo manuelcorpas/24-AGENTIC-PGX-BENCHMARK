@@ -428,7 +428,10 @@ def run_one(cell: str, case: dict, model_name: str, fn, rep: int, spend=None) ->
                             if CELLS[cell]["knowledge"] == "retrieved_prose" else None),
         "in_tokens": in_tok, "out_tokens": out_tok,
         "cost_usd": round(Spend.cost(model_name, in_tok, out_tok), 6),
-        "called_diplotype": rules.parse_field(text, "DIPLOTYPE"),
+        "called_diplotype": rules.parse_field(
+            text, "DIPLOTYPE",
+            allow_bare=CELLS[cell]["mechanism"] == "deterministic_execution"),
+        "format_compliant": rules.is_format_compliant(text, "DIPLOTYPE"),
     }
     if CELLS[cell]["mechanism"] == "deterministic_execution":
         phen, rec = execute_skill(case["gene"], case["drug"], row["called_diplotype"])

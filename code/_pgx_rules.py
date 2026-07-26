@@ -70,13 +70,35 @@ def skill_rules_text(gene: str, rules_dip, rules_rec) -> str:
     return "\n".join(lines)
 
 
-def parse_field(text: str, field: str) -> str:
+def parse_field(text: str, field: str, allow_bare: bool = False) -> str:
+    """Extract a labelled field, optionally accepting an unlabelled answer.
+
+    Why allow_bare exists: asked for "DIPLOTYPE: [x]", GPT-4.1 frequently
+    answered just "*1/*4". The call was correct; only the label was missing. A
+    strict parser recorded that as an empty call, the pipeline abstained, and
+    the model's score collapsed from ~0.99 to 0.44. That is a format artefact
+    presented as a model failure, which is the exact error class this paper
+    exists to warn about, so the parser must not commit it.
+
+    Format compliance is still measured, separately, by is_format_compliant().
+    """
     if not text:
         return ""
     for line in text.split("\n"):
         if (field + ":") in line.upper():
             return line[line.upper().index(field + ":") + len(field) + 1:].strip()
+    if allow_bare:
+        stripped = text.strip()
+        # Only for a terse single-line reply that carries no field labels at
+        # all: never salvage a value out of prose that answered something else.
+        if "\n" not in stripped and ":" not in stripped and len(stripped) <= 40:
+            return stripped
     return ""
+
+
+def is_format_compliant(text: str, field: str) -> bool:
+    """Did the response actually use the requested label?"""
+    return bool(text) and (field + ":") in text.upper()
 
 
 def make_executor(dip2phen, rec):
