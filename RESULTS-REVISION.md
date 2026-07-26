@@ -128,3 +128,39 @@ every number above:
 > cost accuracy by executing a wrong input call rigidly. The residual error
 > localises entirely to input interpretation, which is separately measurable and
 > separately fixable with a validated caller.
+
+## Mistral: a rate limit, demonstrated as such
+
+Same model, same prompts, same day, varying only the request cadence:
+
+| cadence | error rate |
+|---|---|
+| full concurrency | 96.8% (447 of 462) |
+| 3 s between calls | 19.6% |
+| 8 s between calls | 2.4% |
+
+Every other model ran at 0 errors throughout. A deterministic per-model failure
+that disappears when you slow down is a rate limit, not a model failure, and
+scoring those empty responses as format failures would have produced a false
+claim about the model's ability to follow an output schema. This is the second
+time this trap has appeared in this project; it is now guarded in code
+(`--pace`, plus 429 backoff inside `run_one`) rather than in memory.
+
+Headline numbers are reported on the eight-model common set, which is what the
+plan of revision already committed to; Mistral is a separately reported
+sensitivity check at the paced cadence.
+
+## What was executed, and what is externally blocked
+
+Executed on real data in this session: N1 (five cells, eight models, 13,199
+scored evaluations), N2, N4 (5,280 evaluations), N5 ancestry, N6, N7, N9.
+Total spend about $75 against a $300 ceiling.
+
+Externally blocked, not incomplete work: the GeT-RM consensus diplotypes needed
+for calling-step validation. The CDC pages are JavaScript shells, the NCBI FTP
+path 404s, and the consensus tables are journal supplementary material, so
+acquisition is a documented manual download (`real-genome-arm/getrm/README.md`).
+The evaluator is built and covered by six tests, and refuses to run on an empty
+or malformed truth set rather than reporting a vacuous 100%. No truth set was
+improvised: fabricating one in a paper about trustworthy pipelines would be the
+worst possible failure.
