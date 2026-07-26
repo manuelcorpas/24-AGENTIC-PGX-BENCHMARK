@@ -55,3 +55,4 @@ pypgx-bundle/
 *token*.json
 rclone.conf
 .config/rclone/
+tools/*.jar

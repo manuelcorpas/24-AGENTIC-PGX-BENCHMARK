@@ -1,0 +1,12 @@
+PHARMCAT COMPARISON (independent CPIC implementation, v3.4.0)
+
+  cases                          110
+  covered by PharmCAT            87
+  not covered                    23  ['CFTR', 'CYP4F2', 'G6PD', 'HLA-A*31:01', 'IFNL3', 'MT-RNR1', 'RYR1', 'SLCO1B1', 'VKORC1']
+  PharmCAT abstained             4  (Indeterminate)
+  both engines emitted           83
+  ours agrees with PharmCAT      83
+  ours disagrees with PharmCAT   0
+  concordance among both-emitted 1.0
+  ours correct vs ground truth   110/110
+  PharmCAT correct vs truth      83/87

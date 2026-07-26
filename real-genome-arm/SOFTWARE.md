@@ -49,3 +49,16 @@ Two environments are used:
 - The agent step is stochastic (LLM generation); the manuscript reports replicate
   behaviour. Reasoning models are queried with provider defaults (see
   `scripts/04_run_agent_realgenome.py`).
+
+## PharmCAT 3.4.0 (revision item N2)
+
+Independent CPIC implementation used to validate the executed mapping
+(Reviewer 2 points 2 and 7).
+
+- Version: 3.4.0, released 2026-07-14
+- Artefact: `tools/pharmcat-3.4.0-all.jar` (not in git; 32 MB)
+- sha256: `9317ef632bf6c9786ff0d9d455d4c9f6d2882ebd66ad7256b4ae958ddf454741`
+- Fetch: `python code/63-pharmcat-comparator.py --fetch`
+- Requires: a JRE 17 or later
+- Invocation: phenotyper on outside calls, which isolates the mapping step from
+  the calling step by construction.
