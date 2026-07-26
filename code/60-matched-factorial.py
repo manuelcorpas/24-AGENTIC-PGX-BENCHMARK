@@ -184,12 +184,37 @@ SCHEMA_EXECUTION = """## Output (1 line only)
 DIPLOTYPE: [exact text of one list item]"""
 
 
-def _corpus_excerpt(gene: str) -> str:
-    corpus = json.loads(CORPUS_FILE.read_text())["genes"]
-    entry = corpus.get(gene)
+# "gene" reproduces the original gene-keyed indexing (now the ablation);
+# "drug" is the strengthened drug-keyed retrieval that N4 makes primary.
+RETRIEVAL_MODE = "gene"
+_CORPUS_CACHE: dict | None = None
+
+
+def _corpus() -> dict:
+    global _CORPUS_CACHE
+    if _CORPUS_CACHE is None:
+        _CORPUS_CACHE = json.loads(CORPUS_FILE.read_text())["genes"]
+    return _CORPUS_CACHE
+
+
+def retrieve(gene: str, drug: str) -> tuple[str, str]:
+    """Return (excerpt, route). Route is recorded on every row so the paper can
+    report exactly how much of the grid used which indexing."""
+    entry = _corpus().get(gene)
     if not entry:
-        return f"(no CPIC guideline excerpt retrieved for {gene})"
-    return entry["guideline_excerpt"]
+        return f"(no CPIC guideline excerpt retrieved for {gene})", "missing_gene"
+    excerpt = entry["guideline_excerpt"]
+    if RETRIEVAL_MODE == "gene":
+        return excerpt, "gene_keyed"
+    chunk, route = rules.drug_chunk(excerpt, drug)
+    if chunk is None:
+        # Fall back, but never silently: the row carries the route.
+        return excerpt, "fallback_gene_keyed"
+    return chunk, f"drug_keyed_{route}"
+
+
+def _corpus_excerpt(gene: str, drug: str = "") -> str:
+    return retrieve(gene, drug)[0]
 
 
 def _valid_diplotype_list(gene: str) -> str:
@@ -204,7 +229,8 @@ def knowledge_block(cell: str, case: dict) -> str:
         return "## Knowledge provided\n\n(none: answer from your own knowledge)"
     if kind == "retrieved_prose":
         return (f"## Knowledge provided\n\nCPIC guideline excerpt "
-                f"(retrieved for gene: {gene})\n\n{_corpus_excerpt(gene)}")
+                f"(retrieved for gene: {gene})\n\n"
+                f"{_corpus_excerpt(gene, case['drug'])}")
     return (f"## Knowledge provided\n\n"
             f"{rules.skill_rules_text(gene, RULES_DIP, RULES_REC)}")
 
@@ -383,6 +409,9 @@ def run_one(cell: str, case: dict, model_name: str, fn, rep: int, spend=None) ->
         "case_id": case["id"], "gene": case["gene"], "drug": case["drug"],
         "model": model_name, "rep": rep,
         "raw": text, "error": error,
+        "retrieval_mode": RETRIEVAL_MODE if CELLS[cell]["knowledge"] == "retrieved_prose" else None,
+        "retrieval_route": (retrieve(case["gene"], case["drug"])[1]
+                            if CELLS[cell]["knowledge"] == "retrieved_prose" else None),
         "in_tokens": in_tok, "out_tokens": out_tok,
         "cost_usd": round(Spend.cost(model_name, in_tok, out_tok), 6),
         "called_diplotype": rules.parse_field(text, "DIPLOTYPE"),
@@ -415,9 +444,15 @@ def main(argv: list[str] | None = None) -> int:
     ap.add_argument("--pilot", type=int, default=0, metavar="N",
                     help="Measure real token costs on N calls per model, then print "
                          "a projection for the full run and exit.")
+    ap.add_argument("--retrieval", choices=["gene", "drug"], default="gene",
+                    help="gene-keyed (original, now the ablation) or drug-keyed "
+                         "(N4, the strengthened primary retrieval arm)")
     ap.add_argument("--resume", action="store_true",
                     help="Skip evaluations already present in the JSONL checkpoint")
     args = ap.parse_args(argv)
+
+    global RETRIEVAL_MODE
+    RETRIEVAL_MODE = args.retrieval
 
     cases = CASES[:args.limit] if args.limit else CASES
     cells = args.cells or [c for c, v in CELLS.items() if v["rerun"]]

@@ -97,3 +97,70 @@ def make_executor(dip2phen, rec):
             return None, None
         return phen, recommendation
     return execute_skill
+
+
+# =============================================================================
+# Retrieval chunking (revision item N4; R1.2, R2.3)
+# =============================================================================
+# Gene-keyed retrieval hands the model every drug annotation for the gene: the
+# CYP2D6 excerpt is 24,781 characters covering codeine, tamoxifen, ondansetron,
+# paroxetine and more. The model must then pick the right drug's table itself,
+# and the drug-substitution failure reported in the paper is partly an artefact
+# of that indexing choice rather than a property of retrieval as such.
+#
+# Drug-keyed chunking retrieves only the annotation section for the queried
+# drug. Ported from 16b-rag-genedrug-chunking.py, which established the effect
+# on six genes; N4 extends it to the full grid and makes it the primary
+# retrieval arm, with the gene-keyed configuration retained as an ablation.
+
+def split_chunks(excerpt: str) -> dict[str, str]:
+    """Split a gene excerpt into {drug: annotation section}."""
+    out: dict[str, str] = {}
+    for part in re.split(r"(?=^### Annotation)", excerpt, flags=re.M):
+        if not part.strip():
+            continue
+        m = re.search(r"Drug scope:\s*([^\n]+)", part)
+        if not m:
+            continue
+        for d in re.split(r"[;,/]| and ", m.group(1)):
+            d = d.strip().lower()
+            if d:
+                out[d] = part
+    return out
+
+
+# Four benchmark cases query a drug CLASS while the CPIC corpus is indexed by
+# individual agents. This is part of the drug-substitution story rather than a
+# nuisance: a model asked about "thiopurines" and shown a page headed
+# "azathioprine" must make a class-to-member inference. The mapping is declared
+# here explicitly so it is auditable, and retrieval records which route it took.
+DRUG_CLASS_ALIASES: dict[str, list[str]] = {
+    "thiopurines": ["azathioprine"],
+    "aminoglycosides": ["amikacin", "dibekacin", "gentamicin", "kanamycin", "neomycin",
+                        "netilmicin", "paromomycin", "plazomicin", "ribostamycin",
+                        "streptomycin", "tobramycin"],
+    "volatile-anaesthetics": ["desflurane", "enflurane", "halothane", "isoflurane",
+                              "methoxyflurane", "sevoflurane", "succinylcholine"],
+    "peg-ifn-\u03b1": ["peginterferon alfa-2a", "peginterferon alfa-2b"],
+}
+
+
+def drug_chunk(excerpt: str, drug: str) -> tuple[str | None, str]:
+    """Retrieve the annotation section(s) for one drug.
+
+    Returns (chunk, route) where route is one of:
+      "exact"  the corpus has a section for this drug name
+      "class"  the query is a drug class; the member sections are concatenated
+      "none"   no section found; the caller must fall back and record that it did
+
+    Never returns a silent fallback: a caller that ignores `route` and reports
+    drug-keyed coverage as 100% would be misreporting the experiment.
+    """
+    chunks = split_chunks(excerpt)
+    key = drug.strip().lower()
+    if key in chunks:
+        return chunks[key], "exact"
+    members = [chunks[m] for m in DRUG_CLASS_ALIASES.get(key, []) if m in chunks]
+    if members:
+        return "\n\n".join(members), "class"
+    return None, "none"
