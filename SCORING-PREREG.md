@@ -112,3 +112,36 @@ result, and should not be made.
 | Date | Change | Fingerprint |
 |---|---|---|
 | 2026-07-26 | Initial registration. Tables frozen as-is, with the data-motivated history stated in section 1. No patterns added, removed or edited at registration. | `bfab39f4…b626d94` |
+
+## 6. Model-set inclusion criterion (registered 2026-07-26)
+
+Headline numbers are reported on the **eight-model common set**. Mistral is
+reported separately as a paced sensitivity check. The criterion is stated here
+rather than applied silently, because dropping a model after seeing its results
+is the same post-hoc selection this document exists to prevent.
+
+A model is excluded from the primary analysis if **any** of the following holds.
+All three are properties of provenance or infrastructure, none is a property of
+the model's scores, and each could have been written down before a single result
+was seen.
+
+1. **The served version is unrecoverable.** The original run called
+   `mistral-large-latest`, a moving pointer, so the model version that produced
+   those evaluations was never recorded. This fails the reproducibility standard
+   the paper itself sets.
+2. **The specific version no longer exists.** `mistral-large-2411` has been
+   withdrawn by the vendor. A rerun necessarily uses `mistral-large-2512`, a
+   different model, so pooling the two would be the error.
+3. **The request cadence is not comparable.** On the API tier available to us,
+   Mistral returns HTTP 429 under the concurrency every other model tolerates:
+   447 of 462 calls failed at full concurrency, 19.6% at 3 s spacing, 2.4% at
+   8 s. Any figure computed for it under those conditions reflects our rate
+   limit, not the model.
+
+Criterion 3 also applies prospectively: if another provider begins rate-limiting
+at a cadence the rest of the panel tolerates, it moves to the sensitivity set on
+the same grounds.
+
+The two retired Anthropic models are a separate matter and are handled by
+same-tier substitution (Opus 4.5, Sonnet 4.5) with the substitution stated, not
+by exclusion.
