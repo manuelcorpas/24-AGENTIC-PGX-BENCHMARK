@@ -52,6 +52,7 @@ Run with --self-test for sanity checks (TDD-lite) before scoring real data.
 """
 from __future__ import annotations
 import argparse
+import hashlib
 import json
 import re
 import sys
@@ -176,6 +177,64 @@ CLINICAL_EQUIVALENCE: dict[str, list[tuple[re.Pattern, str, str]]] = {
 HLA_RISK_ALLELE_GENES = frozenset({
     "HLA-A*31:01", "HLA-B*15:02", "HLA-B*57:01", "HLA-B*58:01"
 })
+
+
+# =============================================================================
+# Pattern freeze (revision item N7, Reviewer 2 point 5)
+# =============================================================================
+# The equivalence patterns above are data-motivated: they were written by
+# inspecting model outputs, which is exactly the post-hoc adaptation Reviewer 2
+# identified. That history cannot be undone, so it is stated plainly in
+# SCORING-PREREG.md and neutralised two ways instead:
+#
+#   1. every headline number is reported under BOTH this scorer and the
+#      untouched baseline scorer (code/10-rescore-v3.py), so no conclusion can
+#      rest on the equivalence layer; and
+#   2. the tables are frozen here by checksum, so any later widening is a
+#      visible, dated event rather than a silent one.
+#
+# The fingerprint covers pattern text, canonical tier and locus filter, which
+# together are the entire scoring contract. Comments and formatting are
+# excluded on purpose: reformatting the file must not look like tampering, and
+# changing what a pattern MEANS must not slip through.
+
+def pattern_fingerprint() -> str:
+    """SHA-256 over the semantic content of the clinical-equivalence tables."""
+    def render(value):
+        return value.pattern if isinstance(value, re.Pattern) else str(value)
+
+    items: list = [
+        ["locus", locus, LOCUS_PATTERNS[locus].pattern]
+        for locus in sorted(LOCUS_PATTERNS)
+    ]
+    items += [["generic", *[render(v) for v in entry]]
+              for entry in GENERIC_HLA_RISK_ALLELE_PATTERNS]
+    for gene in sorted(CLINICAL_EQUIVALENCE):
+        items += [["gene", gene, *[render(v) for v in entry]]
+                  for entry in CLINICAL_EQUIVALENCE[gene]]
+    items.append(["hla_risk_allele_genes", *sorted(HLA_RISK_ALLELE_GENES)])
+    blob = json.dumps(items, ensure_ascii=False)
+    return hashlib.sha256(blob.encode("utf-8")).hexdigest()
+
+
+# Registered 2026-07-26 with SCORING-PREREG.md. Changing a pattern changes this
+# hash; tests/test_scorer_freeze.py fails until the change is re-registered.
+FROZEN_PATTERN_SHA256 = "bfab39f4ebc5bd53aacf6b3805478af29eb0cb06042151fefaa8e3d85b626d94"
+
+
+def verify_frozen() -> None:
+    """Refuse to score if the equivalence tables have moved since registration."""
+    live = pattern_fingerprint()
+    if live != FROZEN_PATTERN_SHA256:
+        sys.stderr.write(
+            "REFUSING TO SCORE: the clinical-equivalence patterns have changed "
+            "since they were registered.\n"
+            f"  registered: {FROZEN_PATTERN_SHA256}\n"
+            f"  live:       {live}\n"
+            "If the change is intended, add a dated entry to SCORING-PREREG.md "
+            "saying what changed and why, then update FROZEN_PATTERN_SHA256.\n"
+        )
+        raise SystemExit(2)
 
 
 def _applicable_patterns(gene: str) -> list[tuple[re.Pattern, str, str]]:
@@ -494,7 +553,17 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--self-test", action="store_true",
                         help="Run TDD self-test and exit")
+    parser.add_argument("--frozen", action="store_true",
+                        help="Refuse to run unless the equivalence patterns match "
+                             "the checksum registered in SCORING-PREREG.md")
+    parser.add_argument("--fingerprint", action="store_true",
+                        help="Print the live pattern fingerprint and exit")
     args = parser.parse_args()
+    if args.fingerprint:
+        print(pattern_fingerprint())
+        return 0
+    if args.frozen:
+        verify_frozen()
     if args.self_test:
         return run_self_test()
     return main_rescore()
