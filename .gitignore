@@ -56,3 +56,5 @@ pypgx-bundle/
 rclone.conf
 .config/rclone/
 tools/*.jar
+.venv-pypgx
+work/
