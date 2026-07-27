@@ -1,5 +1,26 @@
 # Revision results (CELL-GENOMICS-D-26-00551)
 
+> **STALE IN PART, CORRECTED 2026-07-27.** The N1 table and the "N6 variance"
+> section below were written BEFORE the parser fix in commit `89186f1` and are
+> superseded. Authoritative files, regenerated and verified on 2026-07-27:
+>
+> - `data/v3_five_cell_live_report.txt` (matched factorial)
+> - `data/v3_five_cell_live_stats.txt` (intervals and variance)
+> - `data/v3_ancestry_four_cohorts.txt` (ancestry, four cohorts)
+>
+> Two conclusions stated below do not survive regeneration:
+>
+> 1. "Execution slightly hurts when rules are supplied" is **reversed**. Post-fix,
+>    skill_execution 0.967/0.973 with 25 lethal errors against skill_generation
+>    0.964/0.971 with 26. They are level.
+> 2. "Model-clustered intervals are materially wider than case-clustered ones for
+>    rag_execution (0.764-0.983 against 0.880-0.917)" is **an artefact of the same
+>    parser bug**. Post-fix the interval is 0.944-0.984 against a case-clustered
+>    0.947-0.981, and the between-model variance is 0.00086, not 0.0315.
+>
+> The corrected numbers are the ones written into manuscript v30. See
+> `CHANGES-v29-to-v30.md` in the manuscript folder.
+
 All numbers below are live runs from this repository, scored by
 `code/61-rescore-matched.py` under both the baseline scorer and the frozen
 clinical-equivalence scorer (SCORING-PREREG.md). Total API spend: about $75.

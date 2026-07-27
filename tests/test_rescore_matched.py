@@ -162,3 +162,29 @@ def test_equivalence_scoring_requires_the_frozen_patterns(rs):
 def test_dual_scoring_reports_both_scorers(rs, case):
     out = rs.score_both([row(case)], {case["id"]: case})
     assert set(out) == {"baseline", "clinical_equivalence"}
+
+
+# ---------------------------------------------------------------- scored rows for N6
+
+def test_scored_rows_carry_the_fields_the_stats_stage_reads(rs, case):
+    """65-hierarchical-stats.py clusters on case, model, framing and replicate
+    and reads a1_phenotype. The scored rows it consumes must therefore be
+    emitted by THIS scorer, not by a stale side file: a stats run against rows
+    parsed under an older parser reports intervals that do not contain the
+    accuracy reported beside them."""
+    scored = rs.scored_rows([row(case)], {case["id"]: case})
+    assert len(scored) == 1
+    r = scored[0]
+    for field in ("cell", "case_id", "model", "rep", "framing",
+                  "a1_phenotype", "lethal_action", "parsed_ok", "abstained"):
+        assert field in r, f"missing {field}"
+    assert r["framing"] == "single"
+
+
+def test_scored_rows_preserve_the_replicate_index(rs, case):
+    """Replicate is one of the four crossed factors; collapsing it would zero
+    the replicate variance component by construction."""
+    scored = rs.scored_rows(
+        [row(case, rep=0), row(case, rep=1), row(case, rep=2)],
+        {case["id"]: case})
+    assert sorted(r["rep"] for r in scored) == [0, 1, 2]

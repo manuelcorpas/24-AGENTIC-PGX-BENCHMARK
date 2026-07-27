@@ -147,6 +147,29 @@ def score_row(row: dict, case: dict, a1_scorer=None) -> dict:
     }
 
 
+def scored_rows(rows: list[dict], case_by_id: dict | None = None,
+                a1_scorer=None) -> list[dict]:
+    """Per-row scored output, for the clustered-interval stage (N6).
+
+    Why this exists: 65-hierarchical-stats.py consumes scored rows, and if
+    those rows come from a side file written by an earlier parser, the
+    intervals it reports will not contain the accuracy reported beside them.
+    Emitting them from the same scorer that produces the summary makes that
+    class of drift impossible.
+
+    `framing` is carried through because it is one of the four crossed factors
+    in the variance decomposition; this design has a single framing, so it is
+    constant and its variance component is legitimately zero.
+    """
+    cases = case_by_id or CASE_BY_ID
+    out = []
+    for r in rows:
+        s = score_row(r, cases[r["case_id"]], a1_scorer)
+        s["framing"] = r.get("framing", "single")
+        out.append(s)
+    return out
+
+
 def summarise(rows: list[dict], case_by_id: dict | None = None, a1_scorer=None) -> dict:
     """Per-cell summary. Coverage, abstention and parse failure are reported
     beside accuracy, never conditioned away (R2.2, R2.5)."""
@@ -193,6 +216,9 @@ def main(argv: list[str] | None = None) -> int:
     ap.add_argument("--input", type=Path, default=IN_DEFAULT)
     ap.add_argument("--out", type=Path, default=OUT_DEFAULT)
     ap.add_argument("--report", type=Path, default=REPORT_DEFAULT)
+    ap.add_argument("--rows", type=Path, default=None, metavar="FILE",
+                    help="Also write per-row scored output, for "
+                         "code/65-hierarchical-stats.py --input")
     args = ap.parse_args(argv)
 
     if not args.input.exists():
@@ -204,6 +230,10 @@ def main(argv: list[str] | None = None) -> int:
     rows = json.loads(args.input.read_text())
     result = score_both(rows)
     args.out.write_text(json.dumps(result, indent=2))
+
+    if args.rows:
+        # Baseline scorer, matching the headline column of the report.
+        args.rows.write_text(json.dumps(scored_rows(rows), indent=2))
 
     lines = ["MATCHED FACTORIAL: reported under both scorers", ""]
     for scorer, cells in result.items():

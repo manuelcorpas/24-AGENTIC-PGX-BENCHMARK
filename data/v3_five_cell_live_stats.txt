@@ -8,13 +8,13 @@ HIERARCHICAL / MULTIWAY-CLUSTERED STATISTICS
    variance: case=0.082605314509  model=0.004778323003  framing=0.0  replicate=7.389233e-06  residual=0.100825083218
    lethal-class                0.839286 (54 errors of 336)
 
-## rag_execution   n=2640  coverage=0.926515  parse_failures=2  abstentions=194
-   mean accuracy               0.899621
-   case-clustered 95% CI       (0.879924, 0.917424)
-   model-clustered 95% CI      (0.763627, 0.983333)
-   two-way clustered 95% CI    (0.753769, 0.985227)
-   variance: case=0.009826245409  model=0.031541408402  framing=0.0  replicate=1.4921947e-05  residual=0.048920311065
-   lethal-class                0.907738 (31 errors of 336)
+## rag_execution   n=2640  coverage=0.997348  parse_failures=2  abstentions=7
+   mean accuracy               0.965152
+   case-clustered 95% CI       (0.946591, 0.980682)
+   model-clustered 95% CI      (0.943939, 0.98447)
+   two-way clustered 95% CI    (0.935606, 0.988646)
+   variance: case=0.008855027548  model=0.000858585859  framing=0.0  replicate=2.008724e-06  residual=0.023918445821
+   lethal-class                0.931548 (23 errors of 336)
 
 ## rag_generation   n=2640  coverage=0.991667  parse_failures=22  abstentions=0
    mean accuracy               0.819697
@@ -24,13 +24,13 @@ HIERARCHICAL / MULTIWAY-CLUSTERED STATISTICS
    variance: case=0.090588986455  model=0.002251492195  framing=0.0  replicate=3.364612e-05  residual=0.052268207645
    lethal-class                0.592262 (137 errors of 336)
 
-## skill_execution   n=2639  coverage=0.96097  parse_failures=0  abstentions=103
-   mean accuracy               0.932171
-   case-clustered 95% CI       (0.910572, 0.951876)
-   model-clustered 95% CI      (0.848741, 0.982576)
-   two-way clustered 95% CI    (0.840521, 0.988262)
-   variance: case=0.013189996556  model=0.010997932617  framing=0.0  replicate=2.089762e-06  residual=0.039037968402
-   lethal-class                0.901786 (33 errors of 336)
+## skill_execution   n=2639  coverage=0.999621  parse_failures=0  abstentions=1
+   mean accuracy               0.967412
+   case-clustered 95% CI       (0.947329, 0.985227)
+   model-clustered 95% CI      (0.951515, 0.983327)
+   two-way clustered 95% CI    (0.937853, 0.99052)
+   variance: case=0.011123163453  model=0.000551303871  framing=0.0  replicate=1.187352e-06  residual=0.019850462515
+   lethal-class                0.925595 (25 errors of 336)
 
 ## skill_generation   n=2640  coverage=0.998106  parse_failures=5  abstentions=0
    mean accuracy               0.964394
