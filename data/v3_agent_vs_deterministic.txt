@@ -1,0 +1,23 @@
+AGENT AGAINST A DETERMINISTIC PIPELINE, ON REAL COHORTS
+
+  Both arms scored against the same external reference: the CPIC phenotype
+  returned by the deterministic caller for each observed diplotype.
+
+  cohort         arm                n     cov  acc|emit     acc
+  1000G_IBS      deterministic     93  0.2151       1.0  0.2151
+  1000G_IBS      agent (pooled)   744  0.8629    0.7025  0.6062
+
+  CorpasFamily   deterministic     27  0.3333       1.0  0.3333
+  CorpasFamily   agent (pooled)   216  0.9028    0.7692  0.6944
+
+  Peru           deterministic     40     0.3       1.0     0.3
+  Peru           agent (pooled)   320  0.7344    0.7277  0.5344
+
+  UGR            deterministic    188  0.0904       1.0  0.0904
+  UGR            agent (pooled)  1504  0.6277    0.5922  0.3717
+
+  The deterministic arm receives a diplotype the caller already produced, so
+  it performs no input interpretation. This compares the mapping step only.
+  A deterministic pipeline winning it does not show the agent is redundant;
+  it shows the agent should not be the component doing the mapping, which is
+  the architecture this paper argues for.
