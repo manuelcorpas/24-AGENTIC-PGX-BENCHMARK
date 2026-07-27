@@ -5,7 +5,7 @@ Revision figures, generated from the matched-factorial data (N1, N4, N5, N6).
 EVERY NUMBER PLOTTED HERE IS READ FROM A DATA FILE. There is no np.random in
 this script and no hardcoded result: the figures are recomputed from
 data/v3_five_cell_live.json, data/v3_model_caller_eval.json and
-data/v3_ancestry_matched.json, so a figure can never drift from the numbers in
+data/v3_ancestry_four_cohorts.json, so a figure can never drift from the text
 the text. --self-test verifies the inputs exist and the recomputed headline
 values match the report before anything is drawn.
 
@@ -40,7 +40,7 @@ BASE = Path(__file__).resolve().parent.parent
 CODE = Path(__file__).resolve().parent
 FIVE_CELL = BASE / "data" / "v3_five_cell_live.json"
 CALLER = BASE / "data" / "v3_model_caller_eval.json"
-ANCESTRY = BASE / "data" / "v3_ancestry_matched.json"
+ANCESTRY = BASE / "data" / "v3_ancestry_four_cohorts.json"
 FIGDIR = BASE / "figures"
 
 CELLS = ["free_generation", "rag_generation", "rag_execution",
