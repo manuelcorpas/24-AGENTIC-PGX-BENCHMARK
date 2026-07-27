@@ -173,7 +173,7 @@ ax.add_patch(FancyBboxPatch((rx, ly), lw_, lh, boxstyle="round,pad=0,rounding_si
 ax.text(rx + lw_ / 2, ly + lh - 3.0, "Real-genome validation", ha="center",
         va="center", fontsize=8.6, weight="bold", color=INK)
 ax.text(rx + lw_ / 2, ly + lh - 7.0,
-        "PyPGx-called diplotypes, GRCh37, four cohorts;\nmodel interpretation tested on three",
+        "PyPGx-called diplotypes, GRCh37, four cohorts;\nmodel panel run on all four",
         ha="center", va="center", fontsize=6.6, color=INK, linespacing=1.25)
 cohorts = [("1000G IBS", "n = 93"), ("Corpas\nfamily", "n = 5"),
            ("Peruvian\nGenome Project", "AMR"), ("Uganda\nGenome Resource", "AFR")]
