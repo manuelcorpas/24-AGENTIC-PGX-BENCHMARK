@@ -15,6 +15,7 @@ The fixtures here are synthetic and are NOT a truth set. They exercise the
 parser's shape handling only; the real table is a documented manual download
 (real-genome-arm/getrm/README.md).
 """
+import csv
 from importlib.util import spec_from_file_location, module_from_spec
 from pathlib import Path
 
@@ -33,8 +34,15 @@ def ing():
 
 
 def write_csv(tmp_path, rows):
+    """Write a fixture with real CSV quoting.
+
+    Naive comma-joining silently splits a header like
+    'VKORC1 NM_024006.6:c.196G>A, rs72547529', which the published sheet
+    genuinely contains, and shifts every later column by one.
+    """
     p = tmp_path / "consolidated.csv"
-    p.write_text("\n".join(",".join(r) for r in rows) + "\n")
+    with p.open("w", newline="") as fh:
+        csv.writer(fh).writerows(rows)
     return p
 
 
@@ -113,9 +121,109 @@ def test_gene_restriction_keeps_only_requested_genes(ing, tmp_path):
     assert sorted(r["gene"] for r in rows) == ["CYP2C19", "TPMT"]
 
 
+# ---------------------------------------------------------------- real sheet shape
+
+def test_header_row_is_found_below_a_blank_preamble(ing, tmp_path):
+    """The published sheet starts with a blank row and puts the header on the
+    second. Treating row 0 as the header yields a table whose columns are all
+    empty strings, which silently produces zero genotypes."""
+    src = write_csv(tmp_path, [
+        ["", "", ""],
+        ["GeT-RM Characterization", "Coriell ID #", "CYP2C19"],
+        ["3", "HG00111", "*1/*2"],
+    ])
+    rows = ing.to_long(ing.read_table(src))
+    assert [(r["sample"], r["gene"], r["diplotype"]) for r in rows] == \
+        [("HG00111", "CYP2C19", "*1/*2")]
+
+
+def test_per_gene_reference_columns_are_not_treated_as_genes(ing, tmp_path):
+    """The sheet interleaves '<GENE> References' after each gene column."""
+    src = write_csv(tmp_path, [
+        ["Coriell ID #", "CYP1A2", "CYP1A2 References", "CYP2B6", "CYP2B6 References"],
+        ["HG00111", "*1/*1", "Pratt 2016", "*1/*6", "Gaedigk 2019"],
+    ])
+    rows = ing.to_long(ing.read_table(src))
+    assert sorted(r["gene"] for r in rows) == ["CYP1A2", "CYP2B6"]
+
+
+def test_accession_and_ftp_columns_do_not_become_genotypes(ing, tmp_path):
+    src = write_csv(tmp_path, [
+        ["Coriell ID #", "run_accession", "sra_ftp", "TPMT"],
+        ["HG00111", "ERR000123", "ftp.sra.ebi.ac.uk/vol1/x.fastq.gz", "*1/*1"],
+    ])
+    rows = ing.to_long(ing.read_table(src))
+    assert [r["gene"] for r in rows] == ["TPMT"]
+
+
+def test_header_names_are_stripped_of_whitespace_and_newlines(ing, tmp_path):
+    src = tmp_path / "h.csv"
+    src.write_text('"Coriell ID #  \nhttps://example","CYP2C19  "\n"HG00111","*1/*2"\n')
+    rows = ing.to_long(ing.read_table(src))
+    assert rows[0]["sample"] == "HG00111"
+    assert rows[0]["gene"] == "CYP2C19"
+
+
+def test_nucleotide_genotypes_are_not_star_allele_diplotypes(ing, tmp_path):
+    """The consolidated sheet carries rsID-specific SNP columns alongside the
+    star-allele columns, with values like 'G/A'. Those match the shape of a
+    diplotype but are not one. Admitted into the truth set they would be scored
+    against PyPGx star-allele calls, mismatch every time, and understate
+    concordance: a confident wrong result."""
+    src = write_csv(tmp_path, [
+        ["Coriell ID #", "VKORC1 NM_024006.6:c.196G>A, rs72547529", "CYP2C19"],
+        ["HG00111", "G/A", "*1/*2"],
+    ])
+    rows = ing.to_long(ing.read_table(src))
+    assert [r["gene"] for r in rows] == ["CYP2C19"]
+
+
+@pytest.mark.parametrize("cell", ["G/G", "A/A", "C/G", "T/T", "A", "G>A"])
+def test_single_base_calls_are_rejected(ing, cell, tmp_path):
+    src = write_csv(tmp_path, [["Coriell ID #", "GGCX"], ["HG00111", cell]])
+    assert ing.to_long(ing.read_table(src)) == []
+
+
+def test_wild_type_shorthand_is_rejected_as_out_of_vocabulary(ing, tmp_path):
+    """SLCO2B1 is reported as 'WT/WT'. That is a real call, but it is not in the
+    star-allele vocabulary PyPGx emits, so comparing it would produce spurious
+    mismatches rather than information. Excluded deliberately, and reported."""
+    src = write_csv(tmp_path, [["Coriell ID #", "SLCO2B1"], ["HG00111", "WT/WT"]])
+    assert ing.to_long(ing.read_table(src)) == []
+
+
+def test_dropped_columns_are_reported_not_silently_discarded(ing, tmp_path):
+    src = write_csv(tmp_path, [
+        ["Coriell ID #", "CYP2C19", "SLCO2B1"],
+        ["HG00111", "*1/*2", "WT/WT"],
+    ])
+    rows, dropped = ing.to_long(ing.read_table(src), report=True)
+    assert [r["gene"] for r in rows] == ["CYP2C19"]
+    assert "SLCO2B1" in dropped
+
+
 def test_output_is_the_schema_the_evaluator_requires(ing, tmp_path):
     src = write_csv(tmp_path, [["Coriell #", "TPMT"], ["NA12878", "*1/*1"]])
     out = tmp_path / "getrm_consensus.tsv"
     ing.build(src, out)
     header = out.read_text().splitlines()[0].split("\t")
     assert header == ["sample", "gene", "diplotype"]
+
+def test_hla_alleles_with_colons_are_kept(ing, tmp_path):
+    """GeT-RM reports HLA as colon-separated star alleles (*57:01:01). Four of
+    the benchmark's lethal-class loci are HLA, so silently dropping them would
+    remove exactly the cases where a wrong call is most dangerous."""
+    src = write_csv(tmp_path, [
+        ["Coriell ID #", "HLA-A", "HLA-B"],
+        ["HG00111", "*30:02:01", "*57:01:01"],
+    ])
+    rows = ing.to_long(ing.read_table(src))
+    got = {r["gene"]: r["diplotype"] for r in rows}
+    assert got == {"HLA-A": "*30:02:01", "HLA-B": "*57:01:01"}
+
+
+def test_hla_diplotype_pairs_are_kept(ing, tmp_path):
+    src = write_csv(tmp_path, [
+        ["Coriell ID #", "HLA-B"], ["HG00111", "*57:01:01/*44:02:01"]])
+    rows = ing.to_long(ing.read_table(src))
+    assert rows[0]["diplotype"] == "*57:01:01/*44:02:01"

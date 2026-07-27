@@ -34,46 +34,57 @@ Landing pages:
 - Table (Excel): https://www.cdc.gov/lab-quality/php/get-rm/reference-materials.html
 - Search tool: https://www.coriell.org/GetRM/PGxSearch
 
-## Acquisition is manual, and this is not an oversight
+## Acquisition, and a correction
 
-`www.cdc.gov` returns **HTTP 403 to non-browser clients** (verified 2026-07-27
-with both a plain fetch and a browser user-agent), and the Coriell PGx Search
-tool is a form-driven ASP.NET page with no bulk export. There is no stable
-machine-readable endpoint to pin, so an automated fetch would be a scraper that
-breaks silently and produces a truth set nobody can reconstruct.
+**This section previously said the download had to be manual because cdc.gov
+returns HTTP 403 to non-browser clients. That was wrong.** cdc.gov 403s on
+requests missing a full browser header set, not on automated clients as such.
+With `Accept`, `Accept-Language`, `Sec-Fetch-*` and `Upgrade-Insecure-Requests`
+it returns 200 for both the landing page and the `.xlsx` asset.
 
-The download is therefore a documented human step. Everything after it is
-automated.
+The original conclusion came from two failed fetches with a bare user-agent. Two
+negative results from one method were generalised into a property of the server.
+That is the same error class this paper is about, so it is recorded here rather
+than quietly amended.
 
-## Steps
+The download is therefore automated and reproducible:
 
-1. Open the CDC page above in a browser and download the consolidated table.
-2. Save it here, for example `real-genome-arm/getrm/GeT-RM_consolidated.xlsx`.
-   A CSV export of the first sheet works equally well.
-3. Convert it to the caller-truth schema:
+```bash
+bash real-genome-arm/scripts/10b_fetch_getrm_consolidated.sh
+```
 
-   ```bash
-   python real-genome-arm/scripts/11_ingest_getrm_consolidated.py \
-       --input real-genome-arm/getrm/GeT-RM_consolidated.xlsx \
-       --out   real-genome-arm/getrm/getrm_consensus.tsv
-   # optional: restrict to the genes the benchmark calls
-   #   --genes CYP2C19 CYP2D6 CYP2C9 TPMT NUDT15 DPYD SLCO1B1 CYP3A5 CYP2B6
-   ```
+It pins the asset URL, refuses to proceed if CDC serves an error page instead of
+a spreadsheet, and checks the SHA-256 against the copy retrieved 2026-07-27
+(`c66174be…3be109`). A changed digest means CDC revised the table, which is
+information rather than an error: re-ingest, re-evaluate, and re-record it.
 
-   Reading `.xlsx` needs `openpyxl`; a CSV export needs nothing.
+The CDC asset path is dated and may move when the table is revised. If it 404s,
+take the current link from the landing page above.
 
-4. Evaluate:
+The Coriell PGx Search tool remains a form-driven page with no bulk export, so
+the consolidated spreadsheet is the right source.
 
-   ```bash
-   python real-genome-arm/scripts/08_caller_truth_eval.py \
-       --truth  real-genome-arm/getrm/getrm_consensus.tsv \
-       --called <pypgx calls tsv>
-   ```
+## Acquisition status, 2026-07-27
 
-The join key is the Coriell identifier (`NA12878` style), which is also how the
-1000 Genomes calls from `scripts/09_call_1000g_eur.sh` and
-`scripts/10_call_1000g_ibs.sh` are named, so samples overlap without a mapping
-file.
+Truth set **acquired and ingested**:
+
+    3,554 genotypes over 323 samples and 35 genes
+    includes HLA-A and HLA-B, which carry four of the benchmark's
+    lethal-class cases
+
+Eleven columns yielded no star-allele call and are excluded, and the ingester
+prints them rather than dropping them silently: the rsID-specific SNP columns
+(`CYP2C Cluster … rs12777823`, two `GGCX` columns, two `VKORC1` columns, plain
+`VKORC1`), `GSTT1` and `SLCO2B1` (reported in a parenthesised or `WT/WT`
+vocabulary rather than star alleles), and three ENA accession columns.
+
+**The evaluation itself is not yet run**, and this is the honest remaining gap.
+It needs PyPGx calls for GeT-RM samples, and only **2 of the 323** GeT-RM
+samples (HG01680, HG01697) are in the locally called IBS cohort. Concordance on
+two samples would be an underpowered number, not a validation. Closing it
+requires calling PyPGx on the GeT-RM samples, whose 1000 Genomes and ENA data
+are not held locally. That is a download and compute job, not an analysis
+decision.
 
 ## What the ingester refuses to do
 
