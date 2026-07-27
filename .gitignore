@@ -58,3 +58,9 @@ rclone.conf
 tools/*.jar
 .venv-pypgx
 work/
+
+# Session run logs and raw evaluation records: raw datasets go to Zenodo,
+# not git (see data/README.md). The small .txt summaries ARE tracked.
+data/*.jsonl
+data/run_*.log
+pharmcat.log

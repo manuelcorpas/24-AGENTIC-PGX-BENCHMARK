@@ -1,0 +1,25 @@
+HIERARCHICAL / MULTIWAY-CLUSTERED STATISTICS
+
+## free_generation   n=2651  coverage=0.997737  parse_failures=6  abstentions=0
+   mean accuracy               0.743493
+   case-clustered 95% CI       (0.688255, 0.79544)
+   model-clustered 95% CI      (0.694077, 0.790099)
+   two-way clustered 95% CI    (0.664296, 0.81667)
+   variance: case=0.082629075155  model=0.0042736002  framing=0.0  replicate=9.086308e-06  residual=0.101347481876
+   lethal-class                0.702065 (101 errors of 339)
+
+## rag_execution   n=2644  coverage=0.926626  parse_failures=2  abstentions=194
+   mean accuracy               0.899773
+   case-clustered 95% CI       (0.880104, 0.917551)
+   model-clustered 95% CI      (0.762093, 0.982157)
+   two-way clustered 95% CI    (0.750751, 0.983838)
+   variance: case=0.009826245409  model=0.02903195819  framing=0.0  replicate=1.5166672e-05  residual=0.051308121349
+   lethal-class                0.83631 (55 errors of 336)
+
+## rag_generation   n=2647  coverage=0.991689  parse_failures=22  abstentions=0
+   mean accuracy               0.81904
+   case-clustered 95% CI       (0.75923, 0.871366)
+   model-clustered 95% CI      (0.786607, 0.851911)
+   two-way clustered 95% CI    (0.748136, 0.881005)
+   variance: case=0.0906546703  model=0.008088950847  framing=0.0  replicate=3.3528824e-05  residual=0.046791555233
+   lethal-class                0.383929 (207 errors of 336)
