@@ -1,39 +1,54 @@
 # Model versions and API snapshots
 
-The nine-model panel and the exact API identifier each condition issues. All models
-except Mistral are pinned to a dated or fixed identifier. This file exists to answer
-the reviewer request to audit model identifiers.
+Corrected 2026-07-27. The previous version of this file listed the panel used at
+original submission and was not updated when three models were substituted for
+the revision. A referee who audited it, as requested in the first round, was
+therefore given a panel that no longer matched the manuscript. That is the file's
+one job, so the correction is recorded here rather than made silently.
 
-| Manuscript name  | API identifier issued by the code | Pinned? |
+## The panel that produced the matched-factorial numbers in v30
+
+Regenerate this table with `python code/69-cell-provenance.py`, which reads the
+evaluation rows rather than trusting this document.
+
+| Manuscript name  | API identifier issued              | Pinned? |
 |------------------|------------------------------------|---------|
-| Claude Opus 4    | `claude-opus-4-20250514`           | yes (dated) |
-| Claude Sonnet 4  | `claude-sonnet-4-20250514`         | yes (dated) |
+| Claude Opus 4.5  | `claude-opus-4-5-20251101`         | yes (dated) |
+| Claude Sonnet 4.5| `claude-sonnet-4-5-20250929`       | yes (dated) |
 | GPT-5.2          | `gpt-5.2`                          | yes (fixed release id) |
 | GPT-4.1          | `gpt-4.1`                          | yes (fixed release id) |
 | o3               | `o3`                               | yes (fixed release id) |
 | o4-mini          | `o4-mini`                          | yes (fixed release id) |
 | Gemini 2.5 Flash | `gemini-2.5-flash`                 | yes (fixed release id) |
 | DeepSeek V3      | `deepseek-chat`                    | yes (fixed release id) |
-| Mistral Large 2  | `mistral-large-latest`             | **NO: moving pointer** |
 
-## The Mistral moving-pointer caveat
+All five cells were issued against this same eight-model panel. Every row in
+every cell carries its own token counts and cost; `code/69-cell-provenance.py`
+reports per-cell totals and confirms the panel is identical across cells.
 
-The code calls Mistral through `mistral-large-latest`, which resolves to whatever
-version Mistral serves at request time, rather than a dated snapshot such as
-`mistral-large-2411`. The runs used the API key's default served version at the time
-of testing (early 2026); the served version was not recorded in the response
-metadata, so it cannot be recovered from the raw logs after the fact.
+Mistral is reported separately as a paced sensitivity check and is not in the
+headline eight-model set. The version issued for the revision is
+`mistral-large-2512`, a dated snapshot, replacing the moving pointer used at
+submission.
 
-This does not affect any headline number. Mistral returned an elevated non-response
-rate under this pointer (about 18% empty cells under the paced protocol; 3.7% usable
-in the primary run), so it is **excluded from the headline skill-arm aggregate and
-reported separately** in the manuscript. The primary comparison is the common
-eight-model set.
+## Substitutions, and why
 
-Reconciliation performed for the revision:
-1. All headline figures are reported on the common eight-model set as the primary
-   comparison (per reviewer request).
-2. Mistral is re-run under a dated, pinned identifier (`mistral-large-2411`) as a
-   sensitivity check; both the pointer value and the dated identifier are recorded in
-   the response metadata of the re-run so the served version is auditable.
-3. The manuscript model table is reconciled to the exact identifiers in this file.
+| Submitted        | Status at revision                  | Replaced by |
+|------------------|-------------------------------------|-------------|
+| Claude Opus 4 (`claude-opus-4-20250514`)   | retired by vendor, returns HTTP 404 | Claude Opus 4.5 |
+| Claude Sonnet 4 (`claude-sonnet-4-20250514`)| retired by vendor, returns HTTP 404 | Claude Sonnet 4.5 |
+| Mistral Large 2 (`mistral-large-latest`)    | moving pointer; `mistral-large-2411` withdrawn | `mistral-large-2512`, reported separately |
+
+The submitted run called Mistral through `mistral-large-latest`, which resolves
+to whatever the provider serves at request time. The served version was not
+recorded in the response metadata and cannot be recovered from the logs. That is
+why Mistral is reported separately rather than substituted into the headline: the
+original comparison is not reconstructible, and pretending otherwise would be a
+provenance claim we cannot support.
+
+## The wider point
+
+A benchmark whose result is a property of specific model versions decays as
+vendors retire them, and this one partially did inside a single review cycle.
+That is an argument for correctness executed in versioned code, and it is made
+in the manuscript's Discussion.

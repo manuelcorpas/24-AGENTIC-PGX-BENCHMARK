@@ -1,0 +1,29 @@
+MATCHED FACTORIAL: PER-CELL PROVENANCE
+
+  cell                    n  billed       in_tok     USD  models
+  free_generation      2640    2640      367,611    5.52  8
+  rag_execution        2640    2640    8,804,154   18.17  8
+  rag_generation       2640    2640    8,709,075   21.71  8
+  skill_execution      2639    2639    1,471,210    3.75  8
+  skill_generation     2640    2640    1,376,940    6.15  8
+
+  total spend across the five cells: $55.30
+
+  identical model panel in every cell: True
+  panel (manuscript name -> API identifier issued):
+    Claude Opus 4.5      claude-opus-4-5-20251101
+    Claude Sonnet 4.5    claude-sonnet-4-5-20250929
+    DeepSeek V3          deepseek-chat
+    GPT-4.1              gpt-4.1
+    GPT-5.2              gpt-5.2
+    Gemini 2.5 Flash     gemini-2.5-flash
+    o3                   o3
+    o4-mini              o4-mini
+
+  Every row in every cell carries its own token counts and cost, which
+  is what a reused legacy row cannot do. The rerun flags in
+  60-matched-factorial.py are the default cell selection for a bare
+  invocation, not a record of what produced these numbers.
+
+  skill rows comparable with the legacy dataset: 3959
+  of those, identical on raw text, tokens and cost: 0
