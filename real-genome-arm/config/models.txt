@@ -1,9 +1,22 @@
 # Frontier model panel for the agent (diplotype -> phenotype interpretation).
 # Provider model IDs as called in scripts/04_run_agent_realgenome.py.
-# Mistral Large 2 is excluded from the headline panel (documented rate-limit
-# artefact under concurrency; see the main manuscript Methods).
-Claude Opus 4        claude-opus-4-20250514       anthropic
-Claude Sonnet 4      claude-sonnet-4-20250514     anthropic
+#
+# Updated 2026-07-27 to the substituted panel. Claude Opus 4
+# (claude-opus-4-20250514) and Claude Sonnet 4 (claude-sonnet-4-20250514) were
+# retired by the vendor between submission and revision and now return HTTP 404;
+# leaving them here would have produced eight silent failures per state and a
+# six-model panel reported as eight.
+#
+# Because the panel changed, the real-genome arm is re-run over ALL FOUR cohorts
+# on this one panel rather than adding the European comparator on a different
+# one. A cohort difference produced partly by a change of model would not be
+# interpretable, which is the confound the cross-cohort comparison exists to
+# avoid.
+#
+# Mistral is excluded from the headline panel (documented rate-limit artefact
+# under concurrency; see the manuscript Methods).
+Claude Opus 4.5      claude-opus-4-5-20251101      anthropic
+Claude Sonnet 4.5    claude-sonnet-4-5-20250929    anthropic
 GPT-5.2              gpt-5.2                       openai-reasoning
 GPT-4.1              gpt-4.1                       openai
 o3                   o3                            openai-reasoning
