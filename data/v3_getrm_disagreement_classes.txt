@@ -1,0 +1,41 @@
+GeT-RM CALLER CONCORDANCE, DECOMPOSED
+
+  evaluable (sample, gene) pairs   527
+  concordant                       401
+  concordance                      0.7609
+  disagreements                    126
+    attributable to a mechanism    104
+    unexplained                    22
+
+  disagreements by mechanism:
+      41  SLCO1B1 allele-definition / nomenclature version
+      25  CYP2B6 *6 against *9 (785A>G site coverage)
+      19  CYP2D6 structural variant (needs read depth)
+      19  UGT1A1 allele-definition / nomenclature version
+      11  CYP4F2 unexplained
+       5  CYP2D6 unexplained
+       2  NUDT15 unexplained
+       2  CYP2B6 unexplained
+       1  TPMT unexplained
+       1  CYP2C9 unexplained
+
+  genes with shared definitions and no CNV (CYP2C19, CYP2C9, CYP3A5, TPMT):
+    269/271 = 0.9926
+
+  per gene:
+    CYP2B6       24/51   0.4706
+    CYP2C19      72/72   1.0
+    CYP2C9       71/72   0.9861
+    CYP2D6       48/72   0.6667
+    CYP3A5       59/59   1.0
+    CYP4F2       26/37   0.7027
+    NUDT15        9/11   0.8182
+    SLCO1B1      17/58   0.2931
+    TPMT         67/68   0.9853
+    UGT1A1        8/27   0.2963
+
+  Input is 1000 Genomes phase 3: low-coverage, imputed, no per-sample
+  read depth. This evaluates the caller on genotype data of that kind,
+  the same mode used for the Peru, Uganda and IBS arms. It does not
+  evaluate it on high-depth sequencing, and CYP2D6 structural variation
+  cannot be resolved from this input at all.
