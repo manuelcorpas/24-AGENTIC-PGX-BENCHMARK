@@ -1,0 +1,27 @@
+EXTRACTED RULE TABLES: DIFF AGAINST THE AUTHORED TABLE, AND EXECUTION
+
+  authored table executed on the same 2639 calls:
+    coverage 0.9996   accuracy among emitted 0.9678   overall 0.9674
+
+  Claude Opus 4.5  (21 genes)
+    diff vs authored: 27 shared diplotypes, 22 phenotype agreements (0.815)
+                      34 authored diplotypes absent, 166 extracted not in the authored table
+    executed:         coverage 0.6268, accuracy among emitted 0.7267, overall 0.4555
+                      1202 correct, 452 wrong, 985 abstained of 2639
+
+  GPT-5.2  (21 genes)
+    diff vs authored: 28 shared diplotypes, 23 phenotype agreements (0.821)
+                      33 authored diplotypes absent, 200 extracted not in the authored table
+    executed:         coverage 0.6358, accuracy among emitted 0.7306, overall 0.4646
+                      1226 correct, 452 wrong, 961 abstained of 2639
+
+  o3  (21 genes)
+    diff vs authored: 29 shared diplotypes, 24 phenotype agreements (0.828)
+                      32 authored diplotypes absent, 169 extracted not in the authored table
+    executed:         coverage 0.6449, accuracy among emitted 0.7344, overall 0.4737
+                      1250 correct, 452 wrong, 937 abstained of 2639
+
+  Abstention is reported beside accuracy, never folded into it: a table
+  covering part of the vocabulary perfectly is not equivalent to one
+  covering all of it. A called diplotype absent from an extracted table
+  abstains and never falls back to the authored mapping.

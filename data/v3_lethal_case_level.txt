@@ -1,0 +1,23 @@
+LETHAL-CLASS COMPARISON AT THE CASE LEVEL
+
+  distinct lethal-class cases: 14 (HLA 5, non-HLA 9)
+  The unit of analysis is the distinct case, not the cell: the 336
+  lethal-class cells are these cases replicated across models and runs.
+
+  all (n = 14 cases)
+    free generation        0.1607
+    retrieval, generated   0.4077
+    difference             +0.2470   case-clustered 95% CI (+0.0536, +0.4494)
+    excludes zero          True
+
+  HLA (n = 5 cases)
+    free generation        0.1083
+    retrieval, generated   0.725
+    difference             +0.6167   case-clustered 95% CI (+0.2750, +0.8917)
+    excludes zero          True
+
+  non-HLA (n = 9 cases)
+    free generation        0.1898
+    retrieval, generated   0.2315
+    difference             +0.0417   case-clustered 95% CI (-0.0694, +0.1620)
+    excludes zero          False
