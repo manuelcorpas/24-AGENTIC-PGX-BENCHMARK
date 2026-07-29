@@ -21,12 +21,17 @@ import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 
-# population display order = increasing genetic distance from the European-centric
-# training literature; labels are generic so the script is cohort-agnostic.
+# Display order is by the number of distinct diplotype states each cohort exposes,
+# smallest first. That is a property of the data, and it is deliberately NOT
+# "increasing genetic distance from the European-centric training literature",
+# which is what this comment used to say: ordering the axis by a causal story is
+# the same over-claim the reviewers objected to in the text, made in a figure
+# where it is harder to notice.
 ORDER = [
-    ("CorpasFamily", "European\n(family)"),
-    ("Peru", "Latin American"),
-    ("UGR", "East African"),
+    ("CorpasFamily", "European\n(family, n=5)"),
+    ("Peru", "Latin American\n(Peru)"),
+    ("1000G_IBS", "European\n(Iberian, n=93)"),
+    ("UGR", "East African\n(Uganda)"),
 ]
 CANONICAL = 96.0  # curated-benchmark phenotype accuracy, for reference
 
@@ -117,7 +122,10 @@ def main():
     ax.set_ylabel("Agent responses (%)"); ax.set_ylim(0, 100)
     ax.yaxis.grid(True, color="#ECECEC"); ax.set_axisbelow(True); ax.tick_params(length=0)
     ax.legend(frameon=False, ncol=2, loc="lower center", bbox_to_anchor=(0.5, -0.28), fontsize=9)
-    ax.set_title("Curated accuracy does not transfer to real genomes, and degrades with ancestry",
+    # The old title read "and degrades with ancestry". With a population-matched
+    # European cohort in the panel the bars are not monotonic in any ancestry
+    # ordering, so the figure contradicted its own title. State what is shown.
+    ax.set_title("Curated accuracy does not transfer to real genomes",
                  loc="left", pad=10)
     fig.savefig(f"{outpfx}.png", dpi=300, bbox_inches="tight")
     fig.savefig(f"{outpfx}.tiff", dpi=600, bbox_inches="tight", pil_kwargs={"compression": "tiff_lzw"})

@@ -1,0 +1,5 @@
+population	n	correct_pct	abstain_pct	wrong_pct	parsefail_pct
+European (family, n=5)	232	69.8	7.8	12.9	9.5
+Latin American (Peru)	336	55.7	24.4	6.0	14.0
+European (Iberian, n=93)	760	61.2	12.2	18.8	7.8
+East African (Uganda)	1520	37.4	33.8	16.2	12.5
