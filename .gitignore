@@ -64,3 +64,4 @@ work/
 data/*.jsonl
 data/run_*.log
 pharmcat.log
+.venv-stats/

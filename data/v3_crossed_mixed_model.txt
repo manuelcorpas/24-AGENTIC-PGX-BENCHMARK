@@ -1,0 +1,21 @@
+CROSSED RANDOM-EFFECTS MODEL, PHENOTYPE ACCURACY
+
+  Random intercepts for case and model, fitted by REML. Compared with the
+  method-of-moments decomposition reported in Table 3.
+
+  cell                  mean   var(case)  var(model)  moments case  moments model
+  free_generation      0.744     0.07897     0.00514   0.082605314   0.0047783230
+  rag_execution        0.965     0.00789     0.00091   0.008855027   0.0008585858
+  rag_generation       0.820     0.08914     0.00241   0.090588986   0.0022514921
+  skill_execution      0.967     0.01036     0.00057   0.011123163   0.0005513038
+  skill_generation     0.964     0.00873     0.00062   0.009685491   0.0006100780
+
+  Cells with mean accuracy above 0.95 sit close to the boundary, where a
+  linear mixed model understates variance on the probability scale: rag_execution, skill_execution, skill_generation.
+  Their components should be read as indicative and compared with the
+  clustered intervals rather than relied on alone.
+
+  Framing and replicate are not fitted: this design has a single framing, so
+  that component is zero by construction, and the replicate component in the
+  moments decomposition is of order 1e-5. Fitting terms known to be zero
+  invites a singular fit and reports precision the data do not carry.
