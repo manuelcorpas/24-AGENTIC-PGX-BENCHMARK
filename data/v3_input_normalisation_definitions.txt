@@ -1,0 +1,21 @@
+INPUT NORMALISATION, ARM 2: THE MODEL GIVEN THE CALLER'S DEFINITIONS
+
+Claude Opus 4.5, VCF rendering, 482 of 527 pairs (spend cap).
+
+PAIRED, same 482 pairs:
+  without definitions  n=482  coverage=0.560  accuracy among emitted=0.463
+  with definitions     n=482  coverage=0.927  accuracy among emitted=0.971
+
+AGAINST INDEPENDENT TRUTH (GeT-RM), on the 447 pairs the model answered:
+  model, given definitions : 356/447 = 0.796
+  PyPGx, deterministic     : 355/447 = 0.794
+
+This is the load-bearing comparison. Agreement with PyPGx itself (0.971) is
+NOT independent: both parties hold the same definition table.
+
+Where model and caller disagree (13 pairs): GeT-RM favours the model 5, the caller 4.
+
+Majority-class baseline: always answering *1/*1 scores 0.423.
+Distinct references 80; distinct model calls 82.
+So this is not a degenerate-answer artefact.
+
