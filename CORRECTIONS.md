@@ -5,10 +5,17 @@ numeric effect of each and the guard that now prevents recurrence.
 
 The manuscript this repository supports argues that agent-mediated pipelines fail
 in ways that look like success. Evaluation harnesses have the same disease. Each
-entry below produced a confident, plausible, wrong result that would have
-survived peer review. All four were found in a single session on 2026-07-26. They
-are recorded here rather than quietly fixed, because a paper arguing for
-auditability that does not audit itself in public has not made its own case.
+entry below produced, or would have produced, a confident, plausible, wrong
+result that would have survived peer review. They are recorded here rather than
+quietly fixed, because a paper arguing for auditability that does not audit
+itself in public has not made its own case.
+
+C1 to C8 were found on 2026-07-26 and 2026-07-27, after the results they affect
+had been written up. C9 to C11 are different in one respect worth stating: they
+were caught on 2026-07-30 while building the input-normalisation experiment, in
+new code, before any number from it existed. They are logged on the same footing
+anyway. A harness artefact caught early is the same defect as one caught late,
+and a log that only records the embarrassing ones would misrepresent the rate.
 
 Nothing in this log affects the numbers supplied to the editor in the plan of
 revision on 2026-07-26. Those numbers come from `real-genome-arm/n0/n0_result.json`,
@@ -193,12 +200,88 @@ Guard: `real-genome-arm/scripts/15_agent_vs_deterministic.py` now reports both
 denominators, and any comparison against a previously published figure must state
 which metric it uses.
 
+## C9. A variant cap withheld the defining variant, then scored the result as model failure
+
+**Found:** 2026-07-30, before any result existed. **File:** `code/74-input-normalisation.py`.
+
+The input-normalisation experiment shows a model the non-reference genotypes a
+sample carries across a gene region and asks for the star-allele diplotype. The
+first implementation capped the list at 60 variants. Observed counts run to 681,
+with a median of 73.
+
+**Effect had it not been caught.** 318 of 527 prompts were truncated. Truncation
+is not random with respect to the answer: it drops variants by position, so for
+any sample whose allele-defining variant sits late in the region, the model was
+asked to identify a haplotype from input that no longer contained the evidence
+for it. Every resulting failure would have been reported as a model unable to
+normalise input. This is C5 in a new costume, a harness limit presented as a
+finding.
+
+**Guard.** The cap is 800, above the observed maximum, and the build step reports
+the truncation count so a reader can see it is zero rather than take it on trust.
+
+## C10. The harness asserted a completeness claim about its own input
+
+**Found:** 2026-07-30. **File:** `code/74-input-normalisation.py`.
+
+The prose rendering closed every prompt with "No other non-reference genotype was
+observed in the region examined." That sentence was emitted unconditionally,
+including when the variant list had been truncated, where it is false.
+
+**Effect had it not been caught.** The harness would have told the model that an
+incomplete list was complete, and then scored the model on the answer. A model
+reasoning correctly from a false premise supplied by the evaluator would have
+been recorded as wrong. The paper's own argument is that fabricated inputs
+produce confident wrong outputs downstream; the evaluator was doing the
+fabricating.
+
+**Guard.** `render()` takes a `truncated` flag and every rendering discloses
+truncation explicitly. A test asserts the completeness sentence appears only when
+the list is complete.
+
+## C11. An output-token cap read as a model declining to answer
+
+**Found:** 2026-07-30. **File:** `code/74-input-normalisation.py`.
+
+The experiment initially reused the matched factorial's model clients, which cap
+output at 320 tokens. That is correct for the factorial's one-line task. Input
+normalisation makes a model reason about which variants define which haplotype,
+and the answer arrives after that reasoning.
+
+**Effect had it not been caught.** Claude was cut off mid-reasoning, before the
+`DIPLOTYPE:` line. o3 was worse: it spends its budget on reasoning tokens and
+returned empty content on **100 per cent** of calls at both 320 and 2,000 tokens.
+The parser, correctly, found no diplotype. Absorbed into the abstention rate,
+this would have been published as "o3 abstains on every case", a clean and
+completely false finding about a frontier model. Coverage and abstention are the
+headline metrics of this experiment, so the artefact would have landed directly
+on the number that matters.
+
+**Guard.** `classify()` separates `call`, `abstain` and `truncated_output` using
+the output-token count against the cap, so a response cut off by the budget can
+never be counted as a refusal. Truncated responses are reported as their own
+category and excluded from the scored denominator. The budget was raised to
+6,000 tokens, and the units still truncated at that budget were re-run at 14,000
+rather than left as an unexplained exclusion.
+
 ## What this log is for
 
-Four of these eight biased results toward this project's own hypothesis; one
-biased against it. None was found by peer review. All were found by re-deriving a
-number that looked too clean, and three of the last four were found only because
-a referee's scrutiny prompted a re-reading of work already believed finished. The general lesson is stated in the manuscript: an evaluation harness
-is itself an agent-mediated pipeline, and it fails silently in the same way.
+Four of the first eight biased results toward this project's own hypothesis; one
+biased against it. None was found by peer review. All eight were found by
+re-deriving a number that looked too clean, and three of the last four were found
+only because a referee's scrutiny prompted a re-reading of work already believed
+finished.
+
+C9 to C11 were found a different way, and the difference is the useful part. All
+three were caught by writing the test before the code and asking what the harness
+would have to get wrong for a clean result to be false. Two of them (C9, C11) are
+the same defect as C5: a limit of the evaluation apparatus arriving at the
+analyst's desk wearing the costume of a finding about a model. That this class
+recurred twice more in new code, written by people who had just documented it,
+is the strongest evidence in this log for the manuscript's actual claim. Knowing
+the failure mode does not protect you from it. Only the guard does.
+
+The general lesson is stated in the manuscript: an evaluation harness is itself
+an agent-mediated pipeline, and it fails silently in the same way.
 
 Corrections to this log are welcome as issues on this repository.
