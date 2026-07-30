@@ -11,9 +11,9 @@ quietly fixed, because a paper arguing for auditability that does not audit
 itself in public has not made its own case.
 
 C1 to C8 were found on 2026-07-26 and 2026-07-27, after the results they affect
-had been written up. C9 to C11 are different in one respect worth stating: they
+had been written up. C9 to C12 are different in one respect worth stating: they
 were caught on 2026-07-30 while building the input-normalisation experiment, in
-new code, before any number from it existed. They are logged on the same footing
+new code, before any number from it reached a manuscript. They are logged on the same footing
 anyway. A harness artefact caught early is the same defect as one caught late,
 and a log that only records the embarrassing ones would misrepresent the rate.
 
@@ -264,6 +264,42 @@ category and excluded from the scored denominator. The budget was raised to
 6,000 tokens, and the units still truncated at that budget were re-run at 14,000
 rather than left as an unexplained exclusion.
 
+## C12. HTTP 429 read as a model declining to answer, for the second time
+
+**Found:** 2026-07-30. **File:** `code/74-input-normalisation.py`.
+
+C3 in this log records rate limiting being read as a model's failure to follow a
+schema. C11, written the same afternoon, added a `classify()` function to stop a
+truncated response being counted as a refusal. That function checked the output
+token count and the response text. It did not check whether the call had failed.
+
+A failed request leaves empty text and zero tokens, which on the text alone is
+indistinguishable from a terse refusal. So every errored call was recorded as an
+abstention.
+
+**Effect.** In the o3 arm, 132 of 450 calls returned HTTP 429 against an
+exhausted quota and were written out as abstentions. The first reading of that
+run was 254 abstentions, 102 calls, 94 truncated. The true composition is 123
+abstentions, 102 calls, 93 truncated and 132 errors. Abstention is the headline
+metric of this experiment, and it was overstated by a factor of two. A retry
+batch of 94 calls compounded it: every one failed on the same exhausted quota and
+was recorded as 94 clean abstentions at a total cost of $0.00, a figure that
+should have been read as the tell it was.
+
+**Guard.** `classify()` now takes the error and returns `error` before any other
+test, overriding even text that parses as a valid call, because a partial
+response banked alongside an error is not a result. Errors are counted and
+reported as their own category and never enter the scored denominator. Both o3
+result files were re-classified and the affected arm is being re-run.
+
+**Why this one matters most.** It is the fourth appearance of this class in the
+log (C3, C5, C9, C11) and the second appearance of rate limiting specifically. It
+was introduced inside the guard written to prevent the previous instance, by
+someone who had just written that guard, on the same day, having explicitly
+enumerated the failure mode in this file. The manuscript claims that knowing a
+pipeline can fail silently does not stop it failing silently, and that only a
+mechanical check does. This entry is that claim happening to the authors.
+
 ## What this log is for
 
 Four of the first eight biased results toward this project's own hypothesis; one
@@ -272,14 +308,18 @@ re-deriving a number that looked too clean, and three of the last four were foun
 only because a referee's scrutiny prompted a re-reading of work already believed
 finished.
 
-C9 to C11 were found a different way, and the difference is the useful part. All
-three were caught by writing the test before the code and asking what the harness
-would have to get wrong for a clean result to be false. Two of them (C9, C11) are
-the same defect as C5: a limit of the evaluation apparatus arriving at the
-analyst's desk wearing the costume of a finding about a model. That this class
-recurred twice more in new code, written by people who had just documented it,
-is the strongest evidence in this log for the manuscript's actual claim. Knowing
-the failure mode does not protect you from it. Only the guard does.
+C9 to C12 were found a different way, and the difference is the useful part.
+Three were caught by writing the test before the code and asking what the harness
+would have to get wrong for a clean result to be false. C12 was caught by a cost
+of $0.00 on 94 calls that had supposedly produced answers.
+
+C9, C11 and C12 are all the same defect as C5: a limit of the evaluation
+apparatus arriving at the analyst's desk wearing the costume of a finding about a
+model. C12 is the sharpest case, because it was introduced inside the guard
+written to prevent C11, on the same day, by the same hands, in a file that already
+documented the failure mode twice. That is the strongest evidence in this log for
+the manuscript's actual claim. Knowing the failure mode does not protect you from
+it. Only the mechanical guard does, and only for the exact case it checks.
 
 The general lesson is stated in the manuscript: an evaluation harness is itself
 an agent-mediated pipeline, and it fails silently in the same way.
