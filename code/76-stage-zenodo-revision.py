@@ -64,6 +64,9 @@ FILES = [
     "v3_input_normalisation_o3_retry.json",  # the 429 batch: all error, deposited anyway
     "v3_input_normalisation_eval.json",
     "v3_normalisation_disagreement_classes.json",
+    "v3_input_normalisation_defs_tail.json",   # arm 2, the final 45 pairs
+    "v3_input_normalisation_defs_gpt52.json",  # arm 2, GPT-5.2
+    "v3_input_normalisation_defs_o3.json",     # arm 2, o3
 ]
 
 PROVENANCE = """# Provenance of the raw evaluation rows
