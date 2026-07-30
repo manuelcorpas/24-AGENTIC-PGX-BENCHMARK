@@ -142,40 +142,48 @@ def build_checks():
     main_rows = _rows("v3_input_normalisation_main.json")
     o3_rows = _rows("v3_input_normalisation_o3.json")
 
+    defs_rows = defs_rows + _rows("v3_input_normalisation_defs_tail.json")
+    o3_defs = _rows("v3_input_normalisation_defs_o3.json")
+    gpt_defs = _rows("v3_input_normalisation_defs_gpt52.json")
+
+    def cov_acc(rows, ref="reference"):
+        scored = [r for r in rows if r.get("status") in ("call", "abstain")]
+        em = [r for r in scored if r.get("status") == "call"]
+        ok = sum(1 for r in em if _nd(r["call"]) == _nd(r[ref]))
+        return len(em) / len(scored), (ok / len(em) if em else 0.0)
+
     if defs_rows and main_rows:
         keys = {(r["sample"], r["gene"]) for r in defs_rows}
         base = [r for r in main_rows
                 if r["model"] == "Claude Opus 4.5" and r["form"] == "vcf"
                 and (r["sample"], r["gene"]) in keys]
-
-        def cov_acc(rows):
-            em = [r for r in rows if r.get("status") == "call"]
-            ok = sum(1 for r in em if _nd(r["call"]) == _nd(r["reference"]))
-            return len(em) / len(rows), (ok / len(em) if em else 0.0)
-
         bc, ba = cov_acc(base)
         dc, da = cov_acc(defs_rows)
-        checks.append(("normalisation coverage, no definitions", "0.560", f"{bc:.3f}"))
-        checks.append(("normalisation accuracy, no definitions", "0.463", f"{ba:.3f}"))
-        checks.append(("normalisation coverage, definitions", "0.927", f"{dc:.3f}"))
-        checks.append(("normalisation accuracy, definitions", "0.971", f"{da:.3f}"))
+        checks.append(("normalisation coverage, no definitions", "0.558", f"{bc:.3f}"))
+        checks.append(("normalisation accuracy, no definitions", "0.456", f"{ba:.3f}"))
+        checks.append(("normalisation coverage, definitions", "0.928", f"{dc:.3f}"))
+        checks.append(("normalisation accuracy, definitions", "0.973", f"{da:.3f}"))
 
         em = [r for r in defs_rows if r.get("status") == "call"]
         mok = sum(1 for r in em if _nd(r["call"]) == _nd(r["getrm"]))
         pok = sum(1 for r in em if _nd(r["reference"]) == _nd(r["getrm"]))
-        checks.append(("normalisation vs GeT-RM, model", "0.796", f"{mok/len(em):.3f}"))
-        checks.append(("normalisation vs GeT-RM, caller", "0.794", f"{pok/len(em):.3f}"))
-        checks.append(("normalisation pairs answered", "447", str(len(em))))
+        checks.append(("normalisation vs GeT-RM, model", "0.793", f"{mok/len(em):.3f}"))
+        checks.append(("normalisation vs GeT-RM, caller", "0.791", f"{pok/len(em):.3f}"))
+        checks.append(("normalisation pairs answered", "489", str(len(em))))
 
-    if main_rows and o3_rows:
-        allr = [r for r in main_rows + o3_rows if r.get("status") != "error"]
-        scored = [r for r in allr if r.get("status") != "truncated_output"]
-        em = [r for r in scored if r.get("status") == "call"]
-        ok = sum(1 for r in em if _nd(r["call"]) == _nd(r["reference"]))
-        checks.append(("normalisation arm 1 abstention", "71",
-                       str(round(100 * (1 - len(em) / len(scored))))))
-        checks.append(("normalisation arm 1 accuracy", "39",
-                       str(round(100 * ok / len(em)))))
+    for rows, name, cov, acc, mg, cg in (
+            (o3_defs, "o3", "0.846", "0.910", "0.724", "0.767"),
+            (gpt_defs, "GPT-5.2", "0.368", "0.562", "0.495", "0.768")):
+        if not rows:
+            continue
+        c, a = cov_acc(rows)
+        checks.append((f"normalisation coverage, definitions, {name}", cov, f"{c:.3f}"))
+        checks.append((f"normalisation accuracy, definitions, {name}", acc, f"{a:.3f}"))
+        em = [r for r in rows if r.get("status") == "call"]
+        checks.append((f"normalisation vs GeT-RM, {name}", mg,
+                       f"{sum(1 for r in em if _nd(r['call'])==_nd(r['getrm']))/len(em):.3f}"))
+        checks.append((f"normalisation vs GeT-RM, caller for {name}", cg,
+                       f"{sum(1 for r in em if _nd(r['reference'])==_nd(r['getrm']))/len(em):.3f}"))
 
     avd = load("v3_agent_vs_deterministic.json")
     if avd:

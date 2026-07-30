@@ -83,10 +83,12 @@ def metrics(rows: list[dict], ref: str = "reference") -> dict | None:
         return None
     em = [r for r in scored if r.get("status") == "call"]
     ok = sum(1 for r in em if _nd(r["call"]) == _nd(r[ref]))
+    okg = sum(1 for r in em if r.get("getrm") and _nd(r["call"]) == _nd(r["getrm"]))
     return {
         "n": len(scored),
         "coverage": len(em) / len(scored),
         "accuracy": (ok / len(em)) if em else None,
+        "vs_getrm": (okg / len(em)) if em else None,
         "emitted": len(em),
     }
 
@@ -133,37 +135,54 @@ def draw(res: dict, path_stem: str = "FigureR5-input-normalisation"):
     width = 0.36
     gap = 0.02   # surface gap between adjacent bars
 
-    for ax, key, title in ((axA, "coverage", "Coverage: did the model answer?"),
-                           (axB, "accuracy", "Accuracy among answers given")):
+    # MIN_EMITTED: an accuracy computed on a handful of emitted calls is not a
+    # measurement. GPT-5.2 without definitions emits one call on these pairs, and
+    # drawing it as "0.00 accuracy" reads as a property of the model rather than
+    # of a denominator of one.
+    MIN_EMITTED = 10
+
+    for ax, key, title, ylab in (
+            (axA, "coverage", "Coverage: did the model answer?", "Coverage"),
+            (axB, "vs_getrm", "Accuracy against external consensus (GeT-RM)",
+             "Accuracy vs GeT-RM")):
         for i, m in enumerate(models):
-            wo = res[m]["without"]
-            w = res[m]["with"]
-            vwo = (wo or {}).get(key)
-            vw = w.get(key)
-            if vwo is not None:
-                ax.bar(i - width / 2 - gap, vwo, width, color=WITHOUT, zorder=3)
-                ax.text(i - width / 2 - gap, vwo + 0.02, f"{vwo:.2f}", ha="center",
-                        fontsize=8, color=INK, zorder=4)
-            if vw is not None:
-                ax.bar(i + width / 2 + gap, vw, width, color=WITH, zorder=3)
-                ax.text(i + width / 2 + gap, vw + 0.02, f"{vw:.2f}", ha="center",
-                        fontsize=8, color=INK, zorder=4)
+            for sign, side, colour in ((-1, "without", WITHOUT), (1, "with", WITH)):
+                cell = res[m][side]
+                x = i + sign * (width / 2 + gap)
+                if cell is None:
+                    continue
+                v = cell.get(key)
+                if v is None:
+                    continue
+                if key == "vs_getrm" and cell.get("emitted", 0) < MIN_EMITTED:
+                    ax.text(x, 0.03, f"n={cell.get('emitted', 0)}", ha="center",
+                            fontsize=7, color="#52514e", rotation=90, zorder=4)
+                    continue
+                ax.bar(x, v, width, color=colour, zorder=3)
+                ax.text(x, v + 0.02, f"{v:.2f}", ha="center", fontsize=8,
+                        color=INK, zorder=4)
         ax.set_xticks(list(xs))
         ax.set_xticklabels(models, fontsize=8.5)
         ax.set_ylim(0, 1.12)
-        ax.set_ylabel(key.capitalize())
+        ax.set_ylabel(ylab)
         ax.set_title(title, fontsize=9.5, loc="left")
         ax.grid(axis="y", color="#e6e6e4", lw=0.7, zorder=0)
         ax.set_axisbelow(True)
 
     # the deterministic caller, on the pairs each model answered
-    callers = [res[m]["caller_vs_getrm"] for m in models if res[m]["caller_vs_getrm"]]
-    if callers:
-        lvl = sum(callers) / len(callers)
-        axB.axhline(lvl, color=NEUTRAL, lw=1.2, ls="--", zorder=2)
-        axB.text(len(models) - 0.5, lvl + 0.025,
-                 f"deterministic caller vs external consensus ({lvl:.2f})",
-                 ha="right", fontsize=7.5, color="#52514e")
+    # Per-model caller reference, on the pairs THAT model answered. Directly
+    # comparable to the bars now that both are measured against GeT-RM. An
+    # earlier version drew accuracy-against-the-caller in this panel with a
+    # caller-against-GeT-RM line, which are different measures and read as the
+    # models beating the caller.
+    for i, m in enumerate(models):
+        lvl = res[m]["caller_vs_getrm"]
+        if lvl is None:
+            continue
+        axB.plot([i - 0.46, i + 0.46], [lvl, lvl], color=NEUTRAL, lw=1.4,
+                 ls="--", zorder=5)
+        axB.text(i - 0.46, lvl + 0.025, f"caller {lvl:.2f}", ha="left", fontsize=7,
+                 color="#52514e", zorder=5)
 
     handles = [plt.Rectangle((0, 0), 1, 1, color=WITHOUT),
                plt.Rectangle((0, 0), 1, 1, color=WITH)]
