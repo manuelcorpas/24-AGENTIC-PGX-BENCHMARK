@@ -123,7 +123,7 @@ def collect() -> dict:
     return out
 
 
-def draw(res: dict, path_stem: str = "FigureR5-input-normalisation"):
+def draw(res: dict, path_stem: str = "Figure8-input-normalisation"):
     plt.rcParams.update({
         "font.family": "sans-serif", "font.size": 9,
         "axes.spines.top": False, "axes.spines.right": False,
