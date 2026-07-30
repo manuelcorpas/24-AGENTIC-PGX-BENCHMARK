@@ -492,6 +492,8 @@ def main(argv: list[str] | None = None) -> int:
                     help="override the output budget for this run")
     ap.add_argument("--definitions", action="store_true",
                     help="supply the PyPGx allele-definition table for the gene")
+    ap.add_argument("--skip-completed", type=Path, default=None,
+                    help="exclude (sample,gene,form,model) units already in a prior output")
     ap.add_argument("--only-truncated", type=Path, default=None,
                     help="rerun only the units a prior run left truncated_output")
     args = ap.parse_args(argv)
@@ -519,6 +521,11 @@ def main(argv: list[str] | None = None) -> int:
     runner = _load("matched_factorial", CODE / "60-matched-factorial.py")
 
     units = [(k, f, m) for k in keys for f in args.forms for m in args.models]
+    if args.skip_completed and args.skip_completed.exists():
+        prior = json.loads(args.skip_completed.read_text())["rows"]
+        done = {(f"{r['sample']}|{r['gene']}", r["form"], r["model"])
+                for r in prior if r.get("status") != "error"}
+        units = [u for u in units if u not in done]
     if args.only_truncated:
         prior = json.loads(args.only_truncated.read_text())["rows"]
         want = {(f"{r['sample']}|{r['gene']}", r["form"], r["model"])

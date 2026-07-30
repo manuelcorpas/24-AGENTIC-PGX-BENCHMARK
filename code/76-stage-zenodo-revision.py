@@ -57,10 +57,13 @@ FILES = [
     "v3_hierarchical_stats.json",
     "v3_lethal_case_level.json",
     "v3_cell_provenance.json",
-    "v3_normalisation_inputs.json",      # R1.1 input normalisation
-    "v3_input_normalisation_main.json",
-    "v3_input_normalisation_o3.json",
+    "v3_normalisation_inputs.json",      # R1.1 input normalisation, frozen inputs
+    "v3_input_normalisation_main.json",  # arm 1, Claude + GPT-5.2
+    "v3_input_normalisation_o3.json",    # arm 1, o3 subsample
+    "v3_input_normalisation_defs.json",  # arm 2, the result that changed the conclusion
+    "v3_input_normalisation_o3_retry.json",  # the 429 batch: all error, deposited anyway
     "v3_input_normalisation_eval.json",
+    "v3_normalisation_disagreement_classes.json",
 ]
 
 PROVENANCE = """# Provenance of the raw evaluation rows

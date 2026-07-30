@@ -1,0 +1,16 @@
+Table S8. Input normalisation by gene, Claude Opus 4.5, variant-call rendering.
+Coverage is the fraction of pairs for which a diplotype was emitted; accuracy is among
+emitted calls, against the deterministic caller. Errors and budget-truncated responses
+are excluded from both denominators and reported separately in the text.
+
+gene           n  cov -defs  acc -defs  cov +defs  acc +defs
+CYP2B6        51      0.373      0.105      0.804      1.000
+CYP2C19       72      0.806      0.828      0.972      0.986
+CYP2C9        72      0.556      0.900      0.958      1.000
+CYP2D6        72      0.125      0.000      0.875      0.825
+CYP3A5        59      0.305      0.333      0.966      0.982
+CYP4F2        37      0.270      0.600      0.946      1.000
+NUDT15        11      0.818      0.000      1.000      1.000
+SLCO1B1       58      1.000      0.086      1.000      1.000
+TPMT          68      0.824      0.554      1.000      1.000
+UGT1A1        27      0.630      0.000      0.630      1.000
