@@ -23,12 +23,24 @@ a consensus genotype for the same (sample, gene) pair, that external truth is
 reported alongside, because the caller is not itself infallible and the paper
 already reports its 0.761 raw concordance.
 
-WHAT IT DELIBERATELY DOES NOT DO
-It does not show the model the star-allele vocabulary, a candidate diplotype
-list, the caller's answer, or the gene's allele-definition table. Supplying any
-of them would make this a copying task and reproduce exactly the circularity
-that made the earlier extraction claim vacuous. The tests enforce this: the
-rendered input is asserted to contain no "*" at all.
+TWO ARMS
+The default arm gives the model the genotypes and the gene name and nothing
+else. It measures whether a model can produce a diplotype from real input, and
+it cannot separate a failure to normalise from a failure to recall allele
+definitions from memory. It does not claim to.
+
+`--definitions` adds the allele-definition table PyPGx itself uses, in the same
+GRCh37 coordinate space as the genotypes. That arm puts model and caller on the
+same information footing and isolates normalisation from recall. It is the arm
+that decides whether the paper's architectural proposal survives.
+
+WHAT NEITHER ARM DOES
+Neither shows the model a candidate diplotype list or the caller's answer. The
+definitions block names single alleles only, never a diplotype, so the answer is
+never in the prompt: the model must still work out which alleles this individual
+carries and how they pair. The tests enforce this, and the rendered patient
+genotypes are asserted to contain no "*" in either arm. Supplying the answer is
+what made the earlier extraction claim vacuous.
 
 The renderings are VCF-native, HGVS genomic and a prose report fragment. They
 are NOT rsID-keyed: the 1000 Genomes phase 3 slices used here carry no rsIDs in
@@ -137,14 +149,58 @@ def render(variants: list[dict], form: str, truncated: bool = False) -> str:
     return "\n".join(out)
 
 
+ALLELE_TABLE = (BASE / ".venv-pypgx" / "lib" / "python3.10" / "site-packages" /
+                "pypgx" / "api" / "data" / "allele-table.csv")
+
+
+def load_definitions(gene: str, path: Path = None) -> list[dict]:
+    """PyPGx's own allele-definition rows for one gene.
+
+    This is the table the deterministic caller uses, in the same GRCh37
+    coordinate space as the rendered genotypes, so supplying it puts the model
+    and the caller on the same information footing.
+    """
+    import csv
+    src = path or ALLELE_TABLE
+    with src.open() as fh:
+        return [r for r in csv.DictReader(fh) if r["Gene"] == gene]
+
+
+def definition_block(definitions: list[dict]) -> str:
+    """Allele -> defining variants. Single alleles only, never a diplotype.
+
+    Naming the alleles is fair; the caller knows them. Naming a diplotype would
+    hand over the answer and rebuild the circularity that made the extraction
+    claim vacuous, so this renders one allele per line and nothing else.
+    """
+    lines = ["allele\tfunction\tdefining variants (GRCh37, chrom-pos-ref-alt)"]
+    for d in definitions:
+        core = d.get("GRCh37Core") or "N/A"
+        lines.append(f"{d['StarAllele']}\t{d.get('Function', '')}\t{core}")
+    return "\n".join(lines)
+
+
 def build_prompt(gene: str, variants: list[dict], form: str,
-                 truncated: bool = False) -> str:
-    """The model is given genotypes and the gene, and nothing else."""
+                 truncated: bool = False,
+                 definitions: list[dict] | None = None) -> str:
+    """The model is given genotypes and the gene, and nothing else.
+
+    With `definitions`, it is additionally given the allele-definition table the
+    deterministic caller uses. That arm separates a failure to normalise from a
+    failure to recall allele definitions from memory, which the first arm could
+    not distinguish and did not claim to.
+    """
+    defs = ""
+    if definitions:
+        defs = (f"\nThese are the {gene} allele definitions. An allele is present when the "
+                f"individual carries its defining variants.\n\n"
+                f"{definition_block(definitions)}\n")
     return f"""You are performing input normalisation for a clinical pharmacogenomics pipeline.
 
 Below are the non-reference genotypes observed for one individual across the {gene} region, on the GRCh37 assembly. Determine the {gene} star-allele diplotype this individual carries.
 
 {render(variants, form, truncated)}
+{defs}
 
 Report the diplotype using standard star-allele nomenclature. If these data are not sufficient to determine a diplotype, answer ABSTAIN. An abstention is recorded as such and is not penalised as a wrong answer; a guess is.
 
@@ -434,6 +490,8 @@ def main(argv: list[str] | None = None) -> int:
     ap.add_argument("--out", type=Path, default=RAW_OUT)
     ap.add_argument("--max-out-tokens", type=int, default=None,
                     help="override the output budget for this run")
+    ap.add_argument("--definitions", action="store_true",
+                    help="supply the PyPGx allele-definition table for the gene")
     ap.add_argument("--only-truncated", type=Path, default=None,
                     help="rerun only the units a prior run left truncated_output")
     args = ap.parse_args(argv)
@@ -470,7 +528,12 @@ def main(argv: list[str] | None = None) -> int:
     if args.estimate:
         # price from the real prompts, not from a guess
         import statistics
-        sample_prompts = [build_prompt(inputs[k]["gene"], inputs[k]["variants"], f, inputs[k]["truncated"])
+        _dcache = {}
+        def _defs(g):
+            if args.definitions and g not in _dcache:
+                _dcache[g] = load_definitions(g)
+            return _dcache.get(g)
+        sample_prompts = [build_prompt(inputs[k]["gene"], inputs[k]["variants"], f, inputs[k]["truncated"], _defs(inputs[k]["gene"]))
                           for k in keys[:40] for f in args.forms]
         mean_chars = statistics.mean(len(p) for p in sample_prompts)
         in_tok = mean_chars / 3.7          # conservative chars-per-token
@@ -501,7 +564,8 @@ def main(argv: list[str] | None = None) -> int:
     def one(unit):
         key, form, model_name = unit
         rec = inputs[key]
-        prompt = build_prompt(rec["gene"], rec["variants"], form, rec["truncated"])
+        defs = load_definitions(rec["gene"]) if args.definitions else None
+        prompt = build_prompt(rec["gene"], rec["variants"], form, rec["truncated"], defs)
         text, error, in_tok, out_tok = "", None, 0, 0
         for attempt in range(3):
             try:
@@ -523,6 +587,7 @@ def main(argv: list[str] | None = None) -> int:
             "call": parse_call(text),
             "status": classify(text, out_tok, error=error),
             "reference": rec["reference"], "getrm": rec["getrm"],
+            "definitions_supplied": bool(args.definitions),
             "n_variants_shown": len(rec["variants"]),
             "truncated": rec["truncated"],
             "in_tokens": in_tok, "out_tokens": out_tok,

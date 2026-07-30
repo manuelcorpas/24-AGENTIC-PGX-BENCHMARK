@@ -241,6 +241,53 @@ def test_score_refuses_rows_without_a_reference():
         norm.score([{"sample": "X", "gene": "CYP2D6", "call": "*1/*1"}])
 
 
+# --- definition-supplied arm -----------------------------------------------
+
+DEFS = [
+    {"StarAllele": "*1", "Function": "Normal Function", "GRCh37Core": "N/A"},
+    {"StarAllele": "*3", "Function": "No Function", "GRCh37Core": "22-42524243-CT-C"},
+    {"StarAllele": "*4", "Function": "No Function",
+     "GRCh37Core": "22-42524947-C-T,22-42526694-G-A"},
+]
+
+
+def test_definition_block_lists_every_allele():
+    b = norm.definition_block(DEFS)
+    for d in DEFS:
+        assert d["StarAllele"] in b
+
+
+def test_definition_block_carries_defining_variants():
+    assert "22-42524243-CT-C" in norm.definition_block(DEFS)
+
+
+def test_definition_block_carries_function():
+    assert "No Function" in norm.definition_block(DEFS)
+
+
+def test_definition_prompt_contains_no_diplotype():
+    """Supplying single-allele definitions is fair: PyPGx has them too. Supplying
+    a DIPLOTYPE would hand over the answer and rebuild the tautology that voided
+    the extraction claim."""
+    p = norm.build_prompt("CYP2D6", VARIANTS, "vcf", definitions=DEFS)
+    assert "*3/*3" not in p and "*1/*1" not in p and "*4/*4" not in p
+
+
+def test_genotype_rendering_still_carries_no_star_allele():
+    """The definitions block may name alleles. The rendered patient genotypes
+    must still not, or the model is reading the answer off its own input."""
+    assert "*" not in norm.render(VARIANTS, "vcf")
+
+
+def test_definition_prompt_still_offers_abstention():
+    assert "ABSTAIN" in norm.build_prompt("CYP2D6", VARIANTS, "vcf", definitions=DEFS)
+
+
+def test_prompt_without_definitions_is_unchanged():
+    assert norm.build_prompt("CYP2D6", VARIANTS, "vcf") == \
+           norm.build_prompt("CYP2D6", VARIANTS, "vcf", definitions=None)
+
+
 # --- stratified subsampling ------------------------------------------------
 
 KEYS = {f"S{i}|{g}": {"gene": g}
