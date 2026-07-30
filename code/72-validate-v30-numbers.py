@@ -128,6 +128,55 @@ def build_checks():
                        str(getrm["attributable"])))
         checks.append(("GeT-RM unexplained", "22", str(getrm["unexplained"])))
 
+    # R1.1 input normalisation. Every number is recomputed from the raw rows
+    # here rather than read from a summary, so a stale report cannot validate a
+    # manuscript claim.
+    def _nd(d):
+        return tuple(sorted(p.strip() for p in d.split("/")))
+
+    def _rows(name):
+        d = load(name)
+        return (d or {}).get("rows") or []
+
+    defs_rows = _rows("v3_input_normalisation_defs.json")
+    main_rows = _rows("v3_input_normalisation_main.json")
+    o3_rows = _rows("v3_input_normalisation_o3.json")
+
+    if defs_rows and main_rows:
+        keys = {(r["sample"], r["gene"]) for r in defs_rows}
+        base = [r for r in main_rows
+                if r["model"] == "Claude Opus 4.5" and r["form"] == "vcf"
+                and (r["sample"], r["gene"]) in keys]
+
+        def cov_acc(rows):
+            em = [r for r in rows if r.get("status") == "call"]
+            ok = sum(1 for r in em if _nd(r["call"]) == _nd(r["reference"]))
+            return len(em) / len(rows), (ok / len(em) if em else 0.0)
+
+        bc, ba = cov_acc(base)
+        dc, da = cov_acc(defs_rows)
+        checks.append(("normalisation coverage, no definitions", "0.560", f"{bc:.3f}"))
+        checks.append(("normalisation accuracy, no definitions", "0.463", f"{ba:.3f}"))
+        checks.append(("normalisation coverage, definitions", "0.927", f"{dc:.3f}"))
+        checks.append(("normalisation accuracy, definitions", "0.971", f"{da:.3f}"))
+
+        em = [r for r in defs_rows if r.get("status") == "call"]
+        mok = sum(1 for r in em if _nd(r["call"]) == _nd(r["getrm"]))
+        pok = sum(1 for r in em if _nd(r["reference"]) == _nd(r["getrm"]))
+        checks.append(("normalisation vs GeT-RM, model", "0.796", f"{mok/len(em):.3f}"))
+        checks.append(("normalisation vs GeT-RM, caller", "0.794", f"{pok/len(em):.3f}"))
+        checks.append(("normalisation pairs answered", "447", str(len(em))))
+
+    if main_rows and o3_rows:
+        allr = [r for r in main_rows + o3_rows if r.get("status") != "error"]
+        scored = [r for r in allr if r.get("status") != "truncated_output"]
+        em = [r for r in scored if r.get("status") == "call"]
+        ok = sum(1 for r in em if _nd(r["call"]) == _nd(r["reference"]))
+        checks.append(("normalisation arm 1 abstention", "71",
+                       str(round(100 * (1 - len(em) / len(scored))))))
+        checks.append(("normalisation arm 1 accuracy", "39",
+                       str(round(100 * ok / len(em)))))
+
     avd = load("v3_agent_vs_deterministic.json")
     if avd:
         for coh, cov in (("1000G_IBS", "0.215"), ("CorpasFamily", "0.333"),

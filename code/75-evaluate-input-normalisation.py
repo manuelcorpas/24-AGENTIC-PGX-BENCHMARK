@@ -11,11 +11,18 @@ references kept strictly apart:
 They are never pooled. The paper already reports that the two agree on only
 0.761 of these pairs, so a blended accuracy would belong to neither.
 
-Responses that exhausted the output budget without reaching the DIPLOTYPE line
-are counted as `truncated_output`, reported separately, and excluded from the
-scored denominator. They are a harness limit, not a model declining to answer,
-and the first run of this experiment would have published 100 per cent o3
-abstention if they had been absorbed into the abstention rate.
+Two categories never enter the scored denominator, because neither is the model
+choosing not to answer:
+
+  truncated_output  the output budget ran out before the DIPLOTYPE line. Absorbed
+                    into abstention, this would have published 100 per cent o3
+                    abstention on the first run of this experiment.
+  error             the request failed at the provider. Absorbed into abstention,
+                    this inflated arm 1 from 0.711 to 0.758 and that figure
+                    reached a draft response letter.
+
+Both are counted and reported in their own fields. See C11 and C12 in
+CORRECTIONS.md; the second was introduced by the guard written for the first.
 
 USAGE
     python code/75-evaluate-input-normalisation.py \
@@ -65,7 +72,14 @@ def evaluate(rows: list[dict]) -> dict:
     nor shrink the denominator silently.
     """
     truncated = [r for r in rows if r.get("status") == "truncated_output"]
-    scored = [r for r in rows if r.get("status") != "truncated_output"]
+    errored = [r for r in rows if r.get("status") == "error" or
+               (r.get("error") and r.get("status") != "call")]
+    # Both leave the denominator. A truncated response and a failed request are
+    # facts about the harness and the provider; neither is the model choosing not
+    # to answer. Keeping errors in as "did not emit" inflated arm 1's abstention
+    # from 0.711 to 0.758 and put that figure into a draft response letter.
+    drop = {id(r) for r in truncated} | {id(r) for r in errored}
+    scored = [r for r in rows if id(r) not in drop]
 
     def group(key):
         out = {}
@@ -79,7 +93,7 @@ def evaluate(rows: list[dict]) -> dict:
         "by_form": group("form"),
         "by_gene": group("gene"),
         "truncated_output": len(truncated),
-        "errors": sum(1 for r in rows if r.get("error")),
+        "errors": len(errored),
         "n_rows": len(rows),
         "n_scored": len(scored),
     }

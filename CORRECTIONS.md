@@ -11,7 +11,7 @@ quietly fixed, because a paper arguing for auditability that does not audit
 itself in public has not made its own case.
 
 C1 to C8 were found on 2026-07-26 and 2026-07-27, after the results they affect
-had been written up. C9 to C12 are different in one respect worth stating: they
+had been written up. C9 to C13 are different in one respect worth stating: they
 were caught on 2026-07-30 while building the input-normalisation experiment, in
 new code, before any number from it reached a manuscript. They are logged on the same footing
 anyway. A harness artefact caught early is the same defect as one caught late,
@@ -300,6 +300,37 @@ enumerated the failure mode in this file. The manuscript claims that knowing a
 pipeline can fail silently does not stop it failing silently, and that only a
 mechanical check does. This entry is that claim happening to the authors.
 
+## C13. Provider failures left in the denominator, inflating abstention
+
+**Found:** 2026-07-30. **File:** `code/75-evaluate-input-normalisation.py`.
+
+C12 stopped a failed call being recorded as an abstention in the raw rows. The
+evaluator then made the same mistake one layer up. It excluded `truncated_output`
+from the scored denominator but left `error` rows in it, counted as "did not
+emit". A request that failed at the provider tells us nothing about what the
+model would have answered, so it belongs out of the denominator exactly as a
+truncated response does.
+
+**Effect.** Arm 1 abstention read 0.758 against a true 0.711, and overall coverage
+read 0.242 against a true 0.289. Per model the distortion was uneven, because the
+errors were not: o3's coverage read 0.286 against a true 0.453. The wrong figures
+reached a draft of the response letter and a draft of the manuscript Results
+paragraph before the fabrication firewall caught them, and it caught them only
+because the number was registered in `72-validate-v30-numbers.py` and recomputed
+from raw rows, which disagreed with the summary report.
+
+**Worse, a test asserted the wrong behaviour.** `test_errored_rows_are_counted_as
+_abstentions_not_dropped` was written deliberately, to stop errors being silently
+dropped. The intent was right and the implementation encoded the opposite error:
+not dropping them silently became keeping them in the scored set. A green test
+suite therefore certified the bug.
+
+**Guard.** `evaluate()` removes both `truncated_output` and `error` from the
+scored set and reports each in its own field. The test now asserts an error row
+leaves the denominator, and a second test asserts that a batch of 94 failed calls
+yields no abstention rate at all rather than 94 abstentions. Accuracy was
+unaffected throughout, because it was already conditioned on emission.
+
 ## What this log is for
 
 Four of the first eight biased results toward this project's own hypothesis; one
@@ -308,7 +339,7 @@ re-deriving a number that looked too clean, and three of the last four were foun
 only because a referee's scrutiny prompted a re-reading of work already believed
 finished.
 
-C9 to C12 were found a different way, and the difference is the useful part.
+C9 to C13 were found a different way, and the difference is the useful part.
 Three were caught by writing the test before the code and asking what the harness
 would have to get wrong for a clean result to be false. C12 was caught by a cost
 of $0.00 on 94 calls that had supposedly produced answers.

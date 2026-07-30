@@ -89,12 +89,33 @@ def test_rows_missing_getrm_are_excluded_from_the_getrm_arm_only():
     assert out["overall"]["vs_getrm"]["n"] == 4
 
 
-def test_errored_rows_are_counted_as_abstentions_not_dropped():
-    """Dropping an API failure shrinks the denominator and inflates coverage."""
+def test_errored_rows_leave_the_denominator_entirely():
+    """An earlier version of this test asserted the opposite, and was wrong.
+
+    A call that failed at the provider tells us nothing about what the model
+    would have answered. Leaving it in the denominator as "did not emit" counts
+    a provider outage as model reticence, which is C12 in CORRECTIONS.md. Doing
+    so inflated arm 1's reported abstention from 0.711 to 0.758, and that wrong
+    figure reached a draft response letter.
+
+    Errors are reported in their own field, like truncated_output, and never
+    scored.
+    """
     rows = ROWS + [{"sample": "F", "gene": "CYP2D6", "form": "vcf", "model": "M1",
                     "call": None, "reference": "*1/*1", "getrm": "*1/*1",
-                    "error": "APIError: 500"}]
+                    "status": "error", "error": "APIError: 500"}]
     out = ev.evaluate(rows)
-    assert out["overall"]["vs_caller"]["n"] == 5
+    assert out["overall"]["vs_caller"]["n"] == 4, "error row must not be scored"
     assert out["overall"]["vs_caller"]["emitted"] == 3
     assert out["errors"] == 1
+
+
+def test_an_all_error_batch_has_no_abstention_rate():
+    """94 failed calls once produced '94 clean abstentions' at a cost of $0.00."""
+    rows = [{"sample": "Z", "gene": "TPMT", "form": "vcf", "model": "M1",
+             "call": None, "reference": "*1/*1", "getrm": "*1/*1",
+             "status": "error", "error": "RateLimitError: 429"} for _ in range(94)]
+    out = ev.evaluate(rows)
+    assert out["overall"]["vs_caller"]["n"] == 0
+    assert out["overall"]["vs_caller"]["abstention"] == 0.0
+    assert out["errors"] == 94
