@@ -432,6 +432,9 @@ def build_inputs() -> dict:
 # experiment, and 60-matched-factorial.py is left untouched so the published
 # factorial runs are not disturbed.
 MAX_OUT_TOKENS = 6000
+# Gemini 2.5 Flash reasons before it emits text, so a small budget yields an
+# empty answer that a parser cannot distinguish from a refusal.
+GEMINI_OUT_TOKENS = 8192
 
 
 def load_models(names: list[str]) -> dict:
@@ -482,6 +485,51 @@ def load_models(names: list[str]) -> dict:
         built["GPT-4.1"] = lambda p: _oai("gpt-4.1", p)
         built["o3"] = lambda p: _oai("o3", p, reasoning=True)
         built["o4-mini"] = lambda p: _oai("o4-mini", p, reasoning=True)
+
+    if any(n == "Gemini 2.5 Flash" for n in names):
+        import requests
+
+        gkey = key("GOOGLE_API_KEY", "GEMINI_API_KEY")
+
+        def _gem(p):
+            # GEMINI_OUT_TOKENS, not MAX_OUT_TOKENS: this model spends output
+            # tokens on reasoning before it emits any text, so at a small budget
+            # it returns an empty string. Scoring that as an abstention would
+            # report a harness limit as model reticence, which is CORRECTIONS.md
+            # C3 and C11. The same fix is applied in 43-armAB-fullgrid.py.
+            r = requests.post(
+                "https://generativelanguage.googleapis.com/v1beta/models/"
+                f"gemini-2.5-flash:generateContent?key={gkey}",
+                json={"contents": [{"parts": [{"text": p}]}],
+                      "generationConfig": {"maxOutputTokens": GEMINI_OUT_TOKENS}},
+                timeout=180)
+            r.raise_for_status()
+            body = r.json()
+            usage = body.get("usageMetadata", {})
+            try:
+                text = body["candidates"][0]["content"]["parts"][0]["text"]
+            except (KeyError, IndexError):
+                # no text part: report it as an empty answer with its true token
+                # counts, so classify() can tell a truncation from a refusal
+                text = ""
+            return (text,
+                    usage.get("promptTokenCount", 0),
+                    usage.get("candidatesTokenCount", 0))
+
+        built["Gemini 2.5 Flash"] = _gem
+
+    if any(n == "DeepSeek V3" for n in names):
+        dsk = openai.OpenAI(api_key=key("DEEPSEEK_API_KEY"),
+                            base_url="https://api.deepseek.com")
+
+        def _dsk(p):
+            r = dsk.chat.completions.create(
+                model="deepseek-chat", max_tokens=MAX_OUT_TOKENS,
+                messages=[{"role": "user", "content": p}])
+            return (r.choices[0].message.content,
+                    r.usage.prompt_tokens, r.usage.completion_tokens)
+
+        built["DeepSeek V3"] = _dsk
 
     missing = [n for n in names if n not in built]
     if missing:

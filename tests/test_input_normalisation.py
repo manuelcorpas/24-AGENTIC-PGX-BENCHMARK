@@ -126,6 +126,29 @@ def test_prompt_does_not_supply_a_candidate_diplotype_list():
 
 # --- parsing ---------------------------------------------------------------
 
+def test_load_models_covers_the_whole_common_panel(monkeypatch):
+    """The five-cell comparison used eight models; this experiment must be able
+    to use the same eight, or the input-step result speaks for a different panel
+    than the mapping-step result it is compared against."""
+    for var in ("ANTHROPIC_API_KEY", "OPENAI_API_KEY", "GOOGLE_API_KEY",
+                "DEEPSEEK_API_KEY"):
+        monkeypatch.setenv(var, "test-key-not-used")
+    panel = ["Claude Opus 4.5", "Claude Sonnet 4.5", "GPT-5.2", "GPT-4.1",
+             "o3", "o4-mini", "Gemini 2.5 Flash", "DeepSeek V3"]
+    clients = norm.load_models(panel)
+    assert sorted(clients) == sorted(panel)
+    assert all(callable(c) for c in clients.values())
+
+
+def test_gemini_gets_an_output_budget_that_survives_its_reasoning(monkeypatch):
+    """Gemini 2.5 Flash spends output tokens on reasoning before it emits text.
+    At the default budget it returns empty text, which the parser would record as
+    a refusal to answer. That is the C3 class of artefact: a harness limit read as
+    model behaviour. Its budget must therefore be strictly larger than the shared
+    default."""
+    assert norm.GEMINI_OUT_TOKENS > 320
+
+
 def test_parse_reads_a_diplotype():
     assert norm.parse_call("DIPLOTYPE: *4/*41") == "*4/*41"
 
