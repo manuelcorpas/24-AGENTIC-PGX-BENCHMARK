@@ -4,26 +4,26 @@ The same decomposition applied to the deterministic caller in
 14_getrm_disagreement_classes.py, applied to the model.
 
   vs_caller
-    emitted 850  correct 335  wrong 515
-      unexplained                295
-      nomenclature_version       174
-      missing_site_6_vs_9         41
-      structural_variation         5
-    attributable to a mechanism : 220
-    unexplained (honest residual): 295
-    accuracy, raw                : 0.394
-    accuracy, nomenclature forgiven: 0.599
+    emitted 1594  correct 616  wrong 978
+      unexplained                660
+      nomenclature_version       204
+      missing_site_6_vs_9         95
+      structural_variation        19
+    attributable to a mechanism : 318
+    unexplained (honest residual): 660
+    accuracy, raw                : 0.386
+    accuracy, nomenclature forgiven: 0.514
 
   vs_getrm
-    emitted 850  correct 377  wrong 473
-      unexplained                277
-      nomenclature_version       142
-      missing_site_6_vs_9         41
-      structural_variation        13
-    attributable to a mechanism : 196
-    unexplained (honest residual): 277
-    accuracy, raw                : 0.444
-    accuracy, nomenclature forgiven: 0.611
+    emitted 1594  correct 665  wrong 929
+      unexplained                608
+      nomenclature_version       171
+      missing_site_6_vs_9         94
+      structural_variation        56
+    attributable to a mechanism : 321
+    unexplained (honest residual): 608
+    accuracy, raw                : 0.417
+    accuracy, nomenclature forgiven: 0.524
 
 Coverage is untouched by this decomposition. It concerns only the
 answers the model chose to emit.

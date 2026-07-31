@@ -214,12 +214,24 @@ _DIP = re.compile(r"^\s*DIPLOTYPE:\s*(.+?)\s*$", re.IGNORECASE | re.MULTILINE)
 _VALID = re.compile(r"^\*[\w.]+(?:x\d+)?/\*[\w.]+(?:x\d+)?$")
 
 
-def parse_call(text: str | None) -> str | None:
+# A gene symbol qualifying a diplotype, with or without a separator. The
+# separator is optional because "CYP2D6*4/*4" is the standard PharmVar
+# rendering; requiring it cost 744 calls (C14). The symbol itself must look
+# like a gene symbol, so a lowercase hedge ("unknown*1/*2") is not stripped
+# into a call, which would be C1 in reverse.
+_GENE_PREFIX = re.compile(r"^[A-Z][A-Z0-9]{2,9}[- ]*(?=\*)")
+
+
+def parse_call(text: str | None, gene: str | None = None) -> str | None:
     """Return a diplotype, or None for an abstention, refusal or non-answer.
 
     Deliberately strict. A response that does not carry a well-formed diplotype
     is an abstention, never a salvage attempt: coverage is the headline of this
     experiment, so a lenient parser would move the number it is measuring.
+
+    `gene` is the gene the row asked about. When supplied, that symbol is
+    stripped first and case-insensitively; otherwise any string shaped like a
+    gene symbol is stripped. Both paths leave a hedge word in place.
     """
     if not text:
         return None
@@ -229,14 +241,18 @@ def parse_call(text: str | None) -> str | None:
     value = m.group(1).strip()
     if value.upper().startswith("ABSTAIN"):
         return None
-    # strip a gene prefix ("CYP2D6 *4/*4") if the model supplied one
-    value = re.sub(r"^[A-Z0-9]+[- ]+(?=\*)", "", value.strip())
+    # strip a gene prefix ("CYP2D6 *4/*4" or "CYP2D6*4/*4") if the model
+    # supplied one
+    if gene:
+        value = re.sub(rf"^{re.escape(gene)}[- ]*(?=\*)", "", value,
+                       flags=re.IGNORECASE)
+    value = _GENE_PREFIX.sub("", value.strip())
     value = value.split()[0] if value.split() else ""
     return value if _VALID.match(value) else None
 
 
 def classify(text: str | None, out_tokens: int, cap: int = None,
-             error: str | None = None) -> str:
+             error: str | None = None, gene: str | None = None) -> str:
     """'call', 'abstain', 'truncated_output' or 'error'.
 
     Three ways of not getting an answer, which must never be pooled.
@@ -255,7 +271,7 @@ def classify(text: str | None, out_tokens: int, cap: int = None,
     if error:
         return "error"
     cap = cap if cap is not None else MAX_OUT_TOKENS
-    if parse_call(text) is not None:
+    if parse_call(text, gene) is not None:
         return "call"
     if _DIP.search(text or "") is None and out_tokens >= cap:
         return "truncated_output"
@@ -591,8 +607,8 @@ def main(argv: list[str] | None = None) -> int:
         return {
             "sample": rec["sample"], "gene": rec["gene"], "form": form,
             "model": model_name, "raw": text, "error": error,
-            "call": parse_call(text),
-            "status": classify(text, out_tok, error=error),
+            "call": parse_call(text, rec["gene"]),
+            "status": classify(text, out_tok, error=error, gene=rec["gene"]),
             "reference": rec["reference"], "getrm": rec["getrm"],
             "definitions_supplied": bool(args.definitions),
             "n_variants_shown": len(rec["variants"]),

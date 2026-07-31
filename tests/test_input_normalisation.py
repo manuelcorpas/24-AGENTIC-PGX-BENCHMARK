@@ -138,6 +138,39 @@ def test_parse_strips_gene_prefix():
     assert norm.parse_call("DIPLOTYPE: CYP2D6 *4/*4") == "*4/*4"
 
 
+def test_parse_strips_gene_prefix_without_a_separator():
+    """C14. The published run required a space or hyphen after the gene symbol,
+    so the standard PharmVar rendering with no separator was scored as an
+    abstention. 744 well-formed diplotypes were lost to it, and because coverage
+    is this experiment's headline the artefact moved the headline."""
+    assert norm.parse_call("DIPLOTYPE: CYP2D6*4/*4", "CYP2D6") == "*4/*4"
+    assert norm.parse_call("DIPLOTYPE: CYP2D6*4/*4") == "*4/*4"
+
+
+def test_parse_strips_gene_prefix_case_insensitively():
+    assert norm.parse_call("DIPLOTYPE: cyp2d6*4/*4", "CYP2D6") == "*4/*4"
+
+
+def test_parse_strips_a_hyphenated_gene_prefix():
+    assert norm.parse_call("DIPLOTYPE: CYP2D6-*4/*4", "CYP2D6") == "*4/*4"
+
+
+def test_parse_strips_a_prefix_naming_another_gene():
+    """The prefix is stripped because it is a gene symbol, not because it
+    matches the gene asked about. Scoring against the reference decides
+    correctness; the parser only decides whether an answer was given."""
+    assert norm.parse_call("DIPLOTYPE: CYP2C19*1/*2", "CYP2D6") == "*1/*2"
+
+
+def test_parse_does_not_strip_a_hedge_word():
+    """The fix must not become C1 in reverse. A leading word that is not a gene
+    symbol means the model qualified its answer, and a qualified answer is not a
+    call."""
+    assert norm.parse_call("DIPLOTYPE: unknown*1/*2", "CYP2D6") is None
+    assert norm.parse_call("DIPLOTYPE: possibly*1/*2", "CYP2D6") is None
+    assert norm.parse_call("DIPLOTYPE: indeterminate*1/*2") is None
+
+
 def test_parse_returns_none_on_abstention():
     assert norm.parse_call("DIPLOTYPE: ABSTAIN") is None
 

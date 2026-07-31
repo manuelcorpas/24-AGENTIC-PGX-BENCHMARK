@@ -331,6 +331,49 @@ leaves the denominator, and a second test asserts that a batch of 94 failed call
 yields no abstention rate at all rather than 94 abstentions. Accuracy was
 unaffected throughout, because it was already conditioned on emission.
 
+## C14. A gene prefix without a separator, read as an abstention
+
+**Found:** 2026-07-31. **File:** `code/74-input-normalisation.py`.
+
+The parser strips a gene symbol the model may put in front of its answer. It did
+so with `^[A-Z0-9]+[- ]+(?=\*)`, which requires a space or a hyphen after the
+symbol. `DIPLOTYPE: CYP2D6 *4/*4` therefore parsed and `DIPLOTYPE: CYP2D6*4/*4`
+did not, and the second is the standard PharmVar rendering. A well-formed,
+frequently correct diplotype was recorded as the model declining to answer.
+
+**Effect.** 796 calls across the deposited rows, 744 of them in the scored set.
+Arm 1 coverage read 0.289 against a true 0.542, and abstention 0.711 against a
+true 0.458. The distortion was concentrated in the model that most often names
+the gene: Claude Opus 4.5 read 0.469 coverage against a true 0.925, and on the
+variant-call rendering 0.558 against 0.934.
+
+**It inverted a characterisation, not only a number.** The manuscript reported
+that a model without a validated allele-definition table abstains on most real
+inputs, which is a safe failure. The corrected rows say it answers nearly
+everything and is wrong on about six of every ten answers, which is an unsafe
+one. The finding the experiment was built to test survives and is sharper: the
+definition artefact barely changes whether the model answers (0.934 to 0.973)
+and transforms whether the answer is right (0.396 to 0.967), and against
+external GeT-RM consensus the artefact-supplied model still reaches the
+deterministic caller (0.784 against 0.774) while two other models do not.
+
+**This is C1 again.** C1 was a parser that discarded 289 correct calls and
+inverted a conclusion. The same class recurred here, in the same project, after
+that entry was written, in the metric the experiment exists to measure. Parser
+strictness was chosen deliberately, because a lenient parser would move the
+headline; the lesson is that strictness must be tested against the formats models
+actually emit, not only against the ones the author imagined.
+
+**Guard.** The gene the row asked about is now passed to the parser and stripped
+case-insensitively with an optional separator; failing that, a symbol shaped like
+a gene is stripped. A leading word that is not a gene symbol is still not
+stripped, so a hedge (`unknown*1/*2`) remains an abstention rather than becoming
+C1 in reverse. Five tests cover the separatorless form, the hyphenated form, a
+lowercase symbol, a prefix naming a different gene, and three hedges that must
+not parse. `code/79-reparse-normalisation.py` re-derives `call` and `status` from
+the stored response text with no new API calls, and reports any call the fix
+removes rather than adds; it removed none.
+
 ## What this log is for
 
 Four of the first eight biased results toward this project's own hypothesis; one
