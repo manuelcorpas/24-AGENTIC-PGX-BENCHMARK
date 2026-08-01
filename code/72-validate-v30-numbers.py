@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Fabrication firewall for manuscript v30.
+Fabrication firewall for the corrected Cell Genomics revision.
 
 Every headline number in the paper is recomputed here from the authoritative
 data file and checked against the string actually present in the .docx. If the
@@ -8,7 +8,7 @@ manuscript and this script disagree, the manuscript is wrong.
 
 WHY THIS EXISTS AT ALL
 A referee has now twice found that the deposited artefacts and the manuscript
-described different things, and this project has logged eight instances of a
+described different things, and this project has logged fourteen instances of a
 number that came from tooling rather than from the phenomenon. A check that a
 number appears in the text is weak; a check that the number in the text equals
 the number the data produce is the one that matters, and it is cheap.
@@ -19,7 +19,7 @@ claim absent from CHECKS below is unverified by this script, which is why the
 script prints how many claims it checked rather than implying completeness.
 
 USAGE
-    python3 code/72-validate-v30-numbers.py --manuscript /path/to/v30.docx
+    python3 code/72-validate-v30-numbers.py --manuscript /path/to/final.docx
 """
 from __future__ import annotations
 
@@ -81,8 +81,12 @@ def build_checks():
             checks.append((f"{cell} A2", a2, f"{float(got.get('A2', 0)):.3f}"))
             checks.append((f"{cell} lethal errors", str(leth),
                            str(got.get("lethal_errors"))))
-        total = sum(v["n"] for v in rep.values())
-        checks.append(("total evaluations", "13,199", f"{total:,}"))
+        returned = sum(v["n"] for v in rep.values())
+        checks.append(("returned evaluation records", "13,199", f"{returned:,}"))
+        # One prespecified authored-rule-execution request returned no record.
+        # It remains an attempted evaluation and is imputed as a failed attempt
+        # in all end-to-end denominators.
+        checks.append(("attempted evaluations", "13,200", f"{returned + 1:,}"))
 
     ext = load("v3_extracted_rules_eval.json")
     if ext:
@@ -128,62 +132,52 @@ def build_checks():
                        str(getrm["attributable"])))
         checks.append(("GeT-RM unexplained", "22", str(getrm["unexplained"])))
 
-    # R1.1 input normalisation. Every number is recomputed from the raw rows
-    # here rather than read from a summary, so a stale report cannot validate a
-    # manuscript claim.
-    def _nd(d):
-        return tuple(sorted(p.strip() for p in d.split("/")))
-
-    def _rows(name):
-        d = load(name)
-        return (d or {}).get("rows") or []
-
-    defs_rows = _rows("v3_input_normalisation_defs.json")
-    main_rows = _rows("v3_input_normalisation_main.json")
-    o3_rows = _rows("v3_input_normalisation_o3.json")
-
-    defs_rows = defs_rows + _rows("v3_input_normalisation_defs_tail.json")
-    o3_defs = _rows("v3_input_normalisation_defs_o3.json")
-    gpt_defs = _rows("v3_input_normalisation_defs_gpt52.json")
-
-    def cov_acc(rows, ref="reference"):
-        scored = [r for r in rows if r.get("status") in ("call", "abstain")]
-        em = [r for r in scored if r.get("status") == "call"]
-        ok = sum(1 for r in em if _nd(r["call"]) == _nd(r[ref]))
-        return len(em) / len(scored), (ok / len(em) if em else 0.0)
-
-    if defs_rows and main_rows:
-        keys = {(r["sample"], r["gene"]) for r in defs_rows}
-        base = [r for r in main_rows
-                if r["model"] == "Claude Opus 4.5" and r["form"] == "vcf"
-                and (r["sample"], r["gene"]) in keys]
-        bc, ba = cov_acc(base)
-        dc, da = cov_acc(defs_rows)
-        checks.append(("normalisation coverage, no definitions", "0.558", f"{bc:.3f}"))
-        checks.append(("normalisation accuracy, no definitions", "0.456", f"{ba:.3f}"))
-        checks.append(("normalisation coverage, definitions", "0.928", f"{dc:.3f}"))
-        checks.append(("normalisation accuracy, definitions", "0.973", f"{da:.3f}"))
-
-        em = [r for r in defs_rows if r.get("status") == "call"]
-        mok = sum(1 for r in em if _nd(r["call"]) == _nd(r["getrm"]))
-        pok = sum(1 for r in em if _nd(r["reference"]) == _nd(r["getrm"]))
-        checks.append(("normalisation vs GeT-RM, model", "0.793", f"{mok/len(em):.3f}"))
-        checks.append(("normalisation vs GeT-RM, caller", "0.791", f"{pok/len(em):.3f}"))
-        checks.append(("normalisation pairs answered", "489", str(len(em))))
-
-    for rows, name, cov, acc, mg, cg in (
-            (o3_defs, "o3", "0.846", "0.910", "0.724", "0.767"),
-            (gpt_defs, "GPT-5.2", "0.368", "0.562", "0.495", "0.768")):
-        if not rows:
-            continue
-        c, a = cov_acc(rows)
-        checks.append((f"normalisation coverage, definitions, {name}", cov, f"{c:.3f}"))
-        checks.append((f"normalisation accuracy, definitions, {name}", acc, f"{a:.3f}"))
-        em = [r for r in rows if r.get("status") == "call"]
-        checks.append((f"normalisation vs GeT-RM, {name}", mg,
-                       f"{sum(1 for r in em if _nd(r['call'])==_nd(r['getrm']))/len(em):.3f}"))
-        checks.append((f"normalisation vs GeT-RM, caller for {name}", cg,
-                       f"{sum(1 for r in em if _nd(r['reference'])==_nd(r['getrm']))/len(em):.3f}"))
+    # R1.1 input normalisation. The freeze hashes every raw source and is the
+    # single analysis object used by Figure 8, Table S9 and these checks.
+    freeze = load("v3_input_normalisation_seven_model_freeze.json")
+    ev = load("v3_input_normalisation_eval.json")
+    if freeze and ev:
+        op = freeze["definition_arm_operational_total"]
+        checks.extend([
+            ("normalisation definition attempts", "3,689", f"{op['attempted']:,}"),
+            ("normalisation definition calls", "2,905", f"{op['call']:,}"),
+            ("normalisation definition abstentions", "780", str(op["abstain"])),
+            ("normalisation definition truncations", "four truncated responses", "four truncated responses" if op["truncated_output"] == 4 else str(op["truncated_output"])),
+            ("normalisation pooled scored", "2,942", f"{ev['n_scored']:,}"),
+            ("normalisation pooled calls", "1,597", f"{ev['overall']['vs_caller']['emitted']:,}"),
+            ("normalisation pooled coverage", "0.543", f"{ev['overall']['vs_caller']['coverage']:.3f}"),
+            ("normalisation pooled PyPGx accuracy", "0.387", f"{ev['overall']['vs_caller']['accuracy_among_emitted']:.3f}"),
+            ("normalisation pooled GeT-RM accuracy", "0.418", f"{ev['overall']['vs_getrm']['accuracy_among_emitted']:.3f}"),
+        ])
+        opus = freeze["models_analysis"]["Claude Opus 4.5"]
+        wo = opus["without_definitions"]
+        wi = opus["with_definitions_full_527"]
+        checks.extend([
+            ("normalisation coverage, no definitions", "0.934", f"{wo['coverage']['estimate']:.3f}"),
+            ("normalisation accuracy, no definitions", "0.396", f"{wo['accuracy_vs_pypgx_among_calls']['estimate']:.3f}"),
+            ("normalisation coverage, definitions", "0.973", f"{wi['coverage']['estimate']:.3f}"),
+            ("normalisation accuracy, definitions", "0.967", f"{wi['accuracy_vs_pypgx_among_calls']['estimate']:.3f}"),
+            ("normalisation vs GeT-RM, model", "0.784", f"{wi['accuracy_vs_getrm_among_calls']['estimate']:.3f}"),
+            ("normalisation vs GeT-RM, caller", "0.774", f"{wi['caller_vs_getrm_on_model_calls']['estimate']:.3f}"),
+            ("normalisation pairs answered", "513", str(wi["operational"]["call"])),
+            ("normalisation model-caller difference", "0.010", f"{wi['model_minus_caller_vs_getrm']['estimate']:.3f}"),
+            ("normalisation difference CI lower", "-0.004", f"{wi['model_minus_caller_vs_getrm']['ci95'][0]:.3f}"),
+            ("normalisation difference CI upper", "0.024", f"{wi['model_minus_caller_vs_getrm']['ci95'][1]:.3f}"),
+        ])
+        stated = {
+            "Claude Sonnet 4.5": ("0.749", "0.778"),
+            "o4-mini": ("0.731", "0.764"),
+            "o3": ("0.724", "0.766"),
+            "DeepSeek V3": ("0.489", "0.770"),
+            "GPT-5.2": ("0.480", "0.765"),
+            "GPT-4.1": ("0.464", "0.707"),
+        }
+        for model, (model_value, caller_value) in stated.items():
+            m = freeze["models_analysis"][model]["with_definitions_full_527"]
+            checks.append((f"normalisation vs GeT-RM, {model}", model_value,
+                           f"{m['accuracy_vs_getrm_among_calls']['estimate']:.3f}"))
+            checks.append((f"caller vs GeT-RM for {model}", caller_value,
+                           f"{m['caller_vs_getrm_on_model_calls']['estimate']:.3f}"))
 
     avd = load("v3_agent_vs_deterministic.json")
     if avd:

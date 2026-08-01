@@ -1,225 +1,210 @@
 #!/usr/bin/env python3
-"""
-Figure: input normalisation with and without the definition artefact (R1.1).
+"""Draw Figure 8 from the frozen seven-model normalisation analysis.
 
-EVERY NUMBER PLOTTED IS READ FROM A DATA FILE. No hardcoded results, no random
-number generator anywhere in this script; --self-test recomputes the headline
-values and refuses to draw if they disagree with the registered numbers.
-
-WHAT THE FIGURE SHOWS
-Two panels, one measure each. Coverage (did the model answer at all) and
-accuracy among the answers it gave. Grouped by model, paired within model:
-without the allele-definition table, and with it. A horizontal reference line
-marks the deterministic caller on the same pairs.
-
-WHY TWO PANELS AND NOT ONE
-Coverage and accuracy are different measures on the same 0-1 scale but they are
-not comparable quantities, and a model can trade one for the other by
-abstaining. Putting them on one axis invites exactly that misreading; a second
-y-axis would be worse. Two panels, one axis each.
-
-COLOUR
-Blue and orange, validated for colour-vision deficiency (worst adjacent pair
-protan dE 24.7). The red/green pair used by the earlier figures in this paper
-fails that check at dE 3.5 and should be revisited. Identity is carried by the
-legend AND by direct value labels, so the figure is never colour-alone.
-
-USAGE
-    python code/78-figure-input-normalisation.py --self-test
-    python code/78-figure-input-normalisation.py
+Both panels use the same paired variant-call units within each model. Provider
+errors and output-budget truncations remain visible in the operational counts
+but leave behavioural denominators. Error bars are percentile 95% intervals
+from the frozen sample-cluster bootstrap. No model calls are issued here.
 """
 from __future__ import annotations
 
 import argparse
 import json
 import sys
-from collections import defaultdict
 from pathlib import Path
 
-import matplotlib
-matplotlib.use("Agg")
-import matplotlib.pyplot as plt
+from PIL import Image, ImageDraw, ImageFont
 
 BASE = Path(__file__).resolve().parent.parent
 DATA = BASE / "data"
 FIGDIR = BASE / "figures"
+FREEZE = DATA / "v3_input_normalisation_seven_model_freeze.json"
 
-WITHOUT = "#2a78d6"   # blue
-WITH = "#eb6834"      # orange
-NEUTRAL = "#8a8a8a"
-INK = "#0b0b0b"
-
-# (label, with-definitions file, model name as recorded)
-ARMS = [
-    ("Claude Opus 4.5", ["v3_input_normalisation_defs.json",
-                         "v3_input_normalisation_defs_tail.json"]),
-    ("GPT-5.2", ["v3_input_normalisation_defs_gpt52.json"]),
-    ("o3", ["v3_input_normalisation_defs_o3.json"]),
-]
-BASELINE = "v3_input_normalisation_main.json"
-BASELINE_O3 = "v3_input_normalisation_o3.json"
-
-
-def _nd(d: str) -> tuple:
-    return tuple(sorted(p.strip() for p in d.split("/")))
+WITHOUT = "#2a78d6"
+WITH = "#eb6834"
+CALLER = "#5c5c5c"
+INK = "#111111"
+MODEL_LABELS = {
+    "Claude Opus 4.5": "Claude\nOpus 4.5",
+    "Claude Sonnet 4.5": "Claude\nSonnet 4.5",
+    "GPT-5.2": "GPT-5.2",
+    "GPT-4.1": "GPT-4.1",
+    "o3": "o3",
+    "o4-mini": "o4-mini",
+    "DeepSeek V3": "DeepSeek\nV3",
+}
+MIN_CALLS_FOR_ACCURACY = 10
 
 
-def _load(name: str) -> list[dict]:
-    p = DATA / name
-    if not p.exists():
-        return []
-    return json.loads(p.read_text())["rows"]
+def load_freeze() -> dict:
+    if not FREEZE.exists():
+        raise FileNotFoundError(
+            f"missing {FREEZE}; run code/83-freeze-seven-model-normalisation.py"
+        )
+    return json.loads(FREEZE.read_text())
 
 
-def metrics(rows: list[dict], ref: str = "reference") -> dict | None:
-    """Coverage and accuracy among emitted, on rows that were actually scored.
-
-    Errors and budget-truncated responses leave the denominator: neither is the
-    model declining to answer, and counting them as abstentions reports a limit
-    of the apparatus as a property of the model (CORRECTIONS.md C11, C12, C13).
-    """
-    scored = [r for r in rows if r.get("status") in ("call", "abstain")]
-    if not scored:
-        return None
-    em = [r for r in scored if r.get("status") == "call"]
-    ok = sum(1 for r in em if _nd(r["call"]) == _nd(r[ref]))
-    okg = sum(1 for r in em if r.get("getrm") and _nd(r["call"]) == _nd(r["getrm"]))
-    return {
-        "n": len(scored),
-        "coverage": len(em) / len(scored),
-        "accuracy": (ok / len(em)) if em else None,
-        "vs_getrm": (okg / len(em)) if em else None,
-        "emitted": len(em),
-    }
+FONT_REGULAR = "/System/Library/Fonts/Supplemental/Arial.ttf"
+FONT_BOLD = "/System/Library/Fonts/Supplemental/Arial Bold.ttf"
 
 
-def collect() -> dict:
-    """Paired with/without per model, restricted to the pairs each arm covers."""
-    out = {}
-    base_rows = _load(BASELINE) + _load(BASELINE_O3)
-    for model, files in ARMS:
-        withrows = []
-        for f in files:
-            withrows += _load(f)
-        if not withrows:
-            continue
-        keys = {(r["sample"], r["gene"]) for r in withrows}
-        # the comparison must be on the SAME pairs and the SAME rendering,
-        # or the two bars are answering different questions
-        without = [r for r in base_rows
-                   if r["model"] == model and r["form"] == "vcf"
-                   and (r["sample"], r["gene"]) in keys]
-        w = metrics(withrows)
-        wo = metrics(without)
-        if w is None:
-            continue
-        em = [r for r in withrows if r.get("status") == "call"]
-        caller = (sum(1 for r in em if _nd(r["reference"]) == _nd(r["getrm"])) / len(em)
-                  if em else None)
-        out[model] = {"with": w, "without": wo, "caller_vs_getrm": caller,
-                      "model_vs_getrm": (sum(1 for r in em
-                                             if _nd(r["call"]) == _nd(r["getrm"])) / len(em)
-                                         if em else None)}
-    return out
+def font(size: int, bold: bool = False):
+    return ImageFont.truetype(FONT_BOLD if bold else FONT_REGULAR, size)
 
 
-def draw(res: dict, path_stem: str = "Figure8-input-normalisation"):
-    plt.rcParams.update({
-        "font.family": "sans-serif", "font.size": 9,
-        "axes.spines.top": False, "axes.spines.right": False,
-        "axes.edgecolor": "#555555", "figure.dpi": 300,
-    })
-    models = [m for m, _ in ARMS if m in res]
-    fig, (axA, axB) = plt.subplots(1, 2, figsize=(9.6, 4.1), constrained_layout=True)
-    xs = range(len(models))
-    width = 0.36
-    gap = 0.02   # surface gap between adjacent bars
+def centered(draw, xy, text, fnt, fill=INK, anchor="mm"):
+    draw.text(xy, text, font=fnt, fill=fill, anchor=anchor, align="center")
 
-    # MIN_EMITTED: an accuracy computed on a handful of emitted calls is not a
-    # measurement. GPT-5.2 without definitions emits one call on these pairs, and
-    # drawing it as "0.00 accuracy" reads as a property of the model rather than
-    # of a denominator of one.
-    MIN_EMITTED = 10
 
-    for ax, key, title, ylab in (
-            (axA, "coverage", "Coverage: did the model answer?", "Coverage"),
-            (axB, "vs_getrm", "Accuracy against external consensus (GeT-RM)",
-             "Accuracy vs GeT-RM")):
-        for i, m in enumerate(models):
-            for sign, side, colour in ((-1, "without", WITHOUT), (1, "with", WITH)):
-                cell = res[m][side]
-                x = i + sign * (width / 2 + gap)
-                if cell is None:
-                    continue
-                v = cell.get(key)
-                if v is None:
-                    continue
-                if key == "vs_getrm" and cell.get("emitted", 0) < MIN_EMITTED:
-                    ax.text(x, 0.03, f"n={cell.get('emitted', 0)}", ha="center",
-                            fontsize=7, color="#52514e", rotation=90, zorder=4)
-                    continue
-                ax.bar(x, v, width, color=colour, zorder=3)
-                ax.text(x, v + 0.02, f"{v:.2f}", ha="center", fontsize=8,
-                        color=INK, zorder=4)
-        ax.set_xticks(list(xs))
-        ax.set_xticklabels(models, fontsize=8.5)
-        ax.set_ylim(0, 1.12)
-        ax.set_ylabel(ylab)
-        ax.set_title(title, fontsize=9.5, loc="left")
-        ax.grid(axis="y", color="#e6e6e4", lw=0.7, zorder=0)
-        ax.set_axisbelow(True)
+def marker(draw, x, y, colour, filled=True, diamond=False, radius=17):
+    if diamond:
+        pts = [(x, y-radius), (x+radius, y), (x, y+radius), (x-radius, y)]
+        draw.polygon(pts, fill="white" if not filled else colour,
+                     outline=colour, width=5)
+    else:
+        draw.ellipse((x-radius, y-radius, x+radius, y+radius),
+                     fill=colour if filled else "white", outline=colour, width=5)
 
-    # the deterministic caller, on the pairs each model answered
-    # Per-model caller reference, on the pairs THAT model answered. Directly
-    # comparable to the bars now that both are measured against GeT-RM. An
-    # earlier version drew accuracy-against-the-caller in this panel with a
-    # caller-against-GeT-RM line, which are different measures and read as the
-    # models beating the caller.
-    for i, m in enumerate(models):
-        lvl = res[m]["caller_vs_getrm"]
-        if lvl is None:
-            continue
-        axB.plot([i - 0.46, i + 0.46], [lvl, lvl], color=NEUTRAL, lw=1.4,
-                 ls="--", zorder=5)
-        axB.text(i - 0.46, lvl + 0.025, f"caller {lvl:.2f}", ha="left", fontsize=7,
-                 color="#52514e", zorder=5)
 
-    handles = [plt.Rectangle((0, 0), 1, 1, color=WITHOUT),
-               plt.Rectangle((0, 0), 1, 1, color=WITH)]
-    fig.legend(handles, ["without allele definitions", "with allele definitions"],
-               loc="lower center", ncol=2, frameon=False, fontsize=8.5,
-               bbox_to_anchor=(0.5, -0.06))
+def errorbar(draw, x, y, lo, hi, colour, ymap):
+    ylo, yhi = ymap(lo), ymap(hi)
+    draw.line((x, ylo, x, yhi), fill=colour, width=5)
+    draw.line((x-12, ylo, x+12, ylo), fill=colour, width=5)
+    draw.line((x-12, yhi, x+12, yhi), fill=colour, width=5)
+
+
+def draw(data: dict, stem: str = "Figure8-input-normalisation") -> None:
+    models = data["models"]
+    analysis = data["models_analysis"]
+    # Draw at 600 dpi and downsample the PNG to 300 dpi. This keeps text and
+    # confidence intervals crisp without relying on a GUI plotting backend.
+    W, H = 6600, 3000
+    img = Image.new("RGB", (W, H), "white")
+    d = ImageDraw.Draw(img)
+    centered(d, (W//2, 120),
+             "Validated allele definitions improve every tested model, but model choice still matters",
+             font(70, True))
+
+    panels = [(420, 390, 3150, 2250), (3510, 390, 6240, 2250)]
+    titles = [("A  Coverage", "Fraction emitting a diplotype"),
+              ("B  Accuracy against GeT-RM", "Accuracy among emitted calls")]
+
+    for (left, top, right, bottom), (title, ylabel) in zip(panels, titles):
+        d.text((left, top-100), title, font=font(54, True), fill=INK, anchor="la")
+        for tick in [0, .2, .4, .6, .8, 1.0]:
+            y = bottom - int((tick / 1.09) * (bottom-top))
+            d.line((left, y, right, y), fill="#e4e4e4", width=3)
+            d.text((left-35, y), f"{tick:.1f}", font=font(34), fill="#333333",
+                   anchor="rm")
+        d.line((left, top, left, bottom), fill="#555555", width=5)
+        d.line((left, bottom, right, bottom), fill="#555555", width=5)
+        # Rotated y label.
+        layer = Image.new("RGBA", (900, 80), (255, 255, 255, 0))
+        ld = ImageDraw.Draw(layer)
+        centered(ld, (450, 40), ylabel, font(38), fill="#222222")
+        layer = layer.rotate(90, expand=True)
+        img.paste(layer, (left-310, (top+bottom-layer.height)//2), layer)
+
+    def coordinates(panel, i, offset, value):
+        left, top, right, bottom = panel
+        step = (right-left) / len(models)
+        x = left + step * (i + .5 + offset)
+        y = bottom - (value / 1.09) * (bottom-top)
+        return int(x), int(y)
+
+    for i, model in enumerate(models):
+        cell = analysis[model]
+        for side, key, colour, offset in (
+            ("without", "without_definitions", WITHOUT, -0.16),
+            ("with", "with_definitions", WITH, 0.10),
+        ):
+            arm = cell[key]
+            metric = arm["coverage"]
+            x, y = coordinates(panels[0], i, offset, metric["estimate"])
+            ymap = lambda v, p=panels[0]: coordinates(p, i, offset, v)[1]
+            errorbar(d, x, y, metric["ci95"][0], metric["ci95"][1], colour, ymap)
+            marker(d, x, y, colour, filled=side == "with")
+            centered(d, (x, y-52), f"{metric['estimate']:.2f}", font(29), anchor="ms")
+
+            calls = arm["operational"]["call"]
+            if calls < MIN_CALLS_FOR_ACCURACY:
+                x2, _ = coordinates(panels[1], i, offset, 0)
+                centered(d, (x2, panels[1][3]-45), f"n={calls}", font(29),
+                         fill="#555555", anchor="ms")
+            else:
+                metric = arm["accuracy_vs_getrm_among_calls"]
+                x2, y2 = coordinates(panels[1], i, offset, metric["estimate"])
+                ymap = lambda v, p=panels[1]: coordinates(p, i, offset, v)[1]
+                errorbar(d, x2, y2, metric["ci95"][0], metric["ci95"][1], colour, ymap)
+                marker(d, x2, y2, colour, filled=side == "with")
+                if side == "with":
+                    centered(d, (x2, y2-52), f"{metric['estimate']:.2f}",
+                             font(29), anchor="ms")
+
+        caller = cell["with_definitions"]["caller_vs_getrm_on_model_calls"]
+        x, y = coordinates(panels[1], i, 0.31, caller["estimate"])
+        ymap = lambda v, p=panels[1]: coordinates(p, i, 0.31, v)[1]
+        errorbar(d, x, y, caller["ci95"][0], caller["ci95"][1], CALLER, ymap)
+        marker(d, x, y, CALLER, filled=False, diamond=True, radius=15)
+
+        for panel in panels:
+            xlab, _ = coordinates(panel, i, 0, 0)
+            label = MODEL_LABELS[model]
+            centered(d, (xlab, panel[3]+95), label, font(33), anchor="ma")
+
+    # Legend.
+    legend_y = 2540
+    items = [(WITHOUT, False, False, "without allele definitions"),
+             (WITH, True, False, "with allele definitions"),
+             (CALLER, False, True, "deterministic caller on model-emitted pairs")]
+    starts = [720, 2450, 4030]
+    for start, (colour, filled, diamond, label) in zip(starts, items):
+        marker(d, start, legend_y, colour, filled=filled, diamond=diamond, radius=16)
+        d.text((start+38, legend_y), label, font=font(34), fill="#222222", anchor="lm")
+
+    centered(
+        d, (W//2, 2790),
+        "Paired variant-call inputs: n=527 per model except o3 (prespecified n=150 subsample).",
+        font(31), fill="#444444"
+    )
+    centered(
+        d, (W//2, 2850),
+        "Error bars: sample-cluster bootstrap 95% intervals. Accuracy is omitted when fewer than 10 calls were emitted.",
+        font(31), fill="#444444"
+    )
     FIGDIR.mkdir(exist_ok=True)
-    fig.savefig(FIGDIR / f"{path_stem}.png", dpi=300, bbox_inches="tight")
-    fig.savefig(FIGDIR / f"{path_stem}.tiff", dpi=600, bbox_inches="tight",
-                pil_kwargs={"compression": "tiff_lzw"})
-    print(f"wrote {FIGDIR / path_stem}.png and .tiff")
+    img.save(FIGDIR / f"{stem}.tiff", dpi=(600, 600), compression="tiff_lzw")
+    png = img.resize((W//2, H//2), Image.Resampling.LANCZOS)
+    png.save(FIGDIR / f"{stem}.png", dpi=(300, 300), optimize=True)
+    print(f"wrote {FIGDIR / stem}.png and .tiff")
+
+
+def self_test(data: dict) -> None:
+    assert len(data["models"]) == 7
+    assert data["definition_arm_operational_total"] == {
+        "attempted": 3689, "call": 2905, "abstain": 780,
+        "error": 0, "truncated_output": 4, "scored": 3685,
+    }
+    opus = data["models_analysis"]["Claude Opus 4.5"]["with_definitions_full_527"]
+    assert round(opus["accuracy_vs_pypgx_among_calls"]["estimate"], 3) == 0.967
+    diff = opus["model_minus_caller_vs_getrm"]
+    assert diff["ci95"][0] < 0 < diff["ci95"][1]
+    assert data["models_analysis"]["o3"]["paired_units"] == 150
+    print("self-test OK")
 
 
 def main(argv=None) -> int:
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("--self-test", action="store_true")
     args = ap.parse_args(argv)
-
-    res = collect()
-    if not res:
-        print("no input-normalisation data found", file=sys.stderr)
+    try:
+        data = load_freeze()
+    except FileNotFoundError as exc:
+        print(exc, file=sys.stderr)
         return 2
-
-    for m, r in res.items():
-        wo = r["without"] or {}
-        print(f"{m:18s} without: cov={wo.get('coverage')} acc={wo.get('accuracy')} | "
-              f"with: cov={r['with']['coverage']:.3f} acc={r['with']['accuracy']:.3f} | "
-              f"vs GeT-RM model={r['model_vs_getrm']:.3f} caller={r['caller_vs_getrm']:.3f}")
-
-    if args.self_test:
-        c = res.get("Claude Opus 4.5")
-        assert c and abs(c["with"]["coverage"] - 0.928) < 0.005, "Claude coverage drifted"
-        assert abs(c["with"]["accuracy"] - 0.973) < 0.005, "Claude accuracy drifted"
-        print("self-test OK")
-        return 0
-
-    draw(res)
+    self_test(data)
+    if not args.self_test:
+        draw(data)
     return 0
 
 

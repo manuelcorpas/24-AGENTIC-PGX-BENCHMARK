@@ -4,7 +4,18 @@ The benchmark datasets are archived on Zenodo (not stored in git; excluded via `
 Download and unpack them into this `data/` directory to reproduce the analyses and figures.
 Every script reads and writes here; no renaming or relocation step is required.
 
-## Core three conditions + adversarial (DOI 10.5281/zenodo.21710394)
+## Synchronized corrected revision dataset
+
+DOI 10.5281/zenodo.21736175 is the exact data snapshot paired with repository
+tag `cg-revision-2026-08-01`. It contains the corrected raw response rows, the
+seven-model frozen analysis, source hashes, release notes and provenance record.
+
+## Historical pre-C14/C15 revision dataset
+
+DOI 10.5281/zenodo.21710394 contains the pre-C14/C15 snapshot. It remains useful
+for the historical three-condition and adversarial analyses, but it does not
+contain the corrected seven-model input-normalisation rows supporting the revised
+R1.1 result.
 
 - `v3_raw_rescored_three_arm.json`: locked rescored three-arm dataset (26,730 rows); input for the core-condition analysis and figures
 - `v3_adversarial_scrambled.json`: forward adversarial experiment (lethal -> safe corruption)
@@ -31,6 +42,6 @@ skill-execution, 8,910 each) are produced by `code/43-armAB-fullgrid.py` and dep
 `code/57-numbers-engine.py` computes the headline numbers and case-level
 cluster-bootstrap confidence intervals from those two inputs.
 
-> These skill-arm files were absent from the earlier public deposit; they are added in the
-> revision so that all five conditions and all 44,550 evaluations are reproducible. A new
-> Zenodo version carrying these files is minted on deposit and its DOI recorded here.
+These skill-arm files were absent from the earlier public deposit. The staged
+revision dataset is built by `code/76-stage-zenodo-revision.py`; it must be
+uploaded as a new version before the corrected manuscript is released.

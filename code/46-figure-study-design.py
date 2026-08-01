@@ -1,11 +1,12 @@
 #!/usr/bin/env python3
 """
 Study-design schematic (Figure 1). Three panels:
-  A. The matched factorial: knowledge representation x decision mechanism.
+  A. The matched five-cell comparison: knowledge representation and decision mechanism.
      Two of the six combinations have no knowledge to execute, so five cells
      are defined and one is drawn explicitly as undefined.
   B. The evaluation grid, identical for every cell
-     (110 cases x 8 models x 3 replicates = 2,640 per cell, 13,199 scored).
+     (110 cases x 8 models x 3 replicates = 2,640 per cell, 13,200 attempted;
+     13,199 records returned and one absent record counted as failure).
   C. The two arms: curated analytical benchmark + real-genome validation.
 
 The mechanism colours match Figure 2 (red = the model generates the answer,
@@ -61,7 +62,7 @@ def ptitle(y, t):
 
 
 # ---------------- Panel A: the matched factorial ----------------
-ptitle(97.3, "A   The matched factorial: knowledge representation x decision mechanism")
+ptitle(97.3, "A   Matched five-cell comparison")
 
 KNOW = [
     ("none", "no knowledge\nsupplied"),
@@ -92,11 +93,11 @@ ax.text(9.5, 92.2, "decision\nmechanism", ha="center", va="center",
 
 CELLS = {
     (0, 0): ("Free\ngeneration", GEN),
-    (0, 1): ("Retrieval,\ngenerated", GEN),
-    (0, 2): ("Skill,\ngenerated", GEN),
+    (0, 1): ("RAG\ngeneration", GEN),
+    (0, 2): ("Authored rules,\ngenerated", GEN),
     (1, 0): (None, None),                      # nothing to execute
-    (1, 1): ("Retrieval,\nexecuted", EXE),
-    (1, 2): ("Skill,\nexecuted", EXE),
+    (1, 1): ("RAG-assisted call\n+ authored execution", EXE),
+    (1, 2): ("Authored rules,\nexecuted", EXE),
 }
 
 for i, (rlab, ry, _) in enumerate(ROWS):
@@ -112,7 +113,7 @@ for i, (rlab, ry, _) in enumerate(ROWS):
                     ha="center", va="center", fontsize=6.2, color="#8a8a8a",
                     style="italic", linespacing=1.25)
         else:
-            box(ax, cx, ry, COL_W, ROW_H, fc, name, fs=8.0, weight="bold",
+            box(ax, cx, ry, COL_W, ROW_H, fc, name, fs=7.2, weight="bold",
                 round=0.6)
 
 ax.text(50.0, 60.4,
@@ -143,7 +144,7 @@ for i, (big, lab) in enumerate(facs):
                 fontsize=12, color="#888888")
 
 ax.text(gx + gw / 2, cy - 2.6,
-        "=  2,640 evaluations per cell,  13,199 scored in total",
+        "= 2,640 attempted evaluations per cell; 13,200 attempted, 13,199 records returned",
         ha="center", va="center", fontsize=7.4, weight="bold", color=INK)
 ax.text(gx + gw / 2, gy0 + 3.2,
         "Scored on phenotype (A1) and drug-specific recommendation (A2), with coverage, abstention and parse failure\n"
@@ -164,7 +165,7 @@ for i, fc in enumerate([GEN, GEN, GEN, EXE, EXE]):
     ax.add_patch(plt.Circle((lx + 10 + i * 6.5, ly + 10.0), 1.9, color=fc,
                             ec="black", lw=0.4))
 ax.text(lx + lw_ / 2, ly + 4.6,
-        "isolates WHICH FACTOR correctness\ndepends on: knowledge, not mechanism",
+        "compares model generation with authored\nexecution under explicitly matched inputs",
         ha="center", va="center", fontsize=6.6, color=INK, linespacing=1.25)
 
 rx = lx + lw_ + 5

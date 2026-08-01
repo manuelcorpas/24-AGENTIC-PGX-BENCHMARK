@@ -18,4 +18,9 @@ Where model and caller disagree (13 pairs): GeT-RM favours the model 5, the call
 Majority-class baseline: always answering *1/*1 scores 0.423.
 Distinct references 80; distinct model calls 82.
 So this is not a degenerate-answer artefact.
+SUPERSEDED PRE-C14 REPORT
+This file is retained only as provenance for the pre-correction analysis. Its
+counts and metrics must not be used for the corrected manuscript. Rebuild the
+current reports from the stored response rows with code/79-reparse-normalisation.py
+and code/75-evaluate-input-normalisation.py.
 

@@ -210,8 +210,17 @@ DIPLOTYPE: <diplotype, or ABSTAIN>"""
 
 # ------------------------------------------------------------------ parsing
 
-_DIP = re.compile(r"^\s*DIPLOTYPE:\s*(.+?)\s*$", re.IGNORECASE | re.MULTILINE)
+# The marker may be wrapped for presentation (Markdown bold, a LaTeX box, or
+# prose such as "The final answer is ..."). What follows the marker is still
+# validated as a complete value, so this is not a search for any star allele in
+# surrounding reasoning. The previous line-anchored expression silently read
+# 82 bold-wrapped, otherwise schema-conforming calls as abstentions (C15).
+_DIP = re.compile(r"DIPLOTYPE:\s*(.+?)\s*$", re.IGNORECASE | re.MULTILINE)
 _VALID = re.compile(r"^\*[\w.]+(?:x\d+)?/\*[\w.]+(?:x\d+)?$")
+_PRESENTATION_SUFFIX = re.compile(
+    r"(?:\*\*|__|`|\$|[}\]\)]|[.,;:!?])+\s*$"
+)
+_PRESENTATION_PREFIX = re.compile(r"^(?:\*\*|__|`|\$)+\s+")
 
 
 # A gene symbol qualifying a diplotype, with or without a separator. The
@@ -225,9 +234,12 @@ _GENE_PREFIX = re.compile(r"^[A-Z][A-Z0-9]{2,9}[- ]*(?=\*)")
 def parse_call(text: str | None, gene: str | None = None) -> str | None:
     """Return a diplotype, or None for an abstention, refusal or non-answer.
 
-    Deliberately strict. A response that does not carry a well-formed diplotype
-    is an abstention, never a salvage attempt: coverage is the headline of this
-    experiment, so a lenient parser would move the number it is measuring.
+    Deliberately strict about the value, neutral about presentation. A response
+    that does not carry a well-formed complete diplotype immediately after the
+    explicit DIPLOTYPE marker is an abstention. Markdown or LaTeX wrappers around
+    that marked value are ignored; star alleles elsewhere in the reasoning are
+    never searched or salvaged. If a response emits the marker more than once,
+    the last marked value is the final answer.
 
     `gene` is the gene the row asked about. When supplied, that symbol is
     stripped first and case-insensitively; otherwise any string shaped like a
@@ -235,10 +247,12 @@ def parse_call(text: str | None, gene: str | None = None) -> str | None:
     """
     if not text:
         return None
-    m = _DIP.search(text)
-    if not m:
+    matches = list(_DIP.finditer(text))
+    if not matches:
         return None
+    m = matches[-1]
     value = m.group(1).strip()
+    value = _PRESENTATION_PREFIX.sub("", value)
     if value.upper().startswith("ABSTAIN"):
         return None
     # strip a gene prefix ("CYP2D6 *4/*4" or "CYP2D6*4/*4") if the model
@@ -247,7 +261,12 @@ def parse_call(text: str | None, gene: str | None = None) -> str | None:
         value = re.sub(rf"^{re.escape(gene)}[- ]*(?=\*)", "", value,
                        flags=re.IGNORECASE)
     value = _GENE_PREFIX.sub("", value.strip())
+    # The original contract parser takes the first whitespace-delimited token
+    # after the marker, so a trailing explanation does not change whether the
+    # model answered. Preserve that policy, then remove presentation-only
+    # closers. Do not strip leading '*' characters: they are nomenclature.
     value = value.split()[0] if value.split() else ""
+    value = _PRESENTATION_SUFFIX.sub("", value).strip()
     return value if _VALID.match(value) else None
 
 

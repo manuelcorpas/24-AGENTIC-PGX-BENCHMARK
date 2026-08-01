@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Re-parse the stored input-normalisation responses after the C14 parser fix.
+Re-parse the stored input-normalisation responses after the C14/C15 parser fixes.
 
 WHY
 The gene-prefix strip in 74-input-normalisation.py required a space or hyphen
@@ -8,6 +8,11 @@ after the gene symbol, so the standard PharmVar rendering "CYP2D6*4/*4" did not
 parse and was recorded as an abstention. Coverage is this experiment's headline
 metric, so the artefact moved the headline: 744 well-formed diplotypes across
 the deposited rows were scored as refusals to answer.
+
+The same parser also required DIPLOTYPE to begin a line. Markdown-bold or
+LaTeX-boxed values therefore failed even when the response carried one complete,
+well-formed value after the explicit marker. C15 makes the presentation wrapper
+irrelevant while continuing to validate the complete marked value.
 
 This re-parses the stored `raw` text with the corrected parser and rewrites
 `call` and `status`. It issues no API calls and changes no response text, which
@@ -20,8 +25,8 @@ output budget. Those are not the model declining to answer and they stay out of
 the scored denominator.
 
 USAGE
-    python code/78-reparse-normalisation.py            # report only
-    python code/78-reparse-normalisation.py --write    # rewrite the data files
+    python code/79-reparse-normalisation.py            # report only
+    python code/79-reparse-normalisation.py --write    # rewrite the data files
 """
 from __future__ import annotations
 
@@ -42,6 +47,10 @@ FILES = [
     "v3_input_normalisation_defs_o3.json",
     "v3_input_normalisation_defs_gpt52.json",
     "v3_input_normalisation_defs_tail.json",
+    "v3_input_normalisation_defs_deepseek.json",
+    "v3_input_normalisation_defs_sonnet_gpt41_o4mini.json",
+    "v3_input_normalisation_defs_sonnet_gpt41_o4mini_rest.json",
+    "v3_input_normalisation_nodefs_four.json",
 ]
 
 
@@ -54,9 +63,10 @@ def _load(name: str, path: Path):
 
 def reparse(rows: list[dict], norm) -> dict:
     """Rewrite call/status in place. Returns a per-file tally."""
-    tally = {"rows": len(rows), "recovered": 0, "lost": 0, "changed_status": 0}
+    tally = {"rows": len(rows), "recovered": 0, "lost": 0,
+             "superseded_by_abstain": 0, "changed_status": 0}
     for r in rows:
-        if r.get("error") or r.get("truncated"):
+        if r.get("error") or r.get("status") == "truncated_output":
             continue
         before = r.get("call")
         after = norm.parse_call(r.get("raw"), r.get("gene"))
@@ -66,6 +76,10 @@ def reparse(rows: list[dict], norm) -> dict:
             tally["recovered"] += 1
         elif before and not after:
             tally["lost"] += 1
+            raw = r.get("raw") or ""
+            markers = list(norm._DIP.finditer(raw))
+            if markers and markers[-1].group(1).strip().upper().startswith("ABSTAIN"):
+                tally["superseded_by_abstain"] += 1
         r["call"] = after
         status = norm.classify(r.get("raw"), r.get("out_tokens") or 0,
                                error=r.get("error"), gene=r.get("gene"))
@@ -83,7 +97,8 @@ def main(argv=None) -> int:
 
     norm = _load("norm", CODE / "74-input-normalisation.py")
 
-    total = {"rows": 0, "recovered": 0, "lost": 0, "changed_status": 0}
+    total = {"rows": 0, "recovered": 0, "lost": 0,
+             "superseded_by_abstain": 0, "changed_status": 0}
     for name in FILES:
         path = BASE / "data" / name
         if not path.exists():
@@ -95,15 +110,18 @@ def main(argv=None) -> int:
         for k in total:
             total[k] += tally[k]
         print(f"  {name:44s} rows={tally['rows']:5d} "
-              f"recovered={tally['recovered']:4d} lost={tally['lost']:3d}")
+              f"recovered={tally['recovered']:4d} lost={tally['lost']:3d} "
+              f"final_abstain={tally['superseded_by_abstain']:3d}")
         if args.write:
             path.write_text(json.dumps(blob, indent=2))
 
     print(f"\n  {'TOTAL':44s} rows={total['rows']:5d} "
-          f"recovered={total['recovered']:4d} lost={total['lost']:3d}")
-    if total["lost"]:
-        print("  WARNING: the fix removed calls it should only have added. "
-              "Inspect before accepting.")
+          f"recovered={total['recovered']:4d} lost={total['lost']:3d} "
+          f"final_abstain={total['superseded_by_abstain']:3d}")
+    unexplained_lost = total["lost"] - total["superseded_by_abstain"]
+    if unexplained_lost:
+        print("  WARNING: the fix removed calls not explained by a later explicit "
+              "ABSTAIN. Inspect before accepting.")
     if not args.write:
         print("\n  report only; re-run with --write to rewrite the data files")
     return 0

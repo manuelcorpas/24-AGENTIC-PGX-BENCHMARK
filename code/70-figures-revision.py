@@ -47,10 +47,10 @@ CELLS = ["free_generation", "rag_generation", "rag_execution",
          "skill_generation", "skill_execution"]
 LABELS = {
     "free_generation": "no\nknowledge",
-    "rag_generation": "prose\ngenerate",
-    "rag_execution": "prose\nEXECUTE",
-    "skill_generation": "rules\ngenerate",
-    "skill_execution": "rules\nEXECUTE",
+    "rag_generation": "RAG\ngeneration",
+    "rag_execution": "RAG call +\nauthored exec.",
+    "skill_generation": "authored rules,\ngenerated",
+    "skill_execution": "authored rules,\nexecuted",
 }
 GENERATION = "#d4756f"
 EXECUTION = "#5a8f5a"
@@ -116,7 +116,7 @@ def figure_r1(summary) -> None:
     axA.set_xticklabels([LABELS[c] for c in CELLS], fontsize=8)
     axA.set_ylabel("recommendation accuracy")
     axA.set_ylim(0, 1.08)
-    axA.set_title("A  Executing the rules recovers prose", loc="left")
+    axA.set_title("A  Recommendation accuracy", loc="left")
 
     lethal = [summary[c]["lethal_errors"] for c in CELLS]
     axB.bar(xs, lethal, color=[COLOURS[c] for c in CELLS], width=0.68)
@@ -126,7 +126,7 @@ def figure_r1(summary) -> None:
     axB.set_xticklabels([LABELS[c] for c in CELLS], fontsize=8)
     axB.set_ylabel("lethal-class errors (of 336)")
     axB.set_ylim(0, max(lethal) * 1.2)
-    axB.set_title("B  and removes most dangerous errors", loc="left")
+    axB.set_title("B  Lethal-class errors", loc="left")
 
     handles = [plt.Rectangle((0, 0), 1, 1, color=GENERATION),
                plt.Rectangle((0, 0), 1, 1, color=EXECUTION)]
@@ -161,7 +161,7 @@ def figure_r2(summary) -> None:
     ax.set_ylabel("end-to-end phenotype accuracy")
     ax.set_xlim(lo, 1.02)
     ax.set_ylim(lo, 1.02)
-    ax.set_title("Under execution, end-to-end accuracy\nis input-call accuracy", loc="left")
+    ax.set_title("Within authored execution, end-to-end accuracy\ntracks input-call accuracy", loc="left")
     ax.text(0.02, 0.96, f"overall call concordance {caller['call_concordance']:.3f}",
             transform=ax.transAxes, fontsize=8, va="top")
     fig.tight_layout()
@@ -184,7 +184,7 @@ def figure_r3(by_model) -> None:
     ax.set_xticklabels([LABELS[c] for c in CELLS], fontsize=8)
     ax.set_ylabel("phenotype accuracy, one point per model")
     ax.set_ylim(0.3, 1.04)
-    ax.set_title("Between-model spread collapses as correctness moves into code",
+    ax.set_title("Between-model spread across the five matched cells",
                  loc="left")
     fig.tight_layout()
     save(fig, "FigureR3_model_spread")

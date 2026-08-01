@@ -157,6 +157,46 @@ def test_parse_tolerates_surrounding_text():
     assert norm.parse_call("Reasoning here.\nDIPLOTYPE: *1/*2\nDone.") == "*1/*2"
 
 
+def test_parse_accepts_markdown_wrapped_marker():
+    """C15. Presentation markup must not convert a complete marked call into
+    an abstention."""
+    assert norm.parse_call("**DIPLOTYPE: *1/*2**") == "*1/*2"
+
+
+def test_parse_accepts_latex_boxed_marker():
+    """The policy is model-neutral: a marked value inside a LaTeX box is the
+    same schema value, not a Gemini-specific salvage rule."""
+    text = r"The final answer is $\boxed{\text{DIPLOTYPE: *1/*9}}$"
+    assert norm.parse_call(text) == "*1/*9"
+
+
+def test_parse_preserves_trailing_explanation_policy():
+    """Coverage records whether a marked answer was given; the first value
+    token remains the answer even if the model violates the one-line request by
+    adding an explanation after it."""
+    assert norm.parse_call("DIPLOTYPE: *1/*2 followed by explanation") == "*1/*2"
+
+
+def test_parse_rejects_unsupported_tandem_value_without_partial_salvage():
+    """A marker-anywhere rule must validate the whole value, not silently take
+    the first two star alleles from a longer unsupported expression."""
+    assert norm.parse_call("DIPLOTYPE: *1/*80+*28") is None
+
+
+def test_last_marked_value_is_the_final_answer():
+    text = "DIPLOTYPE: *1/*2\nOn reflection, the data are insufficient.\nDIPLOTYPE: ABSTAIN"
+    assert norm.parse_call(text) is None
+
+
+def test_nonvalue_heading_does_not_hide_final_marked_call():
+    text = "**Diplotype:**\n- haplotype one: *1\n- haplotype two: *2\nDIPLOTYPE: *1/*2"
+    assert norm.parse_call(text) == "*1/*2"
+
+
+def test_bold_heading_with_value_is_a_marked_call():
+    assert norm.parse_call("**Full diplotype:** *1/*6") == "*1/*6"
+
+
 def test_parse_strips_gene_prefix():
     assert norm.parse_call("DIPLOTYPE: CYP2D6 *4/*4") == "*4/*4"
 
