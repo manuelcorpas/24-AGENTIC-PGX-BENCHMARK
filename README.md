@@ -98,8 +98,11 @@ Matched analysis, validation and figures:
 
 Datasets are archived on Zenodo rather than stored in git; see `data/README.md`.
 - **Curated benchmark dataset** (no individual genotypes): DOI 10.5281/zenodo.20567742
-- **Synchronized corrected revision dataset**: DOI 10.5281/zenodo.21736175,
-  paired with immutable repository tag `cg-revision-2026-08-01`.
+- **Synchronized corrected revision dataset**: DOI 10.5281/zenodo.21736633,
+  paired with immutable repository tag `cg-revision-2026-08-01b`.
+- **Superseded v1.4.0 release**: DOI 10.5281/zenodo.21736175 retained
+  nine same-named pre-C15 files during Zenodo version import. The public-side
+  checksum audit detected the mismatch; v1.4.1 replaces and verifies them.
 - **Previous revision dataset**: DOI 10.5281/zenodo.21710394. This historical
   version predates corrections C14/C15 and must not be cited as the data
   snapshot supporting the corrected seven-model input-normalisation results.

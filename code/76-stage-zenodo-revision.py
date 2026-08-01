@@ -23,8 +23,8 @@ per-call timestamps would have been. This script writes that statement rather
 than leaving the letter to overclaim.
 
 USAGE
-    python code/76-stage-zenodo-revision.py --out ~/Desktop/ZENODO-v1.4.0 \
-        --tag cg-revision-2026-08-01
+    python code/76-stage-zenodo-revision.py --out ~/Desktop/ZENODO-v1.4.1 \
+        --tag cg-revision-2026-08-01b
 """
 from __future__ import annotations
 
@@ -112,12 +112,17 @@ Together these bound the runs from outside the project. They are weaker than
 per-call timestamps, and we do not present them as equivalent.
 """
 
-RELEASE_NOTES = """# Version 1.4.0 release notes
+RELEASE_NOTES = """# Version 1.4.1 release notes
 
 Prepared 1 August 2026 for the Cell Genomics revision titled "Trustworthy
 agentic genomics requires validated skills, not better models".
 
-This version supersedes v1.3.1 for the input-normalisation analysis. Correction
+This version supersedes v1.4.0, in which Zenodo version import retained nine
+same-named pre-C15 files instead of replacing them. That mismatch was detected
+by a public-side checksum audit. Version 1.4.1 explicitly replaces those files
+and verifies every staged release file against the live record.
+
+For the input-normalisation analysis, correction
 C14 makes optional gene prefixes presentation-neutral. Correction C15 accepts an
 explicit DIPLOTYPE marker inside Markdown, LaTeX or prose wrapping, applies the
 same rule to every model, and uses the last explicit marker as the final answer.
@@ -132,7 +137,7 @@ sample-cluster bootstrap intervals. Gemini is assigned no performance estimate
 because a complete comparable run was not collected; its boxed pilot response
 is accepted by the same model-neutral parser.
 
-Code is pinned by the source archive for tag cg-revision-2026-08-01. See
+Code is pinned by the source archive for tag cg-revision-2026-08-01b. See
 CORRECTIONS.md, MODEL-VERSIONS.md, DATA-MANIFEST.md and PROVENANCE.md for the
 auditable scope and limitations.
 """
@@ -183,7 +188,7 @@ def main(argv=None) -> int:
     provenance.write_text(PROVENANCE)
     staged.append((provenance.name, provenance.stat().st_size, sha256(provenance)))
 
-    release_notes = args.out / "RELEASE-NOTES-v1.4.0.md"
+    release_notes = args.out / "RELEASE-NOTES-v1.4.1.md"
     release_notes.write_text(RELEASE_NOTES)
     staged.append((release_notes.name, release_notes.stat().st_size,
                    sha256(release_notes)))

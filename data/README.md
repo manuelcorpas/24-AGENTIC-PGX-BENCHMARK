@@ -6,9 +6,13 @@ Every script reads and writes here; no renaming or relocation step is required.
 
 ## Synchronized corrected revision dataset
 
-DOI 10.5281/zenodo.21736175 is the exact data snapshot paired with repository
-tag `cg-revision-2026-08-01`. It contains the corrected raw response rows, the
+DOI 10.5281/zenodo.21736633 is the exact data snapshot paired with repository
+tag `cg-revision-2026-08-01b`. It contains the corrected raw response rows, the
 seven-model frozen analysis, source hashes, release notes and provenance record.
+
+DOI 10.5281/zenodo.21736175 is superseded. During version import Zenodo retained
+nine same-named pre-C15 files instead of replacing them; the v1.4.1 public-side
+checksum audit verifies every staged release file byte-for-byte.
 
 ## Historical pre-C14/C15 revision dataset
 
