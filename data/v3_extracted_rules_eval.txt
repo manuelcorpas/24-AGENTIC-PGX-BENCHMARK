@@ -4,22 +4,52 @@ EXTRACTED RULE TABLES: DIFF AGAINST THE AUTHORED TABLE, AND EXECUTION
     coverage 0.9996   accuracy among emitted 0.9678   overall 0.9674
 
   Claude Opus 4.5  (21 genes)
-    diff vs authored: 27 shared diplotypes, 22 phenotype agreements (0.815)
-                      34 authored diplotypes absent, 166 extracted not in the authored table
-    executed:         coverage 0.6268, accuracy among emitted 0.7267, overall 0.4555
-                      1202 correct, 452 wrong, 985 abstained of 2639
+    diff vs authored: 30 shared diplotypes, 25 phenotype agreements (0.833)
+                      31 authored diplotypes absent, 203 extracted not in the authored table
+    executed:         coverage 0.6597, accuracy among emitted 0.7404, overall 0.4884
+                      1289 correct, 452 wrong, 898 abstained of 2639
+
+  Claude Sonnet 4.5  (21 genes)
+    diff vs authored: 27 shared diplotypes, 24 phenotype agreements (0.889)
+                      34 authored diplotypes absent, 138 extracted not in the authored table
+    executed:         coverage 0.6177, accuracy among emitted 0.7669, overall 0.4737
+                      1250 correct, 380 wrong, 1009 abstained of 2639
+
+  DeepSeek V3  (21 genes)
+    diff vs authored: 23 shared diplotypes, 20 phenotype agreements (0.870)
+                      38 authored diplotypes absent, 141 extracted not in the authored table
+    executed:         coverage 0.4543, accuracy among emitted 0.7256, overall 0.3297
+                      870 correct, 329 wrong, 1440 abstained of 2639
+
+  GPT-4.1  (21 genes)
+    diff vs authored: 27 shared diplotypes, 24 phenotype agreements (0.889)
+                      34 authored diplotypes absent, 185 extracted not in the authored table
+    executed:         coverage 0.4964, accuracy among emitted 0.829, overall 0.4115
+                      1086 correct, 224 wrong, 1329 abstained of 2639
 
   GPT-5.2  (21 genes)
     diff vs authored: 28 shared diplotypes, 23 phenotype agreements (0.821)
-                      33 authored diplotypes absent, 200 extracted not in the authored table
+                      33 authored diplotypes absent, 209 extracted not in the authored table
     executed:         coverage 0.6358, accuracy among emitted 0.7306, overall 0.4646
                       1226 correct, 452 wrong, 961 abstained of 2639
 
+  Gemini 2.5 Flash  (21 genes)
+    diff vs authored: 10 shared diplotypes, 10 phenotype agreements (1.000)
+                      51 authored diplotypes absent, 60 extracted not in the authored table
+    executed:         coverage 0.1182, accuracy among emitted 0.9647, overall 0.1141
+                      301 correct, 11 wrong, 2327 abstained of 2639
+
   o3  (21 genes)
-    diff vs authored: 29 shared diplotypes, 24 phenotype agreements (0.828)
-                      32 authored diplotypes absent, 169 extracted not in the authored table
-    executed:         coverage 0.6449, accuracy among emitted 0.7344, overall 0.4737
-                      1250 correct, 452 wrong, 937 abstained of 2639
+    diff vs authored: 30 shared diplotypes, 25 phenotype agreements (0.833)
+                      31 authored diplotypes absent, 207 extracted not in the authored table
+    executed:         coverage 0.6597, accuracy among emitted 0.7404, overall 0.4884
+                      1289 correct, 452 wrong, 898 abstained of 2639
+
+  o4-mini  (21 genes)
+    diff vs authored: 27 shared diplotypes, 24 phenotype agreements (0.889)
+                      34 authored diplotypes absent, 192 extracted not in the authored table
+    executed:         coverage 0.5737, accuracy among emitted 0.8124, overall 0.4661
+                      1230 correct, 284 wrong, 1125 abstained of 2639
 
   Abstention is reported beside accuracy, never folded into it: a table
   covering part of the vocabulary perfectly is not equivalent to one

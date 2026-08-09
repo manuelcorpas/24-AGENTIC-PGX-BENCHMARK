@@ -146,6 +146,7 @@ def build_extractors() -> dict:
     import os
     import anthropic
     import openai
+    import requests
 
     def key(name):
         v = os.environ.get(name)
@@ -155,7 +156,11 @@ def build_extractors() -> dict:
 
     ant = anthropic.Anthropic(api_key=key("ANTHROPIC_API_KEY"))
     oai = openai.OpenAI(api_key=key("OPENAI_API_KEY"))
-    sem = {"anthropic": threading.Semaphore(4), "openai": threading.Semaphore(4)}
+    dsk = openai.OpenAI(api_key=key("DEEPSEEK_API_KEY"),
+                        base_url="https://api.deepseek.com")
+    gem_key = key("GOOGLE_API_KEY")
+    sem = {"anthropic": threading.Semaphore(4), "openai": threading.Semaphore(4),
+           "gemini": threading.Semaphore(2), "deepseek": threading.Semaphore(2)}
 
     def _ant(model, p):
         with sem["anthropic"]:
@@ -172,6 +177,32 @@ def build_extractors() -> dict:
             return (r.choices[0].message.content,
                     r.usage.prompt_tokens, r.usage.completion_tokens)
 
+    def _gem(p):
+        # Same output budget as the other callers. The default 2000-token cap
+        # used elsewhere in this repo truncates a 20-diplotype rule table, which
+        # would be recorded as a model that omitted rules.
+        with sem["gemini"]:
+            r = requests.post(
+                "https://generativelanguage.googleapis.com/v1beta/models/"
+                f"gemini-2.5-flash:generateContent?key={gem_key}",
+                json={"contents": [{"parts": [{"text": p}]}],
+                      "generationConfig": {"maxOutputTokens": 8000}},
+                timeout=180)
+            d = r.json()
+            if "candidates" not in d:
+                raise RuntimeError(f"gemini: no candidates: {str(d)[:200]}")
+            u = d.get("usageMetadata", {})
+            return (d["candidates"][0]["content"]["parts"][0]["text"],
+                    u.get("promptTokenCount", 0), u.get("candidatesTokenCount", 0))
+
+    def _dsk(p):
+        with sem["deepseek"]:
+            r = dsk.chat.completions.create(
+                model="deepseek-chat", max_tokens=8000,
+                messages=[{"role": "user", "content": p}])
+            return (r.choices[0].message.content,
+                    r.usage.prompt_tokens, r.usage.completion_tokens)
+
     return {
         "Claude Opus 4.5":   lambda p: _ant("claude-opus-4-5-20251101", p),
         "Claude Sonnet 4.5": lambda p: _ant("claude-sonnet-4-5-20250929", p),
@@ -179,6 +210,8 @@ def build_extractors() -> dict:
         "GPT-4.1":           lambda p: _oai("gpt-4.1", p),
         "o3":                lambda p: _oai("o3", p, reasoning=True),
         "o4-mini":           lambda p: _oai("o4-mini", p, reasoning=True),
+        "Gemini 2.5 Flash":  _gem,
+        "DeepSeek V3":       _dsk,
     }
 
 
@@ -208,11 +241,17 @@ def main(argv=None) -> int:
     lock = threading.Lock()
     results: list[dict] = []
 
+    # A model with no extractor is a configuration error, not a per-job outcome.
+    # Previously fns.get() returned None and every job for that model became an
+    # error row that was silently dropped, so asking for a model this script
+    # cannot call produced a short run reported as a complete one.
+    unknown = [m for m in a.models if m not in fns]
+    if unknown:
+        raise SystemExit(f"no extractor implemented for: {', '.join(unknown)}")
+
     def one(job):
         gene, model = job
-        fn = fns.get(model)
-        if fn is None:
-            return {"gene": gene, "model": model, "error": f"unknown model {model}"}
+        fn = fns[model]
         prompt = PROMPT.format(gene=gene, excerpt=corpus[gene]["guideline_excerpt"])
         if spend is not None:
             spend.check()
@@ -221,7 +260,13 @@ def main(argv=None) -> int:
             if spend is not None:
                 spend.add(model, in_tok, out_tok)
         except Exception as exc:                                   # noqa: BLE001
-            return {"gene": gene, "model": model, "error": str(exc)}
+            # Must be recorded under the lock like any other outcome. Returning
+            # it without appending made the error tally structurally always 0.
+            row = {"gene": gene, "model": model, "error": f"{type(exc).__name__}: {exc}"}
+            with lock:
+                results.append(row)
+                print(f"  {gene:12s} {model:18s} ERROR {row['error'][:70]}")
+            return row
         parsed_obj = extract_json(text)
         table = normalise(parsed_obj)
         # A truncated reply yields unbalanced JSON. Recording it as an empty table
@@ -253,9 +298,21 @@ def main(argv=None) -> int:
         list(ex.map(one, jobs))
 
     errs = [r for r in results if r.get("error")]
+    ok = [r for r in results if not r.get("error")]
     total = sum(r.get("cost_usd") or 0 for r in results)
     a.out.write_text(json.dumps(results, indent=2))
-    print(f"\nwrote {a.out}  ({len(results)} tables, {len(errs)} errors, ${total:.2f})")
+    print(f"\nwrote {a.out}  ({len(ok)} tables, {len(errs)} errors, ${total:.2f})")
+
+    # Refuse to exit 0 on a short run. A rule-table set missing a model or a gene
+    # silently changes the denominator of every downstream coverage figure.
+    if len(results) != len(jobs) or errs:
+        missing = len(jobs) - len(results)
+        print(f"INCOMPLETE: {len(jobs)} jobs, {len(ok)} succeeded, "
+              f"{len(errs)} failed, {missing} never returned", file=sys.stderr)
+        for r in errs[:10]:
+            print(f"   {r['gene']:12s} {r['model']:18s} {r['error'][:90]}", file=sys.stderr)
+        return 1
+    return 0
     if errs:
         for r in errs[:5]:
             print(f"  ERROR {r['gene']} {r['model']}: {r['error'][:100]}")

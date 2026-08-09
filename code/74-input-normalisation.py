@@ -149,8 +149,36 @@ def render(variants: list[dict], form: str, truncated: bool = False) -> str:
     return "\n".join(out)
 
 
-ALLELE_TABLE = (BASE / ".venv-pypgx" / "lib" / "python3.10" / "site-packages" /
-                "pypgx" / "api" / "data" / "allele-table.csv")
+def _find_allele_table() -> Path:
+    """Locate PyPGx's allele-definition table wherever PyPGx is installed.
+
+    This was hardcoded to a repo-local .venv-pypgx path, so the definition arm
+    could only run on the one machine that happened to have that layout. The
+    table is the artefact whose supply is the whole point of the experiment, so
+    a machine-specific path made the load-bearing arm unreproducible.
+    """
+    candidates = [BASE / ".venv-pypgx" / "lib" / "python3.10" / "site-packages" /
+                  "pypgx" / "api" / "data" / "allele-table.csv"]
+    try:
+        import importlib.util
+        spec = importlib.util.find_spec("pypgx")
+        if spec and spec.origin:
+            candidates.append(Path(spec.origin).parent / "api" / "data" / "allele-table.csv")
+    except Exception:  # noqa: BLE001
+        pass
+    candidates += [Path(p) / "pypgx" / "api" / "data" / "allele-table.csv"
+                   for p in sys.path if p]
+    candidates += list(Path.home().glob(
+        "miniforge3/envs/*/lib/python3.*/site-packages/pypgx/api/data/allele-table.csv"))
+    for c in candidates:
+        if c.exists():
+            return c
+    raise SystemExit(
+        "pypgx allele-table.csv not found. Install pypgx==0.26.0, or pass an "
+        "explicit path. Searched: " + ", ".join(str(c) for c in candidates[:4]))
+
+
+ALLELE_TABLE = _find_allele_table()
 
 
 def load_definitions(gene: str, path: Path = None) -> list[dict]:

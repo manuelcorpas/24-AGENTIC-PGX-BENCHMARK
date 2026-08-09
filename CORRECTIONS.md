@@ -414,6 +414,52 @@ Three were caught by writing the test before the code and asking what the harnes
 would have to get wrong for a clean result to be false. C12 was caught by a cost
 of $0.00 on 94 calls that had supposedly produced answers.
 
+## C16. A run that was 40% incomplete reported itself as clean
+
+**Found:** 2026-08-09. **File:** `code/67-extract-rules-from-prose.py`.
+
+Two defects compounded. The worker function returned an error dictionary on
+failure but never appended it to `results`, while success rows were appended
+under a lock. The summary line then computed `errs` from `results`, so the error
+tally was taken over successes only and **could never be non-zero**. The returned
+error rows went into `ThreadPoolExecutor.map`'s output, which the caller
+discarded with a bare `list(...)`.
+
+Separately, `fns.get(model)` returned `None` for any model the script had no
+implementation for, and that too became a discarded error row. Gemini 2.5 Flash
+and DeepSeek V3 had no caller in `build_extractors()` at all, so requesting them
+was silently equivalent to not requesting them.
+
+**Effect.** A run over 21 genes and 8 models planned 168 calls, wrote 101 tables,
+and printed `101 tables, 0 errors` with exit status 0. Sixty-seven tables were
+missing, 39.9% of the intended set: 42 because two models were never callable,
+and 25 because OpenAI credit was exhausted partway through and every later call
+returned a hard billing 429. Every one of those failures was invisible.
+
+**Why it mattered here.** Rule-table coverage is a denominator. Extraction
+coverage and accuracy are reported as ranges across models, so a silently absent
+model does not produce an obviously wrong number, it produces a narrower range
+computed over whichever models happened to survive. The four OpenAI models had
+each stopped at the same alphabetical point, which is the only visible trace, and
+it looks like a corpus property rather than a billing event.
+
+**Guard.** Unknown models now raise `SystemExit` before any call is made, so a
+misspelled or unimplemented model is a configuration error rather than a silent
+subtraction. Error rows are appended under the same lock as successes and printed
+as they occur. The script exits non-zero and lists the failures whenever
+`len(results) != len(jobs)` or any error is present, so a short run can no longer
+terminate as a success. Gemini and DeepSeek callers were added with the same
+8,000-token output budget as the others, since the 2,000-token default used
+elsewhere in this repo truncates a twenty-diplotype rule table, which is C1 again.
+
+**Related, and outside this repository.** In the same session a proportion-to-
+percentage conversion applied to the manuscript matched `0.19%`, a value already
+expressed as a percentage, and rewrote it as `19.0%`. The reported drug
+substitution rate would have been overstated a hundredfold. It was caught by
+diffing the rendered document rather than by trusting the transformation's own
+count of 206 successful substitutions. A transformation that reports how many
+edits it made says nothing about whether any of them were correct.
+
 C9, C11 and C12 are all the same defect as C5: a limit of the evaluation
 apparatus arriving at the analyst's desk wearing the costume of a finding about a
 model. C12 is the sharpest case, because it was introduced inside the guard
