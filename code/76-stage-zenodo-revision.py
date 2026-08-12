@@ -24,7 +24,7 @@ than leaving the letter to overclaim.
 
 USAGE
     python code/76-stage-zenodo-revision.py --out ~/Desktop/ZENODO-v1.4.1 \
-        --tag cg-revision-2026-08-01b
+        --tag agentic-pgx-benchmark-v2.2
 """
 from __future__ import annotations
 
@@ -76,7 +76,14 @@ FILES = [
     "v3_input_normalisation_defs_sonnet_gpt41_o4mini.json",
     "v3_input_normalisation_defs_sonnet_gpt41_o4mini_rest.json",
     "v3_input_normalisation_nodefs_four.json",
-    "v3_input_normalisation_seven_model_freeze.json",
+    "v3_input_normalisation_nodefs_gemini.json",
+    "v3_input_normalisation_nodefs_o3_527.json",   # o3 extended to all 527 pairs
+    "v3_input_normalisation_defs_gemini.json",
+    "v3_input_normalisation_seven_model_freeze.json",   # superseded, kept for provenance
+    "v3_input_normalisation_eight_model_freeze.json",   # the analysis actually reported
+    "v3_matched_scored_rows_all5.json",   # unrounded scored rows; the C17 check reads these
+    "v3_rag_genedrug_chunking.json",
+    "v3_armA9_armBv2_POP.json",           # population framing, supplementary invariance figure
 ]
 
 PROVENANCE = """# Provenance of the raw evaluation rows
@@ -112,34 +119,44 @@ Together these bound the runs from outside the project. They are weaker than
 per-call timestamps, and we do not present them as equivalent.
 """
 
-RELEASE_NOTES = """# Version 1.4.1 release notes
+RELEASE_NOTES = """# Version 1.6.0 release notes
 
-Prepared 1 August 2026 for the Cell Genomics revision titled "Trustworthy
-agentic genomics requires validated skills, not better models".
+Prepared 12 August 2026 for the Cell Genomics revision titled "Validated skills
+are necessary but not sufficient for trustworthy agentic genomics".
 
-This version supersedes v1.4.0, in which Zenodo version import retained nine
-same-named pre-C15 files instead of replacing them. That mismatch was detected
-by a public-side checksum audit. Version 1.4.1 explicitly replaces those files
-and verifies every staged release file against the live record.
+This version supersedes v1.5.0, which predated the whole-genome family rerun and
+therefore did not contain the data behind the four-cohort coverage table, the
+real-genome figure or the deterministic-arm coverages. Six files are replaced
+and nine are added.
 
-For the input-normalisation analysis, correction
-C14 makes optional gene prefixes presentation-neutral. Correction C15 accepts an
-explicit DIPLOTYPE marker inside Markdown, LaTeX or prose wrapping, applies the
-same rule to every model, and uses the last explicit marker as the final answer.
-Re-parsing 9,557 stored rows without new API calls recovered 87 marked calls and
-removed two provisional calls followed by an explicit final ABSTAIN. No raw
-response text was changed.
+**Replaced.** `v3_ancestry_four_cohorts.json`, `v3_ancestry_matched.json`,
+`v3_agent_vs_deterministic.json` and `v3_realgenome_preds_4cohorts.tsv` carry
+the four whole-genome family members in place of the SNP-chip arm: the family
+moves from 40 distinct states to 37, from 27.5% to 21.6% vocabulary coverage,
+and the deterministic arm from 33.3% to 29.2%. The other three cohorts are
+byte-identical, which is the control. `v3_extracted_rules_eval.json` covers all
+eight models; the deposited copy held three, while the manuscript reported
+eight. `CORRECTIONS.md` adds C17.
 
-The definition-supplied arm is frozen across seven models: 3,689 attempts, 2,905
-calls, 780 abstentions and four output-budget truncations. The frozen analysis
-records source-file hashes, exact paired units and 10,000-replicate
-sample-cluster bootstrap intervals. Gemini is assigned no performance estimate
-because a complete comparable run was not collected; its boxed pilot response
-is accepted by the same model-neutral parser.
+**Added.** The eight-model input-normalisation freeze that the reported figures
+actually use, its Gemini and extended-o3 source rows, the unrounded scored rows
+`v3_matched_scored_rows_all5.json` that the registered-number check reads, the
+population-framing rows, and the tracked text summaries so that a reader who
+takes only this deposit can read every reported number without parsing JSON.
 
-Code is pinned by the source archive for tag cg-revision-2026-08-01b. See
-CORRECTIONS.md, MODEL-VERSIONS.md, DATA-MANIFEST.md and PROVENANCE.md for the
-auditable scope and limitations.
+**C17.** Recommendation accuracy for the RAG-assisted execution and
+authored-rule generation cells is 0.970455. The scorer's report stores four
+decimals as 0.9705 and the manuscript had rendered that as 97.1%; it is 97.0%.
+The registered-number check was reading the same rounded summary the manuscript
+quoted, so it confirmed the error rather than catching it. It now computes from
+the unrounded rows.
+
+The seven-model freeze remains deposited for provenance and must not be used for
+any submitted number.
+
+Code is pinned by the source archive for tag agentic-pgx-benchmark-v2.2. That
+tag is immutable and is the one cited by the manuscript. See CORRECTIONS.md,
+MODEL-VERSIONS.md, DATA-MANIFEST.md and PROVENANCE.md for scope and limitations.
 """
 
 
@@ -175,6 +192,13 @@ def main(argv=None) -> int:
         "MODEL-VERSIONS.md": BASE / "MODEL-VERSIONS.md",
         "DATA-MANIFEST.md": DATA / "MANIFEST.md",
         "DATA-README.md": DATA / "README.md",
+        "v3_five_cell_live_report.txt": DATA / "v3_five_cell_live_report.txt",
+        "v3_extracted_rules_eval.txt": DATA / "v3_extracted_rules_eval.txt",
+        "v3_ancestry_four_cohorts.txt": DATA / "v3_ancestry_four_cohorts.txt",
+        "v3_ancestry_matched.txt": DATA / "v3_ancestry_matched.txt",
+        "v3_normalisation_by_gene.txt": DATA / "v3_normalisation_by_gene.txt",
+        "v3_supp_tables_s1_s3.txt": DATA / "v3_supp_tables_s1_s3.txt",
+        "v3_getrm_disagreement_classes.txt": DATA / "v3_getrm_disagreement_classes.txt",
     }
     for name, src in supplementary.items():
         if not src.exists():
@@ -188,7 +212,7 @@ def main(argv=None) -> int:
     provenance.write_text(PROVENANCE)
     staged.append((provenance.name, provenance.stat().st_size, sha256(provenance)))
 
-    release_notes = args.out / "RELEASE-NOTES-v1.4.1.md"
+    release_notes = args.out / "RELEASE-NOTES-v1.6.0.md"
     release_notes.write_text(RELEASE_NOTES)
     staged.append((release_notes.name, release_notes.stat().st_size,
                    sha256(release_notes)))

@@ -7,7 +7,7 @@ Every script reads and writes here; no renaming or relocation step is required.
 ## Synchronized corrected revision dataset
 
 DOI 10.5281/zenodo.21736633 is the exact data snapshot paired with repository
-tag `agentic-pgx-benchmark-v2.1`. It contains the corrected raw response rows, the
+tag `agentic-pgx-benchmark-v2.2`. It contains the corrected raw response rows, the
 seven-model frozen analysis, source hashes, release notes and provenance record.
 
 DOI 10.5281/zenodo.21736175 is superseded. During version import Zenodo retained
