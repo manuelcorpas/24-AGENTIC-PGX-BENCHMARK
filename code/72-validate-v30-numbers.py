@@ -65,20 +65,50 @@ def parse_report(text: str, scorer="baseline") -> dict:
     return out
 
 
+def cell_means() -> dict:
+    """A1 and A2 means at full precision, from the scored rows themselves.
+
+    Deriving these from v3_five_cell_live_report.txt instead rounds twice: the
+    report stores four decimals, and reading 0.9705 back and rounding to three
+    gives 0.971 for a cell whose true mean is 0.970455. The manuscript then
+    printed 97.1% where the data say 97.0%, and this check passed it, because
+    both sides had been through the same rounding. Percentages in the paper are
+    one decimal place, so the check has to start from a number that has not
+    already been rounded to fewer digits than it needs.
+    """
+    rows = load("v3_matched_scored_rows_all5.json")
+    if not rows:
+        return {}
+    out: dict[str, dict[str, float]] = {}
+    for row in rows:
+        bucket = out.setdefault(row["cell"], {"n": 0, "a1": 0.0, "a2": 0.0})
+        bucket["n"] += 1
+        bucket["a1"] += float(row["a1_phenotype"])
+        bucket["a2"] += float(row["a2_recommendation"])
+    return {cell: {"A1": b["a1"] / b["n"], "A2": b["a2"] / b["n"], "n": b["n"]}
+            for cell, b in out.items()}
+
+
 def build_checks():
     checks = []
     rep = parse_report(load("v3_five_cell_live_report.txt") or "")
+    means = cell_means()
     if rep:
         for cell, a1, a2, leth in (
             ("free_generation", "0.744", "0.624", 54),
             ("rag_generation", "0.820", "0.551", 137),
-            ("rag_execution", "0.965", "0.971", 23),
-            ("skill_generation", "0.964", "0.971", 26),
+            ("rag_execution", "0.965", "0.970", 23),
+            ("skill_generation", "0.964", "0.970", 26),
             ("skill_execution", "0.967", "0.973", 25),
         ):
             got = rep.get(cell, {})
-            checks.append((f"{cell} A1", a1, f"{float(got.get('A1', 0)):.3f}"))
-            checks.append((f"{cell} A2", a2, f"{float(got.get('A2', 0)):.3f}"))
+            exact = means.get(cell)
+            if exact:
+                checks.append((f"{cell} A1", a1, f"{exact['A1']:.3f}"))
+                checks.append((f"{cell} A2", a2, f"{exact['A2']:.3f}"))
+            else:
+                checks.append((f"{cell} A1", a1, f"{float(got.get('A1', 0)):.3f}"))
+                checks.append((f"{cell} A2", a2, f"{float(got.get('A2', 0)):.3f}"))
             checks.append((f"{cell} lethal errors", str(leth),
                            str(got.get("lethal_errors"))))
         returned = sum(v["n"] for v in rep.values())
@@ -94,8 +124,12 @@ def build_checks():
         checks.append(("authored coverage", "0.9996", str(ae["coverage"])))
         checks.append(("authored accuracy among emitted", "0.968",
                        f"{ae['accuracy_among_emitted']:.3f}"))
-        for model, lo in (("Claude Opus 4.5", "0.627"), ("GPT-5.2", "0.636"),
-                          ("o3", "0.645")):
+        # Registered against the eight-model extraction reported in Table 2.
+        # The earlier 0.627 and 0.645 were the three-model era and had gone
+        # stale without failing, because the check only compared them with a
+        # data file that had itself moved on.
+        for model, lo in (("Claude Opus 4.5", "0.660"), ("GPT-5.2", "0.636"),
+                          ("o3", "0.660")):
             m = ext["models"].get(model)
             if m:
                 checks.append((f"extracted coverage, {model}", lo,
@@ -133,15 +167,18 @@ def build_checks():
         checks.append(("GeT-RM unexplained", "22", str(getrm["unexplained"])))
 
     # R1.1 input normalisation. The freeze hashes every raw source and is the
-    # single analysis object used by Figure 8, Table S9 and these checks.
-    freeze = load("v3_input_normalisation_seven_model_freeze.json")
+    # single analysis object used by the input-normalisation figure, its
+    # operational table and these checks. It must be the EIGHT-model freeze:
+    # the seven-model file is still deposited for provenance, and registering
+    # against it silently checked the manuscript against a superseded panel.
+    freeze = load("v3_input_normalisation_eight_model_freeze.json")
     ev = load("v3_input_normalisation_eval.json")
     if freeze and ev:
         op = freeze["definition_arm_operational_total"]
         checks.extend([
-            ("normalisation definition attempts", "3,689", f"{op['attempted']:,}"),
-            ("normalisation definition calls", "2,905", f"{op['call']:,}"),
-            ("normalisation definition abstentions", "780", str(op["abstain"])),
+            ("normalisation definition attempts", "4,216", f"{op['attempted']:,}"),
+            ("normalisation definition calls", "3,002", f"{op['call']:,}"),
+            ("normalisation definition abstentions", "1,210", f"{op['abstain']:,}"),
             ("normalisation definition truncations", "four truncated responses", "four truncated responses" if op["truncated_output"] == 4 else str(op["truncated_output"])),
             ("normalisation pooled scored", "2,942", f"{ev['n_scored']:,}"),
             ("normalisation pooled calls", "1,597", f"{ev['overall']['vs_caller']['emitted']:,}"),
@@ -165,6 +202,7 @@ def build_checks():
             ("normalisation difference CI upper", "0.024", f"{wi['model_minus_caller_vs_getrm']['ci95'][1]:.3f}"),
         ])
         stated = {
+            "Gemini 2.5 Flash": ("0.814", "0.825"),
             "Claude Sonnet 4.5": ("0.749", "0.778"),
             "o4-mini": ("0.731", "0.764"),
             "o3": ("0.724", "0.766"),
@@ -181,7 +219,11 @@ def build_checks():
 
     avd = load("v3_agent_vs_deterministic.json")
     if avd:
-        for coh, cov in (("1000G_IBS", "0.215"), ("CorpasFamily", "0.333"),
+        # CorpasFamily is 0.292 after the whole-genome rerun (was 0.333 on the
+        # SNP-chip family arm). The old registration matched a data file that
+        # had already been regenerated, so it failed silently rather than
+        # catching the manuscript.
+        for coh, cov in (("1000G_IBS", "0.215"), ("CorpasFamily", "0.292"),
                          ("Peru", "0.300"), ("UGR", "0.090")):
             d = avd["deterministic"].get(coh)
             if d:
@@ -189,6 +231,36 @@ def build_checks():
                                f"{d['coverage']:.3f}"))
                 checks.append((f"deterministic accuracy, {coh}", "1.0",
                                str(d["accuracy_among_emitted"])))
+
+    # Vocabulary coverage across the four cohorts, as reported in the
+    # four-cohort coverage table and its figure. These moved with the family
+    # rerun and were not registered anywhere, which is how the stale text
+    # report in data/ survived alongside a corrected JSON.
+    anc = load("v3_ancestry_four_cohorts.json")
+    if anc:
+        for coh, states, cov_state, cov_carrier, std, own in (
+            ("1000G_IBS", "137", "0.161", "0.385", "0.362", "0.075"),
+            ("CorpasFamily", "37", "0.216", "0.265", "0.421", "0.0"),
+            ("Peru", "73", "0.192", "0.419", "0.344", "0.143"),
+            ("UGR", "289", "0.066", "0.272", "0.322", "0.029"),
+        ):
+            raw = anc["raw_by_cohort"][coh]
+            checks.append((f"distinct states, {coh}", states,
+                           str(raw["distinct_states"])))
+            checks.append((f"vocabulary coverage (states), {coh}", cov_state,
+                           f"{raw['coverage_states']:.3f}"))
+            checks.append((f"vocabulary coverage (carriers), {coh}", cov_carrier,
+                           f"{raw['coverage_carriers']:.3f}"))
+            checks.append((f"standardised coverage, {coh}", std,
+                           f"{anc['standardised'][coh]['standardised_coverage']:.3f}"))
+            checks.append((f"cohort-specific coverage, {coh}", own,
+                           f"{anc['cohort_specific'][coh]['coverage_states']:.3f}"))
+        checks.append(("raw state-coverage spread", "0.150",
+                       f"{anc['raw_state_coverage_spread']:.3f}"))
+        checks.append(("standardised coverage spread", "0.099",
+                       f"{anc['standardised_coverage_spread']:.3f}"))
+        checks.append(("cohort-specific coverage spread", "0.143",
+                       f"{anc['cohort_specific_coverage_spread']:.3f}"))
     return checks
 
 
@@ -208,6 +280,32 @@ def _agree(stated: str, computed: str) -> bool:
         return round(float(a), dp) == round(float(b), dp)
     except ValueError:
         return False
+
+
+def _renderings(stated: str) -> list[str]:
+    """Every way the manuscript may legitimately print a registered value.
+
+    Registered values are proportions, because that is what the data files
+    carry. The manuscript prints percentages. A containment check that knows
+    only "0.744" reports a FAIL on a paper that correctly says "74.4%", and
+    fourteen such FAILs in a thirty-row report is enough noise to make the
+    two real ones invisible. That is precisely what happened: three stale
+    registrations sat unnoticed behind a wall of formatting failures.
+    """
+    forms = {stated}
+    bare = stated.lstrip("$").replace(",", "")
+    try:
+        value = float(bare)
+    except ValueError:
+        return sorted(forms)
+    if "." in bare and -1.0 <= value <= 1.0:
+        pct = value * 100
+        decimals = max(0, len(bare.split(".")[1]) - 2)
+        for places in {decimals, decimals + 1, 0, 1}:
+            forms.add(f"{pct:.{places}f}%")
+            # "30.0%" is also written "30%"; strip a trailing zero decimal.
+            forms.add(f"{pct:.{places}f}".rstrip("0").rstrip(".") + "%")
+    return sorted(forms)
 
 
 def main(argv=None) -> int:
@@ -240,7 +338,10 @@ def main(argv=None) -> int:
     print(f"{'claim':44s} {'stated':>12} {'from data':>12}  {'in text':>8}")
     for name, stated, computed in checks:
         agrees = _agree(stated, computed)
-        in_text = "n/a" if text is None else ("yes" if stated in text else "NO")
+        if text is None:
+            in_text = "n/a"
+        else:
+            in_text = "yes" if any(f in text for f in _renderings(stated)) else "NO"
         flag = "" if (agrees and in_text != "NO") else "   <-- FAIL"
         if flag:
             fails.append((name, stated, computed, in_text))

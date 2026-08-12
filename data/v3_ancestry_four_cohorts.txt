@@ -1,15 +1,15 @@
 ANCESTRY REANALYSIS ON MATCHED DIPLOTYPE STATES
 
-  distinct states 373, observed in >1 cohort: 107
+  distinct states 377, observed in >1 cohort: 104
 
   cohort            states  cov(state)  cov(carrier)  standardised  own-states
-  1000G_IBS            137      0.1606        0.3852        0.3627      0.0588
-  CorpasFamily          40       0.275        0.3176        0.3911         0.0
+  1000G_IBS            137      0.1606        0.3852        0.3625      0.0755
+  CorpasFamily          37      0.2162        0.2647        0.4209         0.0
   Peru                  73      0.1918         0.419        0.3442      0.1429
-  UGR                  289      0.0657        0.2715        0.3216       0.029
+  UGR                  289      0.0657        0.2715        0.3216      0.0288
 
-  spread in raw state coverage       0.2093
-  spread after standardisation       0.0695
+  spread in raw state coverage       0.1505
+  spread after standardisation       0.0993
   spread on cohort-specific states   0.1429
 
   Standardisation compares cohorts on states they SHARE, so a small spread

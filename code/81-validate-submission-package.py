@@ -11,7 +11,7 @@ from pathlib import Path
 from xml.etree import ElementTree as ET
 
 NS = {"w": "http://schemas.openxmlformats.org/wordprocessingml/2006/main"}
-TAG = "cg-revision-2026-08-01b"
+TAG = "agentic-pgx-benchmark-v2.1"
 
 
 def docx_text(path: Path) -> str:

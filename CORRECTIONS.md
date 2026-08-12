@@ -460,6 +460,37 @@ diffing the rendered document rather than by trusting the transformation's own
 count of 206 successful substitutions. A transformation that reports how many
 edits it made says nothing about whether any of them were correct.
 
+## C17. A double rounding turned 97.0% into 97.1%
+
+**Found:** 2026-08-12. **Files:** `code/72-validate-v30-numbers.py`, manuscript
+Table 1 and Results.
+
+Recommendation accuracy (A2) for the RAG-assisted execution cell and the
+authored-rule generation cell is 0.970455. The scorer's report,
+`v3_five_cell_live_report.txt`, stores four decimals and therefore prints
+`A2=0.9705`. The manuscript rendered that stored value as a one-decimal
+percentage and printed **97.1%**, where the underlying mean rounds to **97.0%**.
+
+**Effect.** Two cells in Table 1, and four sentences in Results and Discussion,
+overstated recommendation accuracy by 0.055 percentage points. No comparison,
+ordering or conclusion changes: the gap against free generation (62.4%) and RAG
+generation (55.1%) is unaffected, and authored-rule execution remains highest at
+97.3%.
+
+**Why it survived.** The registered-number check was reading the same rounded
+report the manuscript was quoting. It recomputed `0.9705` to three decimals,
+obtained `0.971`, compared it with a registration of `0.971`, and confirmed that
+`97.1%` appeared in the text. Both sides of the comparison had been through the
+same rounding, so the check could not see the error it existed to catch. A
+verification that consumes its subject's own output is not a verification.
+
+**Fix.** `72-validate-v30-numbers.py` now computes A1 and A2 from
+`v3_matched_scored_rows_all5.json`, the unrounded scored rows, and registers
+`0.970`. It fails against any manuscript still saying 97.1%. That file is now
+deposited alongside the other raw rows so the check is reproducible from the
+Zenodo version rather than only on the author's machine.
+
+
 C9, C11 and C12 are all the same defect as C5: a limit of the evaluation
 apparatus arriving at the analyst's desk wearing the costume of a finding about a
 model. C12 is the sharpest case, because it was introduced inside the guard
