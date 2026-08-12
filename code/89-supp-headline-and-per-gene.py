@@ -87,6 +87,17 @@ def pct(value: float) -> str:
     return f"{value * 100:.1f}%"
 
 
+def pct2(value: float) -> str:
+    """Coverage to two decimals.
+
+    Authored-rule execution covers 0.999621, which is 99.96% in main-text
+    Table 1 and rounds to 100.0% at one decimal. A supplementary table saying
+    100.0% beside a main table saying 99.96% is the same number contradicting
+    itself in print, which is the most damaging form of a rounding choice.
+    """
+    return f"{value * 100:.2f}%"
+
+
 def build_headline(report: dict) -> list[str]:
     baseline = report["baseline"]
     equivalence = report["clinical_equivalence"]
@@ -105,7 +116,7 @@ def build_headline(report: dict) -> list[str]:
                 "supplement states it modifies phenotype identification only\n")
             raise SystemExit(1)
         lines.append(
-            f"{label:<32}{b['n']:>7}{pct(b['coverage']):>10}"
+            f"{label:<32}{b['n']:>7}{pct2(b['coverage']):>10}"
             f"{pct(b['A1']):>9}{pct(e['A1']):>10}"
             f"{pct(b['A2']):>9}{pct(e['A2']):>10}"
             f"{b['lethal_errors']:>15}{b['parse_fail']:>12}")

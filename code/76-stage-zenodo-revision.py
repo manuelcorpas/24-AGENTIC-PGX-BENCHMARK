@@ -24,7 +24,7 @@ than leaving the letter to overclaim.
 
 USAGE
     python code/76-stage-zenodo-revision.py --out ~/Desktop/ZENODO-v1.4.1 \
-        --tag agentic-pgx-benchmark-v2.2
+        --tag agentic-pgx-benchmark-v2.3
 """
 from __future__ import annotations
 
@@ -154,7 +154,7 @@ the unrounded rows.
 The seven-model freeze remains deposited for provenance and must not be used for
 any submitted number.
 
-Code is pinned by the source archive for tag agentic-pgx-benchmark-v2.2. That
+Code is pinned by the source archive for tag agentic-pgx-benchmark-v2.3. That
 tag is immutable and is the one cited by the manuscript. See CORRECTIONS.md,
 MODEL-VERSIONS.md, DATA-MANIFEST.md and PROVENANCE.md for scope and limitations.
 """

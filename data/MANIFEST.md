@@ -1,7 +1,7 @@
 # Manifest: submitted results to authoritative inputs and generators
 
 This is the forward map for the Cell Genomics revision released under tag
-`agentic-pgx-benchmark-v2.2`. Raw JSON evaluation rows are excluded from git by
+`agentic-pgx-benchmark-v2.3`. Raw JSON evaluation rows are excluded from git by
 design and must be downloaded from the Zenodo version cited in the manuscript
 into `data/`; the tracked `.txt` summaries beside them carry the same numbers in
 readable form. The frozen file `v3_input_normalisation_eight_model_freeze.json`

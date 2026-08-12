@@ -1,11 +1,11 @@
 Table S1. Headline metrics for the five matched cells under both scorers.
 
 cell                                  n  coverage  A1 base  A1 equiv  A2 base  A2 equiv  lethal errors  parse fail
-free generation                    2640     99.8%    74.4%     76.9%    62.4%     62.4%             54           6
-RAG generation                     2640     99.2%    82.0%     88.4%    55.1%     55.1%            137          22
-RAG call + authored execution      2640     99.7%    96.5%     96.5%    97.0%     97.0%             23           2
-authored rules, generated          2640     99.8%    96.4%     96.4%    97.0%     97.0%             26           5
-authored rules, executed           2639    100.0%    96.7%     96.7%    97.3%     97.3%             25           0
+free generation                    2640    99.77%    74.4%     76.9%    62.4%     62.4%             54           6
+RAG generation                     2640    99.17%    82.0%     88.4%    55.1%     55.1%            137          22
+RAG call + authored execution      2640    99.73%    96.5%     96.5%    97.0%     97.0%             23           2
+authored rules, generated          2640    99.81%    96.4%     96.4%    97.0%     97.0%             26           5
+authored rules, executed           2639    99.96%    96.7%     96.7%    97.3%     97.3%             25           0
 
 
 Table S3. Per-gene lethal-class errors across the five matched cells.
