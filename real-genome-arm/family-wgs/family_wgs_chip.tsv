@@ -1,0 +1,38 @@
+cohort	gene	diplotype	phenotype	n_carriers
+CorpasFamilyWGSchip	CACNA1S	Reference/Reference	Uncertain Susceptibility	4
+CorpasFamilyWGSchip	CFTR	Reference/Reference	Indeterminate	4
+CorpasFamilyWGSchip	CYP2B6	*2/*5	Normal Metabolizer	1
+CorpasFamilyWGSchip	CYP2B6	*2/*9	Intermediate Metabolizer	1
+CorpasFamilyWGSchip	CYP2B6	*5/*6	Intermediate Metabolizer	1
+CorpasFamilyWGSchip	CYP2B6	*6/*6	Poor Metabolizer	1
+CorpasFamilyWGSchip	CYP2C19	*1/*1	Normal Metabolizer	3
+CorpasFamilyWGSchip	CYP2C19	*1/*4	Intermediate Metabolizer	1
+CorpasFamilyWGSchip	CYP2C9	*1/*2	Intermediate Metabolizer	3
+CorpasFamilyWGSchip	CYP2C9	*2/*2	Intermediate Metabolizer	1
+CorpasFamilyWGSchip	CYP2D6	*1/*2	Normal Metabolizer	1
+CorpasFamilyWGSchip	CYP2D6	*1/*4	Intermediate Metabolizer	1
+CorpasFamilyWGSchip	CYP2D6	*1/*41	Normal Metabolizer	1
+CorpasFamilyWGSchip	CYP2D6	*10/*41	Intermediate Metabolizer	1
+CorpasFamilyWGSchip	CYP3A5	*1/*3	Intermediate Metabolizer	1
+CorpasFamilyWGSchip	CYP3A5	*3/*3	Poor Metabolizer	3
+CorpasFamilyWGSchip	CYP4F2	*1/*1	Indeterminate	1
+CorpasFamilyWGSchip	CYP4F2	*1/*3	Indeterminate	2
+CorpasFamilyWGSchip	CYP4F2	*3/*4	Indeterminate	1
+CorpasFamilyWGSchip	DPYD	Reference/Reference	Normal Metabolizer	1
+CorpasFamilyWGSchip	DPYD	Reference/c.85T>C (*9A)	Normal Metabolizer	3
+CorpasFamilyWGSchip	IFNL3	Reference/Reference	Favorable Response	2
+CorpasFamilyWGSchip	IFNL3	Reference/rs12979860	Unfavorable Response	1
+CorpasFamilyWGSchip	IFNL3	rs12979860/rs12980275	Unfavorable Response	1
+CorpasFamilyWGSchip	NAT2	*4/*5	Indeterminate	1
+CorpasFamilyWGSchip	NAT2	*4/*6	Indeterminate	1
+CorpasFamilyWGSchip	NAT2	*5/*6	Indeterminate	2
+CorpasFamilyWGSchip	NUDT15	*1/*1	Normal Metabolizer	4
+CorpasFamilyWGSchip	RYR1	Reference/Reference	Uncertain Susceptibility	4
+CorpasFamilyWGSchip	SLCO1B1	*1/*1	Normal Function	2
+CorpasFamilyWGSchip	SLCO1B1	*1/*37	Normal Function	2
+CorpasFamilyWGSchip	TPMT	*1/*1	Normal Metabolizer	2
+CorpasFamilyWGSchip	TPMT	*1/*9	Indeterminate	2
+CorpasFamilyWGSchip	UGT1A1	*1/*1	Normal Metabolizer	3
+CorpasFamilyWGSchip	UGT1A1	*1/*80+*28	Intermediate Metabolizer	1
+CorpasFamilyWGSchip	VKORC1	Reference/rs9923231	Indeterminate	1
+CorpasFamilyWGSchip	VKORC1	rs9923231/rs9923231	Indeterminate	3

@@ -1,0 +1,13 @@
+ngs: 4 samples x 17 genes, 68 diplotype calls, 37 distinct (gene, diplotype) states -> family_wgs_ngs.tsv
+ngs: Mendelian 2 inconsistent of 32 checked (2 not checkable)
+    PT00002A IFNL3: child Reference/Reference | father Reference/Reference | mother rs12979860/rs12980275
+    PT00009A CYP2B6: child *2/*9 | father *6/*6 | mother *2/*5
+chip: 4 samples x 17 genes, 68 diplotype calls, 37 distinct (gene, diplotype) states -> family_wgs_chip.tsv
+chip: Mendelian 3 inconsistent of 34 checked (0 not checkable)
+    PT00002A IFNL3: child Reference/Reference | father Reference/Reference | mother rs12979860/rs12980275
+    PT00009A CYP2B6: child *2/*9 | father *6/*6 | mother *2/*5
+    PT00009A CYP2D6: child *1/*4 | father *1/*2 | mother *10/*41
+ngs vs chip: 66/68 identical diplotypes (97.1%)
+    PT00008A CYP2D6: ngs Indeterminate | chip *10/*41
+    PT00009A CYP2D6: ngs *1/*68+*4 | chip *1/*4
+array vs WGS distinct states: array 40, WGS 37, shared 29, WGS-only 8, array-only 11

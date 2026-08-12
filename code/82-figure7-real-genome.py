@@ -16,7 +16,7 @@ DATA = BASE / "data" / "v3_agent_vs_deterministic.json"
 FIGURES = BASE / "figures"
 
 ORDER = [
-    ("CorpasFamily", "European\n(family, n=5)"),
+    ("CorpasFamily", "European\n(family WGS, n=4)"),
     ("Peru", "Latin American\n(Peru)"),
     ("1000G_IBS", "European\n(Iberian, n=93)"),
     ("UGR", "East African\n(Uganda)"),
@@ -42,11 +42,11 @@ def values(data):
 
 def self_test(data):
     correct, abstain, wrong = values(data)
-    expected = [0.96, 0.6944, 0.5344, 0.6062, 0.3717]
+    expected = [0.96, 0.6823, 0.5344, 0.6062, 0.3717]
     for got, want in zip(correct, expected):
         if round(got, 4) != want:
             raise AssertionError(f"correctness {got:.4f} != {want:.4f}")
-    expected_abstain = [0.0, 0.0972, 0.2656, 0.1371, 0.3723]
+    expected_abstain = [0.0, 0.1354, 0.2656, 0.1371, 0.3723]
     for got, want in zip(abstain, expected_abstain):
         if round(got, 4) != want:
             raise AssertionError(f"abstention {got:.4f} != {want:.4f}")

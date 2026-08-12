@@ -1,6 +1,6 @@
 {
-  "n_states": 373,
-  "n_matched_states": 107,
+  "n_states": 377,
+  "n_matched_states": 104,
   "cohorts": [
     "1000G_IBS",
     "CorpasFamily",
@@ -8,16 +8,6 @@
     "UGR"
   ],
   "raw_by_cohort": {
-    "CorpasFamily": {
-      "distinct_states": 40,
-      "states_covered": 11,
-      "coverage_states": 0.275,
-      "carriers": 85,
-      "carriers_covered": 27,
-      "coverage_carriers": 0.3176,
-      "uncertain_function_states": 13,
-      "coverage_states_excluding_uncertain": 0.4074
-    },
     "Peru": {
       "distinct_states": 73,
       "states_covered": 14,
@@ -47,19 +37,19 @@
       "coverage_carriers": 0.3852,
       "uncertain_function_states": 44,
       "coverage_states_excluding_uncertain": 0.2366
+    },
+    "CorpasFamily": {
+      "distinct_states": 37,
+      "states_covered": 8,
+      "coverage_states": 0.2162,
+      "carriers": 68,
+      "carriers_covered": 18,
+      "coverage_carriers": 0.2647,
+      "uncertain_function_states": 13,
+      "coverage_states_excluding_uncertain": 0.3333
     }
   },
   "matched_states_only": {
-    "CorpasFamily": {
-      "distinct_states": 39,
-      "states_covered": 11,
-      "coverage_states": 0.2821,
-      "carriers": 84,
-      "carriers_covered": 27,
-      "coverage_carriers": 0.3214,
-      "uncertain_function_states": 13,
-      "coverage_states_excluding_uncertain": 0.4231
-    },
     "Peru": {
       "distinct_states": 66,
       "states_covered": 13,
@@ -71,55 +61,59 @@
       "coverage_states_excluding_uncertain": 0.3824
     },
     "UGR": {
-      "distinct_states": 82,
+      "distinct_states": 81,
       "states_covered": 13,
-      "coverage_states": 0.1585,
-      "carriers": 87504,
+      "coverage_states": 0.1605,
+      "carriers": 87485,
       "carriers_covered": 26684,
-      "coverage_carriers": 0.3049,
+      "coverage_carriers": 0.305,
       "uncertain_function_states": 40,
-      "coverage_states_excluding_uncertain": 0.3095
+      "coverage_states_excluding_uncertain": 0.3171
     },
     "1000G_IBS": {
-      "distinct_states": 86,
-      "states_covered": 19,
-      "coverage_states": 0.2209,
-      "carriers": 1417,
-      "carriers_covered": 582,
-      "coverage_carriers": 0.4107,
+      "distinct_states": 84,
+      "states_covered": 18,
+      "coverage_states": 0.2143,
+      "carriers": 1401,
+      "carriers_covered": 569,
+      "coverage_carriers": 0.4061,
       "uncertain_function_states": 28,
-      "coverage_states_excluding_uncertain": 0.3276
+      "coverage_states_excluding_uncertain": 0.3214
+    },
+    "CorpasFamily": {
+      "distinct_states": 32,
+      "states_covered": 8,
+      "coverage_states": 0.25,
+      "carriers": 62,
+      "carriers_covered": 18,
+      "coverage_carriers": 0.2903,
+      "uncertain_function_states": 11,
+      "coverage_states_excluding_uncertain": 0.381
     }
   },
   "standardised": {
     "1000G_IBS": {
-      "standardised_coverage": 0.3627,
-      "matched_states_present": 86,
-      "weight_share": 0.8838
+      "standardised_coverage": 0.3625,
+      "matched_states_present": 84,
+      "weight_share": 0.884
     },
     "CorpasFamily": {
-      "standardised_coverage": 0.3911,
-      "matched_states_present": 39,
-      "weight_share": 0.6071
+      "standardised_coverage": 0.4209,
+      "matched_states_present": 32,
+      "weight_share": 0.5627
     },
     "Peru": {
       "standardised_coverage": 0.3442,
       "matched_states_present": 66,
-      "weight_share": 0.8731
+      "weight_share": 0.8733
     },
     "UGR": {
       "standardised_coverage": 0.3216,
-      "matched_states_present": 82,
-      "weight_share": 0.9848
+      "matched_states_present": 81,
+      "weight_share": 0.985
     }
   },
   "cohort_specific": {
-    "CorpasFamily": {
-      "cohort_specific_states": 1,
-      "covered": 0,
-      "coverage_states": 0.0,
-      "coverage_carriers": 0.0
-    },
     "Peru": {
       "cohort_specific_states": 7,
       "covered": 1,
@@ -127,19 +121,25 @@
       "coverage_carriers": 0.1111
     },
     "UGR": {
-      "cohort_specific_states": 207,
+      "cohort_specific_states": 208,
       "covered": 6,
-      "coverage_states": 0.029,
-      "coverage_carriers": 0.1346
+      "coverage_states": 0.0288,
+      "coverage_carriers": 0.1345
     },
     "1000G_IBS": {
-      "cohort_specific_states": 51,
-      "covered": 3,
-      "coverage_states": 0.0588,
-      "coverage_carriers": 0.1646
+      "cohort_specific_states": 53,
+      "covered": 4,
+      "coverage_states": 0.0755,
+      "coverage_carriers": 0.2222
+    },
+    "CorpasFamily": {
+      "cohort_specific_states": 5,
+      "covered": 0,
+      "coverage_states": 0.0,
+      "coverage_carriers": 0.0
     }
   },
-  "raw_state_coverage_spread": 0.2093,
-  "standardised_coverage_spread": 0.0695,
+  "raw_state_coverage_spread": 0.1505,
+  "standardised_coverage_spread": 0.0993,
   "cohort_specific_coverage_spread": 0.1429
 }

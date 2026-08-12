@@ -1,50 +1,4 @@
 cohort	gene	diplotype	cohort_phenotype	model	pred
-CorpasFamily	CACNA1S	Reference/Reference	Uncertain Susceptibility	Claude Opus 4.5	Normal (No increased risk of malignant hyperthermia)
-CorpasFamily	CFTR	Reference/Reference	Indeterminate	Claude Opus 4.5	Normal function
-CorpasFamily	CYP2B6	*1/*6	Intermediate Metabolizer	Claude Opus 4.5	Intermediate
-CorpasFamily	CYP2B6	*2/*5	Normal Metabolizer	Claude Opus 4.5	I need to determine the metabolizer phenotype for CYP2B6 with the diplotype *2/*
-CorpasFamily	CYP2B6	*2/*6	Intermediate Metabolizer	Claude Opus 4.5	I need to determine the CYP2B6 metabolizer phenotype for the diplotype *2/*6 usi
-CorpasFamily	CYP2B6	*5/*6	Intermediate Metabolizer	Claude Opus 4.5	I need to determine the CYP2B6 metabolizer phenotype for the diplotype *5/*6 usi
-CorpasFamily	CYP2B6	*6/*6	Poor Metabolizer	Claude Opus 4.5	Poor Metabolizer
-CorpasFamily	CYP2C19	*1/*1	Normal Metabolizer	Claude Opus 4.5	Normal Metabolizer
-CorpasFamily	CYP2C19	*1/*4	Intermediate Metabolizer	Claude Opus 4.5	Intermediate Metabolizer
-CorpasFamily	CYP2C9	*1/*2	Intermediate Metabolizer	Claude Opus 4.5	Intermediate Metabolizer
-CorpasFamily	CYP2C9	*1/*3	Intermediate Metabolizer	Claude Opus 4.5	Intermediate Metabolizer
-CorpasFamily	CYP2C9	*2/*2	Intermediate Metabolizer	Claude Opus 4.5	Intermediate Metabolizer
-CorpasFamily	CYP2D6	*2/*2	Normal Metabolizer	Claude Opus 4.5	Normal Metabolizer
-CorpasFamily	CYP2D6	*2/*4	Intermediate Metabolizer	Claude Opus 4.5	Intermediate Metabolizer
-CorpasFamily	CYP2D6	*2/*41	Normal Metabolizer	Claude Opus 4.5	Intermediate Metabolizer
-CorpasFamily	CYP2D6	*4/*41	Intermediate Metabolizer	Claude Opus 4.5	Intermediate Metabolizer
-CorpasFamily	CYP3A5	*1/*3	Intermediate Metabolizer	Claude Opus 4.5	Intermediate Metabolizer
-CorpasFamily	CYP3A5	*3/*3	Poor Metabolizer	Claude Opus 4.5	Poor Metabolizer
-CorpasFamily	CYP4F2	*1/*1	Indeterminate	Claude Opus 4.5	Normal Function
-CorpasFamily	CYP4F2	*1/*3	Indeterminate	Claude Opus 4.5	Based on CPIC guidelines for CYP4F2, I need to determine the functional status f
-CorpasFamily	CYP4F2	*3/*3	Indeterminate	Claude Opus 4.5	Poor Metabolizer
-CorpasFamily	DPYD	Reference/Reference	Normal Metabolizer	Claude Opus 4.5	Normal Metabolizer
-CorpasFamily	DPYD	Reference/c.85T>C (*9A)	Normal Metabolizer	Claude Opus 4.5	Normal Metabolizer
-CorpasFamily	IFNL3	Reference/Reference	Favorable Response	Claude Opus 4.5	Favorable response genotype
-CorpasFamily	IFNL3	Reference/rs12979860	Unfavorable Response	Claude Opus 4.5	"I need to analyze the IFNL3 gene diplotype according to CPIC guidelines.
-
-For IF"
-CorpasFamily	IFNL3	rs12979860/rs12980275	Unfavorable Response	Claude Opus 4.5	I need to analyze the IFNL3 diplotype rs12979860/rs12980275 according to CPIC gu
-CorpasFamily	NAT2	*4/*5	Indeterminate	Claude Opus 4.5	"Looking up NAT2 CPIC guidelines for the diplotype *4/*5:
-
-- NAT2 *4 is a rapid a"
-CorpasFamily	NAT2	*4/*6	Indeterminate	Claude Opus 4.5	Intermediate Acetylator
-CorpasFamily	NAT2	*5/*6	Indeterminate	Claude Opus 4.5	Slow Acetylator
-CorpasFamily	NAT2	*6/*6	Indeterminate	Claude Opus 4.5	Slow Acetylator
-CorpasFamily	NUDT15	*1/*1	Normal Metabolizer	Claude Opus 4.5	Normal Metabolizer
-CorpasFamily	RYR1	Reference/Reference	Uncertain Susceptibility	Claude Opus 4.5	Normal Function
-CorpasFamily	SLCO1B1	*1/*1	Normal Function	Claude Opus 4.5	Normal function
-CorpasFamily	SLCO1B1	*1/*37	Normal Function	Claude Opus 4.5	Indeterminate
-CorpasFamily	SLCO1B1	*1/*5	Decreased Function	Claude Opus 4.5	Decreased Function
-CorpasFamily	TPMT	*1/*1	Normal Metabolizer	Claude Opus 4.5	Normal Metabolizer
-CorpasFamily	UGT1A1	*1/*1	Normal Metabolizer	Claude Opus 4.5	Normal Metabolizer
-CorpasFamily	UGT1A1	*1/*80	Indeterminate	Claude Opus 4.5	I need to determine the metabolizer phenotype for UGT1A1 with the diplotype *1/*
-CorpasFamily	VKORC1	Reference/rs9923231	Indeterminate	Claude Opus 4.5	Based on CPIC guidelines for VKORC1, the diplotype Reference/rs9923231 refers to
-CorpasFamily	VKORC1	rs9923231/rs9923231	Indeterminate	Claude Opus 4.5	"Looking up VKORC1 rs9923231 variant information according to CPIC guidelines:
-
-F"
 Peru	CACNA1S	Reference/Reference	Uncertain Susceptibility	Claude Opus 4.5	Normal (No increased risk of malignant hyperthermia)
 Peru	CFTR	Reference/Reference	Indeterminate	Claude Opus 4.5	Normal function
 Peru	CYP2B6	*1/*1	Normal Metabolizer	Claude Opus 4.5	Normal Metabolizer
@@ -621,46 +575,6 @@ The c.2194G>A (*6) allele has an activity va"
 1000G_IBS	UGT1A1	*80/*80+*28	Indeterminate	Claude Opus 4.5	I need to determine the UGT1A1 metabolizer phenotype for the diplotype *80/*80+*
 1000G_IBS	VKORC1	Reference/Reference	Indeterminate	Claude Opus 4.5	Normal VKORC1 expression
 1000G_IBS	VKORC1	rs9923231/rs9923231	Indeterminate	Claude Opus 4.5	Based on CPIC guidelines for VKORC1, the rs9923231 variant (also known as -1639G
-CorpasFamily	CACNA1S	Reference/Reference	Uncertain Susceptibility	Claude Sonnet 4.5	Uncertain Susceptibility
-CorpasFamily	CFTR	Reference/Reference	Indeterminate	Claude Sonnet 4.5	CFTR function not significantly affected
-CorpasFamily	CYP2B6	*1/*6	Intermediate Metabolizer	Claude Sonnet 4.5	Intermediate Metabolizer
-CorpasFamily	CYP2B6	*2/*5	Normal Metabolizer	Claude Sonnet 4.5	Normal Metabolizer
-CorpasFamily	CYP2B6	*2/*6	Intermediate Metabolizer	Claude Sonnet 4.5	Intermediate Metabolizer
-CorpasFamily	CYP2B6	*5/*6	Intermediate Metabolizer	Claude Sonnet 4.5	Intermediate Metabolizer
-CorpasFamily	CYP2B6	*6/*6	Poor Metabolizer	Claude Sonnet 4.5	Poor Metabolizer
-CorpasFamily	CYP2C19	*1/*1	Normal Metabolizer	Claude Sonnet 4.5	Normal Metabolizer
-CorpasFamily	CYP2C19	*1/*4	Intermediate Metabolizer	Claude Sonnet 4.5	Intermediate Metabolizer
-CorpasFamily	CYP2C9	*1/*2	Intermediate Metabolizer	Claude Sonnet 4.5	CYP2C9 Intermediate Metabolizer
-CorpasFamily	CYP2C9	*1/*3	Intermediate Metabolizer	Claude Sonnet 4.5	CYP2C9 Intermediate Metabolizer
-CorpasFamily	CYP2C9	*2/*2	Intermediate Metabolizer	Claude Sonnet 4.5	Intermediate Metabolizer
-CorpasFamily	CYP2D6	*2/*2	Normal Metabolizer	Claude Sonnet 4.5	Normal Metabolizer
-CorpasFamily	CYP2D6	*2/*4	Intermediate Metabolizer	Claude Sonnet 4.5	Intermediate Metabolizer
-CorpasFamily	CYP2D6	*2/*41	Normal Metabolizer	Claude Sonnet 4.5	Normal Metabolizer
-CorpasFamily	CYP2D6	*4/*41	Intermediate Metabolizer	Claude Sonnet 4.5	Intermediate Metabolizer
-CorpasFamily	CYP3A5	*1/*3	Intermediate Metabolizer	Claude Sonnet 4.5	CYP3A5 Intermediate Metabolizer
-CorpasFamily	CYP3A5	*3/*3	Poor Metabolizer	Claude Sonnet 4.5	CYP3A5 non-expresser
-CorpasFamily	CYP4F2	*1/*1	Indeterminate	Claude Sonnet 4.5	Indeterminate
-CorpasFamily	CYP4F2	*1/*3	Indeterminate	Claude Sonnet 4.5	Indeterminate
-CorpasFamily	CYP4F2	*3/*3	Indeterminate	Claude Sonnet 4.5	Indeterminate
-CorpasFamily	DPYD	Reference/Reference	Normal Metabolizer	Claude Sonnet 4.5	Normal metabolizer
-CorpasFamily	DPYD	Reference/c.85T>C (*9A)	Normal Metabolizer	Claude Sonnet 4.5	Normal Metaboliser
-CorpasFamily	IFNL3	Reference/Reference	Favorable Response	Claude Sonnet 4.5	Favorable response genotype
-CorpasFamily	IFNL3	Reference/rs12979860	Unfavorable Response	Claude Sonnet 4.5	Favorable response genotype
-CorpasFamily	IFNL3	rs12979860/rs12980275	Unfavorable Response	Claude Sonnet 4.5	Indeterminate
-CorpasFamily	NAT2	*4/*5	Indeterminate	Claude Sonnet 4.5	Intermediate Acetylator
-CorpasFamily	NAT2	*4/*6	Indeterminate	Claude Sonnet 4.5	Intermediate Acetylator
-CorpasFamily	NAT2	*5/*6	Indeterminate	Claude Sonnet 4.5	Slow Acetylator
-CorpasFamily	NAT2	*6/*6	Indeterminate	Claude Sonnet 4.5	Slow Acetylator
-CorpasFamily	NUDT15	*1/*1	Normal Metabolizer	Claude Sonnet 4.5	Normal metabolizer
-CorpasFamily	RYR1	Reference/Reference	Uncertain Susceptibility	Claude Sonnet 4.5	Uncertain/Unknown
-CorpasFamily	SLCO1B1	*1/*1	Normal Function	Claude Sonnet 4.5	Normal function
-CorpasFamily	SLCO1B1	*1/*37	Normal Function	Claude Sonnet 4.5	Normal Function
-CorpasFamily	SLCO1B1	*1/*5	Decreased Function	Claude Sonnet 4.5	Normal Function
-CorpasFamily	TPMT	*1/*1	Normal Metabolizer	Claude Sonnet 4.5	Normal metabolizer
-CorpasFamily	UGT1A1	*1/*1	Normal Metabolizer	Claude Sonnet 4.5	Normal metabolizer
-CorpasFamily	UGT1A1	*1/*80	Indeterminate	Claude Sonnet 4.5	Normal Metabolizer
-CorpasFamily	VKORC1	Reference/rs9923231	Indeterminate	Claude Sonnet 4.5	Indeterminate
-CorpasFamily	VKORC1	rs9923231/rs9923231	Indeterminate	Claude Sonnet 4.5	Indeterminate
 Peru	CACNA1S	Reference/Reference	Uncertain Susceptibility	Claude Sonnet 4.5	Uncertain susceptibility to malignant hyperthermia
 Peru	CFTR	Reference/Reference	Indeterminate	Claude Sonnet 4.5	CFTR function not substantially reduced
 Peru	CYP2B6	*1/*1	Normal Metabolizer	Claude Sonnet 4.5	Normal Metabolizer
@@ -1206,46 +1120,6 @@ CYP4F2 is not part of the CPIC"
 1000G_IBS	VKORC1	rs9923231/rs9923231	Indeterminate	Claude Sonnet 4.5	"I need to analyze the VKORC1 diplotype rs9923231/rs9923231.
 
 VKORC1 pharmacogeno"
-CorpasFamily	CACNA1S	Reference/Reference	Uncertain Susceptibility	GPT-5.2	Malignant hyperthermia susceptibility (MHS) negative
-CorpasFamily	CFTR	Reference/Reference	Indeterminate	GPT-5.2	Normal Function
-CorpasFamily	CYP2B6	*1/*6	Intermediate Metabolizer	GPT-5.2	Intermediate Metabolizer
-CorpasFamily	CYP2B6	*2/*5	Normal Metabolizer	GPT-5.2	Indeterminate
-CorpasFamily	CYP2B6	*2/*6	Intermediate Metabolizer	GPT-5.2	Intermediate Metabolizer
-CorpasFamily	CYP2B6	*5/*6	Intermediate Metabolizer	GPT-5.2	Intermediate Metabolizer
-CorpasFamily	CYP2B6	*6/*6	Poor Metabolizer	GPT-5.2	Poor Metabolizer
-CorpasFamily	CYP2C19	*1/*1	Normal Metabolizer	GPT-5.2	Normal Metabolizer
-CorpasFamily	CYP2C19	*1/*4	Intermediate Metabolizer	GPT-5.2	Intermediate Metabolizer
-CorpasFamily	CYP2C9	*1/*2	Intermediate Metabolizer	GPT-5.2	Intermediate Metabolizer
-CorpasFamily	CYP2C9	*1/*3	Intermediate Metabolizer	GPT-5.2	Intermediate Metabolizer
-CorpasFamily	CYP2C9	*2/*2	Intermediate Metabolizer	GPT-5.2	Poor Metabolizer
-CorpasFamily	CYP2D6	*2/*2	Normal Metabolizer	GPT-5.2	Normal Metabolizer
-CorpasFamily	CYP2D6	*2/*4	Intermediate Metabolizer	GPT-5.2	Intermediate Metabolizer
-CorpasFamily	CYP2D6	*2/*41	Normal Metabolizer	GPT-5.2	Normal Metabolizer
-CorpasFamily	CYP2D6	*4/*41	Intermediate Metabolizer	GPT-5.2	Intermediate Metabolizer
-CorpasFamily	CYP3A5	*1/*3	Intermediate Metabolizer	GPT-5.2	Intermediate Metabolizer
-CorpasFamily	CYP3A5	*3/*3	Poor Metabolizer	GPT-5.2	Poor Metabolizer
-CorpasFamily	CYP4F2	*1/*1	Indeterminate	GPT-5.2	Normal Function
-CorpasFamily	CYP4F2	*1/*3	Indeterminate	GPT-5.2	Increased Warfarin Dose Requirement
-CorpasFamily	CYP4F2	*3/*3	Indeterminate	GPT-5.2	Decreased function
-CorpasFamily	DPYD	Reference/Reference	Normal Metabolizer	GPT-5.2	Normal Metabolizer
-CorpasFamily	DPYD	Reference/c.85T>C (*9A)	Normal Metabolizer	GPT-5.2	Normal Metabolizer
-CorpasFamily	IFNL3	Reference/Reference	Favorable Response	GPT-5.2	Indeterminate
-CorpasFamily	IFNL3	Reference/rs12979860	Unfavorable Response	GPT-5.2	Indeterminate
-CorpasFamily	IFNL3	rs12979860/rs12980275	Unfavorable Response	GPT-5.2	Indeterminate
-CorpasFamily	NAT2	*4/*5	Indeterminate	GPT-5.2	Intermediate acetylator
-CorpasFamily	NAT2	*4/*6	Indeterminate	GPT-5.2	Intermediate acetylator
-CorpasFamily	NAT2	*5/*6	Indeterminate	GPT-5.2	Slow acetylator
-CorpasFamily	NAT2	*6/*6	Indeterminate	GPT-5.2	Slow acetylator
-CorpasFamily	NUDT15	*1/*1	Normal Metabolizer	GPT-5.2	Normal Metabolizer
-CorpasFamily	RYR1	Reference/Reference	Uncertain Susceptibility	GPT-5.2	Malignant hyperthermia susceptibility (MHS) Negative (Reference/Reference)
-CorpasFamily	SLCO1B1	*1/*1	Normal Function	GPT-5.2	Normal function
-CorpasFamily	SLCO1B1	*1/*37	Normal Function	GPT-5.2	Indeterminate
-CorpasFamily	SLCO1B1	*1/*5	Decreased Function	GPT-5.2	Decreased function
-CorpasFamily	TPMT	*1/*1	Normal Metabolizer	GPT-5.2	Normal Metabolizer
-CorpasFamily	UGT1A1	*1/*1	Normal Metabolizer	GPT-5.2	Normal Metabolizer
-CorpasFamily	UGT1A1	*1/*80	Indeterminate	GPT-5.2	Normal Metabolizer
-CorpasFamily	VKORC1	Reference/rs9923231	Indeterminate	GPT-5.2	Indeterminate
-CorpasFamily	VKORC1	rs9923231/rs9923231	Indeterminate	GPT-5.2	Indeterminate
 Peru	CACNA1S	Reference/Reference	Uncertain Susceptibility	GPT-5.2	Normal Malignant Hyperthermia Susceptibility (Not Susceptible)
 Peru	CFTR	Reference/Reference	Indeterminate	GPT-5.2	Normal Function
 Peru	CYP2B6	*1/*1	Normal Metabolizer	GPT-5.2	Normal Metabolizer
@@ -1745,46 +1619,6 @@ UGR	VKORC1	rs9923231/rs9923231	Indeterminate	GPT-5.2	Indeterminate
 1000G_IBS	UGT1A1	*80/*80+*28	Indeterminate	GPT-5.2	Indeterminate
 1000G_IBS	VKORC1	Reference/Reference	Indeterminate	GPT-5.2	Normal VKORC1 expression (reference haplotype)
 1000G_IBS	VKORC1	rs9923231/rs9923231	Indeterminate	GPT-5.2	Indeterminate
-CorpasFamily	CACNA1S	Reference/Reference	Uncertain Susceptibility	GPT-4.1	Normal function
-CorpasFamily	CFTR	Reference/Reference	Indeterminate	GPT-4.1	Normal function
-CorpasFamily	CYP2B6	*1/*6	Intermediate Metabolizer	GPT-4.1	Normal metabolizer
-CorpasFamily	CYP2B6	*2/*5	Normal Metabolizer	GPT-4.1	Normal Metabolizer
-CorpasFamily	CYP2B6	*2/*6	Intermediate Metabolizer	GPT-4.1	Normal metabolizer
-CorpasFamily	CYP2B6	*5/*6	Intermediate Metabolizer	GPT-4.1	Normal metabolizer
-CorpasFamily	CYP2B6	*6/*6	Poor Metabolizer	GPT-4.1	Poor metabolizer
-CorpasFamily	CYP2C19	*1/*1	Normal Metabolizer	GPT-4.1	Normal Metabolizer
-CorpasFamily	CYP2C19	*1/*4	Intermediate Metabolizer	GPT-4.1	Intermediate Metabolizer
-CorpasFamily	CYP2C9	*1/*2	Intermediate Metabolizer	GPT-4.1	Intermediate metabolizer
-CorpasFamily	CYP2C9	*1/*3	Intermediate Metabolizer	GPT-4.1	Intermediate Metabolizer
-CorpasFamily	CYP2C9	*2/*2	Intermediate Metabolizer	GPT-4.1	Intermediate Metabolizer
-CorpasFamily	CYP2D6	*2/*2	Normal Metabolizer	GPT-4.1	Normal Metabolizer
-CorpasFamily	CYP2D6	*2/*4	Intermediate Metabolizer	GPT-4.1	Normal metabolizer
-CorpasFamily	CYP2D6	*2/*41	Normal Metabolizer	GPT-4.1	Intermediate Metabolizer
-CorpasFamily	CYP2D6	*4/*41	Intermediate Metabolizer	GPT-4.1	Intermediate Metabolizer
-CorpasFamily	CYP3A5	*1/*3	Intermediate Metabolizer	GPT-4.1	Intermediate Metabolizer
-CorpasFamily	CYP3A5	*3/*3	Poor Metabolizer	GPT-4.1	Poor metabolizer
-CorpasFamily	CYP4F2	*1/*1	Indeterminate	GPT-4.1	Normal metabolizer
-CorpasFamily	CYP4F2	*1/*3	Indeterminate	GPT-4.1	Normal metabolizer
-CorpasFamily	CYP4F2	*3/*3	Indeterminate	GPT-4.1	Normal metabolizer
-CorpasFamily	DPYD	Reference/Reference	Normal Metabolizer	GPT-4.1	Normal metabolizer
-CorpasFamily	DPYD	Reference/c.85T>C (*9A)	Normal Metabolizer	GPT-4.1	Normal metabolizer
-CorpasFamily	IFNL3	Reference/Reference	Favorable Response	GPT-4.1	Standard responder
-CorpasFamily	IFNL3	Reference/rs12979860	Unfavorable Response	GPT-4.1	Indeterminate
-CorpasFamily	IFNL3	rs12979860/rs12980275	Unfavorable Response	GPT-4.1	Indeterminate
-CorpasFamily	NAT2	*4/*5	Indeterminate	GPT-4.1	Intermediate Metabolizer
-CorpasFamily	NAT2	*4/*6	Indeterminate	GPT-4.1	Intermediate metabolizer
-CorpasFamily	NAT2	*5/*6	Indeterminate	GPT-4.1	Intermediate Metabolizer
-CorpasFamily	NAT2	*6/*6	Indeterminate	GPT-4.1	Slow metabolizer
-CorpasFamily	NUDT15	*1/*1	Normal Metabolizer	GPT-4.1	Normal metabolizer
-CorpasFamily	RYR1	Reference/Reference	Uncertain Susceptibility	GPT-4.1	Normal
-CorpasFamily	SLCO1B1	*1/*1	Normal Function	GPT-4.1	Normal function
-CorpasFamily	SLCO1B1	*1/*37	Normal Function	GPT-4.1	Indeterminate
-CorpasFamily	SLCO1B1	*1/*5	Decreased Function	GPT-4.1	Intermediate function
-CorpasFamily	TPMT	*1/*1	Normal Metabolizer	GPT-4.1	Normal Metabolizer
-CorpasFamily	UGT1A1	*1/*1	Normal Metabolizer	GPT-4.1	Normal metabolizer
-CorpasFamily	UGT1A1	*1/*80	Indeterminate	GPT-4.1	Indeterminate
-CorpasFamily	VKORC1	Reference/rs9923231	Indeterminate	GPT-4.1	Sensitive
-CorpasFamily	VKORC1	rs9923231/rs9923231	Indeterminate	GPT-4.1	Low warfarin dose
 Peru	CACNA1S	Reference/Reference	Uncertain Susceptibility	GPT-4.1	Normal function
 Peru	CFTR	Reference/Reference	Indeterminate	GPT-4.1	Normal function
 Peru	CYP2B6	*1/*1	Normal Metabolizer	GPT-4.1	Normal metabolizer
@@ -2284,46 +2118,6 @@ UGR	VKORC1	rs9923231/rs9923231	Indeterminate	GPT-4.1	Low warfarin dose
 1000G_IBS	UGT1A1	*80/*80+*28	Indeterminate	GPT-4.1	Indeterminate
 1000G_IBS	VKORC1	Reference/Reference	Indeterminate	GPT-4.1	Normal Sensitivity
 1000G_IBS	VKORC1	rs9923231/rs9923231	Indeterminate	GPT-4.1	Low VKORC1 expression
-CorpasFamily	CACNA1S	Reference/Reference	Uncertain Susceptibility	o3	Normal risk (MH negative)
-CorpasFamily	CFTR	Reference/Reference	Indeterminate	o3	
-CorpasFamily	CYP2B6	*1/*6	Intermediate Metabolizer	o3	Intermediate metabolizer
-CorpasFamily	CYP2B6	*2/*5	Normal Metabolizer	o3	Normal metabolizer
-CorpasFamily	CYP2B6	*2/*6	Intermediate Metabolizer	o3	Normal metabolizer
-CorpasFamily	CYP2B6	*5/*6	Intermediate Metabolizer	o3	
-CorpasFamily	CYP2B6	*6/*6	Poor Metabolizer	o3	Intermediate Metabolizer
-CorpasFamily	CYP2C19	*1/*1	Normal Metabolizer	o3	Normal metabolizer
-CorpasFamily	CYP2C19	*1/*4	Intermediate Metabolizer	o3	Intermediate metabolizer
-CorpasFamily	CYP2C9	*1/*2	Intermediate Metabolizer	o3	Normal metabolizer
-CorpasFamily	CYP2C9	*1/*3	Intermediate Metabolizer	o3	Intermediate Metabolizer
-CorpasFamily	CYP2C9	*2/*2	Intermediate Metabolizer	o3	Intermediate Metabolizer
-CorpasFamily	CYP2D6	*2/*2	Normal Metabolizer	o3	Normal Metabolizer
-CorpasFamily	CYP2D6	*2/*4	Intermediate Metabolizer	o3	Intermediate Metabolizer
-CorpasFamily	CYP2D6	*2/*41	Normal Metabolizer	o3	Normal Metabolizer
-CorpasFamily	CYP2D6	*4/*41	Intermediate Metabolizer	o3	Intermediate Metabolizer
-CorpasFamily	CYP3A5	*1/*3	Intermediate Metabolizer	o3	Intermediate Metabolizer
-CorpasFamily	CYP3A5	*3/*3	Poor Metabolizer	o3	Poor Metabolizer
-CorpasFamily	CYP4F2	*1/*1	Indeterminate	o3	Normal metabolizer
-CorpasFamily	CYP4F2	*1/*3	Indeterminate	o3	Intermediate metabolizer
-CorpasFamily	CYP4F2	*3/*3	Indeterminate	o3	Poor metabolizer
-CorpasFamily	DPYD	Reference/Reference	Normal Metabolizer	o3	Normal metabolizer
-CorpasFamily	DPYD	Reference/c.85T>C (*9A)	Normal Metabolizer	o3	Normal metabolizer
-CorpasFamily	IFNL3	Reference/Reference	Favorable Response	o3	Favorable IFNL3 genotype
-CorpasFamily	IFNL3	Reference/rs12979860	Unfavorable Response	o3	Unfavorable IFNL3 genotype
-CorpasFamily	IFNL3	rs12979860/rs12980275	Unfavorable Response	o3	Indeterminate
-CorpasFamily	NAT2	*4/*5	Indeterminate	o3	Intermediate acetylator
-CorpasFamily	NAT2	*4/*6	Indeterminate	o3	Intermediate acetylator
-CorpasFamily	NAT2	*5/*6	Indeterminate	o3	Slow acetylator
-CorpasFamily	NAT2	*6/*6	Indeterminate	o3	Slow metabolizer
-CorpasFamily	NUDT15	*1/*1	Normal Metabolizer	o3	Normal metabolizer
-CorpasFamily	RYR1	Reference/Reference	Uncertain Susceptibility	o3	MH Negative
-CorpasFamily	SLCO1B1	*1/*1	Normal Function	o3	Normal function
-CorpasFamily	SLCO1B1	*1/*37	Normal Function	o3	
-CorpasFamily	SLCO1B1	*1/*5	Decreased Function	o3	Decreased function
-CorpasFamily	TPMT	*1/*1	Normal Metabolizer	o3	Normal metabolizer
-CorpasFamily	UGT1A1	*1/*1	Normal Metabolizer	o3	Normal metabolizer
-CorpasFamily	UGT1A1	*1/*80	Indeterminate	o3	Intermediate metabolizer
-CorpasFamily	VKORC1	Reference/rs9923231	Indeterminate	o3	Sensitive
-CorpasFamily	VKORC1	rs9923231/rs9923231	Indeterminate	o3	Low VKORC1 function
 Peru	CACNA1S	Reference/Reference	Uncertain Susceptibility	o3	Normal MH Susceptibility
 Peru	CFTR	Reference/Reference	Indeterminate	o3	No ivacaftor-responsive CFTR variant detected
 Peru	CYP2B6	*1/*1	Normal Metabolizer	o3	Normal metabolizer
@@ -2823,46 +2617,6 @@ UGR	VKORC1	rs9923231/rs9923231	Indeterminate	o3	Low function
 1000G_IBS	UGT1A1	*80/*80+*28	Indeterminate	o3	Poor Metabolizer
 1000G_IBS	VKORC1	Reference/Reference	Indeterminate	o3	Normal function
 1000G_IBS	VKORC1	rs9923231/rs9923231	Indeterminate	o3	
-CorpasFamily	CACNA1S	Reference/Reference	Uncertain Susceptibility	o4-mini	Normal function
-CorpasFamily	CFTR	Reference/Reference	Indeterminate	o4-mini	Normal function
-CorpasFamily	CYP2B6	*1/*6	Intermediate Metabolizer	o4-mini	Intermediate metabolizer
-CorpasFamily	CYP2B6	*2/*5	Normal Metabolizer	o4-mini	
-CorpasFamily	CYP2B6	*2/*6	Intermediate Metabolizer	o4-mini	Intermediate metabolizer
-CorpasFamily	CYP2B6	*5/*6	Intermediate Metabolizer	o4-mini	
-CorpasFamily	CYP2B6	*6/*6	Poor Metabolizer	o4-mini	Intermediate metabolizer
-CorpasFamily	CYP2C19	*1/*1	Normal Metabolizer	o4-mini	Normal Metabolizer
-CorpasFamily	CYP2C19	*1/*4	Intermediate Metabolizer	o4-mini	Intermediate metabolizer
-CorpasFamily	CYP2C9	*1/*2	Intermediate Metabolizer	o4-mini	Intermediate metabolizer
-CorpasFamily	CYP2C9	*1/*3	Intermediate Metabolizer	o4-mini	Intermediate metabolizer
-CorpasFamily	CYP2C9	*2/*2	Intermediate Metabolizer	o4-mini	Intermediate metabolizer
-CorpasFamily	CYP2D6	*2/*2	Normal Metabolizer	o4-mini	Normal metabolizer
-CorpasFamily	CYP2D6	*2/*4	Intermediate Metabolizer	o4-mini	Intermediate Metabolizer
-CorpasFamily	CYP2D6	*2/*41	Normal Metabolizer	o4-mini	Normal metabolizer
-CorpasFamily	CYP2D6	*4/*41	Intermediate Metabolizer	o4-mini	Intermediate metabolizer
-CorpasFamily	CYP3A5	*1/*3	Intermediate Metabolizer	o4-mini	Intermediate metabolizer
-CorpasFamily	CYP3A5	*3/*3	Poor Metabolizer	o4-mini	Poor metabolizer
-CorpasFamily	CYP4F2	*1/*1	Indeterminate	o4-mini	Normal metabolizer
-CorpasFamily	CYP4F2	*1/*3	Indeterminate	o4-mini	Intermediate metabolizer
-CorpasFamily	CYP4F2	*3/*3	Indeterminate	o4-mini	Poor metabolizer
-CorpasFamily	DPYD	Reference/Reference	Normal Metabolizer	o4-mini	Normal metabolizer
-CorpasFamily	DPYD	Reference/c.85T>C (*9A)	Normal Metabolizer	o4-mini	Normal metabolizer
-CorpasFamily	IFNL3	Reference/Reference	Favorable Response	o4-mini	Normal function
-CorpasFamily	IFNL3	Reference/rs12979860	Unfavorable Response	o4-mini	Intermediate responder
-CorpasFamily	IFNL3	rs12979860/rs12980275	Unfavorable Response	o4-mini	Indeterminate
-CorpasFamily	NAT2	*4/*5	Indeterminate	o4-mini	Intermediate acetylator
-CorpasFamily	NAT2	*4/*6	Indeterminate	o4-mini	Intermediate metabolizer
-CorpasFamily	NAT2	*5/*6	Indeterminate	o4-mini	Slow acetylator
-CorpasFamily	NAT2	*6/*6	Indeterminate	o4-mini	Slow acetylator
-CorpasFamily	NUDT15	*1/*1	Normal Metabolizer	o4-mini	Normal metabolizer
-CorpasFamily	RYR1	Reference/Reference	Uncertain Susceptibility	o4-mini	Normal Function
-CorpasFamily	SLCO1B1	*1/*1	Normal Function	o4-mini	Normal function
-CorpasFamily	SLCO1B1	*1/*37	Normal Function	o4-mini	Indeterminate
-CorpasFamily	SLCO1B1	*1/*5	Decreased Function	o4-mini	Intermediate function
-CorpasFamily	TPMT	*1/*1	Normal Metabolizer	o4-mini	Normal metabolizer
-CorpasFamily	UGT1A1	*1/*1	Normal Metabolizer	o4-mini	Normal metabolizer
-CorpasFamily	UGT1A1	*1/*80	Indeterminate	o4-mini	Indeterminate
-CorpasFamily	VKORC1	Reference/rs9923231	Indeterminate	o4-mini	Intermediate sensitivity
-CorpasFamily	VKORC1	rs9923231/rs9923231	Indeterminate	o4-mini	
 Peru	CACNA1S	Reference/Reference	Uncertain Susceptibility	o4-mini	Normal function
 Peru	CFTR	Reference/Reference	Indeterminate	o4-mini	Normal function
 Peru	CYP2B6	*1/*1	Normal Metabolizer	o4-mini	Normal metabolizer
@@ -3362,46 +3116,6 @@ UGR	VKORC1	rs9923231/rs9923231	Indeterminate	o4-mini	Low warfarin dose requireme
 1000G_IBS	UGT1A1	*80/*80+*28	Indeterminate	o4-mini	Poor metabolizer
 1000G_IBS	VKORC1	Reference/Reference	Indeterminate	o4-mini	Normal function
 1000G_IBS	VKORC1	rs9923231/rs9923231	Indeterminate	o4-mini	High warfarin sensitivity
-CorpasFamily	CACNA1S	Reference/Reference	Uncertain Susceptibility	Gemini 2.5 Flash	Normal function
-CorpasFamily	CFTR	Reference/Reference	Indeterminate	Gemini 2.5 Flash	CFTR is not a gene for which CPIC (Clinical Pharmacogenetics Implementation Cons
-CorpasFamily	CYP2B6	*1/*6	Intermediate Metabolizer	Gemini 2.5 Flash	Normal Metabolizer
-CorpasFamily	CYP2B6	*2/*5	Normal Metabolizer	Gemini 2.5 Flash	Normal Metabolizer
-CorpasFamily	CYP2B6	*2/*6	Intermediate Metabolizer	Gemini 2.5 Flash	Normal Metabolizer
-CorpasFamily	CYP2B6	*5/*6	Intermediate Metabolizer	Gemini 2.5 Flash	Normal Metabolizer
-CorpasFamily	CYP2B6	*6/*6	Poor Metabolizer	Gemini 2.5 Flash	Intermediate Metabolizer
-CorpasFamily	CYP2C19	*1/*1	Normal Metabolizer	Gemini 2.5 Flash	Normal Metabolizer
-CorpasFamily	CYP2C19	*1/*4	Intermediate Metabolizer	Gemini 2.5 Flash	Intermediate Metabolizer
-CorpasFamily	CYP2C9	*1/*2	Intermediate Metabolizer	Gemini 2.5 Flash	Normal Metabolizer
-CorpasFamily	CYP2C9	*1/*3	Intermediate Metabolizer	Gemini 2.5 Flash	Intermediate Metabolizer
-CorpasFamily	CYP2C9	*2/*2	Intermediate Metabolizer	Gemini 2.5 Flash	Normal Metabolizer
-CorpasFamily	CYP2D6	*2/*2	Normal Metabolizer	Gemini 2.5 Flash	Ultrarapid Metabolizer
-CorpasFamily	CYP2D6	*2/*4	Intermediate Metabolizer	Gemini 2.5 Flash	Normal Metabolizer
-CorpasFamily	CYP2D6	*2/*41	Normal Metabolizer	Gemini 2.5 Flash	Normal Metabolizer
-CorpasFamily	CYP2D6	*4/*41	Intermediate Metabolizer	Gemini 2.5 Flash	Intermediate Metabolizer
-CorpasFamily	CYP3A5	*1/*3	Intermediate Metabolizer	Gemini 2.5 Flash	Intermediate Metabolizer
-CorpasFamily	CYP3A5	*3/*3	Poor Metabolizer	Gemini 2.5 Flash	Poor Metabolizer
-CorpasFamily	CYP4F2	*1/*1	Indeterminate	Gemini 2.5 Flash	Normal Metabolizer
-CorpasFamily	CYP4F2	*1/*3	Indeterminate	Gemini 2.5 Flash	Intermediate Metabolizer
-CorpasFamily	CYP4F2	*3/*3	Indeterminate	Gemini 2.5 Flash	Normal Metabolizer
-CorpasFamily	DPYD	Reference/Reference	Normal Metabolizer	Gemini 2.5 Flash	Normal Function
-CorpasFamily	DPYD	Reference/c.85T>C (*9A)	Normal Metabolizer	Gemini 2.5 Flash	Normal Metabolizer
-CorpasFamily	IFNL3	Reference/Reference	Favorable Response	Gemini 2.5 Flash	"Not Applicable (IFNL3 is not a metabolizing enzyme gene for which CPIC defines metabolizer phenotypes)"""
-CorpasFamily	IFNL3	Reference/rs12979860	Unfavorable Response	Gemini 2.5 Flash	Not applicable (CPIC does not define metabolizer phenotype or functional status for IFNL3)
-CorpasFamily	IFNL3	rs12979860/rs12980275	Unfavorable Response	Gemini 2.5 Flash	Indeterminate
-CorpasFamily	NAT2	*4/*5	Indeterminate	Gemini 2.5 Flash	Intermediate Metabolizer
-CorpasFamily	NAT2	*4/*6	Indeterminate	Gemini 2.5 Flash	Intermediate Acetylator
-CorpasFamily	NAT2	*5/*6	Indeterminate	Gemini 2.5 Flash	Slow Metabolizer
-CorpasFamily	NAT2	*6/*6	Indeterminate	Gemini 2.5 Flash	Slow Acetylator
-CorpasFamily	NUDT15	*1/*1	Normal Metabolizer	Gemini 2.5 Flash	Normal metabolizer
-CorpasFamily	RYR1	Reference/Reference	Uncertain Susceptibility	Gemini 2.5 Flash	MHS Non-susceptible
-CorpasFamily	SLCO1B1	*1/*1	Normal Function	Gemini 2.5 Flash	Normal Function
-CorpasFamily	SLCO1B1	*1/*37	Normal Function	Gemini 2.5 Flash	Decreased OATP1B1 transport function
-CorpasFamily	SLCO1B1	*1/*5	Decreased Function	Gemini 2.5 Flash	Intermediate Transporter Function
-CorpasFamily	TPMT	*1/*1	Normal Metabolizer	Gemini 2.5 Flash	Normal Metabolizer
-CorpasFamily	UGT1A1	*1/*1	Normal Metabolizer	Gemini 2.5 Flash	Normal Function
-CorpasFamily	UGT1A1	*1/*80	Indeterminate	Gemini 2.5 Flash	Intermediate Metabolizer
-CorpasFamily	VKORC1	Reference/rs9923231	Indeterminate	Gemini 2.5 Flash	Intermediate Sensitivity
-CorpasFamily	VKORC1	rs9923231/rs9923231	Indeterminate	Gemini 2.5 Flash	VKORC1 does not have metabolizer phenotypes. CPIC guidelines for VKORC1 interpre
 Peru	CACNA1S	Reference/Reference	Uncertain Susceptibility	Gemini 2.5 Flash	Normal Function
 Peru	CFTR	Reference/Reference	Indeterminate	Gemini 2.5 Flash	The CFTR gene is not typically associated with drug metabolizer phenotypes (e.g.
 Peru	CYP2B6	*1/*1	Normal Metabolizer	Gemini 2.5 Flash	Normal Metabolizer
@@ -3901,46 +3615,6 @@ UGR	VKORC1	rs9923231/rs9923231	Indeterminate	Gemini 2.5 Flash	Indeterminate
 1000G_IBS	UGT1A1	*80/*80+*28	Indeterminate	Gemini 2.5 Flash	Intermediate Metabolizer
 1000G_IBS	VKORC1	Reference/Reference	Indeterminate	Gemini 2.5 Flash	Normal Sensitivity
 1000G_IBS	VKORC1	rs9923231/rs9923231	Indeterminate	Gemini 2.5 Flash	"For VKORC1, CPIC guidelines do not assign ""metabolizer phenotypes"" or a named ""f"
-CorpasFamily	CACNA1S	Reference/Reference	Uncertain Susceptibility	DeepSeek V3	Normal
-CorpasFamily	CFTR	Reference/Reference	Indeterminate	DeepSeek V3	Normal function
-CorpasFamily	CYP2B6	*1/*6	Intermediate Metabolizer	DeepSeek V3	Intermediate metabolizer
-CorpasFamily	CYP2B6	*2/*5	Normal Metabolizer	DeepSeek V3	Intermediate metabolizer
-CorpasFamily	CYP2B6	*2/*6	Intermediate Metabolizer	DeepSeek V3	Intermediate metabolizer
-CorpasFamily	CYP2B6	*5/*6	Intermediate Metabolizer	DeepSeek V3	Intermediate metabolizer
-CorpasFamily	CYP2B6	*6/*6	Poor Metabolizer	DeepSeek V3	Poor metabolizer
-CorpasFamily	CYP2C19	*1/*1	Normal Metabolizer	DeepSeek V3	Normal metabolizer
-CorpasFamily	CYP2C19	*1/*4	Intermediate Metabolizer	DeepSeek V3	Indeterminate
-CorpasFamily	CYP2C9	*1/*2	Intermediate Metabolizer	DeepSeek V3	Intermediate metabolizer
-CorpasFamily	CYP2C9	*1/*3	Intermediate Metabolizer	DeepSeek V3	Intermediate metabolizer
-CorpasFamily	CYP2C9	*2/*2	Intermediate Metabolizer	DeepSeek V3	Intermediate Metabolizer
-CorpasFamily	CYP2D6	*2/*2	Normal Metabolizer	DeepSeek V3	Normal metabolizer
-CorpasFamily	CYP2D6	*2/*4	Intermediate Metabolizer	DeepSeek V3	Intermediate metabolizer
-CorpasFamily	CYP2D6	*2/*41	Normal Metabolizer	DeepSeek V3	Intermediate Metabolizer
-CorpasFamily	CYP2D6	*4/*41	Intermediate Metabolizer	DeepSeek V3	Intermediate Metabolizer
-CorpasFamily	CYP3A5	*1/*3	Intermediate Metabolizer	DeepSeek V3	Intermediate metabolizer
-CorpasFamily	CYP3A5	*3/*3	Poor Metabolizer	DeepSeek V3	Poor metabolizer
-CorpasFamily	CYP4F2	*1/*1	Indeterminate	DeepSeek V3	Normal metabolizer
-CorpasFamily	CYP4F2	*1/*3	Indeterminate	DeepSeek V3	Normal metabolizer
-CorpasFamily	CYP4F2	*3/*3	Indeterminate	DeepSeek V3	Normal metabolizer
-CorpasFamily	DPYD	Reference/Reference	Normal Metabolizer	DeepSeek V3	Normal metabolizer
-CorpasFamily	DPYD	Reference/c.85T>C (*9A)	Normal Metabolizer	DeepSeek V3	Normal metabolizer
-CorpasFamily	IFNL3	Reference/Reference	Favorable Response	DeepSeek V3	Normal metabolizer
-CorpasFamily	IFNL3	Reference/rs12979860	Unfavorable Response	DeepSeek V3	Normal metabolizer
-CorpasFamily	IFNL3	rs12979860/rs12980275	Unfavorable Response	DeepSeek V3	Indeterminate
-CorpasFamily	NAT2	*4/*5	Indeterminate	DeepSeek V3	Intermediate metabolizer (IM)
-CorpasFamily	NAT2	*4/*6	Indeterminate	DeepSeek V3	Intermediate metabolizer
-CorpasFamily	NAT2	*5/*6	Indeterminate	DeepSeek V3	Intermediate metabolizer
-CorpasFamily	NAT2	*6/*6	Indeterminate	DeepSeek V3	Slow Acetylator
-CorpasFamily	NUDT15	*1/*1	Normal Metabolizer	DeepSeek V3	Normal metabolizer
-CorpasFamily	RYR1	Reference/Reference	Uncertain Susceptibility	DeepSeek V3	Normal metabolizer
-CorpasFamily	SLCO1B1	*1/*1	Normal Function	DeepSeek V3	Normal function
-CorpasFamily	SLCO1B1	*1/*37	Normal Function	DeepSeek V3	Indeterminate
-CorpasFamily	SLCO1B1	*1/*5	Decreased Function	DeepSeek V3	Intermediate function
-CorpasFamily	TPMT	*1/*1	Normal Metabolizer	DeepSeek V3	Normal metabolizer
-CorpasFamily	UGT1A1	*1/*1	Normal Metabolizer	DeepSeek V3	Normal metabolizer
-CorpasFamily	UGT1A1	*1/*80	Indeterminate	DeepSeek V3	Normal metabolizer
-CorpasFamily	VKORC1	Reference/rs9923231	Indeterminate	DeepSeek V3	Normal metabolizer
-CorpasFamily	VKORC1	rs9923231/rs9923231	Indeterminate	DeepSeek V3	Normal function (likely warfarin sensitivity)
 Peru	CACNA1S	Reference/Reference	Uncertain Susceptibility	DeepSeek V3	Normal
 Peru	CFTR	Reference/Reference	Indeterminate	DeepSeek V3	Normal function
 Peru	CYP2B6	*1/*1	Normal Metabolizer	DeepSeek V3	Normal metabolizer
@@ -4440,3 +4114,310 @@ UGR	VKORC1	rs9923231/rs9923231	Indeterminate	DeepSeek V3	Normal metabolizer
 1000G_IBS	UGT1A1	*80/*80+*28	Indeterminate	DeepSeek V3	Indeterminate
 1000G_IBS	VKORC1	Reference/Reference	Indeterminate	DeepSeek V3	Normal metabolizer
 1000G_IBS	VKORC1	rs9923231/rs9923231	Indeterminate	DeepSeek V3	Indeterminate
+CorpasFamily	CACNA1S	Reference/Reference	Uncertain Susceptibility	Claude Opus 4.5	Normal (No Malignant Hyperthermia Susceptibility)
+CorpasFamily	CFTR	Reference/Reference	Indeterminate	Claude Opus 4.5	Normal function
+CorpasFamily	CYP2B6	*2/*5	Normal Metabolizer	Claude Opus 4.5	"Looking up the CYP2B6 allele functions according to CPIC guidelines:
+
+- CYP2B6 *"
+CorpasFamily	CYP2B6	*2/*9	Intermediate Metabolizer	Claude Opus 4.5	I need to determine the CYP2B6 metabolizer phenotype for the diplotype *2/*9 usi
+CorpasFamily	CYP2B6	*5/*6	Intermediate Metabolizer	Claude Opus 4.5	Intermediate Metabolizer
+CorpasFamily	CYP2B6	*6/*6	Poor Metabolizer	Claude Opus 4.5	Poor metabolizer
+CorpasFamily	CYP2C19	*1/*1	Normal Metabolizer	Claude Opus 4.5	Normal Metabolizer
+CorpasFamily	CYP2C19	*1/*4	Intermediate Metabolizer	Claude Opus 4.5	Intermediate Metabolizer
+CorpasFamily	CYP2C9	*1/*2	Intermediate Metabolizer	Claude Opus 4.5	Intermediate Metabolizer
+CorpasFamily	CYP2C9	*2/*2	Intermediate Metabolizer	Claude Opus 4.5	Intermediate Metabolizer
+CorpasFamily	CYP2D6	*1/*2	Normal Metabolizer	Claude Opus 4.5	Normal Metabolizer
+CorpasFamily	CYP2D6	*1/*41	Normal Metabolizer	Claude Opus 4.5	Intermediate Metabolizer
+CorpasFamily	CYP2D6	*1/*68+*4	Intermediate Metabolizer	Claude Opus 4.5	I need to determine the CYP2D6 metabolizer phenotype for the diplotype *1/*68+*4
+CorpasFamily	CYP2D6	Indeterminate	Indeterminate	Claude Opus 4.5	Indeterminate
+CorpasFamily	CYP3A5	*1/*3	Intermediate Metabolizer	Claude Opus 4.5	Intermediate Metabolizer
+CorpasFamily	CYP3A5	*3/*3	Poor Metabolizer	Claude Opus 4.5	Poor Metabolizer
+CorpasFamily	CYP4F2	*1/*1	Indeterminate	Claude Opus 4.5	Normal Function
+CorpasFamily	CYP4F2	*1/*3	Indeterminate	Claude Opus 4.5	Normal metabolizer
+CorpasFamily	CYP4F2	*3/*4	Indeterminate	Claude Opus 4.5	I need to determine the CYP4F2 phenotype based on the *3/*4 diplotype using CPIC
+CorpasFamily	DPYD	Reference/Reference	Normal Metabolizer	Claude Opus 4.5	Normal Metabolizer
+CorpasFamily	DPYD	Reference/c.85T>C (*9A)	Normal Metabolizer	Claude Opus 4.5	Normal Metabolizer
+CorpasFamily	IFNL3	Reference/Reference	Favorable Response	Claude Opus 4.5	Favorable response genotype
+CorpasFamily	IFNL3	Reference/rs12979860	Unfavorable Response	Claude Opus 4.5	I need to analyze the IFNL3 diplotype rs12979860 variant according to CPIC guide
+CorpasFamily	IFNL3	rs12979860/rs12980275	Unfavorable Response	Claude Opus 4.5	I need to analyze the IFNL3 diplotype rs12979860/rs12980275 according to CPIC gu
+CorpasFamily	NAT2	*4/*5	Indeterminate	Claude Opus 4.5	"Based on CPIC guidelines for NAT2:
+
+- *4 is a rapid (normal) function allele
+- *"
+CorpasFamily	NAT2	*4/*6	Indeterminate	Claude Opus 4.5	Intermediate Acetylator
+CorpasFamily	NAT2	*5/*6	Indeterminate	Claude Opus 4.5	Slow Acetylator
+CorpasFamily	NUDT15	*1/*1	Normal Metabolizer	Claude Opus 4.5	Normal Metabolizer
+CorpasFamily	RYR1	Reference/Reference	Uncertain Susceptibility	Claude Opus 4.5	Normal Function
+CorpasFamily	SLCO1B1	*1/*1	Normal Function	Claude Opus 4.5	Normal function
+CorpasFamily	SLCO1B1	*1/*37	Normal Function	Claude Opus 4.5	Indeterminate
+CorpasFamily	TPMT	*1/*1	Normal Metabolizer	Claude Opus 4.5	Normal Metabolizer
+CorpasFamily	TPMT	*1/*9	Indeterminate	Claude Opus 4.5	I need to determine the TPMT metabolizer phenotype for the diplotype *1/*9 based
+CorpasFamily	UGT1A1	*1/*1	Normal Metabolizer	Claude Opus 4.5	Normal Metabolizer
+CorpasFamily	UGT1A1	*1/*80+*28	Intermediate Metabolizer	Claude Opus 4.5	"Looking at the UGT1A1 diplotype *1/*80+*28:
+
+- *1 is the normal function (wild-t"
+CorpasFamily	VKORC1	Reference/rs9923231	Indeterminate	Claude Opus 4.5	Based on CPIC guidelines for VKORC1, the diplotype Reference/rs9923231 refers to
+CorpasFamily	VKORC1	rs9923231/rs9923231	Indeterminate	Claude Opus 4.5	Based on CPIC guidelines for VKORC1, the rs9923231 variant (also known as -1639G
+CorpasFamily	CACNA1S	Reference/Reference	Uncertain Susceptibility	Claude Sonnet 4.5	Uncertain Susceptibility
+CorpasFamily	CFTR	Reference/Reference	Indeterminate	Claude Sonnet 4.5	CFTR function not provided by CPIC in metabolizer phenotype format
+CorpasFamily	CYP2B6	*2/*5	Normal Metabolizer	Claude Sonnet 4.5	Normal Metabolizer
+CorpasFamily	CYP2B6	*2/*9	Intermediate Metabolizer	Claude Sonnet 4.5	Intermediate Metabolizer
+CorpasFamily	CYP2B6	*5/*6	Intermediate Metabolizer	Claude Sonnet 4.5	Intermediate Metabolizer
+CorpasFamily	CYP2B6	*6/*6	Poor Metabolizer	Claude Sonnet 4.5	Poor Metabolizer
+CorpasFamily	CYP2C19	*1/*1	Normal Metabolizer	Claude Sonnet 4.5	CYP2C19 Normal Metabolizer
+CorpasFamily	CYP2C19	*1/*4	Intermediate Metabolizer	Claude Sonnet 4.5	Intermediate Metabolizer
+CorpasFamily	CYP2C9	*1/*2	Intermediate Metabolizer	Claude Sonnet 4.5	CYP2C9 Intermediate Metabolizer
+CorpasFamily	CYP2C9	*2/*2	Intermediate Metabolizer	Claude Sonnet 4.5	Intermediate Metabolizer
+CorpasFamily	CYP2D6	*1/*2	Normal Metabolizer	Claude Sonnet 4.5	Normal Metabolizer
+CorpasFamily	CYP2D6	*1/*41	Normal Metabolizer	Claude Sonnet 4.5	CYP2D6 Normal Metabolizer
+CorpasFamily	CYP2D6	*1/*68+*4	Intermediate Metabolizer	Claude Sonnet 4.5	"Looking at the CYP2D6 diplotype *1/*68+*4:
+
+- *1 is a normal function allele (ac"
+CorpasFamily	CYP2D6	Indeterminate	Indeterminate	Claude Sonnet 4.5	Indeterminate
+CorpasFamily	CYP3A5	*1/*3	Intermediate Metabolizer	Claude Sonnet 4.5	CYP3A5 Intermediate Metabolizer
+CorpasFamily	CYP3A5	*3/*3	Poor Metabolizer	Claude Sonnet 4.5	CYP3A5 non-expresser
+CorpasFamily	CYP4F2	*1/*1	Indeterminate	Claude Sonnet 4.5	Indeterminate
+CorpasFamily	CYP4F2	*1/*3	Indeterminate	Claude Sonnet 4.5	Indeterminate
+CorpasFamily	CYP4F2	*3/*4	Indeterminate	Claude Sonnet 4.5	I need to evaluate the CYP4F2 gene diplotype *3/*4 according to CPIC Level A gui
+CorpasFamily	DPYD	Reference/Reference	Normal Metabolizer	Claude Sonnet 4.5	Normal metaboliser
+CorpasFamily	DPYD	Reference/c.85T>C (*9A)	Normal Metabolizer	Claude Sonnet 4.5	Normal Metabolizer
+CorpasFamily	IFNL3	Reference/Reference	Favorable Response	Claude Sonnet 4.5	Favorable response genotype
+CorpasFamily	IFNL3	Reference/rs12979860	Unfavorable Response	Claude Sonnet 4.5	Favorable response genotype
+CorpasFamily	IFNL3	rs12979860/rs12980275	Unfavorable Response	Claude Sonnet 4.5	IFNL3 is not a gene with traditional star-allele nomenclature or metabolizer phe
+CorpasFamily	NAT2	*4/*5	Indeterminate	Claude Sonnet 4.5	Intermediate Acetylator
+CorpasFamily	NAT2	*4/*6	Indeterminate	Claude Sonnet 4.5	Intermediate Metabolizer
+CorpasFamily	NAT2	*5/*6	Indeterminate	Claude Sonnet 4.5	Slow Acetylator
+CorpasFamily	NUDT15	*1/*1	Normal Metabolizer	Claude Sonnet 4.5	Normal metabolizer
+CorpasFamily	RYR1	Reference/Reference	Uncertain Susceptibility	Claude Sonnet 4.5	Uncertain/Unknown
+CorpasFamily	SLCO1B1	*1/*1	Normal Function	Claude Sonnet 4.5	Normal function
+CorpasFamily	SLCO1B1	*1/*37	Normal Function	Claude Sonnet 4.5	Normal Function
+CorpasFamily	TPMT	*1/*1	Normal Metabolizer	Claude Sonnet 4.5	Normal Metabolizer
+CorpasFamily	TPMT	*1/*9	Indeterminate	Claude Sonnet 4.5	Intermediate Metabolizer
+CorpasFamily	UGT1A1	*1/*1	Normal Metabolizer	Claude Sonnet 4.5	Normal metabolizer
+CorpasFamily	UGT1A1	*1/*80+*28	Intermediate Metabolizer	Claude Sonnet 4.5	Indeterminate
+CorpasFamily	VKORC1	Reference/rs9923231	Indeterminate	Claude Sonnet 4.5	Indeterminate
+CorpasFamily	VKORC1	rs9923231/rs9923231	Indeterminate	Claude Sonnet 4.5	"Looking at the VKORC1 gene and the diplotype rs9923231/rs9923231:
+
+The rs9923231"
+CorpasFamily	CACNA1S	Reference/Reference	Uncertain Susceptibility	GPT-5.2	Normal function
+CorpasFamily	CFTR	Reference/Reference	Indeterminate	GPT-5.2	Normal function
+CorpasFamily	CYP2B6	*2/*5	Normal Metabolizer	GPT-5.2	Indeterminate
+CorpasFamily	CYP2B6	*2/*9	Intermediate Metabolizer	GPT-5.2	Indeterminate
+CorpasFamily	CYP2B6	*5/*6	Intermediate Metabolizer	GPT-5.2	Intermediate Metabolizer
+CorpasFamily	CYP2B6	*6/*6	Poor Metabolizer	GPT-5.2	Poor Metabolizer
+CorpasFamily	CYP2C19	*1/*1	Normal Metabolizer	GPT-5.2	Normal Metabolizer
+CorpasFamily	CYP2C19	*1/*4	Intermediate Metabolizer	GPT-5.2	Intermediate Metabolizer
+CorpasFamily	CYP2C9	*1/*2	Intermediate Metabolizer	GPT-5.2	Intermediate Metabolizer
+CorpasFamily	CYP2C9	*2/*2	Intermediate Metabolizer	GPT-5.2	Poor Metabolizer
+CorpasFamily	CYP2D6	*1/*2	Normal Metabolizer	GPT-5.2	Normal Metabolizer
+CorpasFamily	CYP2D6	*1/*41	Normal Metabolizer	GPT-5.2	Intermediate Metabolizer
+CorpasFamily	CYP2D6	*1/*68+*4	Intermediate Metabolizer	GPT-5.2	Indeterminate
+CorpasFamily	CYP2D6	Indeterminate	Indeterminate	GPT-5.2	Indeterminate
+CorpasFamily	CYP3A5	*1/*3	Intermediate Metabolizer	GPT-5.2	Intermediate Metabolizer
+CorpasFamily	CYP3A5	*3/*3	Poor Metabolizer	GPT-5.2	Poor Metabolizer
+CorpasFamily	CYP4F2	*1/*1	Indeterminate	GPT-5.2	Normal Function
+CorpasFamily	CYP4F2	*1/*3	Indeterminate	GPT-5.2	Normal Function
+CorpasFamily	CYP4F2	*3/*4	Indeterminate	GPT-5.2	Indeterminate
+CorpasFamily	DPYD	Reference/Reference	Normal Metabolizer	GPT-5.2	Normal Metabolizer
+CorpasFamily	DPYD	Reference/c.85T>C (*9A)	Normal Metabolizer	GPT-5.2	Normal Metabolizer
+CorpasFamily	IFNL3	Reference/Reference	Favorable Response	GPT-5.2	Indeterminate
+CorpasFamily	IFNL3	Reference/rs12979860	Unfavorable Response	GPT-5.2	Indeterminate
+CorpasFamily	IFNL3	rs12979860/rs12980275	Unfavorable Response	GPT-5.2	Indeterminate
+CorpasFamily	NAT2	*4/*5	Indeterminate	GPT-5.2	Intermediate acetylator
+CorpasFamily	NAT2	*4/*6	Indeterminate	GPT-5.2	Intermediate acetylator
+CorpasFamily	NAT2	*5/*6	Indeterminate	GPT-5.2	Slow acetylator
+CorpasFamily	NUDT15	*1/*1	Normal Metabolizer	GPT-5.2	Normal Metabolizer
+CorpasFamily	RYR1	Reference/Reference	Uncertain Susceptibility	GPT-5.2	Malignant Hyperthermia Susceptible (MHS) – Negative / Uncertain (Reference/Reference)
+CorpasFamily	SLCO1B1	*1/*1	Normal Function	GPT-5.2	Normal Function
+CorpasFamily	SLCO1B1	*1/*37	Normal Function	GPT-5.2	Indeterminate
+CorpasFamily	TPMT	*1/*1	Normal Metabolizer	GPT-5.2	Normal metabolizer
+CorpasFamily	TPMT	*1/*9	Indeterminate	GPT-5.2	Intermediate Metabolizer
+CorpasFamily	UGT1A1	*1/*1	Normal Metabolizer	GPT-5.2	Normal metabolizer
+CorpasFamily	UGT1A1	*1/*80+*28	Intermediate Metabolizer	GPT-5.2	Indeterminate
+CorpasFamily	VKORC1	Reference/rs9923231	Indeterminate	GPT-5.2	Indeterminate
+CorpasFamily	VKORC1	rs9923231/rs9923231	Indeterminate	GPT-5.2	Indeterminate
+CorpasFamily	CACNA1S	Reference/Reference	Uncertain Susceptibility	GPT-4.1	Normal function
+CorpasFamily	CFTR	Reference/Reference	Indeterminate	GPT-4.1	Normal function
+CorpasFamily	CYP2B6	*2/*5	Normal Metabolizer	GPT-4.1	Normal metabolizer
+CorpasFamily	CYP2B6	*2/*9	Intermediate Metabolizer	GPT-4.1	Normal metabolizer
+CorpasFamily	CYP2B6	*5/*6	Intermediate Metabolizer	GPT-4.1	Normal metabolizer
+CorpasFamily	CYP2B6	*6/*6	Poor Metabolizer	GPT-4.1	Poor metabolizer
+CorpasFamily	CYP2C19	*1/*1	Normal Metabolizer	GPT-4.1	Normal Metabolizer
+CorpasFamily	CYP2C19	*1/*4	Intermediate Metabolizer	GPT-4.1	Intermediate Metabolizer
+CorpasFamily	CYP2C9	*1/*2	Intermediate Metabolizer	GPT-4.1	Intermediate Metabolizer
+CorpasFamily	CYP2C9	*2/*2	Intermediate Metabolizer	GPT-4.1	Intermediate Metabolizer
+CorpasFamily	CYP2D6	*1/*2	Normal Metabolizer	GPT-4.1	Normal Metabolizer
+CorpasFamily	CYP2D6	*1/*41	Normal Metabolizer	GPT-4.1	Intermediate Metabolizer
+CorpasFamily	CYP2D6	*1/*68+*4	Intermediate Metabolizer	GPT-4.1	Indeterminate
+CorpasFamily	CYP2D6	Indeterminate	Indeterminate	GPT-4.1	Indeterminate
+CorpasFamily	CYP3A5	*1/*3	Intermediate Metabolizer	GPT-4.1	Intermediate metabolizer
+CorpasFamily	CYP3A5	*3/*3	Poor Metabolizer	GPT-4.1	Poor metabolizer
+CorpasFamily	CYP4F2	*1/*1	Indeterminate	GPT-4.1	Normal metabolizer
+CorpasFamily	CYP4F2	*1/*3	Indeterminate	GPT-4.1	Normal metabolizer
+CorpasFamily	CYP4F2	*3/*4	Indeterminate	GPT-4.1	Indeterminate
+CorpasFamily	DPYD	Reference/Reference	Normal Metabolizer	GPT-4.1	Normal metabolizer
+CorpasFamily	DPYD	Reference/c.85T>C (*9A)	Normal Metabolizer	GPT-4.1	Normal Metabolizer
+CorpasFamily	IFNL3	Reference/Reference	Favorable Response	GPT-4.1	Normal responder
+CorpasFamily	IFNL3	Reference/rs12979860	Unfavorable Response	GPT-4.1	Indeterminate
+CorpasFamily	IFNL3	rs12979860/rs12980275	Unfavorable Response	GPT-4.1	Indeterminate
+CorpasFamily	NAT2	*4/*5	Indeterminate	GPT-4.1	Intermediate Metabolizer
+CorpasFamily	NAT2	*4/*6	Indeterminate	GPT-4.1	Intermediate metabolizer
+CorpasFamily	NAT2	*5/*6	Indeterminate	GPT-4.1	Slow metabolizer
+CorpasFamily	NUDT15	*1/*1	Normal Metabolizer	GPT-4.1	Normal metabolizer
+CorpasFamily	RYR1	Reference/Reference	Uncertain Susceptibility	GPT-4.1	Normal
+CorpasFamily	SLCO1B1	*1/*1	Normal Function	GPT-4.1	Normal function
+CorpasFamily	SLCO1B1	*1/*37	Normal Function	GPT-4.1	Normal function
+CorpasFamily	TPMT	*1/*1	Normal Metabolizer	GPT-4.1	Normal Metabolizer
+CorpasFamily	TPMT	*1/*9	Indeterminate	GPT-4.1	Indeterminate
+CorpasFamily	UGT1A1	*1/*1	Normal Metabolizer	GPT-4.1	Normal metabolizer
+CorpasFamily	UGT1A1	*1/*80+*28	Intermediate Metabolizer	GPT-4.1	Indeterminate
+CorpasFamily	VKORC1	Reference/rs9923231	Indeterminate	GPT-4.1	Normal sensitivity
+CorpasFamily	VKORC1	rs9923231/rs9923231	Indeterminate	GPT-4.1	Low VKORC1 expression
+CorpasFamily	CACNA1S	Reference/Reference	Uncertain Susceptibility	o3	Malignant Hyperthermia Negative
+CorpasFamily	CFTR	Reference/Reference	Indeterminate	o3	Normal function
+CorpasFamily	CYP2B6	*2/*5	Normal Metabolizer	o3	Intermediate Metabolizer
+CorpasFamily	CYP2B6	*2/*9	Intermediate Metabolizer	o3	Intermediate metabolizer
+CorpasFamily	CYP2B6	*5/*6	Intermediate Metabolizer	o3	
+CorpasFamily	CYP2B6	*6/*6	Poor Metabolizer	o3	Slow Metabolizer
+CorpasFamily	CYP2C19	*1/*1	Normal Metabolizer	o3	Normal Metabolizer
+CorpasFamily	CYP2C19	*1/*4	Intermediate Metabolizer	o3	Intermediate metabolizer
+CorpasFamily	CYP2C9	*1/*2	Intermediate Metabolizer	o3	Intermediate Metabolizer
+CorpasFamily	CYP2C9	*2/*2	Intermediate Metabolizer	o3	Intermediate Metabolizer
+CorpasFamily	CYP2D6	*1/*2	Normal Metabolizer	o3	Normal metabolizer
+CorpasFamily	CYP2D6	*1/*41	Normal Metabolizer	o3	Normal Metabolizer
+CorpasFamily	CYP2D6	*1/*68+*4	Intermediate Metabolizer	o3	Intermediate Metabolizer
+CorpasFamily	CYP2D6	Indeterminate	Indeterminate	o3	Indeterminate
+CorpasFamily	CYP3A5	*1/*3	Intermediate Metabolizer	o3	Intermediate Metabolizer
+CorpasFamily	CYP3A5	*3/*3	Poor Metabolizer	o3	Poor metabolizer
+CorpasFamily	CYP4F2	*1/*1	Indeterminate	o3	Normal metabolizer
+CorpasFamily	CYP4F2	*1/*3	Indeterminate	o3	Intermediate Metabolizer
+CorpasFamily	CYP4F2	*3/*4	Indeterminate	o3	Poor metabolizer
+CorpasFamily	DPYD	Reference/Reference	Normal Metabolizer	o3	Normal Metabolizer
+CorpasFamily	DPYD	Reference/c.85T>C (*9A)	Normal Metabolizer	o3	Normal Metabolizer
+CorpasFamily	IFNL3	Reference/Reference	Favorable Response	o3	Favorable IFNL3 genotype
+CorpasFamily	IFNL3	Reference/rs12979860	Unfavorable Response	o3	Reduced response
+CorpasFamily	IFNL3	rs12979860/rs12980275	Unfavorable Response	o3	Indeterminate
+CorpasFamily	NAT2	*4/*5	Indeterminate	o3	Intermediate acetylator
+CorpasFamily	NAT2	*4/*6	Indeterminate	o3	Intermediate Metabolizer
+CorpasFamily	NAT2	*5/*6	Indeterminate	o3	Slow acetylator
+CorpasFamily	NUDT15	*1/*1	Normal Metabolizer	o3	Normal metabolizer
+CorpasFamily	RYR1	Reference/Reference	Uncertain Susceptibility	o3	Malignant hyperthermia negative
+CorpasFamily	SLCO1B1	*1/*1	Normal Function	o3	Normal function
+CorpasFamily	SLCO1B1	*1/*37	Normal Function	o3	
+CorpasFamily	TPMT	*1/*1	Normal Metabolizer	o3	Normal Metabolizer
+CorpasFamily	TPMT	*1/*9	Indeterminate	o3	Intermediate Metabolizer
+CorpasFamily	UGT1A1	*1/*1	Normal Metabolizer	o3	Normal metabolizer
+CorpasFamily	UGT1A1	*1/*80+*28	Intermediate Metabolizer	o3	Intermediate Metabolizer
+CorpasFamily	VKORC1	Reference/rs9923231	Indeterminate	o3	
+CorpasFamily	VKORC1	rs9923231/rs9923231	Indeterminate	o3	
+CorpasFamily	CACNA1S	Reference/Reference	Uncertain Susceptibility	o4-mini	Normal function
+CorpasFamily	CFTR	Reference/Reference	Indeterminate	o4-mini	Normal function
+CorpasFamily	CYP2B6	*2/*5	Normal Metabolizer	o4-mini	Normal metabolizer
+CorpasFamily	CYP2B6	*2/*9	Intermediate Metabolizer	o4-mini	Intermediate metabolizer
+CorpasFamily	CYP2B6	*5/*6	Intermediate Metabolizer	o4-mini	Intermediate metabolizer
+CorpasFamily	CYP2B6	*6/*6	Poor Metabolizer	o4-mini	Poor metabolizer
+CorpasFamily	CYP2C19	*1/*1	Normal Metabolizer	o4-mini	Normal Metabolizer
+CorpasFamily	CYP2C19	*1/*4	Intermediate Metabolizer	o4-mini	Intermediate Metabolizer
+CorpasFamily	CYP2C9	*1/*2	Intermediate Metabolizer	o4-mini	Intermediate metabolizer
+CorpasFamily	CYP2C9	*2/*2	Intermediate Metabolizer	o4-mini	Intermediate metabolizer
+CorpasFamily	CYP2D6	*1/*2	Normal Metabolizer	o4-mini	Normal metabolizer
+CorpasFamily	CYP2D6	*1/*41	Normal Metabolizer	o4-mini	Normal metabolizer
+CorpasFamily	CYP2D6	*1/*68+*4	Intermediate Metabolizer	o4-mini	Intermediate metabolizer
+CorpasFamily	CYP2D6	Indeterminate	Indeterminate	o4-mini	Indeterminate
+CorpasFamily	CYP3A5	*1/*3	Intermediate Metabolizer	o4-mini	Intermediate metabolizer
+CorpasFamily	CYP3A5	*3/*3	Poor Metabolizer	o4-mini	Poor Metabolizer
+CorpasFamily	CYP4F2	*1/*1	Indeterminate	o4-mini	Normal metabolizer
+CorpasFamily	CYP4F2	*1/*3	Indeterminate	o4-mini	Intermediate metabolizer
+CorpasFamily	CYP4F2	*3/*4	Indeterminate	o4-mini	Indeterminate
+CorpasFamily	DPYD	Reference/Reference	Normal Metabolizer	o4-mini	Normal metabolizer
+CorpasFamily	DPYD	Reference/c.85T>C (*9A)	Normal Metabolizer	o4-mini	Indeterminate
+CorpasFamily	IFNL3	Reference/Reference	Favorable Response	o4-mini	Normal function
+CorpasFamily	IFNL3	Reference/rs12979860	Unfavorable Response	o4-mini	Intermediate responder
+CorpasFamily	IFNL3	rs12979860/rs12980275	Unfavorable Response	o4-mini	Indeterminate
+CorpasFamily	NAT2	*4/*5	Indeterminate	o4-mini	Intermediate acetylator
+CorpasFamily	NAT2	*4/*6	Indeterminate	o4-mini	Intermediate acetylator
+CorpasFamily	NAT2	*5/*6	Indeterminate	o4-mini	Slow acetylator
+CorpasFamily	NUDT15	*1/*1	Normal Metabolizer	o4-mini	Normal metabolizer
+CorpasFamily	RYR1	Reference/Reference	Uncertain Susceptibility	o4-mini	Normal function
+CorpasFamily	SLCO1B1	*1/*1	Normal Function	o4-mini	Normal function
+CorpasFamily	SLCO1B1	*1/*37	Normal Function	o4-mini	Intermediate function
+CorpasFamily	TPMT	*1/*1	Normal Metabolizer	o4-mini	Normal metabolizer
+CorpasFamily	TPMT	*1/*9	Indeterminate	o4-mini	Indeterminate
+CorpasFamily	UGT1A1	*1/*1	Normal Metabolizer	o4-mini	Normal metabolizer
+CorpasFamily	UGT1A1	*1/*80+*28	Intermediate Metabolizer	o4-mini	Intermediate metabolizer
+CorpasFamily	VKORC1	Reference/rs9923231	Indeterminate	o4-mini	Intermediate warfarin sensitivity
+CorpasFamily	VKORC1	rs9923231/rs9923231	Indeterminate	o4-mini	High warfarin sensitivity
+CorpasFamily	CACNA1S	Reference/Reference	Uncertain Susceptibility	Gemini 2.5 Flash	Unknown
+CorpasFamily	CFTR	Reference/Reference	Indeterminate	Gemini 2.5 Flash	CFTR is a drug target gene, not a drug-metabolizing enzyme. Therefore, the conce
+CorpasFamily	CYP2B6	*2/*5	Normal Metabolizer	Gemini 2.5 Flash	Normal Metabolizer
+CorpasFamily	CYP2B6	*2/*9	Intermediate Metabolizer	Gemini 2.5 Flash	Intermediate Metabolizer
+CorpasFamily	CYP2B6	*5/*6	Intermediate Metabolizer	Gemini 2.5 Flash	Normal Metabolizer
+CorpasFamily	CYP2B6	*6/*6	Poor Metabolizer	Gemini 2.5 Flash	Intermediate Metabolizer
+CorpasFamily	CYP2C19	*1/*1	Normal Metabolizer	Gemini 2.5 Flash	Normal Metabolizer
+CorpasFamily	CYP2C19	*1/*4	Intermediate Metabolizer	Gemini 2.5 Flash	Intermediate Metabolizer
+CorpasFamily	CYP2C9	*1/*2	Intermediate Metabolizer	Gemini 2.5 Flash	Intermediate Metabolizer
+CorpasFamily	CYP2C9	*2/*2	Intermediate Metabolizer	Gemini 2.5 Flash	Intermediate Metabolizer
+CorpasFamily	CYP2D6	*1/*2	Normal Metabolizer	Gemini 2.5 Flash	Extensive Metabolizer
+CorpasFamily	CYP2D6	*1/*41	Normal Metabolizer	Gemini 2.5 Flash	Normal Metabolizer
+CorpasFamily	CYP2D6	*1/*68+*4	Intermediate Metabolizer	Gemini 2.5 Flash	Extensive Metabolizer
+CorpasFamily	CYP2D6	Indeterminate	Indeterminate	Gemini 2.5 Flash	Indeterminate
+CorpasFamily	CYP3A5	*1/*3	Intermediate Metabolizer	Gemini 2.5 Flash	Intermediate Metabolizer
+CorpasFamily	CYP3A5	*3/*3	Poor Metabolizer	Gemini 2.5 Flash	Poor Metabolizer
+CorpasFamily	CYP4F2	*1/*1	Indeterminate	Gemini 2.5 Flash	Normal Metabolizer
+CorpasFamily	CYP4F2	*1/*3	Indeterminate	Gemini 2.5 Flash	Intermediate Metabolizer
+CorpasFamily	CYP4F2	*3/*4	Indeterminate	Gemini 2.5 Flash	Normal Metabolizer
+CorpasFamily	DPYD	Reference/Reference	Normal Metabolizer	Gemini 2.5 Flash	Normal Metabolizer
+CorpasFamily	DPYD	Reference/c.85T>C (*9A)	Normal Metabolizer	Gemini 2.5 Flash	Normal Metabolizer
+CorpasFamily	IFNL3	Reference/Reference	Favorable Response	Gemini 2.5 Flash	Not Applicable (CPIC does not define a metabolizer phenotype for IFNL3)
+CorpasFamily	IFNL3	Reference/rs12979860	Unfavorable Response	Gemini 2.5 Flash	"For IFNL3, CPIC guidelines do not assign a ""metabolizer phenotype"" or ""functiona"
+CorpasFamily	IFNL3	rs12979860/rs12980275	Unfavorable Response	Gemini 2.5 Flash	"The provided input ""Diplotype: rs12979860/rs12980275"" specifies two SNP identifi"
+CorpasFamily	NAT2	*4/*5	Indeterminate	Gemini 2.5 Flash	Intermediate Acetylator
+CorpasFamily	NAT2	*4/*6	Indeterminate	Gemini 2.5 Flash	Intermediate Acetylator
+CorpasFamily	NAT2	*5/*6	Indeterminate	Gemini 2.5 Flash	Slow Acetylator
+CorpasFamily	NUDT15	*1/*1	Normal Metabolizer	Gemini 2.5 Flash	Normal metabolizer
+CorpasFamily	RYR1	Reference/Reference	Uncertain Susceptibility	Gemini 2.5 Flash	For the gene RYR1, the Clinical Pharmacogenetics Implementation Consortium (CPIC
+CorpasFamily	SLCO1B1	*1/*1	Normal Function	Gemini 2.5 Flash	Normal Function
+CorpasFamily	SLCO1B1	*1/*37	Normal Function	Gemini 2.5 Flash	Indeterminate
+CorpasFamily	TPMT	*1/*1	Normal Metabolizer	Gemini 2.5 Flash	Normal Metabolizer
+CorpasFamily	TPMT	*1/*9	Indeterminate	Gemini 2.5 Flash	Intermediate Metabolizer
+CorpasFamily	UGT1A1	*1/*1	Normal Metabolizer	Gemini 2.5 Flash	Normal Function
+CorpasFamily	UGT1A1	*1/*80+*28	Intermediate Metabolizer	Gemini 2.5 Flash	Intermediate Metabolizer
+CorpasFamily	VKORC1	Reference/rs9923231	Indeterminate	Gemini 2.5 Flash	Intermediate
+CorpasFamily	VKORC1	rs9923231/rs9923231	Indeterminate	Gemini 2.5 Flash	The provided diplotype format `rs9923231/rs9923231` does not specify the nucleot
+CorpasFamily	CACNA1S	Reference/Reference	Uncertain Susceptibility	DeepSeek V3	Normal function
+CorpasFamily	CFTR	Reference/Reference	Indeterminate	DeepSeek V3	Normal function
+CorpasFamily	CYP2B6	*2/*5	Normal Metabolizer	DeepSeek V3	Intermediate metabolizer
+CorpasFamily	CYP2B6	*2/*9	Intermediate Metabolizer	DeepSeek V3	Indeterminate
+CorpasFamily	CYP2B6	*5/*6	Intermediate Metabolizer	DeepSeek V3	Intermediate metabolizer
+CorpasFamily	CYP2B6	*6/*6	Poor Metabolizer	DeepSeek V3	Intermediate metabolizer
+CorpasFamily	CYP2C19	*1/*1	Normal Metabolizer	DeepSeek V3	Normal metabolizer
+CorpasFamily	CYP2C19	*1/*4	Intermediate Metabolizer	DeepSeek V3	Indeterminate
+CorpasFamily	CYP2C9	*1/*2	Intermediate Metabolizer	DeepSeek V3	Intermediate metabolizer
+CorpasFamily	CYP2C9	*2/*2	Intermediate Metabolizer	DeepSeek V3	CYP2C9 intermediate metabolizer
+CorpasFamily	CYP2D6	*1/*2	Normal Metabolizer	DeepSeek V3	Normal metabolizer
+CorpasFamily	CYP2D6	*1/*41	Normal Metabolizer	DeepSeek V3	Normal metabolizer
+CorpasFamily	CYP2D6	*1/*68+*4	Intermediate Metabolizer	DeepSeek V3	Indeterminate
+CorpasFamily	CYP2D6	Indeterminate	Indeterminate	DeepSeek V3	Indeterminate
+CorpasFamily	CYP3A5	*1/*3	Intermediate Metabolizer	DeepSeek V3	Intermediate metabolizer
+CorpasFamily	CYP3A5	*3/*3	Poor Metabolizer	DeepSeek V3	poor metabolizer
+CorpasFamily	CYP4F2	*1/*1	Indeterminate	DeepSeek V3	Normal metabolizer
+CorpasFamily	CYP4F2	*1/*3	Indeterminate	DeepSeek V3	Normal metabolizer
+CorpasFamily	CYP4F2	*3/*4	Indeterminate	DeepSeek V3	Indeterminate
+CorpasFamily	DPYD	Reference/Reference	Normal Metabolizer	DeepSeek V3	Normal metabolizer
+CorpasFamily	DPYD	Reference/c.85T>C (*9A)	Normal Metabolizer	DeepSeek V3	Normal metabolizer
+CorpasFamily	IFNL3	Reference/Reference	Favorable Response	DeepSeek V3	Normal metabolizer
+CorpasFamily	IFNL3	Reference/rs12979860	Unfavorable Response	DeepSeek V3	Indeterminate
+CorpasFamily	IFNL3	rs12979860/rs12980275	Unfavorable Response	DeepSeek V3	Indeterminate
+CorpasFamily	NAT2	*4/*5	Indeterminate	DeepSeek V3	Rapid acetylator
+CorpasFamily	NAT2	*4/*6	Indeterminate	DeepSeek V3	Rapid acetylator
+CorpasFamily	NAT2	*5/*6	Indeterminate	DeepSeek V3	Intermediate metabolizer
+CorpasFamily	NUDT15	*1/*1	Normal Metabolizer	DeepSeek V3	Normal metabolizer
+CorpasFamily	RYR1	Reference/Reference	Uncertain Susceptibility	DeepSeek V3	Normal (extensive) metabolizer
+CorpasFamily	SLCO1B1	*1/*1	Normal Function	DeepSeek V3	Normal function
+CorpasFamily	SLCO1B1	*1/*37	Normal Function	DeepSeek V3	Normal function
+CorpasFamily	TPMT	*1/*1	Normal Metabolizer	DeepSeek V3	Normal metabolizer
+CorpasFamily	TPMT	*1/*9	Indeterminate	DeepSeek V3	Intermediate metabolizer
+CorpasFamily	UGT1A1	*1/*1	Normal Metabolizer	DeepSeek V3	Normal metabolizer
+CorpasFamily	UGT1A1	*1/*80+*28	Intermediate Metabolizer	DeepSeek V3	Indeterminate
+CorpasFamily	VKORC1	Reference/rs9923231	Indeterminate	DeepSeek V3	Indeterminate
+CorpasFamily	VKORC1	rs9923231/rs9923231	Indeterminate	DeepSeek V3	Indeterminate

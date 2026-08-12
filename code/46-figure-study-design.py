@@ -147,8 +147,8 @@ ax.text(gx + gw / 2, cy - 2.6,
         "= 2,640 attempted evaluations per cell; 13,200 attempted, 13,199 records returned",
         ha="center", va="center", fontsize=7.4, weight="bold", color=INK)
 ax.text(gx + gw / 2, gy0 + 3.2,
-        "Scored on phenotype (A1) and drug-specific recommendation (A2), with coverage, abstention and parse failure\n"
-        "reported alongside; lethal-class errors counted directly on 336 lethal-class cells. Aggregate A3 is not reported.",
+        "Scored on phenotype and on the drug-specific recommendation, with coverage, abstention and parse failure\n"
+        "reported alongside; lethal-class errors counted directly on 336 lethal-class cells.",
         ha="center", va="center", fontsize=5.9, color="#6b6b6b", linespacing=1.3)
 
 # ---------------- Panel C: two arms ----------------
@@ -174,10 +174,16 @@ ax.add_patch(FancyBboxPatch((rx, ly), lw_, lh, boxstyle="round,pad=0,rounding_si
 ax.text(rx + lw_ / 2, ly + lh - 3.0, "Real-genome validation", ha="center",
         va="center", fontsize=8.6, weight="bold", color=INK)
 ax.text(rx + lw_ / 2, ly + lh - 7.0,
-        "PyPGx-called diplotypes, GRCh37, four cohorts;\nmodel panel run on all four",
+        "PyPGx-called diplotypes, GRCh37, four cohorts, 7,240 individuals;\n"
+        "model panel run on all four. Caller validated against GeT-RM\n"
+        "consensus genotypes: 113 reference samples, 527 (sample, gene) pairs",
         ha="center", va="center", fontsize=6.6, color=INK, linespacing=1.25)
-cohorts = [("1000G IBS", "n = 93"), ("Corpas\nfamily", "n = 5"),
-           ("Peruvian\nGenome Project", "AMR"), ("Uganda\nGenome Resource", "AFR")]
+# Every cohort carries its sample count. Two of the four previously showed an
+# ancestry label where the other two showed an n, so the panel could not be read
+# as a statement of scale.
+cohorts = [("1000G IBS", "EUR, n = 93"), ("Corpas\nfamily (WGS)", "EUR, n = 4"),
+           ("Peruvian\nGenome Project", "AMR, n = 736"),
+           ("Uganda\nGenome Resource", "AFR, n = 6,407")]
 for i, (nm, anc) in enumerate(cohorts):
     cxx = rx + 2.2 + i * 10.8
     box(ax, cxx, ly + 8.4, 9.6, 6.6, "white", nm, ec="#cbb6a8", lw=0.8, fs=5.0,
