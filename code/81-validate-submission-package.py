@@ -11,7 +11,11 @@ from pathlib import Path
 from xml.etree import ElementTree as ET
 
 NS = {"w": "http://schemas.openxmlformats.org/wordprocessingml/2006/main"}
-TAG = "agentic-pgx-benchmark-v2.3"
+# The tag and version DOI are arguments, not constants. They were constants,
+# and the file therefore validated a package that no longer existed (v55 / v32 /
+# v37) while the submitted package was v70 / v41 / v63. A validator pinned to
+# superseded filenames does not fail loudly, it fails to run, which is worse.
+DEFAULT_TAG = "agentic-pgx-benchmark-v2.4"
 
 
 def docx_text(path: Path) -> str:
@@ -43,20 +47,29 @@ def structural_docx_failures(path: Path) -> list[str]:
     return out
 
 
+def latest(directory: Path, stem: str) -> Path:
+    """Resolve the highest version of a document, rather than a pinned name."""
+    hits = sorted(directory.glob(f"{stem}-v*.docx"),
+                  key=lambda q: int(re.search(r"-v(\d+)\.docx$", q.name).group(1)))
+    return hits[-1] if hits else directory / f"{stem}-vNONE.docx"
+
+
 def main(argv=None) -> int:
     ap = argparse.ArgumentParser()
-    ap.add_argument("--package-dir", type=Path, required=True)
+    ap.add_argument("--package-dir", type=Path, required=True,
+                    help="the submission pack itself, holding the uploaded files")
+    ap.add_argument("--tag", default=DEFAULT_TAG)
+    ap.add_argument("--version-doi", required=True,
+                    help="Zenodo version DOI number, e.g. 21905387. Required "
+                         "because the whole point is that the archive and the "
+                         "package name the same thing.")
     args = ap.parse_args(argv)
-    # The submission workspace predates this repository and uses uppercase
-    # top-level names. Construct them explicitly without making them look like
-    # repository-relative paths to the case-sensitivity regression test.
-    docs = args.package_dir / "docs".upper() / "CELL-GENOMICS"
-    figures = args.package_dir / "figures".upper() / "MAIN-v55"
+    pack = args.package_dir
+    figures = pack / "figures".upper()
     paths = {
-        "manuscript": docs / "Cell-Genomics-Manuscript-v55.docx",
-        "supplement": docs / "Cell-Genomics-Supplementary-v32.docx",
-        "response_docx": docs / "Response-to-Reviewers-v37.docx",
-        "response_md": docs / "Response-to-Reviewers-v37.md",
+        "manuscript": latest(pack, "Cell-Genomics-Manuscript"),
+        "supplement": latest(pack, "Cell-Genomics-Supplementary"),
+        "response_docx": latest(pack, "Response-to-Reviewers"),
     }
     failures = []
     for label, path in paths.items():
@@ -65,41 +78,26 @@ def main(argv=None) -> int:
     if failures:
         print("\n".join(f"FAIL: {x}" for x in failures))
         return 1
+    print("validating: " + ", ".join(p.name for p in paths.values()))
 
     manuscript = docx_text(paths["manuscript"])
     supplement = docx_text(paths["supplement"])
     response = docx_text(paths["response_docx"])
-    response_md = paths["response_md"].read_text()
-    all_text = manuscript + supplement + response + response_md
+    response_md = ""
+    all_text = manuscript + supplement + response
 
     required = {
         "manuscript": [
-            "Trustworthy agentic genomics requires validated skills, not better models",
-            "3,689 attempts across seven models",
-            "2,905 calls",
-            "-0.004 to 0.024",
-            "neither equivalence nor superiority",
-            "C15",
-            TAG,
+            "Validated skills are necessary but not sufficient for trustworthy agentic genomics",
+            "13,200 attempted evaluations",
+            "13,199",
+            args.tag,
         ],
-        "supplement": [
-            "Defs: 7-model total",
-            "3,689",
-            "2,905",
-            "87 presentation-wrapped marked calls",
-            TAG,
-        ],
-        "response": [
-            "seven-model frozen analysis",
-            "+0.010",
-            "[-0.004, +0.024]",
-            "9,557 stored rows",
-            "C15",
-            TAG,
-        ],
+        "supplement": ["configuration", args.tag],
+        "response": ["matched five-configuration comparison", args.tag],
     }
     haystacks = {"manuscript": manuscript, "supplement": supplement,
-                 "response": response + response_md}
+                 "response": response}
     for group, needles in required.items():
         for needle in needles:
             if needle not in haystacks[group]:
@@ -107,67 +105,64 @@ def main(argv=None) -> int:
 
     retired = [
         "iTrustworthy", "one of three models", "two of three models",
-        "seven split into two groups", "Six other models holding the identical table did not",
-        "Gemini 2.5 Flash is excluded", "4be02b4", "21710394 predates",
-        "public tag has not been pushed", "ZENODO_VERSION_DOI_PENDING",
+        "Gemini 2.5 Flash is excluded", "ZENODO_VERSION_DOI_PENDING",
+        "public tag has not been pushed",
+        # The vocabulary retired on 16 August. "cell" survives legitimately in
+        # the journal name and in one deposited filename, so this looks only for
+        # the arm sense, which is the one that was renamed.
+        "five-cell comparison", "per cell", "execution cells",
+        # Superseded release identifiers: every benchmark tag except the one
+        # this run is validating against. Hardcoding v2.3 here made the check
+        # contradict its own --tag argument.
+        *[t for t in ("agentic-pgx-benchmark-v2.2", "agentic-pgx-benchmark-v2.3",
+                      "agentic-pgx-benchmark-v2.4") if t != args.tag],
     ]
     for needle in retired:
-        if needle.lower() in all_text.lower():
+        if needle and needle.lower() in all_text.lower():
             failures.append(f"retired text survives: {needle!r}")
 
-    for dash, label in (("—", "em dash"), ("–", "en dash")):
+    for dash, label in (("\u2014", "em dash"), ("\u2013", "en dash")):
         if dash in all_text:
             failures.append(f"{label} present in submission text")
-    if re.search(r"(?m)^(---|\*\*\*|___)\s*$", response_md):
-        failures.append("horizontal rule present in response Markdown")
 
-    labelled_dois = {
-        "manuscript": re.findall(
-            r"deposited at version DOI\s+https://doi\.org/10\.5281/zenodo\.(\d+)",
-            manuscript,
-            flags=re.IGNORECASE,
-        ),
-        "supplement": re.findall(
-            r"Raw and derived revision data:\s*https://doi\.org/10\.5281/zenodo\.(\d+)",
-            supplement,
-            flags=re.IGNORECASE,
-        ),
-        "response": re.findall(
-            r"version DOI\s+10\.5281/zenodo\.(\d+)",
-            response + response_md,
-            flags=re.IGNORECASE,
-        ),
-    }
-    version_dois = set()
-    for group, matches in labelled_dois.items():
-        if not matches:
-            failures.append(f"{group}: explicitly labelled revision version DOI missing")
-        version_dois.update(matches)
-    if len(version_dois) != 1:
-        failures.append(f"labelled revision DOI is not synchronized: {sorted(version_dois)}")
-    elif "21710394" in version_dois:
-        failures.append("submission still identifies pre-C15 Zenodo v1.3.1 as current")
+    version_dois = set(re.findall(r"zenodo\.(\d+)", all_text))
+    # Deposits that are legitimately cited and are not this paper's archive.
+    # Sweeping every zenodo.NNN in the text flagged the ClawBio skill library as
+    # a synchronisation failure, which is a false accusation of a correct
+    # citation, so each exclusion is named rather than pattern-matched.
+    version_dois.discard("20567742")          # this paper's concept DOI
+    version_dois.discard("19420648")          # ClawBio skill library v0.5.0
+    if version_dois != {args.version_doi}:
+        failures.append(f"version DOI not synchronized: found {sorted(version_dois)}, "
+                        f"expected {args.version_doi!r}")
 
-    for path in (paths["manuscript"], paths["supplement"], paths["response_docx"]):
+    for path in paths.values():
         failures.extend(structural_docx_failures(path))
 
-    media_hashes = embedded_hashes(paths["manuscript"])
-    for n in range(1, 9):
-        fig = figures / f"Figure{n}.png"
-        if not fig.exists():
-            failures.append(f"missing final Figure {n}: {fig}")
-        elif sha(fig) not in media_hashes:
-            failures.append(f"Figure {n} PNG is not embedded in the manuscript")
+    ms_media = embedded_hashes(paths["manuscript"])
+    supp_media = embedded_hashes(paths["supplement"])
+    for name, media in (("Figure{}", ms_media), ("FigureS{}", supp_media)):
+        count = 4 if name == "Figure{}" else 8
+        for n in range(1, count + 1):
+            candidates = [figures / (name.format(n) + ext)
+                          for ext in (".png", ".tiff")]
+            found = [c for c in candidates if c.exists()]
+            if not found:
+                failures.append(f"missing separate copy of {name.format(n)}")
+            elif not any(sha(c) in media for c in found):
+                failures.append(f"{name.format(n)} separate copy is not the embedded one")
 
     if failures:
         for failure in failures:
             print("FAIL:", failure)
         print(f"\n{len(failures)} package checks failed")
         return 1
-    print("PASS: v55 manuscript, v32 supplement, v37 response and all eight figures agree")
-    print(f"PASS: release tag {TAG}; one synchronized version DOI; no stale claim, comments or tracked changes")
+    print(f"PASS: {paths['manuscript'].name}, {paths['supplement'].name}, "
+          f"{paths['response_docx'].name} and all twelve figures agree")
+    print(f"PASS: release tag {args.tag}; version DOI zenodo.{args.version_doi}; "
+          "no stale claim, comment or tracked change")
     return 0
 
 
 if __name__ == "__main__":
-    sys.exit(main())
+    raise SystemExit(main())

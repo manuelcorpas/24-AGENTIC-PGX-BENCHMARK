@@ -129,7 +129,7 @@ def figure_s3(lethal):
     ax.set_yticks(list(ys))
     ax.set_yticklabels([l.replace("\n", " ") for _, l in CELLS], fontsize=9)
     ax.invert_yaxis()
-    ax.set_xlabel("Percentage of the 336 lethal-class evaluations per cell", fontsize=9)
+    ax.set_xlabel("Percentage of the 336 lethal-class evaluations per configuration", fontsize=9)
     ax.set_xlim(0, 100)
     for s in ("top", "right", "left"):
         ax.spines[s].set_visible(False)

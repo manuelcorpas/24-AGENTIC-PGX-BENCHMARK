@@ -23,10 +23,42 @@ ORDER = [
 ]
 
 
+SCORED = BASE / "data" / "v3_matched_scored_rows_all5.json"
+# The benchmark bar is authored-rule generation: the cell where the model holds
+# the rule table and produces the phenotype itself, which is the mechanism the
+# cohort bars test. The execution cells are the opposite handoff (model supplies
+# the diplotype, code maps it), so they are not the analogue.
+BENCHMARK_CELL = "skill_generation"
+BENCHMARK_ATTEMPTED = 2640
+
+
+def benchmark_bar():
+    """Score the curated benchmark under the same three-way scheme as the cohorts.
+
+    These three values were literals: 0.96, 0.0 and 0.04. Nothing in the data is
+    0.96, the two round numbers beside it were placeholders, and the panel was
+    therefore unreproducible from its own generator for the one bar every other
+    bar is compared against. Computing it here is what makes the figure's
+    headline claim checkable.
+    """
+    rows = [r for r in json.loads(SCORED.read_text())
+            if r["cell"] == BENCHMARK_CELL]
+    if not rows:
+        raise AssertionError(f"no scored rows for {BENCHMARK_CELL}")
+    n = BENCHMARK_ATTEMPTED
+    correct = sum(r["a1_phenotype"] for r in rows) / n
+    abstain = sum(1 for r in rows if r["abstained"]) / n
+    wrong = 1.0 - correct - abstain
+    if wrong < 0:
+        raise AssertionError("negative wrong category on the benchmark bar")
+    return correct, abstain, wrong
+
+
 def values(data):
-    correct = [0.96]
-    abstain = [0.0]
-    wrong = [0.04]
+    b_correct, b_abstain, b_wrong = benchmark_bar()
+    correct = [b_correct]
+    abstain = [b_abstain]
+    wrong = [b_wrong]
     for key, _ in ORDER:
         row = data["agent_pooled"][key]
         c = row["correct"] / row["n"]
@@ -42,7 +74,7 @@ def values(data):
 
 def self_test(data):
     correct, abstain, wrong = values(data)
-    expected = [0.96, 0.6823, 0.5344, 0.6062, 0.3717]
+    expected = [0.9644, 0.6823, 0.5344, 0.6062, 0.3717]
     for got, want in zip(correct, expected):
         if round(got, 4) != want:
             raise AssertionError(f"correctness {got:.4f} != {want:.4f}")

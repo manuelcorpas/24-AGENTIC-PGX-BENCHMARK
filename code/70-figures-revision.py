@@ -184,7 +184,7 @@ def figure_r3(by_model) -> None:
     ax.set_xticklabels([LABELS[c] for c in CELLS], fontsize=8)
     ax.set_ylabel("phenotype accuracy, one point per model")
     ax.set_ylim(0.3, 1.04)
-    ax.set_title("Between-model spread across the five matched cells",
+    ax.set_title("Between-model spread across the five matched configurations",
                  loc="left")
     fig.tight_layout()
     save(fig, "FigureR3_model_spread")

@@ -173,10 +173,15 @@ ax.add_patch(FancyBboxPatch((rx, ly), lw_, lh, boxstyle="round,pad=0,rounding_si
                             facecolor="#f8f6f4", edgecolor="#dbcdc4", lw=0.9))
 ax.text(rx + lw_ / 2, ly + lh - 3.0, "Real-genome validation", ha="center",
         va="center", fontsize=8.6, weight="bold", color=INK)
+# The three-line description that used to sit here was removed: at this width it
+# ran the full box and butted straight into the cohort row, so the panel read as
+# crammed. Nothing checkable is lost. The GeT-RM arm (113 reference samples, 527
+# pairs) is stated five times in the manuscript body, the per-cohort counts are
+# in the boxes directly below, and "7,240 individuals" appeared nowhere in the
+# text and was not a registered claim, so the figure was the only thing
+# asserting it.
 ax.text(rx + lw_ / 2, ly + lh - 7.0,
-        "PyPGx-called diplotypes, GRCh37, four cohorts, 7,240 individuals;\n"
-        "model panel run on all four. Caller validated against GeT-RM\n"
-        "consensus genotypes: 113 reference samples, 527 (sample, gene) pairs",
+        "PyPGx-called diplotypes, GRCh37, four cohorts",
         ha="center", va="center", fontsize=6.6, color=INK, linespacing=1.25)
 # Every cohort carries its sample count. Two of the four previously showed an
 # ancestry label where the other two showed an n, so the panel could not be read

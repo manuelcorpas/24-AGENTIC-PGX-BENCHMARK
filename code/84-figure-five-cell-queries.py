@@ -116,7 +116,7 @@ def main() -> int:
                 color=SHARED, fontweight="bold", va="top")
         ax.text(0.012, 0.735, instr, fontsize=7.3, family="monospace",
                 color=SHARED, va="top", linespacing=1.35)
-        ax.text(0.012, 0.36, "PATIENT (shared, identical in all five cells)",
+        ax.text(0.012, 0.36, "PATIENT (shared, identical in all five configurations)",
                 fontsize=7.4, color=SHARED, fontweight="bold", va="top")
         ax.text(0.012, 0.305, condense(parts["patient"], 5, 62),
                 fontsize=7.3, family="monospace", color=SHARED, va="top",
@@ -134,10 +134,10 @@ def main() -> int:
                 fontsize=7.3, family="monospace", color="#1A1A1A", va="top",
                 linespacing=1.35)
 
-    fig.suptitle("The query issued in each of the five matched cells",
+    fig.suptitle("The query issued in each of the five matched configurations",
                  fontsize=14, fontweight="bold", y=0.975)
     fig.text(0.5, 0.955,
-             "Every cell receives the same instruction, the same patient text and the same "
+             "Every configuration receives the same instruction, the same patient text and the same "
              "output schema. Only the knowledge block differs.",
              fontsize=9.2, ha="center", color="#444444")
 
