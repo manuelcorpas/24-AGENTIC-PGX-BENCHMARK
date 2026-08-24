@@ -1,10 +1,10 @@
 # Manifest: submitted results to authoritative inputs and generators
 
 This is the forward map for the Cell Genomics revision released under tag
-`agentic-pgx-benchmark-v2.3`. Raw JSON evaluation rows are excluded from git by
+`agentic-pgx-benchmark-v2.5`. Raw JSON evaluation rows are excluded from git by
 design and must be downloaded from the Zenodo version cited in the manuscript
 into `data/`; the tracked `.txt` summaries beside them carry the same numbers in
-readable form. The frozen file `v3_input_normalisation_eight_model_freeze.json`
+readable form. The committed frozen file `v3_input_normalisation_eight_model_freeze.json`
 records every source hash, paired analysis unit, operational denominator and
 sample-cluster interval for the input-normalisation arm, and is the sole input
 to the input-normalisation figure and its operational table.
@@ -22,7 +22,7 @@ seven display items appear in the main text and the remainder are supplementary.
 | Table 2, rule tables extracted from guideline prose | `v3_extracted_rules.json`, `v3_extracted_rules_eval.json` | `code/67-extract-rules-from-prose.py`, `code/68-evaluate-extracted-rules.py` |
 | Table 3, four-cohort vocabulary coverage | `v3_ancestry_four_cohorts.json` | `code/64-ancestry-matched-analysis.py` |
 | Figure 3, real-genome interpretation across four cohorts | `v3_realgenome_preds_4cohorts.tsv`, `v3_agent_vs_deterministic.json` | `real-genome-arm/scripts/15_agent_vs_deterministic.py`, `code/82-figure7-real-genome.py` |
-| Figure 4, input normalisation with and without definitions | `v3_input_normalisation_eight_model_freeze.json` | `code/85-freeze-eight-model-normalisation.py`, `code/87-figure9-input-normalisation-eight.py` |
+| Figure 4, input normalisation with and without definitions | `v3_input_normalisation_eight_model_freeze.json` | `code/85-freeze-eight-model-normalisation.py`, `code/87-figure4-input-normalisation-stacked.py` |
 
 ## Supplementary
 

@@ -1,0 +1,1307 @@
+{
+  "freeze_version": "2026-08-01-c15",
+  "frozen_on": "2026-08-09",
+  "models": [
+    "Claude Opus 4.5",
+    "Claude Sonnet 4.5",
+    "GPT-5.2",
+    "GPT-4.1",
+    "o3",
+    "o4-mini",
+    "DeepSeek V3",
+    "Gemini 2.5 Flash"
+  ],
+  "gemini_policy": "Gemini 2.5 Flash is not assigned a performance estimate: a complete confirmatory run was not collected. Its boxed-LaTeX pilot response is accepted by the same presentation-neutral parser used for every model; no model is excluded because of response wrapping.",
+  "parser_policy": "Use the last explicit DIPLOTYPE marker; ignore Markdown/LaTeX presentation wrappers; strip an optional gene prefix; validate the first value token as one complete schema-supported diplotype; never search surrounding reasoning.",
+  "inputs_sha256": "b7debb291a19327ebbace70ba4b38a2b8b98d986de2040c425a8f9ad3ee93891",
+  "bootstrap": {
+    "unit": "sample cluster",
+    "replicates": 10000,
+    "seed": 20260801,
+    "interval": "percentile 95%"
+  },
+  "source_files": {
+    "v3_input_normalisation_defs.json": {
+      "sha256": "0c175eb2a2a2587eba15620b0a254ee206f75bcfc95a86c81d69c8a14088f0d1",
+      "rows": 482
+    },
+    "v3_input_normalisation_defs_deepseek.json": {
+      "sha256": "fecf7ac2912eae82fd8bc1d03785e78439003b4fa9c8e3eca07a143809cf5b66",
+      "rows": 527
+    },
+    "v3_input_normalisation_defs_gemini.json": {
+      "sha256": "f41e38195c1c1c4188d564ebcffa8bea7d9f599bb27626e8c5e73b83f3170d3f",
+      "rows": 527
+    },
+    "v3_input_normalisation_defs_gpt52.json": {
+      "sha256": "423a12165b0c6e0e3cc81e61a925ba9e4b48251ef1395bfb716a3d4efb3367ea",
+      "rows": 527
+    },
+    "v3_input_normalisation_defs_o3.json": {
+      "sha256": "0736ec45b53d5a8ad1c5b8769b58f3065200b41d47a52be005fbd9ac4cbcddf1",
+      "rows": 527
+    },
+    "v3_input_normalisation_defs_sonnet_gpt41_o4mini.json": {
+      "sha256": "398435c00821fe6a088bc18c12597cb3e3649d7faabc7da82b276c8b1aa7d539",
+      "rows": 1173
+    },
+    "v3_input_normalisation_defs_sonnet_gpt41_o4mini_rest.json": {
+      "sha256": "b3602b6b0984692e9ee1e7ceebdf6f04544d8fa1d3755c2769b74e8bdc13b252",
+      "rows": 408
+    },
+    "v3_input_normalisation_defs_tail.json": {
+      "sha256": "9f63d23d6ac1b072d83911af36151946827e007126dd611b79c8253fb4e5b109",
+      "rows": 45
+    },
+    "v3_input_normalisation_main.json": {
+      "sha256": "0641a89cab390f16a85d616349abf2c3b51e721b3cad60c5238b2e11e1860537",
+      "rows": 3162
+    },
+    "v3_input_normalisation_nodefs_four.json": {
+      "sha256": "404d044e0def889bce71cf1ad958e2e87a9efc0afe83d5599099fef2f126a009",
+      "rows": 2108
+    },
+    "v3_input_normalisation_nodefs_gemini.json": {
+      "sha256": "b5d625f144aee17088b10013d9d34de79ad04210a995c1191451cc2572571506",
+      "rows": 527
+    },
+    "v3_input_normalisation_nodefs_o3_527.json": {
+      "sha256": "c381e4b0771865771a28735976824c0c819a17ed30fedfc280deb99495c50610",
+      "rows": 527
+    }
+  },
+  "models_analysis": {
+    "Claude Opus 4.5": {
+      "paired_units": 527,
+      "without_definitions": {
+        "operational": {
+          "attempted": 527,
+          "call": 492,
+          "abstain": 35,
+          "error": 0,
+          "truncated_output": 0,
+          "scored": 527
+        },
+        "coverage": {
+          "estimate": 0.9335863377609108,
+          "ci95": [
+            0.9089253187613844,
+            0.9562369763911063
+          ],
+          "clusters": 113
+        },
+        "accuracy_vs_pypgx_among_calls": {
+          "estimate": 0.39634146341463417,
+          "ci95": [
+            0.3634408602150538,
+            0.42830188679245285
+          ],
+          "clusters": 110
+        },
+        "accuracy_vs_getrm_among_calls": {
+          "estimate": 0.4247967479674797,
+          "ci95": [
+            0.3882326081117379,
+            0.46017699115044247
+          ],
+          "clusters": 110
+        },
+        "caller_vs_getrm_on_model_calls": {
+          "estimate": 0.7560975609756098,
+          "ci95": [
+            0.7281364395918742,
+            0.7858628971584004
+          ],
+          "clusters": 110
+        },
+        "model_minus_caller_vs_getrm": {
+          "estimate": -0.3313008130081301,
+          "ci95": [
+            -0.375,
+            -0.28977186985549663
+          ],
+          "clusters": 110
+        }
+      },
+      "with_definitions": {
+        "operational": {
+          "attempted": 527,
+          "call": 513,
+          "abstain": 14,
+          "error": 0,
+          "truncated_output": 0,
+          "scored": 527
+        },
+        "coverage": {
+          "estimate": 0.9734345351043643,
+          "ci95": [
+            0.9593345656192237,
+            0.9863013698630136
+          ],
+          "clusters": 113
+        },
+        "accuracy_vs_pypgx_among_calls": {
+          "estimate": 0.9668615984405458,
+          "ci95": [
+            0.9506903353057199,
+            0.9808429118773946
+          ],
+          "clusters": 112
+        },
+        "accuracy_vs_getrm_among_calls": {
+          "estimate": 0.783625730994152,
+          "ci95": [
+            0.7543513616619705,
+            0.8135245901639344
+          ],
+          "clusters": 112
+        },
+        "caller_vs_getrm_on_model_calls": {
+          "estimate": 0.7738791423001949,
+          "ci95": [
+            0.7446393762183235,
+            0.8040010101010102
+          ],
+          "clusters": 112
+        },
+        "model_minus_caller_vs_getrm": {
+          "estimate": 0.009746588693957114,
+          "ci95": [
+            -0.0038988258406432745,
+            0.024001202404809605
+          ],
+          "clusters": 112
+        }
+      },
+      "with_definitions_full_527": {
+        "operational": {
+          "attempted": 527,
+          "call": 513,
+          "abstain": 14,
+          "error": 0,
+          "truncated_output": 0,
+          "scored": 527
+        },
+        "coverage": {
+          "estimate": 0.9734345351043643,
+          "ci95": [
+            0.9593345656192237,
+            0.9863013698630136
+          ],
+          "clusters": 113
+        },
+        "accuracy_vs_pypgx_among_calls": {
+          "estimate": 0.9668615984405458,
+          "ci95": [
+            0.9506903353057199,
+            0.9808429118773946
+          ],
+          "clusters": 112
+        },
+        "accuracy_vs_getrm_among_calls": {
+          "estimate": 0.783625730994152,
+          "ci95": [
+            0.7543513616619705,
+            0.8135245901639344
+          ],
+          "clusters": 112
+        },
+        "caller_vs_getrm_on_model_calls": {
+          "estimate": 0.7738791423001949,
+          "ci95": [
+            0.7446393762183235,
+            0.8040010101010102
+          ],
+          "clusters": 112
+        },
+        "model_minus_caller_vs_getrm": {
+          "estimate": 0.009746588693957114,
+          "ci95": [
+            -0.0038988258406432745,
+            0.024001202404809605
+          ],
+          "clusters": 112
+        }
+      }
+    },
+    "Claude Sonnet 4.5": {
+      "paired_units": 527,
+      "without_definitions": {
+        "operational": {
+          "attempted": 527,
+          "call": 134,
+          "abstain": 393,
+          "error": 0,
+          "truncated_output": 0,
+          "scored": 527
+        },
+        "coverage": {
+          "estimate": 0.25426944971537,
+          "ci95": [
+            0.22021615822315727,
+            0.2897005423096519
+          ],
+          "clusters": 113
+        },
+        "accuracy_vs_pypgx_among_calls": {
+          "estimate": 0.291044776119403,
+          "ci95": [
+            0.21232876712328766,
+            0.37593984962406013
+          ],
+          "clusters": 76
+        },
+        "accuracy_vs_getrm_among_calls": {
+          "estimate": 0.3283582089552239,
+          "ci95": [
+            0.24427480916030533,
+            0.41830413016270335
+          ],
+          "clusters": 76
+        },
+        "caller_vs_getrm_on_model_calls": {
+          "estimate": 0.7611940298507462,
+          "ci95": [
+            0.6928571428571428,
+            0.8267716535433071
+          ],
+          "clusters": 76
+        },
+        "model_minus_caller_vs_getrm": {
+          "estimate": -0.43283582089552236,
+          "ci95": [
+            -0.5298507462686567,
+            -0.3333333333333333
+          ],
+          "clusters": 76
+        }
+      },
+      "with_definitions": {
+        "operational": {
+          "attempted": 527,
+          "call": 454,
+          "abstain": 73,
+          "error": 0,
+          "truncated_output": 0,
+          "scored": 527
+        },
+        "coverage": {
+          "estimate": 0.8614800759013282,
+          "ci95": [
+            0.8342486303913831,
+            0.8884540117416829
+          ],
+          "clusters": 113
+        },
+        "accuracy_vs_pypgx_among_calls": {
+          "estimate": 0.9515418502202643,
+          "ci95": [
+            0.9306345842789613,
+            0.9704724409448819
+          ],
+          "clusters": 108
+        },
+        "accuracy_vs_getrm_among_calls": {
+          "estimate": 0.748898678414097,
+          "ci95": [
+            0.7199103504866823,
+            0.780086407368565
+          ],
+          "clusters": 108
+        },
+        "caller_vs_getrm_on_model_calls": {
+          "estimate": 0.7775330396475771,
+          "ci95": [
+            0.7489172721551576,
+            0.8081264108352144
+          ],
+          "clusters": 108
+        },
+        "model_minus_caller_vs_getrm": {
+          "estimate": -0.028634361233480177,
+          "ci95": [
+            -0.04954954954954955,
+            -0.01026694045174538
+          ],
+          "clusters": 108
+        }
+      },
+      "with_definitions_full_527": {
+        "operational": {
+          "attempted": 527,
+          "call": 454,
+          "abstain": 73,
+          "error": 0,
+          "truncated_output": 0,
+          "scored": 527
+        },
+        "coverage": {
+          "estimate": 0.8614800759013282,
+          "ci95": [
+            0.8342486303913831,
+            0.8884540117416829
+          ],
+          "clusters": 113
+        },
+        "accuracy_vs_pypgx_among_calls": {
+          "estimate": 0.9515418502202643,
+          "ci95": [
+            0.9306345842789613,
+            0.9704724409448819
+          ],
+          "clusters": 108
+        },
+        "accuracy_vs_getrm_among_calls": {
+          "estimate": 0.748898678414097,
+          "ci95": [
+            0.7199103504866823,
+            0.780086407368565
+          ],
+          "clusters": 108
+        },
+        "caller_vs_getrm_on_model_calls": {
+          "estimate": 0.7775330396475771,
+          "ci95": [
+            0.7489172721551576,
+            0.8081264108352144
+          ],
+          "clusters": 108
+        },
+        "model_minus_caller_vs_getrm": {
+          "estimate": -0.028634361233480177,
+          "ci95": [
+            -0.04954954954954955,
+            -0.01026694045174538
+          ],
+          "clusters": 108
+        }
+      }
+    },
+    "GPT-5.2": {
+      "paired_units": 527,
+      "without_definitions": {
+        "operational": {
+          "attempted": 527,
+          "call": 2,
+          "abstain": 376,
+          "error": 149,
+          "truncated_output": 0,
+          "scored": 378
+        },
+        "coverage": {
+          "estimate": 0.005291005291005291,
+          "ci95": [
+            0.0,
+            0.013263481291269247
+          ],
+          "clusters": 90
+        },
+        "accuracy_vs_pypgx_among_calls": {
+          "estimate": 0.5,
+          "ci95": [
+            0.0,
+            1.0
+          ],
+          "clusters": 2
+        },
+        "accuracy_vs_getrm_among_calls": {
+          "estimate": 0.5,
+          "ci95": [
+            0.0,
+            1.0
+          ],
+          "clusters": 2
+        },
+        "caller_vs_getrm_on_model_calls": {
+          "estimate": 1.0,
+          "ci95": [
+            1.0,
+            1.0
+          ],
+          "clusters": 2
+        },
+        "model_minus_caller_vs_getrm": {
+          "estimate": -0.5,
+          "ci95": [
+            -1.0,
+            0.0
+          ],
+          "clusters": 2
+        }
+      },
+      "with_definitions": {
+        "operational": {
+          "attempted": 527,
+          "call": 204,
+          "abstain": 323,
+          "error": 0,
+          "truncated_output": 0,
+          "scored": 527
+        },
+        "coverage": {
+          "estimate": 0.3870967741935484,
+          "ci95": [
+            0.3455193618082101,
+            0.4324866818873668
+          ],
+          "clusters": 113
+        },
+        "accuracy_vs_pypgx_among_calls": {
+          "estimate": 0.5490196078431373,
+          "ci95": [
+            0.48743613023098686,
+            0.6120250497931667
+          ],
+          "clusters": 98
+        },
+        "accuracy_vs_getrm_among_calls": {
+          "estimate": 0.4803921568627451,
+          "ci95": [
+            0.4223274002157497,
+            0.5414364640883977
+          ],
+          "clusters": 98
+        },
+        "caller_vs_getrm_on_model_calls": {
+          "estimate": 0.7647058823529411,
+          "ci95": [
+            0.7155963302752294,
+            0.8163265306122449
+          ],
+          "clusters": 98
+        },
+        "model_minus_caller_vs_getrm": {
+          "estimate": -0.28431372549019607,
+          "ci95": [
+            -0.34299516908212563,
+            -0.22815321069664457
+          ],
+          "clusters": 98
+        }
+      },
+      "with_definitions_full_527": {
+        "operational": {
+          "attempted": 527,
+          "call": 204,
+          "abstain": 323,
+          "error": 0,
+          "truncated_output": 0,
+          "scored": 527
+        },
+        "coverage": {
+          "estimate": 0.3870967741935484,
+          "ci95": [
+            0.3455193618082101,
+            0.4324866818873668
+          ],
+          "clusters": 113
+        },
+        "accuracy_vs_pypgx_among_calls": {
+          "estimate": 0.5490196078431373,
+          "ci95": [
+            0.48743613023098686,
+            0.6120250497931667
+          ],
+          "clusters": 98
+        },
+        "accuracy_vs_getrm_among_calls": {
+          "estimate": 0.4803921568627451,
+          "ci95": [
+            0.4223274002157497,
+            0.5414364640883977
+          ],
+          "clusters": 98
+        },
+        "caller_vs_getrm_on_model_calls": {
+          "estimate": 0.7647058823529411,
+          "ci95": [
+            0.7155963302752294,
+            0.8163265306122449
+          ],
+          "clusters": 98
+        },
+        "model_minus_caller_vs_getrm": {
+          "estimate": -0.28431372549019607,
+          "ci95": [
+            -0.34299516908212563,
+            -0.22815321069664457
+          ],
+          "clusters": 98
+        }
+      }
+    },
+    "GPT-4.1": {
+      "paired_units": 527,
+      "without_definitions": {
+        "operational": {
+          "attempted": 527,
+          "call": 203,
+          "abstain": 324,
+          "error": 0,
+          "truncated_output": 0,
+          "scored": 527
+        },
+        "coverage": {
+          "estimate": 0.38519924098671726,
+          "ci95": [
+            0.35074626865671643,
+            0.417910447761194
+          ],
+          "clusters": 113
+        },
+        "accuracy_vs_pypgx_among_calls": {
+          "estimate": 0.04926108374384237,
+          "ci95": [
+            0.020512820512820513,
+            0.08152451197870449
+          ],
+          "clusters": 81
+        },
+        "accuracy_vs_getrm_among_calls": {
+          "estimate": 0.09359605911330049,
+          "ci95": [
+            0.05485087567192648,
+            0.13526570048309178
+          ],
+          "clusters": 81
+        },
+        "caller_vs_getrm_on_model_calls": {
+          "estimate": 0.7093596059113301,
+          "ci95": [
+            0.6551681034482759,
+            0.764102564102564
+          ],
+          "clusters": 81
+        },
+        "model_minus_caller_vs_getrm": {
+          "estimate": -0.6157635467980296,
+          "ci95": [
+            -0.6906077348066298,
+            -0.5402843601895735
+          ],
+          "clusters": 81
+        }
+      },
+      "with_definitions": {
+        "operational": {
+          "attempted": 527,
+          "call": 375,
+          "abstain": 152,
+          "error": 0,
+          "truncated_output": 0,
+          "scored": 527
+        },
+        "coverage": {
+          "estimate": 0.7115749525616698,
+          "ci95": [
+            0.6716134155775696,
+            0.7504588003866438
+          ],
+          "clusters": 113
+        },
+        "accuracy_vs_pypgx_among_calls": {
+          "estimate": 0.5146666666666667,
+          "ci95": [
+            0.4659392804062423,
+            0.5611702127659575
+          ],
+          "clusters": 101
+        },
+        "accuracy_vs_getrm_among_calls": {
+          "estimate": 0.464,
+          "ci95": [
+            0.41732283464566927,
+            0.5102574370709382
+          ],
+          "clusters": 101
+        },
+        "caller_vs_getrm_on_model_calls": {
+          "estimate": 0.7066666666666667,
+          "ci95": [
+            0.6701563881145034,
+            0.7456153027076361
+          ],
+          "clusters": 101
+        },
+        "model_minus_caller_vs_getrm": {
+          "estimate": -0.24266666666666667,
+          "ci95": [
+            -0.2877906976744186,
+            -0.19951878117206984
+          ],
+          "clusters": 101
+        }
+      },
+      "with_definitions_full_527": {
+        "operational": {
+          "attempted": 527,
+          "call": 375,
+          "abstain": 152,
+          "error": 0,
+          "truncated_output": 0,
+          "scored": 527
+        },
+        "coverage": {
+          "estimate": 0.7115749525616698,
+          "ci95": [
+            0.6716134155775696,
+            0.7504588003866438
+          ],
+          "clusters": 113
+        },
+        "accuracy_vs_pypgx_among_calls": {
+          "estimate": 0.5146666666666667,
+          "ci95": [
+            0.4659392804062423,
+            0.5611702127659575
+          ],
+          "clusters": 101
+        },
+        "accuracy_vs_getrm_among_calls": {
+          "estimate": 0.464,
+          "ci95": [
+            0.41732283464566927,
+            0.5102574370709382
+          ],
+          "clusters": 101
+        },
+        "caller_vs_getrm_on_model_calls": {
+          "estimate": 0.7066666666666667,
+          "ci95": [
+            0.6701563881145034,
+            0.7456153027076361
+          ],
+          "clusters": 101
+        },
+        "model_minus_caller_vs_getrm": {
+          "estimate": -0.24266666666666667,
+          "ci95": [
+            -0.2877906976744186,
+            -0.19951878117206984
+          ],
+          "clusters": 101
+        }
+      }
+    },
+    "o3": {
+      "paired_units": 527,
+      "without_definitions": {
+        "operational": {
+          "attempted": 527,
+          "call": 203,
+          "abstain": 170,
+          "error": 0,
+          "truncated_output": 154,
+          "scored": 373
+        },
+        "coverage": {
+          "estimate": 0.5442359249329759,
+          "ci95": [
+            0.49161876556505346,
+            0.5946666666666667
+          ],
+          "clusters": 99
+        },
+        "accuracy_vs_pypgx_among_calls": {
+          "estimate": 0.29064039408866993,
+          "ci95": [
+            0.23076923076923078,
+            0.35096153846153844
+          ],
+          "clusters": 74
+        },
+        "accuracy_vs_getrm_among_calls": {
+          "estimate": 0.31527093596059114,
+          "ci95": [
+            0.25405405405405407,
+            0.3783783783783784
+          ],
+          "clusters": 74
+        },
+        "caller_vs_getrm_on_model_calls": {
+          "estimate": 0.7684729064039408,
+          "ci95": [
+            0.7205866298484459,
+            0.8164273367903203
+          ],
+          "clusters": 74
+        },
+        "model_minus_caller_vs_getrm": {
+          "estimate": -0.45320197044334976,
+          "ci95": [
+            -0.5346534653465347,
+            -0.37272512864494
+          ],
+          "clusters": 74
+        }
+      },
+      "with_definitions": {
+        "operational": {
+          "attempted": 527,
+          "call": 453,
+          "abstain": 74,
+          "error": 0,
+          "truncated_output": 0,
+          "scored": 527
+        },
+        "coverage": {
+          "estimate": 0.8595825426944972,
+          "ci95": [
+            0.8261717837324767,
+            0.8907103825136612
+          ],
+          "clusters": 113
+        },
+        "accuracy_vs_pypgx_among_calls": {
+          "estimate": 0.9094922737306843,
+          "ci95": [
+            0.8832951945080092,
+            0.9336400242739926
+          ],
+          "clusters": 106
+        },
+        "accuracy_vs_getrm_among_calls": {
+          "estimate": 0.7240618101545254,
+          "ci95": [
+            0.6869141806333289,
+            0.7611008994639081
+          ],
+          "clusters": 106
+        },
+        "caller_vs_getrm_on_model_calls": {
+          "estimate": 0.7660044150110376,
+          "ci95": [
+            0.7358490566037735,
+            0.7971014492753623
+          ],
+          "clusters": 106
+        },
+        "model_minus_caller_vs_getrm": {
+          "estimate": -0.04194260485651214,
+          "ci95": [
+            -0.0645879732739421,
+            -0.01994937953919982
+          ],
+          "clusters": 106
+        }
+      },
+      "with_definitions_full_527": {
+        "operational": {
+          "attempted": 527,
+          "call": 453,
+          "abstain": 74,
+          "error": 0,
+          "truncated_output": 0,
+          "scored": 527
+        },
+        "coverage": {
+          "estimate": 0.8595825426944972,
+          "ci95": [
+            0.8261717837324767,
+            0.8907103825136612
+          ],
+          "clusters": 113
+        },
+        "accuracy_vs_pypgx_among_calls": {
+          "estimate": 0.9094922737306843,
+          "ci95": [
+            0.8832951945080092,
+            0.9336400242739926
+          ],
+          "clusters": 106
+        },
+        "accuracy_vs_getrm_among_calls": {
+          "estimate": 0.7240618101545254,
+          "ci95": [
+            0.6869141806333289,
+            0.7611008994639081
+          ],
+          "clusters": 106
+        },
+        "caller_vs_getrm_on_model_calls": {
+          "estimate": 0.7660044150110376,
+          "ci95": [
+            0.7358490566037735,
+            0.7971014492753623
+          ],
+          "clusters": 106
+        },
+        "model_minus_caller_vs_getrm": {
+          "estimate": -0.04194260485651214,
+          "ci95": [
+            -0.0645879732739421,
+            -0.01994937953919982
+          ],
+          "clusters": 106
+        }
+      }
+    },
+    "o4-mini": {
+      "paired_units": 527,
+      "without_definitions": {
+        "operational": {
+          "attempted": 527,
+          "call": 244,
+          "abstain": 263,
+          "error": 0,
+          "truncated_output": 20,
+          "scored": 507
+        },
+        "coverage": {
+          "estimate": 0.4812623274161736,
+          "ci95": [
+            0.4392319913039843,
+            0.5252529810742808
+          ],
+          "clusters": 113
+        },
+        "accuracy_vs_pypgx_among_calls": {
+          "estimate": 0.11885245901639344,
+          "ci95": [
+            0.0845054773082942,
+            0.15504034171808254
+          ],
+          "clusters": 86
+        },
+        "accuracy_vs_getrm_among_calls": {
+          "estimate": 0.12704918032786885,
+          "ci95": [
+            0.09126984126984126,
+            0.1646090534979424
+          ],
+          "clusters": 86
+        },
+        "caller_vs_getrm_on_model_calls": {
+          "estimate": 0.7581967213114754,
+          "ci95": [
+            0.7041654962546817,
+            0.8129778750077576
+          ],
+          "clusters": 86
+        },
+        "model_minus_caller_vs_getrm": {
+          "estimate": -0.6311475409836066,
+          "ci95": [
+            -0.7008950455182072,
+            -0.562753036437247
+          ],
+          "clusters": 86
+        }
+      },
+      "with_definitions": {
+        "operational": {
+          "attempted": 527,
+          "call": 454,
+          "abstain": 69,
+          "error": 0,
+          "truncated_output": 4,
+          "scored": 523
+        },
+        "coverage": {
+          "estimate": 0.8680688336520076,
+          "ci95": [
+            0.8366141732283465,
+            0.8969072164948454
+          ],
+          "clusters": 113
+        },
+        "accuracy_vs_pypgx_among_calls": {
+          "estimate": 0.9074889867841409,
+          "ci95": [
+            0.880095787623295,
+            0.9333333333333333
+          ],
+          "clusters": 100
+        },
+        "accuracy_vs_getrm_among_calls": {
+          "estimate": 0.7312775330396476,
+          "ci95": [
+            0.70042194092827,
+            0.7628209046454767
+          ],
+          "clusters": 100
+        },
+        "caller_vs_getrm_on_model_calls": {
+          "estimate": 0.76431718061674,
+          "ci95": [
+            0.7336340650783167,
+            0.7963811027766811
+          ],
+          "clusters": 100
+        },
+        "model_minus_caller_vs_getrm": {
+          "estimate": -0.03303964757709251,
+          "ci95": [
+            -0.05510281679211609,
+            -0.012244897959183673
+          ],
+          "clusters": 100
+        }
+      },
+      "with_definitions_full_527": {
+        "operational": {
+          "attempted": 527,
+          "call": 454,
+          "abstain": 69,
+          "error": 0,
+          "truncated_output": 4,
+          "scored": 523
+        },
+        "coverage": {
+          "estimate": 0.8680688336520076,
+          "ci95": [
+            0.8366141732283465,
+            0.8969072164948454
+          ],
+          "clusters": 113
+        },
+        "accuracy_vs_pypgx_among_calls": {
+          "estimate": 0.9074889867841409,
+          "ci95": [
+            0.880095787623295,
+            0.9333333333333333
+          ],
+          "clusters": 100
+        },
+        "accuracy_vs_getrm_among_calls": {
+          "estimate": 0.7312775330396476,
+          "ci95": [
+            0.70042194092827,
+            0.7628209046454767
+          ],
+          "clusters": 100
+        },
+        "caller_vs_getrm_on_model_calls": {
+          "estimate": 0.76431718061674,
+          "ci95": [
+            0.7336340650783167,
+            0.7963811027766811
+          ],
+          "clusters": 100
+        },
+        "model_minus_caller_vs_getrm": {
+          "estimate": -0.03303964757709251,
+          "ci95": [
+            -0.05510281679211609,
+            -0.012244897959183673
+          ],
+          "clusters": 100
+        }
+      }
+    },
+    "DeepSeek V3": {
+      "paired_units": 527,
+      "without_definitions": {
+        "operational": {
+          "attempted": 527,
+          "call": 185,
+          "abstain": 130,
+          "error": 212,
+          "truncated_output": 0,
+          "scored": 315
+        },
+        "coverage": {
+          "estimate": 0.5873015873015873,
+          "ci95": [
+            0.5331122943443247,
+            0.6411149825783972
+          ],
+          "clusters": 77
+        },
+        "accuracy_vs_pypgx_among_calls": {
+          "estimate": 0.15675675675675677,
+          "ci95": [
+            0.10389432971400185,
+            0.20918367346938777
+          ],
+          "clusters": 59
+        },
+        "accuracy_vs_getrm_among_calls": {
+          "estimate": 0.1783783783783784,
+          "ci95": [
+            0.125,
+            0.23188592559390403
+          ],
+          "clusters": 59
+        },
+        "caller_vs_getrm_on_model_calls": {
+          "estimate": 0.8432432432432433,
+          "ci95": [
+            0.794996794871795,
+            0.8907127378933484
+          ],
+          "clusters": 59
+        },
+        "model_minus_caller_vs_getrm": {
+          "estimate": -0.6648648648648648,
+          "ci95": [
+            -0.7243251905751906,
+            -0.609522400676247
+          ],
+          "clusters": 59
+        }
+      },
+      "with_definitions": {
+        "operational": {
+          "attempted": 527,
+          "call": 452,
+          "abstain": 75,
+          "error": 0,
+          "truncated_output": 0,
+          "scored": 527
+        },
+        "coverage": {
+          "estimate": 0.857685009487666,
+          "ci95": [
+            0.8301877790580441,
+            0.8849060347409404
+          ],
+          "clusters": 113
+        },
+        "accuracy_vs_pypgx_among_calls": {
+          "estimate": 0.5796460176991151,
+          "ci95": [
+            0.5384615384615384,
+            0.6186060663238833
+          ],
+          "clusters": 108
+        },
+        "accuracy_vs_getrm_among_calls": {
+          "estimate": 0.4889380530973451,
+          "ci95": [
+            0.4458594715140625,
+            0.5300945881226053
+          ],
+          "clusters": 108
+        },
+        "caller_vs_getrm_on_model_calls": {
+          "estimate": 0.7699115044247787,
+          "ci95": [
+            0.7389473684210527,
+            0.8014358411436913
+          ],
+          "clusters": 108
+        },
+        "model_minus_caller_vs_getrm": {
+          "estimate": -0.2809734513274336,
+          "ci95": [
+            -0.32345860566448803,
+            -0.2396509141290925
+          ],
+          "clusters": 108
+        }
+      },
+      "with_definitions_full_527": {
+        "operational": {
+          "attempted": 527,
+          "call": 452,
+          "abstain": 75,
+          "error": 0,
+          "truncated_output": 0,
+          "scored": 527
+        },
+        "coverage": {
+          "estimate": 0.857685009487666,
+          "ci95": [
+            0.8301877790580441,
+            0.8849060347409404
+          ],
+          "clusters": 113
+        },
+        "accuracy_vs_pypgx_among_calls": {
+          "estimate": 0.5796460176991151,
+          "ci95": [
+            0.5384615384615384,
+            0.6186060663238833
+          ],
+          "clusters": 108
+        },
+        "accuracy_vs_getrm_among_calls": {
+          "estimate": 0.4889380530973451,
+          "ci95": [
+            0.4458594715140625,
+            0.5300945881226053
+          ],
+          "clusters": 108
+        },
+        "caller_vs_getrm_on_model_calls": {
+          "estimate": 0.7699115044247787,
+          "ci95": [
+            0.7389473684210527,
+            0.8014358411436913
+          ],
+          "clusters": 108
+        },
+        "model_minus_caller_vs_getrm": {
+          "estimate": -0.2809734513274336,
+          "ci95": [
+            -0.32345860566448803,
+            -0.2396509141290925
+          ],
+          "clusters": 108
+        }
+      }
+    },
+    "Gemini 2.5 Flash": {
+      "paired_units": 527,
+      "without_definitions": {
+        "operational": {
+          "attempted": 527,
+          "call": 40,
+          "abstain": 487,
+          "error": 0,
+          "truncated_output": 0,
+          "scored": 527
+        },
+        "coverage": {
+          "estimate": 0.07590132827324478,
+          "ci95": [
+            0.05395573975602127,
+            0.0992221611667211
+          ],
+          "clusters": 113
+        },
+        "accuracy_vs_pypgx_among_calls": {
+          "estimate": 0.025,
+          "ci95": [
+            0.0,
+            0.08108108108108109
+          ],
+          "clusters": 32
+        },
+        "accuracy_vs_getrm_among_calls": {
+          "estimate": 0.0,
+          "ci95": [
+            0.0,
+            0.0
+          ],
+          "clusters": 32
+        },
+        "caller_vs_getrm_on_model_calls": {
+          "estimate": 0.825,
+          "ci95": [
+            0.7,
+            0.9302325581395349
+          ],
+          "clusters": 32
+        },
+        "model_minus_caller_vs_getrm": {
+          "estimate": -0.825,
+          "ci95": [
+            -0.9302325581395349,
+            -0.7
+          ],
+          "clusters": 32
+        }
+      },
+      "with_definitions": {
+        "operational": {
+          "attempted": 527,
+          "call": 97,
+          "abstain": 430,
+          "error": 0,
+          "truncated_output": 0,
+          "scored": 527
+        },
+        "coverage": {
+          "estimate": 0.1840607210626186,
+          "ci95": [
+            0.1541501976284585,
+            0.2140290849512171
+          ],
+          "clusters": 113
+        },
+        "accuracy_vs_pypgx_among_calls": {
+          "estimate": 0.979381443298969,
+          "ci95": [
+            0.9456521739130435,
+            1.0
+          ],
+          "clusters": 61
+        },
+        "accuracy_vs_getrm_among_calls": {
+          "estimate": 0.8144329896907216,
+          "ci95": [
+            0.7263157894736842,
+            0.8921568627450981
+          ],
+          "clusters": 61
+        },
+        "caller_vs_getrm_on_model_calls": {
+          "estimate": 0.8247422680412371,
+          "ci95": [
+            0.7444444444444445,
+            0.8969072164948454
+          ],
+          "clusters": 61
+        },
+        "model_minus_caller_vs_getrm": {
+          "estimate": -0.010309278350515464,
+          "ci95": [
+            -0.033707865168539325,
+            0.0
+          ],
+          "clusters": 61
+        }
+      },
+      "with_definitions_full_527": {
+        "operational": {
+          "attempted": 527,
+          "call": 97,
+          "abstain": 430,
+          "error": 0,
+          "truncated_output": 0,
+          "scored": 527
+        },
+        "coverage": {
+          "estimate": 0.1840607210626186,
+          "ci95": [
+            0.1541501976284585,
+            0.2140290849512171
+          ],
+          "clusters": 113
+        },
+        "accuracy_vs_pypgx_among_calls": {
+          "estimate": 0.979381443298969,
+          "ci95": [
+            0.9456521739130435,
+            1.0
+          ],
+          "clusters": 61
+        },
+        "accuracy_vs_getrm_among_calls": {
+          "estimate": 0.8144329896907216,
+          "ci95": [
+            0.7263157894736842,
+            0.8921568627450981
+          ],
+          "clusters": 61
+        },
+        "caller_vs_getrm_on_model_calls": {
+          "estimate": 0.8247422680412371,
+          "ci95": [
+            0.7444444444444445,
+            0.8969072164948454
+          ],
+          "clusters": 61
+        },
+        "model_minus_caller_vs_getrm": {
+          "estimate": -0.010309278350515464,
+          "ci95": [
+            -0.033707865168539325,
+            0.0
+          ],
+          "clusters": 61
+        }
+      }
+    }
+  },
+  "definition_arm_operational_total": {
+    "attempted": 4216,
+    "call": 3002,
+    "abstain": 1210,
+    "error": 0,
+    "truncated_output": 4,
+    "scored": 4212
+  }
+}
