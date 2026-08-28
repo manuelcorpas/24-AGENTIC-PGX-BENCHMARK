@@ -1,7 +1,6 @@
 # Agentic pharmacogenomics benchmark
 
-Analysis code and derived data for **CELL-GENOMICS-D-26-00551**, "Trustworthy
-agentic genomics requires validated skills, not better models".
+Analysis code and derived data for **CELL-GENOMICS-D-26-00551**, "Validated skills are necessary but not sufficient for trustworthy agentic genomics".
 
 ## The current design: a matched five-cell comparison
 
@@ -98,8 +97,8 @@ Matched analysis, validation and figures:
 
 Datasets are archived on Zenodo rather than stored in git; see `data/README.md`.
 - **Curated benchmark dataset** (no individual genotypes): DOI 10.5281/zenodo.20567742
-- **Synchronized corrected revision dataset**: DOI 10.5281/zenodo.21736633,
-  paired with immutable repository tag `agentic-pgx-benchmark-v2.3`.
+- **Synchronized corrected revision dataset**: DOI 10.5281/zenodo.22141182
+  (version 1.8.0), paired with immutable repository tag `agentic-pgx-benchmark-v2.7`.
 - **Superseded v1.4.0 release**: DOI 10.5281/zenodo.21736175 retained
   nine same-named pre-C15 files during Zenodo version import. The public-side
   checksum audit detected the mismatch; v1.4.1 replaces and verifies them.

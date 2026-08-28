@@ -305,6 +305,16 @@ def _renderings(stated: str) -> list[str]:
             forms.add(f"{pct:.{places}f}%")
             # "30.0%" is also written "30%"; strip a trailing zero decimal.
             forms.add(f"{pct:.{places}f}".rstrip("0").rstrip(".") + "%")
+            # A difference of two proportions is correctly written in
+            # PERCENTAGE POINTS, not per cent. Registering only the "%" form
+            # made the paper fail for using the right unit: "24.7 percentage
+            # points" is the accurate rendering of a 0.247 risk difference and
+            # must be accepted.
+            bare_pct = f"{pct:.{places}f}".rstrip("0").rstrip(".")
+            forms.add(f"{pct:.{places}f} percentage points")
+            forms.add(f"{bare_pct} percentage points")
+            forms.add(f"{pct:.{places}f} points")
+            forms.add(f"{bare_pct} points")
     return sorted(forms)
 
 
