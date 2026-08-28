@@ -1,7 +1,7 @@
 # Manifest: submitted results to authoritative inputs and generators
 
 This is the forward map for the Cell Genomics revision released under tag
-`agentic-pgx-benchmark-v2.7`. Raw JSON evaluation rows are excluded from git by
+`agentic-pgx-benchmark-v2.8`. Raw JSON evaluation rows are excluded from git by
 design and must be downloaded from the Zenodo version cited in the manuscript
 into `data/`; the tracked `.txt` summaries beside them carry the same numbers in
 readable form. The committed frozen file `v3_input_normalisation_eight_model_freeze.json`
@@ -35,7 +35,8 @@ seven display items appear in the main text and the remainder are supplementary.
 | Figure S5, between-model spread | `v3_five_cell_live.json` | `code/70-figures-revision.py` |
 | Figure S6, four-cohort coverage | `v3_ancestry_four_cohorts.json` | `code/70-figures-revision.py` |
 | Figure S7, bidirectional corrupted contract | `v3_adversarial_scrambled.json`, `v3_adversarial_reverse.json` | `code/80-figure6-adversarial-contract.py` |
-| Figure S8, conditional invariance under population framing | `v3_armA9_armBv2_POP.json` | `code/42-armAB-population-sweep.py` |
+| Figure S8, conditional invariance under population framing | `v3_raw_rescored_three_arm.json`, `v3_armAB_fullgrid.json` | `code/90-figure-s8-conditional-invariance.py` |
+| Figure S9, one lethal-class case across the five configurations | `v3_five_cell_live.json`, `v3_matched_scored_rows_all5.json`, `specs/test_cases_v3.json` | `code/93-figure-s9-worked-case.py` |
 | Table S1, headline metrics under both scorers | `v3_five_cell_live_report.txt` | `code/61-rescore-matched.py`, `code/89-supp-headline-and-per-gene.py` |
 | Table S2, lethal-class errors by locus type | `v3_lethal_case_level.json` | `code/71-lethal-case-level-stats.py` |
 | Table S3, per-gene lethal-class errors | `v3_matched_scored_rows_all5.json` | `code/61-rescore-matched.py`, `code/89-supp-headline-and-per-gene.py` |

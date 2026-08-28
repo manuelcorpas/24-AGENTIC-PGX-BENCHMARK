@@ -85,7 +85,10 @@ Matched analysis, validation and figures:
 - `69-cell-provenance.py`: per-cell model identifiers, tokens and costs
 - `70-figures-revision.py`: matched result, error-localisation, model-spread and cohort-coverage figures
 - `72-validate-v30-numbers.py`: registered-number validator, updated for C14/C15
-- `78-figure-input-normalisation.py`: seven-model Figure 8 from the frozen analysis
+- `85-freeze-eight-model-normalisation.py` + `87-figure4-input-normalisation-stacked.py`:
+  eight-model Figure 4 from the frozen analysis (supersedes the seven-model `78-figure-input-normalisation.py`)
+- `90-figure-s8-conditional-invariance.py`: Figure S8, conditional invariance under population framing
+- `93-figure-s9-worked-case.py`: Figure S9, one lethal-class case across the five configurations
 - `79-reparse-normalisation.py`: idempotent C14/C15 reparse of stored response text
 - `80-figure6-adversarial-contract.py`: bidirectional corrupted-contract Figure 6
 - `81-validate-submission-package.py`: cross-document and embedded-figure release gate
@@ -98,7 +101,7 @@ Matched analysis, validation and figures:
 Datasets are archived on Zenodo rather than stored in git; see `data/README.md`.
 - **Curated benchmark dataset** (no individual genotypes): DOI 10.5281/zenodo.20567742
 - **Synchronized corrected revision dataset**: DOI 10.5281/zenodo.22141182
-  (version 1.8.0), paired with immutable repository tag `agentic-pgx-benchmark-v2.7`.
+  (version 1.8.0), paired with immutable repository tag `agentic-pgx-benchmark-v2.8`.
 - **Superseded v1.4.0 release**: DOI 10.5281/zenodo.21736175 retained
   nine same-named pre-C15 files during Zenodo version import. The public-side
   checksum audit detected the mismatch; v1.4.1 replaces and verifies them.
