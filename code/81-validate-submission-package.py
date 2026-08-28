@@ -18,10 +18,28 @@ NS = {"w": "http://schemas.openxmlformats.org/wordprocessingml/2006/main"}
 DEFAULT_TAG = "agentic-pgx-benchmark-v2.4"
 
 
-def docx_text(path: Path) -> str:
+def docx_text(path: Path, prose_only: bool = False) -> str:
+    """Visible text. With prose_only, skip monospaced runs.
+
+    Why the option exists: the dash and style gates below police authored prose.
+    A verbatim listing quoted from a deposited artefact (the authored rule table,
+    set in a monospaced face) must be reproduced character for character, so
+    normalising its punctuation to satisfy a prose rule would falsify the quote.
+    Scoping the gate is correct; loosening it for prose would not be.
+    """
     with zipfile.ZipFile(path) as zf:
         root = ET.fromstring(zf.read("word/document.xml"))
-    return "\n".join(node.text or "" for node in root.findall(".//w:t", NS))
+    if not prose_only:
+        return "\n".join(node.text or "" for node in root.findall(".//w:t", NS))
+    MONO = ("Consolas", "Courier New", "Courier", "Menlo", "Monaco")
+    out = []
+    for run in root.findall(".//w:r", NS):
+        fonts = run.findall("./w:rPr/w:rFonts", NS)
+        ascii_font = fonts[0].get(f"{{{NS['w']}}}ascii") if fonts else None
+        if ascii_font in MONO:
+            continue
+        out.extend(node.text or "" for node in run.findall("./w:t", NS))
+    return "\n".join(out)
 
 
 def embedded_hashes(path: Path) -> set[str]:
@@ -121,9 +139,12 @@ def main(argv=None) -> int:
         if needle and needle.lower() in all_text.lower():
             failures.append(f"retired text survives: {needle!r}")
 
+    prose_text = (docx_text(paths["manuscript"], prose_only=True)
+                  + docx_text(paths["supplement"], prose_only=True)
+                  + docx_text(paths["response_docx"], prose_only=True))
     for dash, label in (("\u2014", "em dash"), ("\u2013", "en dash")):
-        if dash in all_text:
-            failures.append(f"{label} present in submission text")
+        if dash in prose_text:
+            failures.append(f"{label} present in submission prose")
 
     version_dois = set(re.findall(r"zenodo\.(\d+)", all_text))
     # Deposits that are legitimately cited and are not this paper's archive.
@@ -139,18 +160,50 @@ def main(argv=None) -> int:
     for path in paths.values():
         failures.extend(structural_docx_failures(path))
 
-    ms_media = embedded_hashes(paths["manuscript"])
-    supp_media = embedded_hashes(paths["supplement"])
-    for name, media in (("Figure{}", ms_media), ("FigureS{}", supp_media)):
-        count = 4 if name == "Figure{}" else 8
-        for n in range(1, count + 1):
-            candidates = [figures / (name.format(n) + ext)
-                          for ext in (".png", ".tiff")]
-            found = [c for c in candidates if c.exists()]
-            if not found:
-                failures.append(f"missing separate copy of {name.format(n)}")
-            elif not any(sha(c) in media for c in found):
-                failures.append(f"{name.format(n)} separate copy is not the embedded one")
+    # The separate figure copies are publication TIFFs built from the
+    # full-resolution originals, so they are deliberately NOT byte-identical to
+    # the downscaled images embedded in the documents. Byte-identity was the
+    # right check while both were the same PNG and is the wrong one now, so
+    # this compares the picture instead: same image, and at least 300 dpi
+    # across a 180 mm page.
+    # docxlib lives beside the submission pack, not in this repository, so it
+    # is imported from there at run time rather than assumed to be importable.
+    sys.path.insert(0, str(pack.parent))
+    import docx
+    from docxlib import pair_images_to_legends as dl_pair
+
+    from io import BytesIO
+    import zipfile as _zip
+
+    from PIL import Image, ImageFilter
+    import numpy as _np
+
+    def _thumb(img):
+        small = img.convert("L").resize((96, 96), Image.LANCZOS)
+        return _np.asarray(small.filter(ImageFilter.GaussianBlur(1.2)), dtype=float)
+
+    for doc_key, prefix, count in (("manuscript", "Figure", 4),
+                                   ("supplement", "FigureS", 9)):
+        doc = docx.Document(str(paths[doc_key]))
+        pairs = dl_pair(doc)
+        with _zip.ZipFile(paths[doc_key]) as z:
+            for n in range(1, count + 1):
+                legend = f"Figure {n}." if prefix == "Figure" else f"Figure S{n}."
+                tiff = figures / f"{prefix}{n}.tiff"
+                if not tiff.exists():
+                    failures.append(f"missing publication TIFF: {tiff.name}")
+                    continue
+                if (figures / f"{prefix}{n}.png").exists():
+                    failures.append(f"a PNG copy of {prefix}{n} survives beside the TIFF")
+                embedded = Image.open(BytesIO(z.read("word/" + pairs[legend][1])))
+                separate = Image.open(tiff)
+                diff = float(_np.abs(_thumb(embedded) - _thumb(separate)).mean())
+                if diff > 3.0:
+                    failures.append(f"{prefix}{n}.tiff is not the figure embedded "
+                                    f"under {legend} (difference {diff:.2f})")
+                dpi = separate.size[0] / (180.0 / 25.4)
+                if dpi < 300.0:
+                    failures.append(f"{prefix}{n}.tiff is {dpi:.0f} dpi across 180 mm, under 300")
 
     if failures:
         for failure in failures:
@@ -158,7 +211,7 @@ def main(argv=None) -> int:
         print(f"\n{len(failures)} package checks failed")
         return 1
     print(f"PASS: {paths['manuscript'].name}, {paths['supplement'].name}, "
-          f"{paths['response_docx'].name} and all twelve figures agree")
+          f"{paths['response_docx'].name} and all thirteen publication TIFFs agree")
     print(f"PASS: release tag {args.tag}; version DOI zenodo.{args.version_doi}; "
           "no stale claim, comment or tracked change")
     return 0

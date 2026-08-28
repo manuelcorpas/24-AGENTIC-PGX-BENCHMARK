@@ -65,3 +65,9 @@ data/*.jsonl
 data/run_*.log
 pharmcat.log
 .venv-stats/
+
+# Syncthing conflict copies and caches: never part of a release
+*.sync-conflict-*
+__pycache__/
+.stfolder/
+.stignore
