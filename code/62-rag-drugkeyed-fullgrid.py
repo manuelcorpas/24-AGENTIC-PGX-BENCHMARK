@@ -52,7 +52,7 @@ mf = module_from_spec(_spec)
 _spec.loader.exec_module(mf)
 
 RETRIEVAL_CELLS = ["rag_generation", "rag_execution"]
-OUT = BASE / "data" / "v3_rag_drugkeyed_fullgrid.json"
+OUT = BASE / "data" / "v4_flash_rag_drugkeyed.json"
 
 
 def route_census() -> dict[str, int]:

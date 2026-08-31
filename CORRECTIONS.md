@@ -490,6 +490,63 @@ verification that consumes its subject's own output is not a verification.
 deposited alongside the other raw rows so the check is reproducible from the
 Zenodo version rather than only on the author's machine.
 
+## C18. Truncated prose was scored as a clinical answer in the real-genome arm
+
+**Found:** 2026-08-30. **Files:** `real-genome-arm/scripts/04_run_agent_realgenome.py`,
+`real-genome-arm/scripts/15_agent_vs_deterministic.py`.
+
+The original real-genome runner capped most responses at 120 output tokens. Its
+parser first searched for `PHENOTYPE:` but, if the marker was absent, retained
+the first 80 characters of any response as the predicted phenotype. The scorer
+then treated every non-empty retained string as an emitted clinical answer and
+counted any mismatch as clinically wrong. Raw provider responses and stop
+reasons were not retained, so truncation, transport failure, invalid output and
+a genuine wrong phenotype could not be separated after the run.
+
+The phenotype normaliser had a second defect. It matched the substring
+`uncertain` before the complete CPIC category `Uncertain Susceptibility`, so
+RYR1 and CACNA1S reference states carrying that valid phenotype were removed as
+if the caller had abstained.
+
+**Effect.** Claude Opus 4.5 appeared to give 125 clinically wrong answers among
+188 scorable Uganda states, 66.5%. Of those 125 strings, 114 were 80-character
+reasoning fragments created by the fallback parser. With provider provenance,
+a unique labelled-answer requirement and the complete CPIC category retained,
+the model gives 31 clinically wrong answers among 190 scorable Uganda states,
+16.3%. The same audit was applied to every model, not only to Opus.
+
+The corrected rerun contains 4,288 complete returned records, 536 for each of
+eight requested configurations, with zero provider failures and zero retries.
+Three responses on scorable states are invalid outputs: one Gemini response
+stopped at its token limit before a phenotype, one o4-mini response stopped at
+its token limit with empty text, and one DeepSeek response emitted multiple
+phenotype lines. Those rows now appear in a separate invalid-output category.
+High clinically wrong rates that remain, including 96 of 190 Uganda states for
+Gemini 2.5 Flash, are supported by complete returned phenotype lines rather than
+swallowed provider errors.
+
+Retaining `Uncertain Susceptibility` also corrects the denominator of the
+validated-mapping control. Coverage is 21.1% in IBS, 26.9% in the family, 28.6%
+in Peru and 8.9% in Uganda, rather than 21.5%, 29.2%, 30.0% and 9.0%.
+Conditional agreement with the caller remains 100% in every cohort.
+
+**Version audit.** Every call sent to the `deepseek-chat` alias returned
+`deepseek-v4-flash`, not the DeepSeek V3 model used in the frozen curated
+benchmark. Figure 3 labels the new row DeepSeek V4 Flash, leaves its curated V3
+cell unavailable, and pools only the seven version-matched models.
+
+**Guard.** `21_run_agent_four_cohorts.py` stores the exact request, full provider
+response, raw text, stop reason, returned model identifier, usage, response
+identifier, timestamps, latency, retry count and error body. Output budgets are
+1,024 visible tokens for standard models and 4,096 tokens for reasoning models
+and Gemini, with no more than two concurrent calls per provider credential.
+`22_score_agent_realgenome.py` requires one unique usable `PHENOTYPE:` line and
+assigns every scorable row to exactly one of correct, abstained, clinically
+wrong or invalid output. Explanatory prose around one unique labelled answer is
+recorded as a format deviation but does not erase a clinically usable answer.
+Regression tests fix the parser contract, category totals, stop-reason
+provenance, model-version audit and every Figure 3 value.
+
 
 C9, C11 and C12 are all the same defect as C5: a limit of the evaluation
 apparatus arriving at the analyst's desk wearing the costume of a finding about a

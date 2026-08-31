@@ -40,7 +40,7 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 
 BASE = Path(__file__).resolve().parent.parent
-ROWS = BASE / "data" / "v3_matched_scored_rows_all5.json"
+ROWS = BASE / "data" / "v4_flash_matched_scored_rows_all5.json"
 OUTDIR = BASE / "figures"
 
 CELLS = [

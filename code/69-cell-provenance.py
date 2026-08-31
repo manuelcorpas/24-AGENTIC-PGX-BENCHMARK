@@ -41,7 +41,7 @@ API_IDS = {
     "o3": "o3",
     "o4-mini": "o4-mini",
     "Gemini 2.5 Flash": "gemini-2.5-flash",
-    "DeepSeek V3": "deepseek-chat",
+    "DeepSeek V4 Flash": "deepseek-v4-flash",
     "Mistral Large 2512": "mistral-large-2512",
 }
 

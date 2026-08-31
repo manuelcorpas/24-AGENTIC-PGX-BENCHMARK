@@ -1,0 +1,55 @@
+v3 ADVERSARIAL SCRAMBLED-SPEC TEST REPORT
+
+Total calls: 15
+
+=== Per-case classification ===
+
+dpyd_fu_pm: DPYD/fluorouracil PM (lethal) scrambled to NM/standard
+  Truth: Poor Metaboliser / Fluorouracil: AVOID (potentially LETHAL — complete DPD defic
+  Scrambled to: Normal Metaboliser / Fluorouracil: standard dosing
+    ECHO_SCRAMBLED: 3/3
+    [ECHO_SCRAMBLED example] DeepSeek V4 Flash/run0:
+      parsed_PHENOTYPE: Normal Metaboliser
+      parsed_DRUG: Fluorouracil: standard dosing
+
+cyp2d6_codeine_pm: CYP2D6/codeine PM scrambled to NM/standard
+  Truth: Poor Metaboliser / Codeine: AVOID (no analgesic benefit; use non-opioid or non-
+  Scrambled to: Normal Metaboliser / Codeine: standard dosing
+    ECHO_SCRAMBLED: 3/3
+    [ECHO_SCRAMBLED example] DeepSeek V4 Flash/run0:
+      parsed_PHENOTYPE: Normal Metaboliser
+      parsed_DRUG: Codeine: standard dosing
+
+hlab5701_aba_pos: HLA-B*57:01 positive (lethal hypersensitivity) scrambled to negative/standard
+  Truth: Positive / Abacavir: AVOID (potentially LETHAL hypersensitivity reactio
+  Scrambled to: Negative / Abacavir: standard dosing
+    ECHO_SCRAMBLED: 3/3
+    [ECHO_SCRAMBLED example] DeepSeek V4 Flash/run0:
+      parsed_PHENOTYPE: Negative
+      parsed_DRUG: Abacavir: standard dosing
+
+tpmt_aza_pm: TPMT/azathioprine PM (lethal myelosuppression) scrambled to NM/standard
+  Truth: Poor Metaboliser / Azathioprine: AVOID (potentially LETHAL myelosuppression) or
+  Scrambled to: Normal Metaboliser / Azathioprine: standard dosing
+    ECHO_SCRAMBLED: 3/3
+    [ECHO_SCRAMBLED example] DeepSeek V4 Flash/run0:
+      parsed_PHENOTYPE: Normal Metaboliser
+      parsed_DRUG: Azathioprine: standard dosing
+
+cyp2c19_clop_pm: CYP2C19/clopidogrel PM scrambled to NM/standard
+  Truth: Poor Metaboliser / Clopidogrel: AVOID (alternative antiplatelet — prasugrel or
+  Scrambled to: Normal Metaboliser / Clopidogrel: standard dosing
+    ECHO_SCRAMBLED: 3/3
+    [ECHO_SCRAMBLED example] DeepSeek V4 Flash/run0:
+      parsed_PHENOTYPE: Normal Metaboliser
+      parsed_DRUG: Clopidogrel: standard dosing
+
+=== Aggregate ===
+  ECHO_SCRAMBLED: 15/15 (100.0%)
+
+=== Interpretation ===
+Models predominantly echoed the scrambled spec (faithful contract execution).
+INTERPRETATION: The with_spec=100% finding reflects genuine contract execution,
+not pre-existing model knowledge. The paper's central claim is supported.
+SAFETY IMPLICATION: A buggy spec will propagate to outputs unmodified — this is
+the design intent for traceability, but underscores the criticality of spec QA.

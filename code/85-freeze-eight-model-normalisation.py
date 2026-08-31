@@ -28,7 +28,7 @@ import numpy as np
 
 BASE = Path(__file__).resolve().parent.parent
 DATA = BASE / "data"
-OUT = DATA / "v3_input_normalisation_eight_model_freeze.json"
+OUT = DATA / "v4_flash_input_normalisation_eight_model_freeze.json"
 
 MODELS = [
     "Claude Opus 4.5",
@@ -37,7 +37,7 @@ MODELS = [
     "GPT-4.1",
     "o3",
     "o4-mini",
-    "DeepSeek V3",
+    "DeepSeek V4 Flash",
     "Gemini 2.5 Flash",
 ]
 
@@ -52,7 +52,7 @@ DEFINITION_FILES = {
     "o3": ["v3_input_normalisation_defs_o3.json"],
     "o4-mini": ["v3_input_normalisation_defs_sonnet_gpt41_o4mini.json",
                  "v3_input_normalisation_defs_sonnet_gpt41_o4mini_rest.json"],
-    "DeepSeek V3": ["v3_input_normalisation_defs_deepseek.json"],
+    "DeepSeek V4 Flash": ["v4_flash_input_normalisation_defs.json"],
     "Gemini 2.5 Flash": ["v3_input_normalisation_defs_gemini.json"],
 }
 
@@ -63,7 +63,7 @@ NO_DEFINITION_FILES = {
     "GPT-4.1": ["v3_input_normalisation_nodefs_four.json"],
     "o3": ["v3_input_normalisation_nodefs_o3_527.json"],
     "o4-mini": ["v3_input_normalisation_nodefs_four.json"],
-    "DeepSeek V3": ["v3_input_normalisation_nodefs_four.json"],
+    "DeepSeek V4 Flash": ["v4_flash_input_normalisation_nodefs.json"],
     "Gemini 2.5 Flash": ["v3_input_normalisation_nodefs_gemini.json"],
 }
 

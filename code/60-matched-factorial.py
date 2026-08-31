@@ -71,9 +71,9 @@ from pathlib import Path
 
 BASE = Path(__file__).resolve().parent.parent
 CORPUS_FILE = BASE / "specs" / "cpic_rag_corpus_v3.json"
-OUT = BASE / "data" / "v3_matched_factorial.json"
-JSONL = BASE / "data" / "v3_matched_factorial.jsonl"
-PROMPTS_OUT = BASE / "data" / "v3_matched_factorial_prompts.json"
+OUT = BASE / "data" / "v4_flash_five_cell.json"
+JSONL = BASE / "data" / "v4_flash_five_cell.jsonl"
+PROMPTS_OUT = BASE / "data" / "v4_flash_five_cell_prompts.json"
 
 _spec = spec_from_file_location("_pgx_rules", Path(__file__).resolve().parent / "_pgx_rules.py")
 rules = module_from_spec(_spec)
@@ -97,7 +97,7 @@ PRICES: dict[str, tuple[float, float]] = {
     "o3":               (2.00, 8.00),
     "o4-mini":          (1.10, 4.40),
     "Gemini 2.5 Flash": (0.30, 2.50),
-    "DeepSeek V3":      (0.27, 1.10),
+    "DeepSeek V4 Flash": (0.27, 1.10),
     "Mistral Large 2512": (2.00, 6.00),
 }
 # Reasoning models emit hidden reasoning tokens, so their output count is far
@@ -309,6 +309,10 @@ def load_models() -> dict:
     import anthropic
     import openai
 
+    ds_spec = spec_from_file_location("deepseek_v4_client", Path(__file__).resolve().parent / "94-deepseek-v4-client.py")
+    ds_v4 = module_from_spec(ds_spec)
+    ds_spec.loader.exec_module(ds_v4)
+
     env_path = BASE / ".env"
     keys = dict(os.environ)
     if env_path.exists():
@@ -349,11 +353,9 @@ def load_models() -> dict:
 
     def _dsk(p):
         with sem["deepseek"]:
-            r = dsk.chat.completions.create(
-                model="deepseek-chat", max_tokens=320,
-                messages=[{"role": "user", "content": p}])
-            return (r.choices[0].message.content,
-                    r.usage.prompt_tokens, r.usage.completion_tokens)
+            result = ds_v4.call_deepseek_v4(dsk, p, max_tokens=320)
+            return (result["text"], result["usage"]["input_tokens"],
+                    result["usage"]["output_tokens"], result)
 
     def _gem(p):
         import urllib.request
@@ -397,7 +399,7 @@ def load_models() -> dict:
         "o3":               lambda p: _oai("o3", p, reasoning=True),
         "o4-mini":          lambda p: _oai("o4-mini", p, reasoning=True),
         "Gemini 2.5 Flash": lambda p: _gem(p),
-        "DeepSeek V3":      lambda p: _dsk(p),
+        "DeepSeek V4 Flash": lambda p: _dsk(p),
         "Mistral Large 2512": lambda p: _mis(p),
     }
 
@@ -412,16 +414,21 @@ def run_one(cell: str, case: dict, model_name: str, fn, rep: int, spend=None) ->
     if spend is not None:
         spend.check()
     prompt = build_prompt(cell, case)
-    text, error, in_tok, out_tok = "", None, 0, 0
+    text, error, in_tok, out_tok, provenance = "", None, 0, 0, None
     for attempt in range(3):
         try:
             result = fn(prompt)
-            text, in_tok, out_tok = result if isinstance(result, tuple) else (result, 0, 0)
+            if isinstance(result, tuple) and len(result) == 4:
+                text, in_tok, out_tok, provenance = result
+            else:
+                text, in_tok, out_tok = result if isinstance(result, tuple) else (result, 0, 0)
+                provenance = None
             if spend is not None:
                 spend.add(model_name, in_tok, out_tok)
             break
         except Exception as exc:                        # noqa: BLE001 - recorded, not swallowed
             error = f"{type(exc).__name__}: {exc}"
+            provenance = getattr(exc, "provenance", provenance)
             # A 429 is a rate limit, not a model failure. Back off and retry
             # rather than banking an empty response that the scorer would count
             # as a format failure; that mistake nearly put a false "this model
@@ -445,6 +452,8 @@ def run_one(cell: str, case: dict, model_name: str, fn, rep: int, spend=None) ->
             allow_bare=CELLS[cell]["mechanism"] == "deterministic_execution"),
         "format_compliant": rules.is_format_compliant(text, "DIPLOTYPE"),
     }
+    if provenance is not None:
+        row["deepseek_provenance"] = provenance
     if CELLS[cell]["mechanism"] == "deterministic_execution":
         phen, rec = execute_skill(case["gene"], case["drug"], row["called_diplotype"])
         row["parsed_phenotype"] = phen or ""

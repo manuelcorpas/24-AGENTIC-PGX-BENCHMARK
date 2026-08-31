@@ -33,7 +33,7 @@ from matplotlib.lines import Line2D
 BASE = Path(__file__).resolve().parent.parent
 DATA = BASE / "data"
 FIGDIR = BASE / "figures"
-FREEZE = DATA / "v3_input_normalisation_eight_model_freeze.json"
+FREEZE = DATA / "v4_flash_input_normalisation_eight_model_freeze.json"
 
 WITHOUT = "#3775BA"
 WITH = "#D95F02"
@@ -48,7 +48,7 @@ MODEL_LABELS = {
     "GPT-4.1": "GPT-4.1",
     "o3": "o3",
     "o4-mini": "o4-mini",
-    "DeepSeek V3": "DeepSeek\nV3",
+    "DeepSeek V4 Flash": "DeepSeek\nV4 Flash",
     "Gemini 2.5 Flash": "Gemini\n2.5 Flash",
 }
 MIN_CALLS_FOR_ACCURACY = 10
@@ -370,7 +370,7 @@ def draw(data: dict, stem: str = OUTPUT_STEM) -> list[Path]:
 def self_test(data: dict) -> None:
     assert len(data["models"]) == 8
     assert data["definition_arm_operational_total"] == {
-        "attempted": 4216, "call": 3002, "abstain": 1210,
+        "attempted": 4216, "call": 2989, "abstain": 1223,
         "error": 0, "truncated_output": 4, "scored": 4212,
     }
     opus = data["models_analysis"]["Claude Opus 4.5"]["with_definitions_full_527"]

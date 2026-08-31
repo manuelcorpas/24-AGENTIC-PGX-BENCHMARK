@@ -75,11 +75,11 @@ CONSENSUS = RGA / "getrm" / "getrm_consensus.tsv"
 REGIONS = RGA / "config" / "pgx_regions_grch37.bed"
 
 INPUTS_OUT = BASE / "data" / "v3_normalisation_inputs.json"
-RAW_OUT = BASE / "data" / "v3_input_normalisation.json"
+RAW_OUT = BASE / "data" / "v4_flash_input_normalisation.json"
 REPORT_OUT = BASE / "data" / "v3_input_normalisation.txt"
 
 FORMS = ("vcf", "hgvs", "prose")
-DEFAULT_MODELS = ("GPT-5.2", "Claude Opus 4.5", "o3")
+DEFAULT_MODELS = ("DeepSeek V4 Flash",)
 
 # A cap on how many variants are shown, set ABOVE the observed maximum (681) so
 # that in practice nothing is truncated. An earlier value of 60 truncated 318 of
@@ -565,18 +565,17 @@ def load_models(names: list[str]) -> dict:
 
         built["Gemini 2.5 Flash"] = _gem
 
-    if any(n == "DeepSeek V3" for n in names):
+    if any(n == "DeepSeek V4 Flash" for n in names):
         dsk = openai.OpenAI(api_key=key("DEEPSEEK_API_KEY"),
                             base_url="https://api.deepseek.com")
+        ds_v4 = _load("deepseek_v4_client_normalisation", CODE / "94-deepseek-v4-client.py")
 
         def _dsk(p):
-            r = dsk.chat.completions.create(
-                model="deepseek-chat", max_tokens=MAX_OUT_TOKENS,
-                messages=[{"role": "user", "content": p}])
-            return (r.choices[0].message.content,
-                    r.usage.prompt_tokens, r.usage.completion_tokens)
+            result = ds_v4.call_deepseek_v4(dsk, p, max_tokens=MAX_OUT_TOKENS)
+            return (result["text"], result["usage"]["input_tokens"],
+                    result["usage"]["output_tokens"], result)
 
-        built["DeepSeek V3"] = _dsk
+        built["DeepSeek V4 Flash"] = _dsk
 
     missing = [n for n in names if n not in built]
     if missing:
@@ -684,22 +683,26 @@ def main(argv: list[str] | None = None) -> int:
         rec = inputs[key]
         defs = load_definitions(rec["gene"]) if args.definitions else None
         prompt = build_prompt(rec["gene"], rec["variants"], form, rec["truncated"], defs)
-        text, error, in_tok, out_tok = "", None, 0, 0
+        text, error, in_tok, out_tok, provenance = "", None, 0, 0, None
         for attempt in range(3):
             try:
                 spend.check()
                 r = models[model_name](prompt)
-                text, in_tok, out_tok = r if isinstance(r, tuple) else (r, 0, 0)
+                if isinstance(r, tuple) and len(r) == 4:
+                    text, in_tok, out_tok, provenance = r
+                else:
+                    text, in_tok, out_tok = r if isinstance(r, tuple) else (r, 0, 0)
                 spend.add(model_name, in_tok, out_tok)
                 break
             except runner.BudgetExceeded:
                 raise
             except Exception as exc:                    # noqa: BLE001
                 error = f"{type(exc).__name__}: {exc}"
+                provenance = getattr(exc, "provenance", provenance)
                 if "429" in str(exc) or "rate" in str(exc).lower():
                     import time
                     time.sleep(5 * (attempt + 1))
-        return {
+        row = {
             "sample": rec["sample"], "gene": rec["gene"], "form": form,
             "model": model_name, "raw": text, "error": error,
             "call": parse_call(text, rec["gene"]),
@@ -711,6 +714,9 @@ def main(argv: list[str] | None = None) -> int:
             "in_tokens": in_tok, "out_tokens": out_tok,
             "cost_usd": round(runner.Spend.cost(model_name, in_tok, out_tok), 6),
         }
+        if provenance is not None:
+            row["deepseek_provenance"] = provenance
+        return row
 
     try:
         with ThreadPoolExecutor(max_workers=8) as ex:

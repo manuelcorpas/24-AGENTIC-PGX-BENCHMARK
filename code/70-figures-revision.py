@@ -38,7 +38,7 @@ import matplotlib.pyplot as plt
 
 BASE = Path(__file__).resolve().parent.parent
 CODE = Path(__file__).resolve().parent
-FIVE_CELL = BASE / "data" / "v3_five_cell_live.json"
+FIVE_CELL = BASE / "data" / "v4_flash_eight_model_five_cell.json"
 CALLER = BASE / "data" / "v3_model_caller_eval.json"
 ANCESTRY = BASE / "data" / "v3_ancestry_four_cohorts.json"
 FIGDIR = BASE / "figures"
@@ -46,12 +46,31 @@ FIGDIR = BASE / "figures"
 CELLS = ["free_generation", "rag_generation", "rag_execution",
          "skill_generation", "skill_execution"]
 LABELS = {
-    "free_generation": "no\nknowledge",
-    "rag_generation": "RAG\ngeneration",
-    "rag_execution": "RAG call +\nauthored exec.",
-    "skill_generation": "authored rules,\ngenerated",
-    "skill_execution": "authored rules,\nexecuted",
+    "free_generation": "No knowledge",
+    "rag_generation": "RAG generation",
+    "rag_execution": "RAG call + authored execution",
+    "skill_generation": "Authored rules, generated",
+    "skill_execution": "Authored rules, executed",
 }
+FIGURE_R3_LABELS = [
+    "No\nknowledge",
+    "RAG\ngeneration",
+    "RAG call +\nauthored execution",
+    "Authored rules,\ngenerated",
+    "Authored rules,\nexecuted",
+]
+FIGURE_R2_LABEL_OFFSETS = {
+    "HLA-B*15:02": (-8, 10),
+    "NUDT15": (-38, -14),
+    "CYP2C19": (-48, 8),
+    "CYP4F2": (6, -12),
+    "CYP2D6": (5, 8),
+    "CYP3A5": (5, -8),
+    "G6PD": (5, 8),
+    "DPYD": (5, 8),
+    "SLCO1B1": (5, -8),
+}
+FIGURE_R2_CLUSTER_CUTOFF = (0.97, 0.98)
 GENERATION = "#d4756f"
 EXECUTION = "#5a8f5a"
 NEUTRAL = "#8a8a8a"
@@ -104,36 +123,47 @@ def save(fig, stem: str) -> None:
 
 # ---------------------------------------------------------------- FigureR1
 
-def figure_r1(summary) -> None:
-    fig, (axA, axB) = plt.subplots(1, 2, figsize=(9.5, 4.2),
-                                   gridspec_kw={"width_ratios": [1.1, 1.0]})
+def figure_r1(summary, save_output: bool = True):
+    fig, (axA, axB) = plt.subplots(1, 2, figsize=(10.8, 3.9))
     xs = range(len(CELLS))
+    display_labels = [
+        "No\nknowledge",
+        "RAG\ngeneration",
+        "RAG call +\nauthored\nexecution",
+        "Authored\nrules,\ngenerated",
+        "Authored\nrules,\nexecuted",
+    ]
     acc = [summary[c]["a2_recommendation_mean"] for c in CELLS]
     axA.bar(xs, acc, color=[COLOURS[c] for c in CELLS], width=0.68)
     for x, v in zip(xs, acc):
-        axA.text(x, v + 0.015, f"{v:.3f}", ha="center", fontsize=8)
+        axA.text(x, v + 0.014, f"{v:.3f}", ha="center", va="bottom", fontsize=8)
     axA.set_xticks(list(xs))
-    axA.set_xticklabels([LABELS[c] for c in CELLS], fontsize=8)
-    axA.set_ylabel("recommendation accuracy")
-    axA.set_ylim(0, 1.08)
+    axA.set_xticklabels(display_labels, fontsize=8.5, linespacing=1.0)
+    axA.set_ylabel("Recommendation accuracy")
+    axA.set_ylim(0, 1.10)
     axA.set_title("A  Recommendation accuracy", loc="left")
 
     lethal = [summary[c]["lethal_errors"] for c in CELLS]
     axB.bar(xs, lethal, color=[COLOURS[c] for c in CELLS], width=0.68)
     for x, v in zip(xs, lethal):
-        axB.text(x, v + 2, str(v), ha="center", fontsize=8)
+        axB.text(x, v + 2.2, str(v), ha="center", va="bottom", fontsize=8)
     axB.set_xticks(list(xs))
-    axB.set_xticklabels([LABELS[c] for c in CELLS], fontsize=8)
-    axB.set_ylabel("lethal-class errors (of 336)")
-    axB.set_ylim(0, max(lethal) * 1.2)
+    axB.set_xticklabels(display_labels, fontsize=8.5, linespacing=1.0)
+    axB.set_ylabel("Lethal-class errors (of 336)")
+    axB.set_ylim(0, max(lethal) * 1.17)
     axB.set_title("B  Lethal-class errors", loc="left")
 
     handles = [plt.Rectangle((0, 0), 1, 1, color=GENERATION),
                plt.Rectangle((0, 0), 1, 1, color=EXECUTION)]
-    axA.legend(handles, ["model generates the answer", "code executes the rule"],
-               loc="lower right", frameon=False)
-    fig.tight_layout()
-    save(fig, "FigureR1_matched_factorial")
+    fig.legend(
+        handles, ["model generates the answer", "code executes the rule"],
+        loc="lower center", bbox_to_anchor=(0.5, 0.005), frameon=False,
+        ncol=2, fontsize=8.5,
+    )
+    fig.subplots_adjust(left=0.08, right=0.98, top=0.88, bottom=0.235, wspace=0.24)
+    if save_output:
+        save(fig, "FigureR1_matched_factorial")
+    return fig
 
 
 # ---------------------------------------------------------------- FigureR2
@@ -155,8 +185,17 @@ def figure_r2(summary) -> None:
     lo = min(min(xs), min(ys)) - 0.05
     ax.plot([lo, 1.0], [lo, 1.0], color=NEUTRAL, lw=1, ls="--", zorder=1)
     ax.scatter(xs, ys, s=44, color=EXECUTION, zorder=3, edgecolor="white", linewidth=0.6)
+    high_cluster = []
     for g, x, y in zip(genes, xs, ys):
-        ax.annotate(g, (x, y), textcoords="offset points", xytext=(5, -3), fontsize=7)
+        if x >= FIGURE_R2_CLUSTER_CUTOFF[0] and y >= FIGURE_R2_CLUSTER_CUTOFF[1]:
+            high_cluster.append(g)
+            continue
+        offset = FIGURE_R2_LABEL_OFFSETS.get(g, (5, -3))
+        ax.annotate(g, (x, y), textcoords="offset points", xytext=offset,
+                    fontsize=6.8)
+    if high_cluster:
+        ax.text(0.98, 0.08, f"{len(high_cluster)} genes in high-accuracy cluster",
+                transform=ax.transAxes, ha="right", fontsize=6.8)
     ax.set_xlabel("input-call accuracy (model as caller)")
     ax.set_ylabel("end-to-end phenotype accuracy")
     ax.set_xlim(lo, 1.02)
@@ -171,7 +210,7 @@ def figure_r2(summary) -> None:
 # ---------------------------------------------------------------- FigureR3
 
 def figure_r3(by_model) -> None:
-    fig, ax = plt.subplots(figsize=(6.4, 4.0))
+    fig, ax = plt.subplots(figsize=(7.2, 4.2))
     for i, cell in enumerate(CELLS):
         vals = list(by_model[cell].values())
         ax.scatter([i] * len(vals), vals, s=26, color=COLOURS[cell],
@@ -181,12 +220,12 @@ def figure_r3(by_model) -> None:
         ax.text(i, 0.34, f"spread\n{max(vals) - min(vals):.3f}",
                 ha="center", fontsize=7.5)
     ax.set_xticks(range(len(CELLS)))
-    ax.set_xticklabels([LABELS[c] for c in CELLS], fontsize=8)
+    ax.set_xticklabels(FIGURE_R3_LABELS, fontsize=7.5, linespacing=1.0)
     ax.set_ylabel("phenotype accuracy, one point per model")
     ax.set_ylim(0.3, 1.04)
     ax.set_title("Between-model spread across the five matched configurations",
                  loc="left")
-    fig.tight_layout()
+    fig.subplots_adjust(left=0.12, right=0.98, top=0.90, bottom=0.20)
     save(fig, "FigureR3_model_spread")
 
 

@@ -52,8 +52,8 @@ def rule_engine(base: Path):
 
 
 def load(base: Path):
-    live = json.loads((base / "data" / "v3_five_cell_live.json").read_text())
-    scored = json.loads((base / "data" / "v3_matched_scored_rows_all5.json").read_text())
+    live = json.loads((base / "data" / "v4_flash_eight_model_five_cell.json").read_text())
+    scored = json.loads((base / "data" / "v4_flash_matched_scored_rows_all5.json").read_text())
     cases = json.loads((base / "specs" / "test_cases_v3.json").read_text())
     return live, scored, cases
 
@@ -94,7 +94,7 @@ def decision_lines(text: str) -> str:
 
 
 def panel_error_rates(base: Path, case_id: str):
-    scored = json.loads((base / "data" / "v3_matched_scored_rows_all5.json").read_text())
+    scored = json.loads((base / "data" / "v4_flash_matched_scored_rows_all5.json").read_text())
     gene = next(r["gene"] for r in scored if r["case_id"] == case_id)
     rows = [r for r in scored if r["gene"] == gene and r.get("lethal_action") is not None]
     out = {}
@@ -129,7 +129,7 @@ def render(case, rows, gene, rates, out_path: Path, model: str, rep: int, dpi: i
     input_h = 0.86         # shared-input box
     FOOT = textwrap.fill(
         "Responses are reproduced verbatim from the deposited run records "
-        "(v3_five_cell_live.json); only the DIPLOTYPE and DRUG fields are shown. "
+        "(v4_flash_eight_model_five_cell.json); only the DIPLOTYPE and DRUG fields are shown. "
         "Executed recommendations are computed by the authored mapping in _pgx_rules.py.",
         128)
     foot_h = 0.26 + 0.10 * (FOOT.count("\n") + 1)

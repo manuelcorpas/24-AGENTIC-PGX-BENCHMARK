@@ -57,6 +57,7 @@ import traceback
 from collections import defaultdict
 from pathlib import Path
 from typing import Callable
+from importlib.util import module_from_spec, spec_from_file_location
 
 import openai
 import anthropic
@@ -71,16 +72,16 @@ LOGS = BASE / "logs"
 RESULTS.mkdir(exist_ok=True)
 LOGS.mkdir(exist_ok=True)
 
-OUT_RAW = RESULTS / "v3_rag_raw.json"
-OUT_PARTIAL = RESULTS / "v3_rag_partial.json"
-OUT_CKPT = RESULTS / "v3_rag_checkpoint.json"
-OUT_COST = RESULTS / "v3_rag_cost_log.json"
+OUT_RAW = RESULTS / "v4_flash_population_three_arm_rag.json"
+OUT_PARTIAL = RESULTS / "v4_flash_population_three_arm_rag_partial.json"
+OUT_CKPT = RESULTS / "v4_flash_population_three_arm_rag_checkpoint.json"
+OUT_COST = RESULTS / "v4_flash_population_three_arm_rag_cost.json"
 
 CONDITION = "cpic_rag"
 N_RUNS = 3
 
-BUDGET_HARD_CAP = 200.0
-BUDGET_SOFT_WARN = 100.0
+BUDGET_HARD_CAP = 15.0
+BUDGET_SOFT_WARN = 12.0
 
 SPACING = {
     "Claude Opus 4": 0.5,
@@ -90,7 +91,7 @@ SPACING = {
     "o3": 0.5,
     "o4-mini": 0.5,
     "Gemini 2.5 Flash": 0.5,
-    "DeepSeek V3": 0.3,
+    "DeepSeek V4 Flash": 0.3,
     "Mistral Large 2": 15.0,
 }
 
@@ -102,7 +103,7 @@ PRICE = {
     "o3": (15.00, 60.00),
     "o4-mini": (1.10, 4.40),
     "Gemini 2.5 Flash": (0.30, 2.50),
-    "DeepSeek V3": (0.27, 1.10),
+    "DeepSeek V4 Flash": (0.27, 1.10),
     "Mistral Large 2": (2.00, 6.00),
 }
 
@@ -117,7 +118,7 @@ FROZEN_MODEL_IDS = {
     "o3": "o3",
     "o4-mini": "o4-mini",
     "Gemini 2.5 Flash": "gemini-2.5-flash",
-    "DeepSeek V3": "deepseek-chat",
+    "DeepSeek V4 Flash": "deepseek-v4-flash",
     "Mistral Large 2": "mistral-large-latest",
 }
 
@@ -130,6 +131,9 @@ MIS_KEY = os.environ.get("MISTRAL_API_KEY", "")
 ant = anthropic.Anthropic(api_key=ANT_KEY)
 oai = openai.OpenAI(api_key=OAI_KEY)
 dsk = openai.OpenAI(api_key=DSK_KEY, base_url="https://api.deepseek.com")
+_ds_spec = spec_from_file_location("deepseek_v4_client_rag", BASE / "code" / "94-deepseek-v4-client.py")
+ds_v4 = module_from_spec(_ds_spec)
+_ds_spec.loader.exec_module(ds_v4)
 
 POPULATIONS = [
     {"id": "EUR", "name": "European family cohort (Corpasome project)",
@@ -202,13 +206,10 @@ def call_oai(model: str, prompt: str) -> tuple[str, int, int]:
     return text, in_tok, out_tok
 
 
-def call_dsk(prompt: str) -> tuple[str, int, int]:
-    r = dsk.chat.completions.create(model="deepseek-chat", max_tokens=600,
-                                    messages=[{"role": "user", "content": prompt}])
-    text = r.choices[0].message.content
-    in_tok = r.usage.prompt_tokens if r.usage else len(prompt) // 4
-    out_tok = r.usage.completion_tokens if r.usage else len(text or "") // 4
-    return text, in_tok, out_tok
+def call_dsk(prompt: str) -> tuple[str, int, int, dict]:
+    result = ds_v4.call_deepseek_v4(dsk, prompt, max_tokens=600)
+    return (result["text"], result["usage"]["input_tokens"],
+            result["usage"]["output_tokens"], result)
 
 
 def call_gem(prompt: str) -> tuple[str, int, int]:
@@ -252,7 +253,7 @@ MODELS: dict[str, Callable[[str], tuple[str, int, int]]] = {
     "o3": lambda p: call_oai(FROZEN_MODEL_IDS["o3"], p),
     "o4-mini": lambda p: call_oai(FROZEN_MODEL_IDS["o4-mini"], p),
     "Gemini 2.5 Flash": call_gem,
-    "DeepSeek V3": call_dsk,
+    "DeepSeek V4 Flash": call_dsk,
     "Mistral Large 2": call_mis,
 }
 
@@ -571,10 +572,10 @@ def main():
     # Set output paths
     suffix = args.suffix or ("_dry" if args.dry_run else "")
     paths = {
-        "raw": RESULTS / f"v3_rag_raw{suffix}.json",
-        "partial": RESULTS / f"v3_rag_partial{suffix}.json",
-        "ckpt": RESULTS / f"v3_rag_checkpoint{suffix}.json",
-        "cost": RESULTS / f"v3_rag_cost_log{suffix}.json",
+        "raw": RESULTS / f"v4_flash_population_three_arm_rag{suffix}.json",
+        "partial": RESULTS / f"v4_flash_population_three_arm_rag_partial{suffix}.json",
+        "ckpt": RESULTS / f"v4_flash_population_three_arm_rag_checkpoint{suffix}.json",
+        "cost": RESULTS / f"v4_flash_population_three_arm_rag_cost{suffix}.json",
     }
 
     # Resume support
@@ -630,13 +631,20 @@ def main():
 
                     try:
                         time.sleep(spacing)
-                        text, in_tok, out_tok = _retry(mfunc, prompt, max_retries=3, base_backoff=2.0)
+                        response = _retry(mfunc, prompt, max_retries=3, base_backoff=2.0)
+                        if len(response) == 4:
+                            text, in_tok, out_tok, provenance = response
+                        else:
+                            text, in_tok, out_tok = response
+                            provenance = None
                         parsed_resp = parse(text)
                         scores = score_preliminary(parsed_resp, tc, pop)
                         entry = {"run": run, "model": mname, "tc": tc["id"],
                                  "gene": tc["gene"], "drug": tc.get("drug", ""), "pop": pop["id"],
                                  "cond": CONDITION, "parsed": parsed_resp, "scores": scores,
                                  "in_tok": in_tok, "out_tok": out_tok}
+                        if provenance is not None:
+                            entry["deepseek_provenance"] = provenance
                         cb = cost_by_model[mname]
                         cb["in_tok"] += in_tok
                         cb["out_tok"] += out_tok
@@ -650,6 +658,8 @@ def main():
                                             "tier_a": 0, "tier_b": 0, "overall": 0, "format_fail": True},
                                  "error": str(e)[:200],
                                  "in_tok": 0, "out_tok": 0}
+                        if hasattr(e, "provenance"):
+                            entry["deepseek_provenance"] = e.provenance
                         logger.error("ERROR [%d/%d] %s | %s | %s | cpic_rag: %s",
                                      count, total, mname, tc["id"], pop["id"], str(e)[:120])
 

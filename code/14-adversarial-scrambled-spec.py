@@ -28,30 +28,37 @@ from __future__ import annotations
 import json
 import os
 import time
+import argparse
+from importlib.util import module_from_spec, spec_from_file_location
 from pathlib import Path
 import openai
 import anthropic
 
 BASE = Path(__file__).resolve().parent.parent
 SPECS = BASE / "specs" / "test_cases_v3.json"
-OUT = BASE / "data" / "v3_adversarial_scrambled.json"
+OUT = BASE / "data" / "v4_flash_adversarial_forward.json"
 REPORT = BASE / "data" / "v3_adversarial_report.txt"
 
 ANT_KEY = os.environ.get("ANTHROPIC_API_KEY", "")
 OAI_KEY = os.environ.get("OPENAI_API_KEY", "")
 DSK_KEY = os.environ.get("DEEPSEEK_API_KEY", "")
 
-ant = anthropic.Anthropic(api_key=ANT_KEY)
-oai = openai.OpenAI(api_key=OAI_KEY)
-dsk = openai.OpenAI(api_key=DSK_KEY, base_url="https://api.deepseek.com")
+ant = oai = dsk = None
+_ds_spec = spec_from_file_location("deepseek_v4_client_forward", BASE / "code" / "94-deepseek-v4-client.py")
+ds_v4 = module_from_spec(_ds_spec)
+_ds_spec.loader.exec_module(ds_v4)
 
 
 def call_ant(model, prompt):
+    global ant
+    ant = ant or anthropic.Anthropic(api_key=ANT_KEY)
     r = ant.messages.create(model=model, max_tokens=600, messages=[{"role": "user", "content": prompt}])
     return r.content[0].text
 
 
 def call_oai(model, prompt):
+    global oai
+    oai = oai or openai.OpenAI(api_key=OAI_KEY)
     try:
         r = oai.chat.completions.create(model=model, max_tokens=600, messages=[{"role": "user", "content": prompt}])
     except Exception:
@@ -60,14 +67,15 @@ def call_oai(model, prompt):
 
 
 def call_dsk(prompt):
-    r = dsk.chat.completions.create(model="deepseek-chat", max_tokens=600, messages=[{"role": "user", "content": prompt}])
-    return r.choices[0].message.content
+    global dsk
+    dsk = dsk or openai.OpenAI(api_key=DSK_KEY, base_url="https://api.deepseek.com")
+    return ds_v4.as_text(ds_v4.call_deepseek_v4(dsk, prompt, max_tokens=600))
 
 
 MODELS = {
     "Claude Opus 4": lambda p: call_ant("claude-opus-4-20250514", p),
     "GPT-5.2": lambda p: call_oai("gpt-5.2", p),
-    "DeepSeek V3": call_dsk,
+    "DeepSeek V4 Flash": call_dsk,
 }
 
 
@@ -195,18 +203,26 @@ def classify_response(text, scrambled_phen, scrambled_drug, truth_phen, truth_dr
     return "UNCLASSIFIED"
 
 
-def main():
+def main(argv=None):
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--pilot-deepseek", action="store_true")
+    ap.add_argument("--deepseek-only", action="store_true")
+    ap.add_argument("--out", type=Path, default=OUT)
+    args = ap.parse_args(argv)
     cases = json.loads(SPECS.read_text())
     cbi = {c["id"]: c for c in cases}
 
     pop = {"id": "EUR", "name": "European family cohort (Corpasome project)", "desc": "European ancestry, whole-genome sequencing"}
-    n_runs = 3
+    n_runs = 1 if args.pilot_deepseek else 3
+    scrambles = SCRAMBLES[:1] if args.pilot_deepseek else SCRAMBLES
+    models = ({"DeepSeek V4 Flash": call_dsk}
+              if args.pilot_deepseek or args.deepseek_only else MODELS)
     results = []
 
-    total = len(SCRAMBLES) * len(MODELS) * n_runs
+    total = len(scrambles) * len(models) * n_runs
     count = 0
 
-    for s in SCRAMBLES:
+    for s in scrambles:
         c = cbi[s["case_id"]]
         prompt = with_spec_prompt(
             s["case_id"], c["gene"], c["genotype"],
@@ -215,9 +231,10 @@ def main():
             s["scrambled_activity"], s["scrambled_drug"],
             c["pop_note"][pop["id"]],
         )
-        for model_name, mfunc in MODELS.items():
+        for model_name, mfunc in models.items():
             for run in range(n_runs):
                 count += 1
+                failure_provenance = None
                 try:
                     time.sleep(0.5)
                     text = mfunc(prompt)
@@ -226,6 +243,7 @@ def main():
                 except Exception as e:
                     text = f"<error: {e}>"
                     classification = "ERROR"
+                    failure_provenance = getattr(e, "provenance", None)
                 row = {
                     "case_id": s["case_id"],
                     "label": s["label"],
@@ -238,10 +256,14 @@ def main():
                     "parsed_drug": parse_drug(text),
                     "classification": classification,
                 }
+                if hasattr(text, "provenance"):
+                    row["deepseek_provenance"] = text.provenance
+                elif failure_provenance is not None:
+                    row["deepseek_provenance"] = failure_provenance
                 results.append(row)
                 print(f"  [{count}/{total}] {model_name} | {s['case_id']} run {run}: {classification}")
 
-    OUT.write_text(json.dumps(results, indent=2))
+    args.out.write_text(json.dumps(results, indent=2))
 
     # Build report
     from collections import Counter

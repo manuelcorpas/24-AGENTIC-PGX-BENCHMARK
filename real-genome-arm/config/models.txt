@@ -15,6 +15,12 @@
 #
 # Mistral is excluded from the headline panel (documented rate-limit artefact
 # under concurrency; see the manuscript Methods).
+#
+# On 2026-08-30 every request sent to the deepseek-chat alias returned
+# deepseek-v4-flash. DeepSeek V3 was not exposed by the provider. This file
+# retains the exact requested label and alias used in that run; the provenance
+# audit relabels the returned real-genome row V4 Flash and does not match it to
+# the frozen V3 curated-benchmark row.
 Claude Opus 4.5      claude-opus-4-5-20251101      anthropic
 Claude Sonnet 4.5    claude-sonnet-4-5-20250929    anthropic
 GPT-5.2              gpt-5.2                       openai-reasoning
@@ -22,4 +28,4 @@ GPT-4.1              gpt-4.1                       openai
 o3                   o3                            openai-reasoning
 o4-mini              o4-mini                       openai-reasoning
 Gemini 2.5 Flash     gemini-2.5-flash              google
-DeepSeek V3          deepseek-chat                 deepseek
+DeepSeek V4 Flash    deepseek-v4-flash             deepseek

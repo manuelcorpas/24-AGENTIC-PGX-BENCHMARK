@@ -1,7 +1,7 @@
 # Manifest: submitted results to authoritative inputs and generators
 
 This is the forward map for the Cell Genomics revision released under tag
-`agentic-pgx-benchmark-v2.8`. Raw JSON evaluation rows are excluded from git by
+`agentic-pgx-benchmark-v2.9`. Raw JSON evaluation rows are excluded from git by
 design and must be downloaded from the Zenodo version cited in the manuscript
 into `data/`; the tracked `.txt` summaries beside them carry the same numbers in
 readable form. The committed frozen file `v3_input_normalisation_eight_model_freeze.json`
@@ -17,35 +17,35 @@ seven display items appear in the main text and the remainder are supplementary.
 | Manuscript item | Authoritative input | Generator or validator |
 |---|---|---|
 | Figure 1, study design | schematic plus matched design constants | `code/46-figure-study-design.py` |
-| Table 1, matched five-cell comparison | `v3_five_cell_live.json`, `v3_five_cell_live_report.txt` | `code/61-rescore-matched.py` |
-| Figure 2, accuracy and lethal-class errors across the five cells | `v3_five_cell_live.json` | `code/70-figures-revision.py` |
-| Table 2, rule tables extracted from guideline prose | `v3_extracted_rules.json`, `v3_extracted_rules_eval.json` | `code/67-extract-rules-from-prose.py`, `code/68-evaluate-extracted-rules.py` |
+| Table 1, matched five-configuration comparison | `v4_flash_eight_model_five_cell.json`, `v4_flash_five_cell_report.txt` | `code/61-rescore-matched.py` |
+| Figure 2, accuracy and lethal-class errors across five configurations | `v4_flash_eight_model_five_cell.json` | `code/70-figures-revision.py` |
+| Table 2, rule tables extracted from guideline prose | `v4_flash_eight_model_extracted_rules.json`, `v4_flash_extracted_rules_eval.json` | `code/67-extract-rules-from-prose.py`, `code/68-evaluate-extracted-rules.py` |
 | Table 3, four-cohort vocabulary coverage | `v3_ancestry_four_cohorts.json` | `code/64-ancestry-matched-analysis.py` |
-| Figure 3, real-genome interpretation across four cohorts | `v3_realgenome_preds_4cohorts.tsv`, `v3_agent_vs_deterministic.json` | `real-genome-arm/scripts/15_agent_vs_deterministic.py`, `code/82-figure7-real-genome.py` |
-| Figure 4, input normalisation with and without definitions | `v3_input_normalisation_eight_model_freeze.json` | `code/85-freeze-eight-model-normalisation.py`, `code/87-figure4-input-normalisation-stacked.py` |
+| Figure 3, real-genome interpretation across four cohorts | `v4_flash_eight_model_realgenome_provider_responses.jsonl`, `v4_flash_realgenome_scored.jsonl`, `v4_flash_agent_vs_deterministic.json`, `v4_flash_realgenome_model_audit.json` | `real-genome-arm/scripts/21_run_agent_four_cohorts.py`, `real-genome-arm/scripts/22_score_agent_realgenome.py`, `code/82-figure7-real-genome.py` |
+| Figure 4, input normalisation with and without definitions | `v4_flash_input_normalisation_eight_model_freeze.json` | `code/85-freeze-eight-model-normalisation.py`, `code/87-figure4-input-normalisation-stacked.py` |
 
 ## Supplementary
 
 | Supplementary item | Authoritative input | Generator or validator |
 |---|---|---|
 | Figure S1, the query issued in each of the five cells | runner dry-run output | `code/84-figure-five-cell-queries.py` |
-| Figure S2, information without action | `v3_five_cell_live.json` | `code/86-figures-s2-s3-five-cell.py` |
-| Figure S3, correctness by coincidence | `v3_five_cell_live.json` | `code/86-figures-s2-s3-five-cell.py` |
+| Figure S2, information without action | `v4_flash_eight_model_five_cell.json` | `code/86-figures-s2-s3-five-cell.py` |
+| Figure S3, correctness by coincidence | `v4_flash_eight_model_five_cell.json` | `code/86-figures-s2-s3-five-cell.py` |
 | Figure S4, residual error localised to the input call | `v3_model_caller_eval.json`, `v3_five_cell_live.json` | `code/70-figures-revision.py` |
 | Figure S5, between-model spread | `v3_five_cell_live.json` | `code/70-figures-revision.py` |
 | Figure S6, four-cohort coverage | `v3_ancestry_four_cohorts.json` | `code/70-figures-revision.py` |
-| Figure S7, bidirectional corrupted contract | `v3_adversarial_scrambled.json`, `v3_adversarial_reverse.json` | `code/80-figure6-adversarial-contract.py` |
-| Figure S8, conditional invariance under population framing | `v3_raw_rescored_three_arm.json`, `v3_armAB_fullgrid.json` | `code/90-figure-s8-conditional-invariance.py` |
-| Figure S9, one lethal-class case across the five configurations | `v3_five_cell_live.json`, `v3_matched_scored_rows_all5.json`, `specs/test_cases_v3.json` | `code/93-figure-s9-worked-case.py` |
-| Table S1, headline metrics under both scorers | `v3_five_cell_live_report.txt` | `code/61-rescore-matched.py`, `code/89-supp-headline-and-per-gene.py` |
-| Table S2, lethal-class errors by locus type | `v3_lethal_case_level.json` | `code/71-lethal-case-level-stats.py` |
-| Table S3, per-gene lethal-class errors | `v3_matched_scored_rows_all5.json` | `code/61-rescore-matched.py`, `code/89-supp-headline-and-per-gene.py` |
-| Table S4, clustered intervals and variance components | `v3_five_cell_live_rows.json` | `code/65-hierarchical-stats.py` |
-| Table S5, crossed random-effects model | `v3_five_cell_live_rows.json`, `v3_crossed_mixed_model.json` | `code/73-crossed-mixed-model.py` |
-| Table S6, bidirectional adversarial specification test | `v3_adversarial_scrambled.json`, `v3_adversarial_reverse.json` | `code/14-adversarial-scrambled-spec.py`, `code/14b-adversarial-reverse-spec.py` |
-| Table S7, retrieval indexing in the six-model rerun | `v3_rag_drugkeyed_fullgrid.json` | `code/62-rag-drugkeyed-fullgrid.py` |
+| Figure S7, bidirectional corrupted contract | `v4_flash_adversarial_forward_panel.json`, `v4_flash_adversarial_reverse_panel.json` | `code/80-figure6-adversarial-contract.py` |
+| Figure S8, conditional invariance under population framing | `v4_flash_population_three_arm_panel.json`, `v4_flash_population_skill_arms_panel.json` | `code/90-figure-s8-conditional-invariance.py` |
+| Figure S9, one lethal-class case across five configurations | `v4_flash_eight_model_five_cell.json`, `v4_flash_matched_scored_rows_all5.json`, `specs/test_cases_v3.json` | `code/93-figure-s9-worked-case.py` |
+| Table S1, headline metrics under both scorers | `v4_flash_five_cell_report.txt` | `code/61-rescore-matched.py`, `code/89-supp-headline-and-per-gene.py` |
+| Table S2, lethal-class errors by locus type | `v4_flash_lethal_case_stats.json` | `code/71-lethal-case-level-stats.py` |
+| Table S3, per-gene lethal-class errors | `v4_flash_matched_scored_rows_all5.json` | `code/61-rescore-matched.py`, `code/89-supp-headline-and-per-gene.py` |
+| Table S4, clustered intervals and variance components | `v4_flash_eight_model_five_cell.json` | `code/65-hierarchical-stats.py` |
+| Table S5, crossed random-effects model | `v4_flash_eight_model_five_cell.json`, `v4_flash_crossed_mixed_model.json` | `code/73-crossed-mixed-model.py` |
+| Table S6, bidirectional adversarial specification test | `v4_flash_adversarial_forward_panel.json`, `v4_flash_adversarial_reverse_panel.json` | `code/14-adversarial-scrambled-spec.py`, `code/14b-adversarial-reverse-spec.py` |
+| Table S7, retrieval indexing in the eight-model rerun | `v4_flash_eight_model_rag_drugkeyed.json` | `code/62-rag-drugkeyed-fullgrid.py` |
 | Table S8, input normalisation by gene | deposited raw normalisation rows, `v3_input_normalisation_eight_model_freeze.json` | `code/88-supp-normalisation-by-gene.py` |
-| Table S9, input-normalisation operational outcomes | `v3_input_normalisation_eight_model_freeze.json` | `code/85-freeze-eight-model-normalisation.py` |
+| Table S9, input-normalisation operational outcomes | `v4_flash_input_normalisation_eight_model_freeze.json` | `code/85-freeze-eight-model-normalisation.py` |
 | Key resources table (STAR Methods, unnumbered) | model identifiers and corpus releases | maintained by hand; `MODEL-VERSIONS.md` |
 
 ## Other reported results
@@ -69,6 +69,15 @@ seven display items appear in the main text and the remainder are supplementary.
 3. `python3 code/81-validate-submission-package.py --package-dir <dir>` against
    the complete submission package.
 4. Rebuild and inspect the figures from the deposited rows.
+
+For Figure 3, the raw JSONL is the immutable provider record. It retains the
+exact prompt and request, complete provider response, returned model identifier,
+raw text, stop reason, usage, response identifier, latency and any error body.
+The scored JSONL is derived from that record and assigns one of four mutually
+exclusive outcomes: correct, abstained, clinically wrong or invalid output.
+`v3_realgenome_model_audit.json` verifies row counts, provider failures, retries,
+returned model identifiers, stop reasons and outcome totals before the figure is
+rendered.
 
 A release is not synchronised until the repository tag, the Zenodo version, the
 manuscript, the supplement, the response letter and the figure files all refer

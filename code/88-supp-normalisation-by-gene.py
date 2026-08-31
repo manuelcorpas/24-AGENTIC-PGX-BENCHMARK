@@ -41,7 +41,7 @@ from pathlib import Path
 
 BASE = Path(__file__).resolve().parent.parent
 DATA = BASE / "data"
-FREEZE = DATA / "v3_input_normalisation_eight_model_freeze.json"
+FREEZE = DATA / "v4_flash_input_normalisation_eight_model_freeze.json"
 OUT_DEFAULT = DATA / "v3_normalisation_by_gene.txt"
 JSON_DEFAULT = DATA / "v3_normalisation_by_gene.json"
 

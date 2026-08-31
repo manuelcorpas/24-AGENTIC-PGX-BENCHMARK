@@ -51,8 +51,8 @@ BASE = Path(__file__).resolve().parent.parent
 DATA = BASE / "data"
 FIGDIR = BASE / "figures"
 
-THREE_ARM = "v3_raw_rescored_three_arm.json"
-FULLGRID = "v3_armAB_fullgrid.json"
+THREE_ARM = "v4_flash_population_three_arm_panel.json"
+FULLGRID = "v4_flash_population_skill_arms_panel.json"
 
 EXCLUDED_MODEL = "Mistral Large 2"
 POPULATIONS = ["EUR", "AMR", "AFR"]

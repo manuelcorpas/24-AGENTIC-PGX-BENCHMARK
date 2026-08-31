@@ -1,0 +1,81 @@
+REAL-GENOME MODEL AUDIT
+
+Claude Opus 4.5
+  rows=536 scorable=353 provider_errors=0 retried=0
+  requested=['claude-opus-4-5-20251101'] returned=['claude-opus-4-5-20251101'] version_match=True analysis_label=Claude Opus 4.5
+  stop_reasons={'end_turn': 536}
+  invalid_reasons={}
+  1000G_IBS: n=95 correct=65 abstained=14 wrong=16 invalid=0
+  CorpasFamily: n=26 correct=19 abstained=3 wrong=4 invalid=0
+  Peru: n=42 correct=25 abstained=11 wrong=6 invalid=0
+  UGR: n=190 correct=84 abstained=75 wrong=31 invalid=0
+
+Claude Sonnet 4.5
+  rows=536 scorable=353 provider_errors=0 retried=0
+  requested=['claude-sonnet-4-5-20250929'] returned=['claude-sonnet-4-5-20250929'] version_match=True analysis_label=Claude Sonnet 4.5
+  stop_reasons={'end_turn': 536}
+  invalid_reasons={}
+  1000G_IBS: n=95 correct=59 abstained=7 wrong=29 invalid=0
+  CorpasFamily: n=26 correct=20 abstained=4 wrong=2 invalid=0
+  Peru: n=42 correct=25 abstained=9 wrong=8 invalid=0
+  UGR: n=190 correct=74 abstained=53 wrong=63 invalid=0
+
+DeepSeek V3
+  rows=536 scorable=353 provider_errors=0 retried=0
+  requested=['deepseek-chat'] returned=['deepseek-v4-flash'] version_match=False analysis_label=DeepSeek V4 Flash
+  stop_reasons={'stop': 536}
+  invalid_reasons={'multiple_phenotype_lines': 1}
+  1000G_IBS: n=95 correct=56 abstained=19 wrong=20 invalid=0
+  CorpasFamily: n=26 correct=14 abstained=6 wrong=6 invalid=0
+  Peru: n=42 correct=19 abstained=12 wrong=11 invalid=0
+  UGR: n=190 correct=50 abstained=110 wrong=29 invalid=1
+
+GPT-4.1
+  rows=536 scorable=353 provider_errors=0 retried=0
+  requested=['gpt-4.1'] returned=['gpt-4.1-2025-04-14'] version_match=True analysis_label=GPT-4.1
+  stop_reasons={'stop': 536}
+  invalid_reasons={}
+  1000G_IBS: n=95 correct=55 abstained=18 wrong=22 invalid=0
+  CorpasFamily: n=26 correct=17 abstained=3 wrong=6 invalid=0
+  Peru: n=42 correct=25 abstained=14 wrong=3 invalid=0
+  UGR: n=190 correct=76 abstained=93 wrong=21 invalid=0
+
+GPT-5.2
+  rows=536 scorable=353 provider_errors=0 retried=0
+  requested=['gpt-5.2'] returned=['gpt-5.2-2025-12-11'] version_match=True analysis_label=GPT-5.2
+  stop_reasons={'stop': 536}
+  invalid_reasons={}
+  1000G_IBS: n=95 correct=59 abstained=24 wrong=12 invalid=0
+  CorpasFamily: n=26 correct=14 abstained=6 wrong=6 invalid=0
+  Peru: n=42 correct=21 abstained=18 wrong=3 invalid=0
+  UGR: n=190 correct=61 abstained=112 wrong=17 invalid=0
+
+Gemini 2.5 Flash
+  rows=536 scorable=353 provider_errors=0 retried=0
+  requested=['gemini-2.5-flash'] returned=['gemini-2.5-flash'] version_match=True analysis_label=Gemini 2.5 Flash
+  stop_reasons={'STOP': 534, 'MAX_TOKENS': 2}
+  invalid_reasons={'truncated_without_phenotype': 1}
+  1000G_IBS: n=95 correct=48 abstained=7 wrong=40 invalid=0
+  CorpasFamily: n=26 correct=15 abstained=3 wrong=8 invalid=0
+  Peru: n=42 correct=20 abstained=8 wrong=14 invalid=0
+  UGR: n=190 correct=65 abstained=28 wrong=96 invalid=1
+
+o3
+  rows=536 scorable=353 provider_errors=0 retried=0
+  requested=['o3'] returned=['o3-2025-04-16'] version_match=True analysis_label=o3
+  stop_reasons={'stop': 535, 'length': 1}
+  invalid_reasons={}
+  1000G_IBS: n=95 correct=71 abstained=13 wrong=11 invalid=0
+  CorpasFamily: n=26 correct=17 abstained=4 wrong=5 invalid=0
+  Peru: n=42 correct=30 abstained=8 wrong=4 invalid=0
+  UGR: n=190 correct=90 abstained=67 wrong=33 invalid=0
+
+o4-mini
+  rows=536 scorable=353 provider_errors=0 retried=0
+  requested=['o4-mini'] returned=['o4-mini-2025-04-16'] version_match=True analysis_label=o4-mini
+  stop_reasons={'stop': 535, 'length': 1}
+  invalid_reasons={'truncated_empty_output': 1}
+  1000G_IBS: n=95 correct=53 abstained=22 wrong=20 invalid=0
+  CorpasFamily: n=26 correct=18 abstained=2 wrong=6 invalid=0
+  Peru: n=42 correct=21 abstained=10 wrong=11 invalid=0
+  UGR: n=190 correct=80 abstained=72 wrong=37 invalid=1

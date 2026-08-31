@@ -1,37 +1,48 @@
-# Model versions used in the corrected revision
+# Model versions used in the V4 Flash revision
 
-The matched five-cell comparison used the same eight-model panel in every cell.
-The mapping below is regenerated from `data/v3_cell_provenance.json` by
-`code/69-cell-provenance.py`.
+The primary matched five-configuration comparison uses the same eight-model
+panel in every configuration. The DeepSeek arm was rerun across every reported
+prompt family on 30 August 2026. All 8,901 canonical requests were explicitly
+issued to `deepseek-v4-flash`, returned `deepseek-v4-flash`, and used disabled
+thinking. No historical DeepSeek response was relabelled.
 
-| Manuscript name | API identifier issued |
-|---|---|
-| Claude Opus 4.5 | `claude-opus-4-5-20251101` |
-| Claude Sonnet 4.5 | `claude-sonnet-4-5-20250929` |
-| DeepSeek V3 | `deepseek-chat` |
-| GPT-4.1 | `gpt-4.1` |
-| GPT-5.2 | `gpt-5.2` |
-| Gemini 2.5 Flash | `gemini-2.5-flash` |
-| o3 | `o3` |
-| o4-mini | `o4-mini` |
+| Manuscript name | API identifier issued | Identifier returned |
+|---|---|---|
+| Claude Opus 4.5 | `claude-opus-4-5-20251101` | retained per provider row |
+| Claude Sonnet 4.5 | `claude-sonnet-4-5-20250929` | retained per provider row |
+| DeepSeek V4 Flash | `deepseek-v4-flash` | `deepseek-v4-flash` |
+| GPT-4.1 | `gpt-4.1` | `gpt-4.1-2025-04-14` where returned |
+| GPT-5.2 | `gpt-5.2` | `gpt-5.2-2025-12-11` where returned |
+| Gemini 2.5 Flash | `gemini-2.5-flash` | `gemini-2.5-flash` |
+| o3 | `o3` | `o3-2025-04-16` where returned |
+| o4-mini | `o4-mini` | `o4-mini-2025-04-16` where returned |
 
-Each model contributed 330 returned records to each cell except Gemini 2.5
-Flash in authored-rule execution, where one prespecified request returned no
-record. That request remains part of the 13,200 attempted denominator and is
-counted as a failure.
+The matched analysis contains 13,200 attempted evaluations. Exactly 13,199
+records returned because one prespecified Gemini 2.5 Flash request in authored
+rule execution returned no record. It remains a failure in the attempted
+denominator.
 
 Mistral Large 2512 (`mistral-large-2512`) is reported only as a paced
 sensitivity analysis and is not part of the common eight-model comparison.
 
-The input-normalisation experiment used seven models in July 2026: Claude Opus
-4.5, Claude Sonnet 4.5, GPT-5.2, GPT-4.1, o3, o4-mini and DeepSeek V3. The
-definition-supplied arm used all 527 variant-call pairs for every model. The
-paired no-definition comparison used all 527 variant-call pairs except for o3,
-whose prespecified gene-stratified arm contains 150 pairs. Claude Opus 4.5,
-GPT-5.2 and o3 also have the original three-rendering no-definition experiment.
+## Figure 3 version boundary
 
-Gemini 2.5 Flash receives no input-normalisation performance estimate because a
-complete comparable run was not collected. Its pilot returned an explicitly
-marked diplotype inside a LaTeX box. The frozen C15 parser accepts that wrapper
-under the same policy used for every model; Gemini is not excluded because of
-formatting, and no result is inferred from the incomplete pilot.
+Figure 3A reports all eight requested models on the four real-genome cohorts.
+Figure 3B pools the seven models with version-matched curated and real-genome
+results. No matched curated V4 Flash result exists, so the DeepSeek real-genome
+row is shown in panel A and is not included in the pooled panel B comparison.
+
+## Input normalisation
+
+The reported input-normalisation analysis uses the common eight-model panel.
+The definition-supplied arm contains all 527 variant-call pairs for every
+model. In the paired no-definition comparison, o3 contains its prespecified
+150-pair gene-stratified arm and the other models contain all 527 pairs.
+
+## Canonical provenance
+
+The ten canonical V4 files and their SHA-256 hashes are fixed in
+`docs/deepseek-v4-flash-rerun-audit-2026-08-30/FULL-RERUN-VALIDATION.json`.
+Provider response identifiers, request and returned model identifiers, thinking
+mode, stop reasons, usage, timestamps, latency, retry history, raw text and
+error bodies are retained where supplied by the provider and runner.

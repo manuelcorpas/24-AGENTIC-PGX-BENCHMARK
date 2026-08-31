@@ -6,9 +6,11 @@ Every script reads and writes here; no renaming or relocation step is required.
 
 ## Synchronized corrected revision dataset
 
-DOI 10.5281/zenodo.22141182 (version 1.8.0) is the exact data snapshot paired
-with repository tag `agentic-pgx-benchmark-v2.8`. It contains the corrected raw response rows, the
-seven-model frozen analysis, source hashes, release notes and provenance record.
+DOI 10.5281/zenodo.22141182, version 1.8.0, is the canonical DeepSeek V4
+Flash data snapshot paired with repository tag
+`agentic-pgx-benchmark-v2.9`. It contains the ten hash-bound V4 raw files, the
+common eight-model analysis files, source hashes, release notes and provenance
+records.
 
 DOI 10.5281/zenodo.21736175 is superseded. During version import Zenodo retained
 nine same-named pre-C15 files instead of replacing them; the v1.4.1 public-side

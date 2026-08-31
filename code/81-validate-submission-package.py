@@ -15,7 +15,9 @@ NS = {"w": "http://schemas.openxmlformats.org/wordprocessingml/2006/main"}
 # and the file therefore validated a package that no longer existed (v55 / v32 /
 # v37) while the submitted package was v70 / v41 / v63. A validator pinned to
 # superseded filenames does not fail loudly, it fails to run, which is worse.
-DEFAULT_TAG = "agentic-pgx-benchmark-v2.4"
+DEFAULT_TAG = "agentic-pgx-benchmark-v2.9"
+RELEASE_VERSION = "1.8.0"
+REQUIRED_MODEL = "DeepSeek V4 Flash"
 
 
 def docx_text(path: Path, prose_only: bool = False) -> str:
@@ -72,6 +74,43 @@ def latest(directory: Path, stem: str) -> Path:
     return hits[-1] if hits else directory / f"{stem}-vNONE.docx"
 
 
+def resolve_submission_documents(directory: Path) -> dict[str, Path]:
+    """Resolve the numbered filenames used by the live submission package."""
+    stems = {
+        "manuscript": "00-Manuscript",
+        "supplement": "01-Supplementary",
+        "response": "02-Response-to-Reviewers",
+        "cover": "03-Cover-Letter",
+        "declaration": "04-Declaration-of-Interests",
+    }
+    return {label: latest(directory, stem) for label, stem in stems.items()}
+
+
+def validate_release_manifest(directory: Path, manifest: dict,
+                              version_doi: str) -> list[str]:
+    failures = []
+    release = manifest.get("release", {})
+    expected = {
+        "tag": DEFAULT_TAG,
+        "version": RELEASE_VERSION,
+        "version_doi": f"10.5281/zenodo.{version_doi}",
+    }
+    for key, value in expected.items():
+        if release.get(key) != value:
+            failures.append(f"release manifest {key}: {release.get(key)!r} != {value!r}")
+    if manifest.get("missing"):
+        failures.append(f"release manifest records missing files: {manifest['missing']}")
+    for item in manifest.get("files", []):
+        path = directory / item["path"]
+        if not path.exists():
+            failures.append(f"release file missing: {item['path']}")
+        elif sha(path) != item["sha256"]:
+            failures.append(f"release checksum mismatch: {item['path']}")
+        elif path.stat().st_size != item["size"]:
+            failures.append(f"release size mismatch: {item['path']}")
+    return failures
+
+
 def main(argv=None) -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--package-dir", type=Path, required=True,
@@ -81,14 +120,12 @@ def main(argv=None) -> int:
                     help="Zenodo version DOI number, e.g. 21905387. Required "
                          "because the whole point is that the archive and the "
                          "package name the same thing.")
+    ap.add_argument("--release-dir", type=Path, required=True,
+                    help="staged Zenodo directory containing RELEASE-MANIFEST.json")
     args = ap.parse_args(argv)
     pack = args.package_dir
     figures = pack / "figures".upper()
-    paths = {
-        "manuscript": latest(pack, "Cell-Genomics-Manuscript"),
-        "supplement": latest(pack, "Cell-Genomics-Supplementary"),
-        "response_docx": latest(pack, "Response-to-Reviewers"),
-    }
+    paths = resolve_submission_documents(pack)
     failures = []
     for label, path in paths.items():
         if not path.exists():
@@ -100,22 +137,25 @@ def main(argv=None) -> int:
 
     manuscript = docx_text(paths["manuscript"])
     supplement = docx_text(paths["supplement"])
-    response = docx_text(paths["response_docx"])
-    response_md = ""
-    all_text = manuscript + supplement + response
+    response = docx_text(paths["response"])
+    cover = docx_text(paths["cover"])
+    declaration = docx_text(paths["declaration"])
+    all_text = manuscript + supplement + response + cover + declaration
 
     required = {
         "manuscript": [
             "Validated skills are necessary but not sufficient for trustworthy agentic genomics",
             "13,200 attempted evaluations",
             "13,199",
-            args.tag,
+            args.tag, REQUIRED_MODEL,
         ],
         "supplement": ["configuration", args.tag],
-        "response": ["matched five-configuration comparison", args.tag],
+        "response": ["matched five-configuration comparison", args.tag, REQUIRED_MODEL],
+        "cover": [args.tag, REQUIRED_MODEL],
+        "declaration": [args.tag],
     }
     haystacks = {"manuscript": manuscript, "supplement": supplement,
-                 "response": response}
+                 "response": response, "cover": cover, "declaration": declaration}
     for group, needles in required.items():
         for needle in needles:
             if needle not in haystacks[group]:
@@ -125,6 +165,7 @@ def main(argv=None) -> int:
         "iTrustworthy", "one of three models", "two of three models",
         "Gemini 2.5 Flash is excluded", "ZENODO_VERSION_DOI_PENDING",
         "public tag has not been pushed",
+        "DeepSeek V3", "deepseek-chat",
         # The vocabulary retired on 16 August. "cell" survives legitimately in
         # the journal name and in one deposited filename, so this looks only for
         # the arm sense, which is the one that was renamed.
@@ -133,7 +174,7 @@ def main(argv=None) -> int:
         # this run is validating against. Hardcoding v2.3 here made the check
         # contradict its own --tag argument.
         *[t for t in ("agentic-pgx-benchmark-v2.2", "agentic-pgx-benchmark-v2.3",
-                      "agentic-pgx-benchmark-v2.4") if t != args.tag],
+                      "agentic-pgx-benchmark-v2.4", "agentic-pgx-benchmark-v2.8") if t != args.tag],
     ]
     for needle in retired:
         if needle and needle.lower() in all_text.lower():
@@ -141,7 +182,9 @@ def main(argv=None) -> int:
 
     prose_text = (docx_text(paths["manuscript"], prose_only=True)
                   + docx_text(paths["supplement"], prose_only=True)
-                  + docx_text(paths["response_docx"], prose_only=True))
+                  + docx_text(paths["response"], prose_only=True)
+                  + docx_text(paths["cover"], prose_only=True)
+                  + docx_text(paths["declaration"], prose_only=True))
     for dash, label in (("\u2014", "em dash"), ("\u2013", "en dash")):
         if dash in prose_text:
             failures.append(f"{label} present in submission prose")
@@ -159,6 +202,15 @@ def main(argv=None) -> int:
 
     for path in paths.values():
         failures.extend(structural_docx_failures(path))
+
+    release_manifest = args.release_dir / "RELEASE-MANIFEST.json"
+    if not release_manifest.exists():
+        failures.append(f"missing release manifest: {release_manifest}")
+    else:
+        import json
+        failures.extend(validate_release_manifest(
+            args.release_dir, json.loads(release_manifest.read_text()),
+            args.version_doi))
 
     # The separate figure copies are publication TIFFs built from the
     # full-resolution originals, so they are deliberately NOT byte-identical to
@@ -211,7 +263,8 @@ def main(argv=None) -> int:
         print(f"\n{len(failures)} package checks failed")
         return 1
     print(f"PASS: {paths['manuscript'].name}, {paths['supplement'].name}, "
-          f"{paths['response_docx'].name} and all thirteen publication TIFFs agree")
+          f"{paths['response'].name}, {paths['cover'].name}, "
+          f"{paths['declaration'].name} and all thirteen publication TIFFs agree")
     print(f"PASS: release tag {args.tag}; version DOI zenodo.{args.version_doi}; "
           "no stale claim, comment or tracked change")
     return 0

@@ -41,9 +41,9 @@ from pathlib import Path
 BASE = Path(__file__).resolve().parent.parent
 CODE = Path(__file__).resolve().parent
 CORPUS_FILE = BASE / "specs" / "cpic_rag_corpus_v3.json"
-OUT_DEFAULT = BASE / "data" / "v3_extracted_rules.json"
+OUT_DEFAULT = BASE / "data" / "v4_flash_extracted_rules.json"
 
-DEFAULT_MODELS = ("GPT-5.2", "Claude Opus 4.5", "o3")
+DEFAULT_MODELS = ("DeepSeek V4 Flash",)
 
 
 def _load(path: Path, name: str):
@@ -158,6 +158,7 @@ def build_extractors() -> dict:
     oai = openai.OpenAI(api_key=key("OPENAI_API_KEY"))
     dsk = openai.OpenAI(api_key=key("DEEPSEEK_API_KEY"),
                         base_url="https://api.deepseek.com")
+    ds_v4 = _load(CODE / "94-deepseek-v4-client.py", "deepseek_v4_client_rules")
     gem_key = key("GOOGLE_API_KEY")
     sem = {"anthropic": threading.Semaphore(4), "openai": threading.Semaphore(4),
            "gemini": threading.Semaphore(2), "deepseek": threading.Semaphore(2)}
@@ -197,11 +198,9 @@ def build_extractors() -> dict:
 
     def _dsk(p):
         with sem["deepseek"]:
-            r = dsk.chat.completions.create(
-                model="deepseek-chat", max_tokens=8000,
-                messages=[{"role": "user", "content": p}])
-            return (r.choices[0].message.content,
-                    r.usage.prompt_tokens, r.usage.completion_tokens)
+            result = ds_v4.call_deepseek_v4(dsk, p, max_tokens=32000)
+            return (result["text"], result["usage"]["input_tokens"],
+                    result["usage"]["output_tokens"], result)
 
     return {
         "Claude Opus 4.5":   lambda p: _ant("claude-opus-4-5-20251101", p),
@@ -211,7 +210,7 @@ def build_extractors() -> dict:
         "o3":                lambda p: _oai("o3", p, reasoning=True),
         "o4-mini":           lambda p: _oai("o4-mini", p, reasoning=True),
         "Gemini 2.5 Flash":  _gem,
-        "DeepSeek V3":       _dsk,
+        "DeepSeek V4 Flash": _dsk,
     }
 
 
@@ -256,13 +255,20 @@ def main(argv=None) -> int:
         if spend is not None:
             spend.check()
         try:
-            text, in_tok, out_tok = fn(prompt)
+            response = fn(prompt)
+            if len(response) == 4:
+                text, in_tok, out_tok, provenance = response
+            else:
+                text, in_tok, out_tok = response
+                provenance = None
             if spend is not None:
                 spend.add(model, in_tok, out_tok)
         except Exception as exc:                                   # noqa: BLE001
             # Must be recorded under the lock like any other outcome. Returning
             # it without appending made the error tally structurally always 0.
             row = {"gene": gene, "model": model, "error": f"{type(exc).__name__}: {exc}"}
+            if hasattr(exc, "provenance"):
+                row["deepseek_provenance"] = exc.provenance
             with lock:
                 results.append(row)
                 print(f"  {gene:12s} {model:18s} ERROR {row['error'][:70]}")
@@ -284,6 +290,8 @@ def main(argv=None) -> int:
             "cost_usd": round(runner.Spend.cost(model, in_tok, out_tok), 6),
             "raw": text,
         }
+        if provenance is not None:
+            row["deepseek_provenance"] = provenance
         with lock:
             results.append(row)
             print(f"  {gene:12s} {model:18s} "

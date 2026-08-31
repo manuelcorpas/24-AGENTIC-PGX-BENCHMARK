@@ -1,31 +1,5 @@
 #!/usr/bin/env python3
-"""
-Stage the synchronized Zenodo revision deposit and record its provenance.
-
-WHY THIS EXISTS
-Two outstanding items close together here.
-
-R2.6 asked that the reproducibility package match the manuscript. The raw
-evaluation rows are gitignored by design (they are large, and data/README.md
-sends a reader to Zenodo for them), so "the repository matches the manuscript"
-is only true once the revision's raw data is actually deposited. Until then the
-tag carries the code and the DOI carries the previous version's data.
-
-The second item is provenance. The raw rows carry per-call input tokens, output
-tokens and cost, but no timestamps and no provider response IDs: they were never
-captured and cannot be reconstructed. A Zenodo deposit does not invent them, but
-it does supply something the project currently lacks entirely, which is an
-EXTERNALLY ATTESTED DATE. After deposit, the raw rows are bounded above by a
-publication date Zenodo records and we do not control. Combined with the
-provider billing period, which bounds the spend, that is the strongest
-provenance claim the surviving evidence supports, and it is weaker than
-per-call timestamps would have been. This script writes that statement rather
-than leaving the letter to overclaim.
-
-USAGE
-    python code/76-stage-zenodo-revision.py --out ~/Desktop/ZENODO-v1.4.1 \
-        --tag agentic-pgx-benchmark-v2.3
-"""
+"""Stage the hash-bound DeepSeek V4 Flash Zenodo release package."""
 from __future__ import annotations
 
 import argparse
@@ -33,223 +7,177 @@ import hashlib
 import json
 import shutil
 import subprocess
+from dataclasses import dataclass
+from datetime import datetime, timezone
 from pathlib import Path
 
 BASE = Path(__file__).resolve().parent.parent
-DATA = BASE / "data"
+AUDIT = BASE / "docs" / "deepseek-v4-flash-rerun-audit-2026-08-30"
+RELEASE_VERSION = "1.8.0"
+RELEASE_TAG = "agentic-pgx-benchmark-v2.9"
+MODEL_LABEL = "DeepSeek V4 Flash"
+REQUEST_MODEL = "deepseek-v4-flash"
+RETURNED_MODEL = "deepseek-v4-flash"
+THINKING_MODE = "disabled"
 
-# The raw and derived files the revision's reported numbers are computed from.
-# Anything a manuscript number depends on belongs here; anything else does not.
-FILES = [
-    "v3_five_cell_live.json",            # matched factorial, raw rows
-    "v3_five_cell_live_rows.json",       # scored rows
-    "v3_five_cell_live_scored.json",
-    "v3_five_cell_live_stats.json",
-    "v3_matched_scored_rows.json",
-    "v3_extracted_rules.json",           # R2.7 extraction experiment
-    "v3_extracted_rules_eval.json",
-    "v3_getrm_caller_truth.json",        # GeT-RM external truth
-    "v3_getrm_disagreement_classes.json",
-    "v3_caller_truth_eval.json",
-    "v3_ancestry_four_cohorts.json",     # four-cohort rerun
-    "v3_ancestry_matched.json",
-    "v3_agent_vs_deterministic.json",
-    "v3_realgenome_preds_4cohorts.tsv", # Figure 7, four-cohort raw predictions
-    "v3_pharmcat_comparison.json",
-    "v3_crossed_mixed_model.json",       # R2.5 mixed model
-    "v3_hierarchical_stats.json",
-    "v3_lethal_case_level.json",
-    "v3_cell_provenance.json",
-    "v3_adversarial_scrambled.json",    # Figure 6, forward corruption
-    "v3_adversarial_reverse.json",      # Figure 6, reverse corruption
-    "v3_normalisation_inputs.json",      # R1.1 input normalisation, frozen inputs
-    "v3_input_normalisation_main.json",  # arm 1, Claude + GPT-5.2
-    "v3_input_normalisation_o3.json",    # arm 1, o3 subsample
-    "v3_input_normalisation_defs.json",  # arm 2, the result that changed the conclusion
-    "v3_input_normalisation_o3_retry.json",  # the 429 batch: all error, deposited anyway
-    "v3_input_normalisation_eval.json",
-    "v3_normalisation_disagreement_classes.json",
-    "v3_input_normalisation_defs_tail.json",   # arm 2, the final 45 pairs
-    "v3_input_normalisation_defs_gpt52.json",  # arm 2, GPT-5.2
-    "v3_input_normalisation_defs_o3.json",     # arm 2, o3
-    "v3_input_normalisation_defs_deepseek.json",
-    "v3_input_normalisation_defs_sonnet_gpt41_o4mini.json",
-    "v3_input_normalisation_defs_sonnet_gpt41_o4mini_rest.json",
-    "v3_input_normalisation_nodefs_four.json",
-    "v3_input_normalisation_nodefs_gemini.json",
-    "v3_input_normalisation_nodefs_o3_527.json",   # o3 extended to all 527 pairs
-    "v3_input_normalisation_defs_gemini.json",
-    "v3_input_normalisation_seven_model_freeze.json",   # superseded, kept for provenance
-    "v3_input_normalisation_eight_model_freeze.json",   # the analysis actually reported
-    "v3_matched_scored_rows_all5.json",   # unrounded scored rows; the C17 check reads these
-    "v3_rag_genedrug_chunking.json",
-    "v3_armA9_armBv2_POP.json",           # population framing, supplementary invariance figure
+_VALIDATION = json.loads((AUDIT / "FULL-RERUN-VALIDATION.json").read_text())
+CANONICAL_V4_FILES = {job["path"]: job["sha256"] for job in _VALIDATION["jobs"]}
+
+# Historical non-DeepSeek arms reconstruct the common panel. V4 merged and
+# derived files replace only the DeepSeek arm in the reported analyses.
+SUPPORTING_DATA_FILES = [
+    "data/v3_five_cell_live.json", "data/v3_five_cell_live_rows.json",
+    "data/v3_five_cell_live_scored.json", "data/v3_five_cell_live_stats.json",
+    "data/v3_matched_scored_rows.json", "data/v3_matched_scored_rows_all5.json",
+    "data/v3_extracted_rules.json", "data/v3_getrm_caller_truth.json",
+    "data/v3_getrm_disagreement_classes.json", "data/v3_caller_truth_eval.json",
+    "data/v3_ancestry_four_cohorts.json", "data/v3_ancestry_matched.json",
+    "data/v3_pharmcat_comparison.json", "data/v3_normalisation_inputs.json",
+    "data/v3_input_normalisation_main.json", "data/v3_input_normalisation_o3.json",
+    "data/v3_input_normalisation_defs.json", "data/v3_input_normalisation_o3_retry.json",
+    "data/v3_input_normalisation_eval.json", "data/v3_normalisation_disagreement_classes.json",
+    "data/v3_input_normalisation_defs_tail.json", "data/v3_input_normalisation_defs_gpt52.json",
+    "data/v3_input_normalisation_defs_o3.json",
+    "data/v3_input_normalisation_defs_sonnet_gpt41_o4mini.json",
+    "data/v3_input_normalisation_defs_sonnet_gpt41_o4mini_rest.json",
+    "data/v3_input_normalisation_nodefs_four.json", "data/v3_input_normalisation_nodefs_gemini.json",
+    "data/v3_input_normalisation_nodefs_o3_527.json", "data/v3_input_normalisation_defs_gemini.json",
+    "data/v3_rag_genedrug_chunking.json", "data/v3_armA9_armBv2_POP.json",
+    "data/v4_flash_eight_model_five_cell.json", "data/v4_flash_five_cell_scored.json",
+    "data/v4_flash_matched_scored_rows_all5.json", "data/v4_flash_hierarchical_stats.json",
+    "data/v4_flash_crossed_mixed_model.json", "data/v4_flash_eight_model_extracted_rules.json",
+    "data/v4_flash_extracted_rules_eval.json", "data/v4_flash_eight_model_rag_drugkeyed.json",
+    "data/v4_flash_rag_drugkeyed_scored_rows.json", "data/v4_flash_rag_drugkeyed_summary.json",
+    "data/v4_flash_adversarial_forward_panel.json", "data/v4_flash_adversarial_reverse_panel.json",
+    "data/v4_flash_population_three_arm_panel.json", "data/v4_flash_population_skill_arms_panel.json",
+    "data/v4_flash_input_normalisation_eight_model_freeze.json",
+    "data/v4_flash_eight_model_realgenome_provider_responses.jsonl",
+    "data/v4_flash_realgenome_scored.jsonl", "data/v4_flash_realgenome_model_audit.json",
+    "data/v4_flash_agent_vs_deterministic.json",
+]
+TEXT_FILES = [
+    "CORRECTIONS.md", "MODEL-VERSIONS.md", "data/MANIFEST.md", "data/README.md",
+    "data/v4_flash_five_cell_report.txt", "data/v4_flash_extracted_rules_eval.txt",
+    "data/v4_flash_hierarchical_stats.txt", "data/v4_flash_crossed_mixed_model.txt",
+    "data/v4_flash_lethal_case_stats.txt", "data/v4_flash_rag_drugkeyed_report.txt",
+    "data/v4_flash_realgenome_model_audit.txt", "data/v4_flash_supp_tables_s1_s3.txt",
+    "docs/deepseek-v4-flash-rerun-audit-2026-08-30/RERUN-MANIFEST.json",
+    "docs/deepseek-v4-flash-rerun-audit-2026-08-30/FULL-RERUN-VALIDATION.json",
+    "docs/deepseek-v4-flash-rerun-audit-2026-08-30/SOURCE-HASHES.tsv",
 ]
 
-PROVENANCE = """# Provenance of the raw evaluation rows
+@dataclass(frozen=True)
+class StagedFile:
+    path: str
+    size: int
+    sha256: str
+    role: str
 
-## What every row carries
+@dataclass(frozen=True)
+class StageResult:
+    files: tuple[StagedFile, ...]
+    missing: tuple[str, ...]
 
-Each evaluation row records the model it was sent to, the exact prompt inputs
-(or the hash that freezes them), the raw response text, input tokens, output
-tokens and cost in USD. Per-cell totals regenerate from these rows via
-`code/69-cell-provenance.py`.
+def sha256(path: Path) -> str:
+    digest = hashlib.sha256()
+    with path.open("rb") as handle:
+        for chunk in iter(lambda: handle.read(1 << 20), b""):
+            digest.update(chunk)
+    return digest.hexdigest()
 
-## What no row carries, and why it cannot be added
+def _copy(relative: str, out: Path, role: str) -> StagedFile | None:
+    source = BASE / relative
+    if not source.exists():
+        return None
+    destination = out / Path(relative).name
+    shutil.copy2(source, destination)
+    return StagedFile(destination.name, destination.stat().st_size, sha256(destination), role)
 
-No row carries a wall-clock timestamp or a provider response ID. These were not
-captured at run time. They are not reconstructable after the fact: the provider
-APIs used here do not expose a per-response lookup keyed by content, and the
-run logs that might have carried them were not retained. We state this rather
-than reconstructing an approximate time from file modification dates, which
-would be a local artefact presented as evidence.
+def _verify_canonical_sources() -> None:
+    failures = []
+    for relative, expected in CANONICAL_V4_FILES.items():
+        path = BASE / relative
+        actual = sha256(path) if path.exists() else None
+        if actual != expected:
+            failures.append(f"{relative}: expected {expected}, found {actual}")
+    if failures:
+        raise ValueError("Canonical V4 source gate failed:\n" + "\n".join(failures))
 
-## What bounds the runs instead
-
-Two external bounds, neither of which we control:
-
-1. **This Zenodo deposit.** Its publication date is recorded by Zenodo and
-   places an upper bound on when the raw rows were produced.
-2. **The provider billing period.** The per-row costs sum to the totals in
-   `data/v3_cell_provenance.txt`; the corresponding provider invoices place the
-   spend, and therefore the calls, inside a billing window that the provider
-   dates independently of us.
-
-Together these bound the runs from outside the project. They are weaker than
-per-call timestamps, and we do not present them as equivalent.
-"""
-
-RELEASE_NOTES = """# Version 1.6.0 release notes
-
-Prepared 12 August 2026 for the Cell Genomics revision titled "Validated skills
-are necessary but not sufficient for trustworthy agentic genomics".
-
-This version supersedes v1.5.0, which predated the whole-genome family rerun and
-therefore did not contain the data behind the four-cohort coverage table, the
-real-genome figure or the deterministic-arm coverages. Six files are replaced
-and nine are added.
-
-**Replaced.** `v3_ancestry_four_cohorts.json`, `v3_ancestry_matched.json`,
-`v3_agent_vs_deterministic.json` and `v3_realgenome_preds_4cohorts.tsv` carry
-the four whole-genome family members in place of the SNP-chip arm: the family
-moves from 40 distinct states to 37, from 27.5% to 21.6% vocabulary coverage,
-and the deterministic arm from 33.3% to 29.2%. The other three cohorts are
-byte-identical, which is the control. `v3_extracted_rules_eval.json` covers all
-eight models; the deposited copy held three, while the manuscript reported
-eight. `CORRECTIONS.md` adds C17.
-
-**Added.** The eight-model input-normalisation freeze that the reported figures
-actually use, its Gemini and extended-o3 source rows, the unrounded scored rows
-`v3_matched_scored_rows_all5.json` that the registered-number check reads, the
-population-framing rows, and the tracked text summaries so that a reader who
-takes only this deposit can read every reported number without parsing JSON.
-
-**C17.** Recommendation accuracy for the RAG-assisted execution and
-authored-rule generation cells is 0.970455. The scorer's report stores four
-decimals as 0.9705 and the manuscript had rendered that as 97.1%; it is 97.0%.
-The registered-number check was reading the same rounded summary the manuscript
-quoted, so it confirmed the error rather than catching it. It now computes from
-the unrounded rows.
-
-The seven-model freeze remains deposited for provenance and must not be used for
-any submitted number.
-
-Code is pinned by the source archive for tag agentic-pgx-benchmark-v2.3. That
-tag is immutable and is the one cited by the manuscript. See CORRECTIONS.md,
-MODEL-VERSIONS.md, DATA-MANIFEST.md and PROVENANCE.md for scope and limitations.
-"""
-
-
-def sha256(p: Path) -> str:
-    h = hashlib.sha256()
-    with p.open("rb") as fh:
-        for chunk in iter(lambda: fh.read(1 << 20), b""):
-            h.update(chunk)
-    return h.hexdigest()
-
+def stage_release(out: Path, tag: str | None, version_doi: str) -> StageResult:
+    _verify_canonical_sources()
+    out.mkdir(parents=True, exist_ok=True)
+    staged: list[StagedFile] = []
+    missing: list[str] = []
+    for relative in CANONICAL_V4_FILES:
+        item = _copy(relative, out, "canonical V4 raw provider output")
+        (staged if item else missing).append(item or relative)
+    for relative in SUPPORTING_DATA_FILES:
+        if relative in CANONICAL_V4_FILES:
+            continue
+        item = _copy(relative, out, "supporting or derived analysis input")
+        (staged if item else missing).append(item or relative)
+    for relative in TEXT_FILES:
+        item = _copy(relative, out, "release metadata or readable result")
+        (staged if item else missing).append(item or relative)
+    if tag:
+        archive_name = f"24-AGENTIC-PGX-BENCHMARK_{tag}.zip"
+        archive = out / archive_name
+        subprocess.run(["git", "archive", "--format=zip", f"--output={archive}", tag],
+                       cwd=BASE, check=True)
+        staged.append(StagedFile(archive_name, archive.stat().st_size,
+                                 sha256(archive), "immutable tagged source archive"))
+    notes = out / f"RELEASE-NOTES-v{RELEASE_VERSION}.md"
+    notes.write_text(
+        f"# Version {RELEASE_VERSION}\n\n"
+        f"This release replaces every reported DeepSeek V3 arm with {MODEL_LABEL}, "
+        f"requested and returned as `{REQUEST_MODEL}` with thinking disabled. The "
+        f"ten canonical raw files contain {_VALIDATION['canonical_units_unique']:,} "
+        f"unique calls with zero provider errors. It is paired with immutable tag "
+        f"`{RELEASE_TAG}` and version DOI `10.5281/zenodo.{version_doi}`.\n\n"
+        "Figure 3A contains all eight requested models. Figure 3B pools the seven "
+        "models with version-matched curated and real-genome results because no "
+        "matched curated V4 Flash result exists.\n"
+    )
+    staged.append(StagedFile(notes.name, notes.stat().st_size, sha256(notes), "release notes"))
+    manifest_path = out / "RELEASE-MANIFEST.json"
+    manifest = {
+        "schema_version": "agentic-pgx-release-v1",
+        "created_utc": datetime.now(timezone.utc).isoformat(),
+        "release": {"version": RELEASE_VERSION, "tag": RELEASE_TAG,
+                    "version_doi": f"10.5281/zenodo.{version_doi}",
+                    "model_label": MODEL_LABEL, "request_model": REQUEST_MODEL,
+                    "returned_model": RETURNED_MODEL, "thinking_mode": THINKING_MODE},
+        "canonical_v4_validation": {
+            "calls": _VALIDATION["canonical_units_unique"],
+            "provider_errors": _VALIDATION["provider_errors"],
+            "source": "docs/deepseek-v4-flash-rerun-audit-2026-08-30/FULL-RERUN-VALIDATION.json"},
+        "files": [item.__dict__ for item in staged], "missing": missing,
+    }
+    manifest_path.write_text(json.dumps(manifest, indent=2) + "\n")
+    staged.append(StagedFile(manifest_path.name, manifest_path.stat().st_size,
+                             sha256(manifest_path), "machine-readable release manifest"))
+    checksums = out / "CHECKSUMS.sha256"
+    checksums.write_text("".join(f"{item.sha256}  {item.path}\n" for item in staged))
+    staged.append(StagedFile(checksums.name, checksums.stat().st_size,
+                             sha256(checksums), "SHA-256 checksum ledger"))
+    return StageResult(tuple(staged), tuple(missing))
 
 def main(argv=None) -> int:
-    ap = argparse.ArgumentParser(description=__doc__)
-    ap.add_argument("--out", type=Path, required=True)
-    ap.add_argument(
-        "--tag",
-        help="annotated release tag to archive; omit only for a pre-tag dry run",
-    )
-    args = ap.parse_args(argv)
-    args.out.mkdir(parents=True, exist_ok=True)
-
-    staged, missing = [], []
-    for name in FILES:
-        src = DATA / name
-        if not src.exists():
-            missing.append(name)
-            continue
-        shutil.copy2(src, args.out / name)
-        staged.append((name, src.stat().st_size, sha256(src)))
-
-    supplementary = {
-        "CORRECTIONS.md": BASE / "CORRECTIONS.md",
-        "MODEL-VERSIONS.md": BASE / "MODEL-VERSIONS.md",
-        "DATA-MANIFEST.md": DATA / "MANIFEST.md",
-        "DATA-README.md": DATA / "README.md",
-        "v3_five_cell_live_report.txt": DATA / "v3_five_cell_live_report.txt",
-        "v3_extracted_rules_eval.txt": DATA / "v3_extracted_rules_eval.txt",
-        "v3_ancestry_four_cohorts.txt": DATA / "v3_ancestry_four_cohorts.txt",
-        "v3_ancestry_matched.txt": DATA / "v3_ancestry_matched.txt",
-        "v3_normalisation_by_gene.txt": DATA / "v3_normalisation_by_gene.txt",
-        "v3_supp_tables_s1_s3.txt": DATA / "v3_supp_tables_s1_s3.txt",
-        "v3_getrm_disagreement_classes.txt": DATA / "v3_getrm_disagreement_classes.txt",
-    }
-    for name, src in supplementary.items():
-        if not src.exists():
-            missing.append(str(src.relative_to(BASE)))
-            continue
-        dst = args.out / name
-        shutil.copy2(src, dst)
-        staged.append((name, dst.stat().st_size, sha256(dst)))
-
-    provenance = args.out / "PROVENANCE.md"
-    provenance.write_text(PROVENANCE)
-    staged.append((provenance.name, provenance.stat().st_size, sha256(provenance)))
-
-    release_notes = args.out / "RELEASE-NOTES-v1.6.0.md"
-    release_notes.write_text(RELEASE_NOTES)
-    staged.append((release_notes.name, release_notes.stat().st_size,
-                   sha256(release_notes)))
-
-    if args.tag:
-        archive_name = f"24-AGENTIC-PGX-BENCHMARK_{args.tag}.zip"
-        archive = args.out / archive_name
-        try:
-            subprocess.run(
-                ["git", "archive", "--format=zip", f"--output={archive}", args.tag],
-                cwd=BASE,
-                check=True,
-            )
-        except subprocess.CalledProcessError:
-            print(f"Unable to archive tag {args.tag!r}; has it been created?")
-            return 1
-        staged.append((archive_name, archive.stat().st_size, sha256(archive)))
-
-    lines = ["# SHA-256 checksums, synchronized Cell Genomics revision dataset", ""]
-    lines += [f"{h}  {n}" for n, _, h in staged]
-    (args.out / "CHECKSUMS.sha256").write_text("\n".join(lines) + "\n")
-
-    total = sum(s for _, s, _ in staged)
-    print(f"staged {len(staged)} files, {total/1e6:.1f} MB -> {args.out}")
-    for n, s, h in staged:
-        print(f"  {n:44s} {s/1e6:7.2f} MB  {h[:16]}")
-    if missing:
-        print(f"\nMISSING ({len(missing)}), not staged:")
-        for n in missing:
-            print(f"  {n}")
-        print("\nDeposit is incomplete until these exist. Not writing a manifest "
-              "that claims otherwise.")
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--out", required=True, type=Path)
+    parser.add_argument("--tag")
+    parser.add_argument("--version-doi", required=True)
+    args = parser.parse_args(argv)
+    result = stage_release(args.out, args.tag, args.version_doi)
+    total = sum(item.size for item in result.files)
+    print(f"staged {len(result.files)} files, {total / 1e6:.1f} MB -> {args.out}")
+    if result.missing:
+        for relative in result.missing:
+            print(f"MISSING: {relative}")
         return 1
-    suffix = " including the tagged source archive" if args.tag else " (pre-tag dry run)"
-    print(f"\nAll files present{suffix}. Upload this directory to Zenodo as a new version.")
+    print(f"PASS: {len(CANONICAL_V4_FILES)} canonical V4 files are hash-bound")
+    print(f"PASS: {RELEASE_TAG} / Zenodo {RELEASE_VERSION} metadata staged")
     return 0
-
 
 if __name__ == "__main__":
     raise SystemExit(main())

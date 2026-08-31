@@ -1,4 +1,4 @@
-# Real-genome arm: agentic pharmacogenomics on real genomes across three continents
+# Real-genome arm: agentic pharmacogenomics across four cohorts
 
 This directory contains the complete, reproducible pipeline for the **real-genome
 validation** of the agentic pharmacogenomics benchmark. It is the empirical
@@ -7,25 +7,31 @@ Perspective (Corpas, Fatumo & Guio, 2026), and the first test of large-scale
 agentic genomic interpretation on **real human genomes** rather than curated cases.
 
 Where the main benchmark uses 110 canonical CPIC cases, this arm runs the agent on
-star-allele diplotypes **actually observed in real individuals** from three
-ancestrally distinct cohorts, called by a single deterministic caller (PyPGx) so the
-cross-population comparison is fair:
+star-allele diplotypes **actually observed in real individuals** from four
+cohorts, called by a single deterministic caller (PyPGx) so the comparison uses
+one input pipeline throughout:
 
 | Cohort | Population | Individuals | Source |
 |---|---|---|---|
 | Uganda Genome Resource (UGR) | East African | 6,407 | controlled-access (DTA) |
 | Peruvian Genome Project | Admixed Latin American (7 subpopulations) | 150 / 736 | published / cohort |
-| Corpas family | European | family genome | personal genome |
+| Corpas family | Spanish European | 4 | personal whole-genome sequences |
+| 1000 Genomes IBS | Iberian European | 93 | 1000 Genomes Project |
 
 The design follows the Perspective's architecture exactly: a **deterministic caller**
 (PyPGx) handles the input step (variants → diplotype), and the **agent** performs the
 interpretation step (diplotype → CPIC phenotype/recommendation). We score the agent
-against the caller's CPIC phenotype and report three things the canonical benchmark
+against the caller's CPIC phenotype and report four mutually exclusive outcomes the canonical benchmark
 cannot show:
 
-1. **Real-genome accuracy** vs the canonical 96.2% (how far curated accuracy transfers).
-2. **Abstention** on uncertain/Indeterminate diplotypes (real genomes are full of them).
-3. **Population/equity behaviour** on ancestry-specific real alleles.
+1. **Correct**, matching the caller's CPIC phenotype.
+2. **Abstained**, an explicit non-answer on a scorable caller state.
+3. **Clinically wrong**, a usable phenotype that does not match the caller.
+4. **Invalid output**, no unique usable `PHENOTYPE:` line, empty output or provider failure.
+
+Caller states labelled `Indeterminate` have no reference phenotype and are
+excluded. `Uncertain Susceptibility` is a valid CPIC phenotype and remains in
+the scored denominator.
 
 ## Pipeline (GRCh37 throughout: no liftover)
 
@@ -34,8 +40,9 @@ data (PLINK or VCF, GRCh37)
   └─ 01_extract_pgx_regions.sh   plink2: extract PGx gene regions -> bgzipped VCF
        └─ 02_call_diplotypes_pypgx.sh   PyPGx run-chip-pipeline per gene (GRCh37)
             └─ 03_aggregate_diplotypes.py   per-(gene,diplotype) table + phenotype
-                 └─ 04_run_agent_realgenome.py   model panel: diplotype -> phenotype
-                      └─ 05_score_report.py   accuracy / abstention / errors by population
+                 └─ 21_run_agent_four_cohorts.py   model panel plus raw provider provenance
+                      └─ 22_score_agent_realgenome.py   four-category scoring and model audit
+                           └─ ../../code/82-figure7-real-genome.py   Figure 3
 ```
 
 ### Quickstart (per cohort)
@@ -50,15 +57,22 @@ scripts/02_call_diplotypes_pypgx.sh /work/ugr_pgx_grch37.vcf.gz /work/ugr_calls 
 # 3. aggregate observed real diplotypes
 python3 scripts/03_aggregate_diplotypes.py /work/ugr_calls UGR /work/ugr_diplotypes.tsv
 
-# 4. run the agent (model panel) on the real diplotypes  (needs API keys in env)
-python3 scripts/04_run_agent_realgenome.py /work/ugr_diplotypes.tsv /work/ugr_predictions.tsv
+# 4. concatenate the four cohort state files, then run the model panel
+#    (needs provider API keys in the environment)
+python3 scripts/21_run_agent_four_cohorts.py
 
-# 5. score + decompose vs cohort CPIC phenotype
-python3 scripts/05_score_report.py /work/ugr_predictions.tsv /work/ugr_report.txt
+# 5. derive four-category scores and the provider/model audit
+python3 scripts/22_score_agent_realgenome.py
+
+# 6. regenerate Figure 3
+python3 ../code/82-figure7-real-genome.py
 ```
 
-Concatenate the per-cohort `*_diplotypes.tsv` before step 4 to score the panel across
-all three populations in one run.
+The runner checkpoints each complete provider response to JSONL and resumes only
+missing or failed calls. It preserves the exact prompt and request, raw provider
+JSON, returned model identifier, response text, stop reason, token usage,
+response identifier, timestamps, latency, retry count and error body. The audit
+requires 536 returned records per model before Figure 3 is generated.
 
 ## Step 7 (N0): end-to-end executed pipeline with abstention
 

@@ -1,0 +1,221 @@
+{
+  "schema_version": "deepseek-paperwide-rerun-v1",
+  "created_utc": "2026-08-30T14:45:00Z",
+  "objective": "Replace every currently reported DeepSeek V3 result with an explicitly pinned, provenance-retaining DeepSeek V4 Flash non-thinking run while preserving the eight-model design.",
+  "target": {
+    "manuscript_label": "DeepSeek V4 Flash",
+    "provider": "deepseek",
+    "endpoint": "https://api.deepseek.com/chat/completions",
+    "request_model_id": "deepseek-v4-flash",
+    "returned_model_gate": "deepseek-v4-flash",
+    "thinking_mode": "disabled",
+    "thinking_parameter": {
+      "extra_body": {
+        "thinking": {
+          "type": "disabled"
+        }
+      }
+    },
+    "sampling": {
+      "temperature": null,
+      "top_p": null
+    },
+    "mode_rationale": "The retired deepseek-chat alias was documented by DeepSeek as routing to the non-thinking mode of V4 Flash. Explicit V4 Flash defaults to thinking enabled, so the rerun must disable thinking to preserve the prior request mode.",
+    "official_sources": [
+      "https://api-docs.deepseek.com/updates/",
+      "https://api-docs.deepseek.com/guides/thinking_mode/",
+      "https://api-docs.deepseek.com/api/create-chat-completion/"
+    ]
+  },
+  "jobs": [
+    {
+      "id": "DSV4-01",
+      "dependency_class": "matched_five_cell",
+      "description": "Five matched configurations, 110 cases, three replicates.",
+      "runner": "code/60-matched-factorial.py",
+      "input_paths": ["specs/test_cases_v3.json", "specs/cpic_rag_corpus_v3.json"],
+      "historical_source": "data/v3_five_cell_live.json",
+      "expected_calls": 1650,
+      "expected_units": "5 cells x 110 cases x 3 replicates",
+      "output_path": "data/v4_flash_five_cell.jsonl",
+      "preserve_existing": true,
+      "downstream": ["Table 1", "Figure 2", "Figure S2", "Figure S3", "Figure S4", "Figure S5", "Figure S9", "Table S1", "Table S2", "Table S3", "Table S4", "Table S5", "per-cell provenance", "headline Results"]
+    },
+    {
+      "id": "DSV4-02",
+      "dependency_class": "extracted_rules",
+      "description": "Extract one rule table from guideline prose for each of 21 genes.",
+      "runner": "code/67-extract-rules-from-prose.py",
+      "input_paths": ["specs/cpic_rag_corpus_v3.json"],
+      "historical_source": "data/v3_extracted_rules.json",
+      "expected_calls": 21,
+      "expected_units": "21 genes x 1 model",
+      "output_path": "data/v4_flash_extracted_rules.json",
+      "preserve_existing": true,
+      "downstream": ["Table 2", "extracted-rule Results", "code/68-evaluate-extracted-rules.py"]
+    },
+    {
+      "id": "DSV4-03",
+      "dependency_class": "adversarial_contract",
+      "description": "Forward corrupted-contract test.",
+      "runner": "code/14-adversarial-scrambled-spec.py",
+      "input_paths": ["specs/test_cases_v3.json"],
+      "historical_source": "data/v3_adversarial_scrambled.json",
+      "expected_calls": 15,
+      "expected_units": "5 cases x 3 replicates",
+      "output_path": "data/v4_flash_adversarial_forward.json",
+      "preserve_existing": true,
+      "downstream": ["Figure S7", "Table S6", "contract-faithfulness Results"]
+    },
+    {
+      "id": "DSV4-04",
+      "dependency_class": "adversarial_contract",
+      "description": "Reverse corrupted-contract test.",
+      "runner": "code/14b-adversarial-reverse-spec.py",
+      "input_paths": ["specs/test_cases_v3.json"],
+      "historical_source": "data/v3_adversarial_reverse.json",
+      "expected_calls": 15,
+      "expected_units": "5 cases x 3 replicates",
+      "output_path": "data/v4_flash_adversarial_reverse.json",
+      "preserve_existing": true,
+      "downstream": ["Figure S7", "Table S6", "contract-faithfulness Results"]
+    },
+    {
+      "id": "DSV4-05",
+      "dependency_class": "drug_keyed_retrieval",
+      "description": "Drug-keyed retrieval in the two retrieval cells.",
+      "runner": "code/62-rag-drugkeyed-fullgrid.py",
+      "input_paths": ["specs/test_cases_v3.json", "specs/cpic_rag_corpus_v3.json"],
+      "historical_source": "data/v3_rag_drugkeyed_fullgrid.json",
+      "expected_calls": 660,
+      "expected_units": "2 cells x 110 cases x 3 replicates",
+      "output_path": "data/v4_flash_rag_drugkeyed.jsonl",
+      "preserve_existing": true,
+      "downstream": ["Table S7", "retrieval-indexing Results"]
+    },
+    {
+      "id": "DSV4-06",
+      "dependency_class": "population_framing",
+      "description": "Earlier three-arm population-framing protocol.",
+      "runner": "code/02-run-benchmark-v3.py for no_spec and with_spec; code/16-run-rag-condition.py for cpic_rag; frozen rescoring path after collection",
+      "input_paths": ["specs/test_cases_v3.json", "specs/cpic_rag_corpus_v3.json"],
+      "historical_source": "data/v3_raw_rescored_three_arm.json",
+      "expected_calls": 2970,
+      "expected_units": "3 conditions x 110 cases x 3 population framings x 3 replicates",
+      "output_path": "data/v4_flash_population_three_arm.jsonl",
+      "preserve_existing": true,
+      "downstream": ["Figure S8", "population-framing supplementary text"]
+    },
+    {
+      "id": "DSV4-07",
+      "dependency_class": "population_framing",
+      "description": "Two skill arms under three population framings.",
+      "runner": "code/43-armAB-fullgrid.py",
+      "input_paths": ["specs/test_cases_v3.json"],
+      "historical_source": "data/v3_armAB_fullgrid.json",
+      "expected_calls": 1980,
+      "expected_units": "2 arms x 110 cases x 3 population framings x 3 replicates",
+      "output_path": "data/v4_flash_population_skill_arms.jsonl",
+      "preserve_existing": true,
+      "downstream": ["Figure S8", "population-framing supplementary text"]
+    },
+    {
+      "id": "DSV4-08",
+      "dependency_class": "input_normalisation",
+      "description": "VCF-only input normalisation without allele definitions.",
+      "runner": "code/74-input-normalisation.py",
+      "input_paths": ["data/v3_normalisation_inputs.json"],
+      "historical_source": "data/v3_input_normalisation_nodefs_four.json",
+      "expected_calls": 527,
+      "expected_units": "527 sample-gene pairs x VCF form",
+      "output_path": "data/v4_flash_input_normalisation_nodefs.json",
+      "preserve_existing": true,
+      "downstream": ["Figure 4", "Table S8", "Table S9", "input-normalisation Results"]
+    },
+    {
+      "id": "DSV4-09",
+      "dependency_class": "input_normalisation",
+      "description": "VCF-only input normalisation with validated allele definitions.",
+      "runner": "code/74-input-normalisation.py --definitions",
+      "input_paths": ["data/v3_normalisation_inputs.json", "PyPGx allele definitions loaded by code/74-input-normalisation.py"],
+      "historical_source": "data/v3_input_normalisation_defs_deepseek.json",
+      "expected_calls": 527,
+      "expected_units": "527 sample-gene pairs x VCF form",
+      "output_path": "data/v4_flash_input_normalisation_defs.json",
+      "preserve_existing": true,
+      "downstream": ["Figure 4", "Table S8", "Table S9", "input-normalisation Results"]
+    },
+    {
+      "id": "DSV4-10",
+      "dependency_class": "real_genome",
+      "description": "Four-cohort distinct-state interpretation rerun with an explicit model identifier.",
+      "runner": "real-genome-arm/scripts/21_run_agent_four_cohorts.py",
+      "input_paths": ["data/n5_four_cohorts.tsv"],
+      "historical_source": "data/v3_realgenome_provider_responses_4cohorts.jsonl",
+      "expected_calls": 536,
+      "expected_units": "536 distinct cohort-gene-diplotype states",
+      "output_path": "data/v4_flash_realgenome_provider_responses.jsonl",
+      "preserve_existing": true,
+      "downstream": ["Figure 3", "real-genome Results", "real-genome Methods", "model audit"]
+    }
+  ],
+  "totals": {
+    "expected_calls": 8901,
+    "known_historical_input_tokens_excluding_population_skill_arms_and_adversarial": 8960598,
+    "known_historical_output_tokens_excluding_population_skill_arms_and_adversarial": 708358,
+    "recommended_hard_spend_cap_usd": 15,
+    "cost_note": "Run a 10-unit pilot for every prompt family before the full batch. Current prices vary by peak period and must be read live from DeepSeek before execution."
+  },
+  "runner_changes_required_before_calls": [
+    "Replace every request model deepseek-chat with deepseek-v4-flash.",
+    "Rename the internal model key from DeepSeek V3 to DeepSeek V4 Flash.",
+    "Pass extra_body thinking.type=disabled on every request.",
+    "Retain request model, returned model, full provider response, stop reason, usage, response ID, timestamps, latency, attempt log and error body in every runner.",
+    "Add per-job output arguments so V4 rows are written separately rather than overwriting historical files.",
+    "Add resume keys that include experiment, model, case or state, condition, population or form and replicate.",
+    "Make a returned model mismatch a hard run failure, not a warning.",
+    "Update prices only for spend control; never use price metadata to infer model identity."
+  ],
+  "merge_policy": {
+    "method": "Replace only rows whose manuscript model label is DeepSeek V3 after every job passes provenance and completeness gates.",
+    "historical_data": "Retain the old rows unchanged under their existing paths and mark their V3 attribution as unverifiable.",
+    "new_canonical_label": "DeepSeek V4 Flash",
+    "new_canonical_request_id": "deepseek-v4-flash",
+    "prohibited": [
+      "Relabelling historical deepseek-chat rows as V4 without rerunning",
+      "Mixing old and new DeepSeek rows within one reported experiment",
+      "Pooling the new model before all eight models have identical units and scoring",
+      "Overwriting a cited Zenodo version or moving an existing public URL"
+    ]
+  },
+  "acceptance_gates": [
+    "all_rows_return_requested_model_id",
+    "no_deepseek_chat_request_alias",
+    "all_expected_units_exactly_once",
+    "no_provider_errors_unaccounted",
+    "stop_reasons_and_output_limits_audited",
+    "thinking_mode_disabled_in_every_request_payload",
+    "input_hashes_match_manifest",
+    "no_overwrite_of_historical_raw_data",
+    "all_derived_statistics_regenerated",
+    "all_manuscript_deepseek_v3_labels_removed",
+    "main_supplement_response_figures_data_code_and_release_agree",
+    "new_immutable_release_tag_and_zenodo_version_created"
+  ],
+  "downstream": {
+    "display_items": [
+      "Table 1", "Figure 2", "Table 2", "Figure 3", "Figure 4",
+      "Figure S2", "Figure S3", "Figure S4", "Figure S5", "Figure S7", "Figure S8", "Figure S9",
+      "Table S1", "Table S2", "Table S3", "Table S4", "Table S5", "Table S6", "Table S7", "Table S8", "Table S9"
+    ],
+    "documents": [
+      "current manuscript", "current supplement", "response to reviewers", "MODEL-VERSIONS.md", "CORRECTIONS.md", "data/MANIFEST.md", "data/README.md"
+    ],
+    "analysis_scripts": [
+      "code/61-rescore-matched.py", "code/65-hierarchical-stats.py", "code/68-evaluate-extracted-rules.py", "code/69-cell-provenance.py", "code/70-figures-revision.py", "code/71-lethal-case-level-stats.py", "code/73-crossed-mixed-model.py", "code/80-figure6-adversarial-contract.py", "real-genome-arm/scripts/22_score_agent_realgenome.py", "code/82-figure7-real-genome.py", "code/85-freeze-eight-model-normalisation.py", "code/86-figures-s2-s3-five-cell.py", "code/87-figure4-input-normalisation-stacked.py", "code/88-supp-normalisation-by-gene.py", "code/89-supp-headline-and-per-gene.py", "code/90-figure-s8-conditional-invariance.py", "code/93-figure-s9-worked-case.py"
+    ],
+    "release_checks": [
+      "code/72-validate-v30-numbers.py", "code/76-stage-zenodo-revision.py", "code/81-validate-submission-package.py"
+    ]
+  }
+}

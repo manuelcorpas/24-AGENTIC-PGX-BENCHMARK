@@ -32,8 +32,8 @@ from importlib.util import spec_from_file_location, module_from_spec
 from concurrent.futures import ThreadPoolExecutor
 
 BASE = Path(__file__).resolve().parent.parent
-OUT = BASE / "data" / "v3_armAB_fullgrid.json"
-JSONL = BASE / "data" / "v3_armAB_fullgrid.jsonl"
+OUT = BASE / "data" / "v4_flash_population_skill_arms.json"
+JSONL = BASE / "data" / "v4_flash_population_skill_arms.jsonl"
 REPORT = BASE / "data" / "v3_armAB_fullgrid_report.txt"
 N_REPS = 3
 
@@ -42,6 +42,19 @@ N_REPS = 3
 _sp = spec_from_file_location("h41", str(BASE / "code" / "41-armA9-armBv2.py"))
 h = module_from_spec(_sp)
 _sp.loader.exec_module(h)
+
+_ds_sp = spec_from_file_location("deepseek_v4_client_skill_arms", BASE / "code" / "94-deepseek-v4-client.py")
+ds_v4 = module_from_spec(_ds_sp)
+_ds_sp.loader.exec_module(ds_v4)
+
+def _deepseek_v4(p):
+    result = ds_v4.call_deepseek_v4(h.dsk, p, max_tokens=320)
+    return ds_v4.as_text(result)
+
+h.MODELS.pop("DeepSeek V3", None)
+h.MODELS["DeepSeek V4 Flash"] = _deepseek_v4
+if "--deepseek-only" in sys.argv:
+    h.MODELS = {"DeepSeek V4 Flash": h.MODELS["DeepSeek V4 Flash"]}
 
 # --- harness artifact fixes (identical to 41b-rerun-gemini-mistral.py) ---
 # Gemini 2.5 Flash is a thinking model; 320 output tokens get consumed by reasoning
@@ -113,6 +126,7 @@ _wlock = threading.Lock()
 def run_one_fg(task):
     c, arm, prompt, model, fn, rep, pop = task
     text = ""
+    failure_provenance = None
     for attempt in range(4):
         try:
             text = fn(prompt)
@@ -121,6 +135,7 @@ def run_one_fg(task):
             text = "<empty>"  # empty (e.g. token-budget truncation) -> retry
         except Exception as e:
             text = f"<error: {e}>"
+            failure_provenance = getattr(e, "provenance", failure_provenance)
         time.sleep(2 * (attempt + 1))
     gt_phen, gt_drug = c["gt_phenotype"], c["gt_drug"]
     if arm == "A_reasoning":
@@ -136,6 +151,10 @@ def run_one_fg(task):
          "A1": h.rs.score_a1(pphen, gt_phen), "A2": h.rs.score_a2(pdrug, gt_drug),
          "A3": h.rs.score_a3(pdrug, gt_drug), "lethal": "lethal" in gt_drug.lower(),
          "matched": (pphen != "UNKNOWN") if arm == "B_execution" else None}
+    if hasattr(text, "provenance"):
+        r["deepseek_provenance"] = text.provenance
+    elif failure_provenance is not None:
+        r["deepseek_provenance"] = failure_provenance
     with _wlock:
         with open(JSONL, "a") as f:
             f.write(json.dumps(r) + "\n")
@@ -234,7 +253,7 @@ def main():
     print(f"target {target} calls | cached {len(done)} | to run {len(tasks)}", flush=True)
     results = list(rows)
     d = 0
-    with ThreadPoolExecutor(max_workers=64) as ex:
+    with ThreadPoolExecutor(max_workers=16) as ex:
         for r in ex.map(run_one_fg, tasks):
             results.append(r); d += 1
             if d % 200 == 0:
@@ -249,7 +268,17 @@ def main():
 
 
 if __name__ == "__main__":
-    if "--smoke" in sys.argv:
+    if "--pilot-deepseek" in sys.argv:
+        c0 = h.cases[0]
+        pilot_rows = []
+        for arm, builder in (("A_reasoning", armA_prompt_pop), ("B_execution", armB2_prompt_pop)):
+            task = (c0, arm, builder(c0, POPULATIONS[0]), "DeepSeek V4 Flash",
+                    h.MODELS["DeepSeek V4 Flash"], 0, "EUR")
+            pilot_rows.append(run_one_fg(task))
+        pilot_out = BASE / "data" / "v4_flash_population_skill_arms_pilot.json"
+        pilot_out.write_text(json.dumps(pilot_rows, indent=2))
+        print(f"wrote {pilot_out} ({len(pilot_rows)} prompt families)")
+    elif "--smoke" in sys.argv:
         tasks = build_tasks(set())
         print(f"models ({len(h.MODELS)}):", ", ".join(h.MODELS))
         print(f"populations: {[p['id'] for p in POPULATIONS]}  reps={N_REPS}")

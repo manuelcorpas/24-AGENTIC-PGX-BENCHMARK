@@ -1,11 +1,11 @@
 Table S1. Headline metrics for the five matched cells under both scorers.
 
 cell                                  n  coverage  A1 base  A1 equiv  A2 base  A2 equiv  lethal errors  parse fail
-free generation                    2640    99.77%    74.4%     76.9%    62.4%     62.4%             54           6
-RAG generation                     2640    99.17%    82.0%     88.4%    55.1%     55.1%            137          22
-RAG call + authored execution      2640    99.73%    96.5%     96.5%    97.0%     97.0%             23           2
-authored rules, generated          2640    99.81%    96.4%     96.4%    97.0%     97.0%             26           5
-authored rules, executed           2639    99.96%    96.7%     96.7%    97.3%     97.3%             25           0
+free generation                    2640    99.77%    74.3%     76.8%    63.0%     63.0%             46           6
+RAG generation                     2640    99.17%    82.2%     88.7%    55.5%     55.5%            137          22
+RAG call + authored execution      2640    99.77%    96.5%     96.5%    97.0%     97.0%             22           2
+authored rules, generated          2640    99.81%    96.5%     96.5%    97.1%     97.1%             24           5
+authored rules, executed           2639    99.96%    96.7%     96.7%    97.2%     97.2%             23           0
 
 
 Table S3. Per-gene lethal-class errors across the five matched cells.
@@ -13,13 +13,13 @@ Table S3. Per-gene lethal-class errors across the five matched cells.
 gene                           free generation                  RAG generation   RAG call + authored execution       authored rules, generated        authored rules, executed
 HLA-A*31:01                               8/24                           21/24                            0/24                            0/24                            0/24
 HLA-B*15:02                               0/48                           45/48                            0/48                            0/48                            0/48
-HLA-B*57:01                               4/24                           21/24                            0/24                            0/24                            0/24
+HLA-B*57:01                               3/24                           21/24                            0/24                            0/24                            0/24
 HLA-B*58:01                               1/24                            0/24                            0/24                            0/24                            0/24
-DPYD                                     19/48                           12/48                            9/48                           14/48                           12/48
-TPMT                                     12/24                           20/24                           12/24                            8/24                           13/24
-NUDT15                                    9/24                           18/24                            1/24                            3/24                            0/24
+DPYD                                     14/48                           12/48                            9/48                           13/48                           11/48
+TPMT                                     11/24                           20/24                           12/24                            7/24                           12/24
+NUDT15                                    8/24                           18/24                            0/24                            3/24                            0/24
 G6PD                                      1/48                            0/48                            1/48                            1/48                            0/48
 CYP2D6                                    0/24                            0/24                            0/24                            0/24                            0/24
 MT-RNR1                                   0/24                            0/24                            0/24                            0/24                            0/24
 RYR1                                      0/24                            0/24                            0/24                            0/24                            0/24
-all loci                                54/336                         137/336                          23/336                          26/336                          25/336
+all loci                                46/336                         137/336                          22/336                          24/336                          23/336

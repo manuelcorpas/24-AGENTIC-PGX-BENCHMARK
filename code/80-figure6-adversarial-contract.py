@@ -25,8 +25,8 @@ import matplotlib.pyplot as plt
 BASE = Path(__file__).resolve().parent.parent
 DATA = BASE / "data"
 FIGURES = BASE / "figures"
-FORWARD = DATA / "v3_adversarial_scrambled.json"
-REVERSE = DATA / "v3_adversarial_reverse.json"
+FORWARD = DATA / "v4_flash_adversarial_forward_panel.json"
+REVERSE = DATA / "v4_flash_adversarial_reverse_panel.json"
 
 ECHO = "#d1495b"
 HEDGE = "#e79aa8"
@@ -59,7 +59,7 @@ def self_test() -> int:
 
     expected = {
         "forward": (45, (43, 2, 0)),
-        "reverse": (45, (45, 0, 0)),
+        "reverse": (45, (44, 1, 0)),
     }
     for label, rows in (("forward", forward), ("reverse", reverse)):
         n, want = expected[label]
@@ -73,7 +73,7 @@ def self_test() -> int:
         for failure in failures:
             print(f"SELF-TEST FAIL: {failure}")
         return 1
-    print("SELF-TEST PASSED: forward 43 echo + 2 hedge; reverse 45 echo; zero reversions")
+    print("SELF-TEST PASSED: forward 43 echo + 2 hedge; reverse 44 echo + 1 hedge; zero reversions")
     return 0
 
 

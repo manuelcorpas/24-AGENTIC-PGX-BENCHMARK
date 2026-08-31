@@ -1,0 +1,21 @@
+{
+  "schema_version": "deepseek-v4-flash-pilot-validation-v1",
+  "validated_utc_date": "2026-08-30",
+  "evidence_path": "pilots/deepseek-v4-flash-pilots.jsonl",
+  "evidence_sha256": "2df67b6e6710e57c6be14416283114cb5b705ef793a5a1ed9a806a1c4ec75f31",
+  "expected_prompt_families": 18,
+  "completed_prompt_families": 18,
+  "unique_prompt_families": 18,
+  "requested_model": "deepseek-v4-flash",
+  "returned_model_counts": {"deepseek-v4-flash": 18},
+  "thinking_mode_counts": {"disabled": 18},
+  "stop_reason_counts": {"stop": 18},
+  "attempt_count_counts": {"1": 18},
+  "provider_errors": 0,
+  "input_tokens": 29019,
+  "output_tokens": 1768,
+  "aggregate_latency_ms": 31538,
+  "operational_gate": "pass",
+  "scientific_rerun_authorised": false,
+  "limitation": "These pilots validate routing, output budgets and provenance capture. They do not establish the scientific results of the full rerun."
+}

@@ -1,0 +1,38 @@
+{
+  "schema_version": "deepseek-v4-flash-full-rerun-validation-v1",
+  "validated_utc_date": "2026-08-30",
+  "authorisation": "AUTHORISE DEEPSEEK V4 FLASH FULL RERUN 8901",
+  "canonical_units_expected": 8901,
+  "canonical_units_completed": 8901,
+  "canonical_units_unique": 8901,
+  "provider_errors": 0,
+  "requested_model": "deepseek-v4-flash",
+  "returned_model": "deepseek-v4-flash",
+  "thinking_mode": "disabled",
+  "input_tokens": 10095507,
+  "output_tokens": 1021874,
+  "estimated_recorded_cost_usd": 3.849848,
+  "canonical_gate": "pass",
+  "scientific_analysis_regenerated": false,
+  "manuscript_updated": false,
+  "jobs": [
+    {"id": "DSV4-01", "units": 1650, "path": "data/v4_flash_five_cell.json", "sha256": "556949689fc4bfc0d39864e4c231099c2567bf4f2aec55f5eb8f4f728daa7b29"},
+    {"id": "DSV4-02", "units": 21, "path": "data/v4_flash_extracted_rules.json", "sha256": "6246ad628f91f7256ed54a8493ce6d2e61be78ac9de3296d42a981340bd52c8d"},
+    {"id": "DSV4-03", "units": 15, "path": "data/v4_flash_adversarial_forward.json", "sha256": "c97a62391190e79fce0cdbfca27b3961e18985af42183efe61ea79c4a4a3673c"},
+    {"id": "DSV4-04", "units": 15, "path": "data/v4_flash_adversarial_reverse.json", "sha256": "85ddab0746d730cf863dc197df0df674d7fbf7c6348157bcd9aadc3662492f73"},
+    {"id": "DSV4-05", "units": 660, "path": "data/v4_flash_rag_drugkeyed.json", "sha256": "3cf293ecc612e6d20d4db5c03641f109ae26acdd940615e49cd36c8937f78be4"},
+    {"id": "DSV4-06", "units": 2970, "path": "data/v4_flash_population_three_arm.json", "sha256": "74ddf155b060f82771235100f8c3e9d6a4ee6183d5d686bef064ec1f183e62cc"},
+    {"id": "DSV4-07", "units": 1980, "path": "data/v4_flash_population_skill_arms.json", "sha256": "88faa8f38fa15bc07016b7f2960d4dc55cca86231661b22d239870bacc20c639"},
+    {"id": "DSV4-08", "units": 527, "path": "data/v4_flash_input_normalisation_nodefs.json", "sha256": "23f86765f1174e3ad1261611277c845b8b2e21f8db550507aefc8e69a0327f64"},
+    {"id": "DSV4-09", "units": 527, "path": "data/v4_flash_input_normalisation_defs.json", "sha256": "eb352d9a8ea87624299abdb8d52bb9876cacf419e947d7d52d6513a9524c1a67"},
+    {"id": "DSV4-10", "units": 536, "path": "data/v4_flash_realgenome_provider_responses.jsonl", "sha256": "e27ea870505cb616a6b938383f5e5eedf4fa96798222616b8312948e219e3195"}
+  ],
+  "excluded_attempts": {
+    "reason": "Rule extraction responses that reached the output-token ceiling were retained for provenance but excluded from the canonical 21-gene result.",
+    "files": [
+      "data/v4_flash_extracted_rules_recovery.json",
+      "data/v4_flash_extracted_rules_mt_rnr1_recovery.json"
+    ]
+  },
+  "next_gate": "Regenerate scoring, statistics, figures, tables and manuscript claims from the ten canonical result files."
+}

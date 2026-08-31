@@ -134,7 +134,7 @@ def test_load_models_covers_the_whole_common_panel(monkeypatch):
                 "DEEPSEEK_API_KEY"):
         monkeypatch.setenv(var, "test-key-not-used")
     panel = ["Claude Opus 4.5", "Claude Sonnet 4.5", "GPT-5.2", "GPT-4.1",
-             "o3", "o4-mini", "Gemini 2.5 Flash", "DeepSeek V3"]
+             "o3", "o4-mini", "Gemini 2.5 Flash", "DeepSeek V4 Flash"]
     clients = norm.load_models(panel)
     assert sorted(clients) == sorted(panel)
     assert all(callable(c) for c in clients.values())

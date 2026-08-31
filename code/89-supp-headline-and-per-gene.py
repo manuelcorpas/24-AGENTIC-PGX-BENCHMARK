@@ -27,12 +27,13 @@ from __future__ import annotations
 import argparse
 import json
 import sys
+from decimal import Decimal, ROUND_HALF_UP
 from pathlib import Path
 
 BASE = Path(__file__).resolve().parent.parent
 DATA = BASE / "data"
-REPORT = DATA / "v3_five_cell_live_report.txt"
-SCORED = DATA / "v3_matched_scored_rows_all5.json"
+REPORT = DATA / "v4_flash_five_cell_report.txt"
+SCORED = DATA / "v4_flash_matched_scored_rows_all5.json"
 
 # Display order and the labels used in the manuscript, so the supplement and
 # the main text name the same five cells in the same sequence.
@@ -84,7 +85,10 @@ def parse_report(text: str) -> dict[str, dict[str, dict]]:
 
 
 def pct(value: float) -> str:
-    return f"{value * 100:.1f}%"
+    percent = (Decimal(str(value)) * Decimal("100")).quantize(
+        Decimal("0.1"), rounding=ROUND_HALF_UP
+    )
+    return f"{percent}%"
 
 
 def pct2(value: float) -> str:

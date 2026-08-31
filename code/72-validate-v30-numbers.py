@@ -76,7 +76,7 @@ def cell_means() -> dict:
     one decimal place, so the check has to start from a number that has not
     already been rounded to fewer digits than it needs.
     """
-    rows = load("v3_matched_scored_rows_all5.json")
+    rows = load("v4_flash_matched_scored_rows_all5.json")
     if not rows:
         return {}
     out: dict[str, dict[str, float]] = {}
@@ -91,15 +91,15 @@ def cell_means() -> dict:
 
 def build_checks():
     checks = []
-    rep = parse_report(load("v3_five_cell_live_report.txt") or "")
+    rep = parse_report(load("v4_flash_five_cell_report.txt") or "")
     means = cell_means()
     if rep:
         for cell, a1, a2, leth in (
-            ("free_generation", "0.744", "0.624", 54),
-            ("rag_generation", "0.820", "0.551", 137),
-            ("rag_execution", "0.965", "0.970", 23),
-            ("skill_generation", "0.964", "0.970", 26),
-            ("skill_execution", "0.967", "0.973", 25),
+            ("free_generation", "0.743", "0.630", 46),
+            ("rag_generation", "0.822", "0.555", 137),
+            ("rag_execution", "0.965", "0.970", 22),
+            ("skill_generation", "0.966", "0.971", 24),
+            ("skill_execution", "0.967", "0.973", 23),
         ):
             got = rep.get(cell, {})
             exact = means.get(cell)
@@ -118,11 +118,11 @@ def build_checks():
         # in all end-to-end denominators.
         checks.append(("attempted evaluations", "13,200", f"{returned + 1:,}"))
 
-    ext = load("v3_extracted_rules_eval.json")
+    ext = load("v4_flash_extracted_rules_eval.json")
     if ext:
         ae = ext["authored_execution"]
         checks.append(("authored coverage", "0.9996", str(ae["coverage"])))
-        checks.append(("authored accuracy among emitted", "0.968",
+        checks.append(("authored accuracy among emitted", "0.967",
                        f"{ae['accuracy_among_emitted']:.3f}"))
         # Registered against the eight-model extraction reported in Table 2.
         # The earlier 0.627 and 0.645 were the three-model era and had gone
@@ -135,9 +135,9 @@ def build_checks():
                 checks.append((f"extracted coverage, {model}", lo,
                                str(m["execution"]["coverage"])))
 
-    leth = load("v3_lethal_case_level.json")
+    leth = load("v4_flash_lethal_case_stats.json")
     if leth:
-        for name, diff in (("all", "0.247"), ("HLA", "0.617"), ("non-HLA", "0.042")):
+        for name, diff in (("all", "0.271"), ("HLA", "0.625"), ("non-HLA", "0.074")):
             st = leth["strata"].get(name)
             if st:
                 checks.append((f"lethal difference, {name}", diff,
@@ -171,14 +171,14 @@ def build_checks():
     # operational table and these checks. It must be the EIGHT-model freeze:
     # the seven-model file is still deposited for provenance, and registering
     # against it silently checked the manuscript against a superseded panel.
-    freeze = load("v3_input_normalisation_eight_model_freeze.json")
+    freeze = load("v4_flash_input_normalisation_eight_model_freeze.json")
     ev = load("v3_input_normalisation_eval.json")
     if freeze and ev:
         op = freeze["definition_arm_operational_total"]
         checks.extend([
             ("normalisation definition attempts", "4,216", f"{op['attempted']:,}"),
-            ("normalisation definition calls", "3,002", f"{op['call']:,}"),
-            ("normalisation definition abstentions", "1,210", f"{op['abstain']:,}"),
+            ("normalisation definition calls", "2,989", f"{op['call']:,}"),
+            ("normalisation definition abstentions", "1,223", f"{op['abstain']:,}"),
             ("normalisation definition truncations", "four truncated responses", "four truncated responses" if op["truncated_output"] == 4 else str(op["truncated_output"])),
             ("normalisation pooled scored", "2,942", f"{ev['n_scored']:,}"),
             ("normalisation pooled calls", "1,597", f"{ev['overall']['vs_caller']['emitted']:,}"),
@@ -206,7 +206,7 @@ def build_checks():
             "Claude Sonnet 4.5": ("0.749", "0.778"),
             "o4-mini": ("0.731", "0.764"),
             "o3": ("0.724", "0.766"),
-            "DeepSeek V3": ("0.489", "0.770"),
+            "DeepSeek V4 Flash": ("0.574", "0.790"),
             "GPT-5.2": ("0.480", "0.765"),
             "GPT-4.1": ("0.464", "0.707"),
         }
@@ -217,14 +217,14 @@ def build_checks():
             checks.append((f"caller vs GeT-RM for {model}", caller_value,
                            f"{m['caller_vs_getrm_on_model_calls']['estimate']:.3f}"))
 
-    avd = load("v3_agent_vs_deterministic.json")
+    avd = load("v4_flash_agent_vs_deterministic.json")
     if avd:
         # CorpasFamily is 0.292 after the whole-genome rerun (was 0.333 on the
         # SNP-chip family arm). The old registration matched a data file that
         # had already been regenerated, so it failed silently rather than
         # catching the manuscript.
-        for coh, cov in (("1000G_IBS", "0.215"), ("CorpasFamily", "0.292"),
-                         ("Peru", "0.300"), ("UGR", "0.090")):
+        for coh, cov in (("1000G_IBS", "0.211"), ("CorpasFamily", "0.269"),
+                         ("Peru", "0.286"), ("UGR", "0.089")):
             d = avd["deterministic"].get(coh)
             if d:
                 checks.append((f"deterministic coverage, {coh}", cov,

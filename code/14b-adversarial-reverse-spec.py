@@ -18,13 +18,14 @@ whether contract-faithfulness is symmetric:
 Same 3 models x 5 cases x 3 runs = 45 calls as the forward test, for direct comparison.
 """
 from __future__ import annotations
-import json, os, time
+import argparse, json, os, time
+from importlib.util import module_from_spec, spec_from_file_location
 from pathlib import Path
 import openai, anthropic
 
 BASE = Path(__file__).resolve().parent.parent
 SPECS = BASE / "specs" / "test_cases_v3.json"
-OUT = BASE / "data" / "v3_adversarial_reverse.json"
+OUT = BASE / "data" / "v4_flash_adversarial_reverse.json"
 REPORT = BASE / "data" / "v3_adversarial_reverse_report.txt"
 ENV = BASE / ".env"   # repo-relative; environment variables used if .env absent (see .env.example)
 
@@ -36,15 +37,20 @@ for line in (ENV.read_text().splitlines() if ENV.exists() else []):
         k, _, v = line.partition("=")
         keys[k.strip()] = v.strip().strip('"').strip("'")
 
-ant = anthropic.Anthropic(api_key=keys["ANTHROPIC_API_KEY"])
-oai = openai.OpenAI(api_key=keys["OPENAI_API_KEY"])
-dsk = openai.OpenAI(api_key=keys["DEEPSEEK_API_KEY"], base_url="https://api.deepseek.com")
+ant = oai = dsk = None
+_ds_spec = spec_from_file_location("deepseek_v4_client_reverse", BASE / "code" / "94-deepseek-v4-client.py")
+ds_v4 = module_from_spec(_ds_spec)
+_ds_spec.loader.exec_module(ds_v4)
 
 def call_ant(model, prompt):
+    global ant
+    ant = ant or anthropic.Anthropic(api_key=keys["ANTHROPIC_API_KEY"])
     r = ant.messages.create(model=model, max_tokens=600, messages=[{"role": "user", "content": prompt}])
     return r.content[0].text
 
 def call_oai(model, prompt):
+    global oai
+    oai = oai or openai.OpenAI(api_key=keys["OPENAI_API_KEY"])
     try:
         r = oai.chat.completions.create(model=model, max_tokens=600, messages=[{"role": "user", "content": prompt}])
     except Exception:
@@ -52,13 +58,14 @@ def call_oai(model, prompt):
     return r.choices[0].message.content
 
 def call_dsk(prompt):
-    r = dsk.chat.completions.create(model="deepseek-chat", max_tokens=600, messages=[{"role": "user", "content": prompt}])
-    return r.choices[0].message.content
+    global dsk
+    dsk = dsk or openai.OpenAI(api_key=keys["DEEPSEEK_API_KEY"], base_url="https://api.deepseek.com")
+    return ds_v4.as_text(ds_v4.call_deepseek_v4(dsk, prompt, max_tokens=600))
 
 MODELS = {
     "Claude Opus 4": lambda p: call_ant("claude-opus-4-20250514", p),
     "GPT-5.2": lambda p: call_oai("gpt-5.2", p),
-    "DeepSeek V3": call_dsk,
+    "DeepSeek V4 Flash": call_dsk,
 }
 
 def with_spec_prompt(gene, genotype, pop_name, pop_desc, diplotype, phenotype, activity, drug_rec, pop_note):
@@ -134,33 +141,48 @@ def classify_reverse(text, scrambled_phen, truth_phen):
         return "HEDGE"
     return "UNCLASSIFIED"
 
-def main():
+def main(argv=None):
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--pilot-deepseek", action="store_true")
+    ap.add_argument("--deepseek-only", action="store_true")
+    ap.add_argument("--out", type=Path, default=OUT)
+    args = ap.parse_args(argv)
     cases = {c["id"]: c for c in json.loads(SPECS.read_text())}
     pop = {"id": "EUR", "name": "European family cohort (Corpasome project)", "desc": "European ancestry, whole-genome sequencing"}
-    n_runs = 3
+    n_runs = 1 if args.pilot_deepseek else 3
+    scrambles = SCRAMBLES[:1] if args.pilot_deepseek else SCRAMBLES
+    models = ({"DeepSeek V4 Flash": call_dsk}
+              if args.pilot_deepseek or args.deepseek_only else MODELS)
     results = []
-    total = len(SCRAMBLES) * len(MODELS) * n_runs
+    total = len(scrambles) * len(models) * n_runs
     count = 0
-    for s in SCRAMBLES:
+    for s in scrambles:
         c = cases[s["case_id"]]
         prompt = with_spec_prompt(c["gene"], c["genotype"], pop["name"], pop["desc"],
                                   s["scrambled_diplotype"], s["scrambled_phen"], s["scrambled_activity"],
                                   s["scrambled_drug"], c["pop_note"][pop["id"]])
-        for model_name, mfunc in MODELS.items():
+        for model_name, mfunc in models.items():
             for run in range(n_runs):
                 count += 1
+                failure_provenance = None
                 try:
                     time.sleep(0.5)
                     text = mfunc(prompt)
                     cls = classify_reverse(text, s["scrambled_phen"], s["gt_truth_phen"])
                 except Exception as e:
                     text = f"<error: {e}>"; cls = "ERROR"
-                results.append({"case_id": s["case_id"], "label": s["label"], "model": model_name, "run": run,
+                    failure_provenance = getattr(e, "provenance", None)
+                row = {"case_id": s["case_id"], "label": s["label"], "model": model_name, "run": run,
                                 "scrambled_phen": s["scrambled_phen"], "truth_phen": s["gt_truth_phen"],
                                 "raw_response": text, "parsed_phen": parse_field(text, "PHENOTYPE"),
-                                "parsed_drug": parse_field(text, "DRUG"), "classification": cls})
+                                "parsed_drug": parse_field(text, "DRUG"), "classification": cls}
+                if hasattr(text, "provenance"):
+                    row["deepseek_provenance"] = text.provenance
+                elif failure_provenance is not None:
+                    row["deepseek_provenance"] = failure_provenance
+                results.append(row)
                 print(f"  [{count}/{total}] {model_name} | {s['case_id']} run {run}: {cls}")
-    OUT.write_text(json.dumps(results, indent=2))
+    args.out.write_text(json.dumps(results, indent=2))
 
     from collections import Counter
     out = ["v3 REVERSE-DIRECTION ADVERSARIAL SCRAMBLED-SPEC REPORT",
