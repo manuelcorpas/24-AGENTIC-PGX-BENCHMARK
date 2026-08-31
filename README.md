@@ -102,7 +102,7 @@ Datasets are archived on Zenodo rather than stored in git; see `data/README.md`.
 - **Curated benchmark dataset** (no individual genotypes): DOI 10.5281/zenodo.20567742
 - **Canonical V4 Flash revision package**: DOI 10.5281/zenodo.22141182,
   version 1.8.0, paired with immutable repository tag
-  `agentic-pgx-benchmark-v2.9`.
+  `agentic-pgx-benchmark-v2.10`.
 - **Superseded v1.4.0 release**: DOI 10.5281/zenodo.21736175 retained
   nine same-named pre-C15 files during Zenodo version import. The public-side
   checksum audit detected the mismatch; v1.4.1 replaces and verifies them.

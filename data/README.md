@@ -8,7 +8,7 @@ Every script reads and writes here; no renaming or relocation step is required.
 
 DOI 10.5281/zenodo.22141182, version 1.8.0, is the canonical DeepSeek V4
 Flash data snapshot paired with repository tag
-`agentic-pgx-benchmark-v2.9`. It contains the ten hash-bound V4 raw files, the
+`agentic-pgx-benchmark-v2.10`. It contains the ten hash-bound V4 raw files, the
 common eight-model analysis files, source hashes, release notes and provenance
 records.
 

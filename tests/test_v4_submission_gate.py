@@ -17,7 +17,7 @@ def load_gate():
 
 def test_gate_defaults_to_v4_release_identity():
     gate = load_gate()
-    assert gate.DEFAULT_TAG == "agentic-pgx-benchmark-v2.9"
+    assert gate.DEFAULT_TAG == "agentic-pgx-benchmark-v2.10"
     assert gate.RELEASE_VERSION == "1.8.0"
     assert gate.REQUIRED_MODEL == "DeepSeek V4 Flash"
 

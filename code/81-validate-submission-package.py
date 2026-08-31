@@ -15,7 +15,7 @@ NS = {"w": "http://schemas.openxmlformats.org/wordprocessingml/2006/main"}
 # and the file therefore validated a package that no longer existed (v55 / v32 /
 # v37) while the submitted package was v70 / v41 / v63. A validator pinned to
 # superseded filenames does not fail loudly, it fails to run, which is worse.
-DEFAULT_TAG = "agentic-pgx-benchmark-v2.9"
+DEFAULT_TAG = "agentic-pgx-benchmark-v2.10"
 RELEASE_VERSION = "1.8.0"
 REQUIRED_MODEL = "DeepSeek V4 Flash"
 
@@ -174,7 +174,8 @@ def main(argv=None) -> int:
         # this run is validating against. Hardcoding v2.3 here made the check
         # contradict its own --tag argument.
         *[t for t in ("agentic-pgx-benchmark-v2.2", "agentic-pgx-benchmark-v2.3",
-                      "agentic-pgx-benchmark-v2.4", "agentic-pgx-benchmark-v2.8") if t != args.tag],
+                      "agentic-pgx-benchmark-v2.4", "agentic-pgx-benchmark-v2.8",
+                      "agentic-pgx-benchmark-v2.9") if t != args.tag],
     ]
     for needle in retired:
         if needle and needle.lower() in all_text.lower():

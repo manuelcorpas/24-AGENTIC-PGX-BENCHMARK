@@ -14,7 +14,7 @@ from pathlib import Path
 BASE = Path(__file__).resolve().parent.parent
 AUDIT = BASE / "docs" / "deepseek-v4-flash-rerun-audit-2026-08-30"
 RELEASE_VERSION = "1.8.0"
-RELEASE_TAG = "agentic-pgx-benchmark-v2.9"
+RELEASE_TAG = "agentic-pgx-benchmark-v2.10"
 MODEL_LABEL = "DeepSeek V4 Flash"
 REQUEST_MODEL = "deepseek-v4-flash"
 RETURNED_MODEL = "deepseek-v4-flash"
@@ -28,6 +28,7 @@ CANONICAL_V4_FILES = {job["path"]: job["sha256"] for job in _VALIDATION["jobs"]}
 SUPPORTING_DATA_FILES = [
     "data/v3_five_cell_live.json", "data/v3_five_cell_live_rows.json",
     "data/v3_five_cell_live_scored.json", "data/v3_five_cell_live_stats.json",
+    "data/v3_cell_provenance.json", "data/v3_model_caller_eval.json",
     "data/v3_matched_scored_rows.json", "data/v3_matched_scored_rows_all5.json",
     "data/v3_extracted_rules.json", "data/v3_getrm_caller_truth.json",
     "data/v3_getrm_disagreement_classes.json", "data/v3_caller_truth_eval.json",
@@ -46,6 +47,7 @@ SUPPORTING_DATA_FILES = [
     "data/v4_flash_eight_model_five_cell.json", "data/v4_flash_five_cell_scored.json",
     "data/v4_flash_matched_scored_rows_all5.json", "data/v4_flash_hierarchical_stats.json",
     "data/v4_flash_crossed_mixed_model.json", "data/v4_flash_eight_model_extracted_rules.json",
+    "data/v4_flash_lethal_case_stats.json",
     "data/v4_flash_extracted_rules_eval.json", "data/v4_flash_eight_model_rag_drugkeyed.json",
     "data/v4_flash_rag_drugkeyed_scored_rows.json", "data/v4_flash_rag_drugkeyed_summary.json",
     "data/v4_flash_adversarial_forward_panel.json", "data/v4_flash_adversarial_reverse_panel.json",
@@ -126,6 +128,23 @@ def stage_release(out: Path, tag: str | None, version_doi: str) -> StageResult:
                        cwd=BASE, check=True)
         staged.append(StagedFile(archive_name, archive.stat().st_size,
                                  sha256(archive), "immutable tagged source archive"))
+    provenance = out / "PROVENANCE.md"
+    provenance.write_text(
+        "# Provenance\n\n"
+        "The ten canonical DeepSeek V4 Flash files are listed with SHA-256 hashes "
+        "in FULL-RERUN-VALIDATION.json. All 8,901 requested units are present "
+        "exactly once, with zero provider errors. Every canonical request used "
+        "`deepseek-v4-flash`, required the returned identifier "
+        "`deepseek-v4-flash`, and disabled thinking.\n\n"
+        "The raw records retain the exact request payload, complete provider "
+        "response, returned model identifier, raw text, stop reason, token usage, "
+        "response identifier, timestamps, latency, retry history and error body "
+        "where supplied by the provider and runner. SOURCE-HASHES.tsv freezes the "
+        "benchmark inputs. RELEASE-MANIFEST.json maps every deposited file to its "
+        "size and SHA-256 checksum.\n"
+    )
+    staged.append(StagedFile(provenance.name, provenance.stat().st_size,
+                             sha256(provenance), "V4 run provenance"))
     notes = out / f"RELEASE-NOTES-v{RELEASE_VERSION}.md"
     notes.write_text(
         f"# Version {RELEASE_VERSION}\n\n"

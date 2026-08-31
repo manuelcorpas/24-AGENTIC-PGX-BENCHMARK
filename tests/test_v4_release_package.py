@@ -19,7 +19,7 @@ def load_stage_module():
 def test_release_identity_is_new_and_v4_bound():
     stage = load_stage_module()
     assert stage.RELEASE_VERSION == "1.8.0"
-    assert stage.RELEASE_TAG == "agentic-pgx-benchmark-v2.9"
+    assert stage.RELEASE_TAG == "agentic-pgx-benchmark-v2.10"
     assert stage.MODEL_LABEL == "DeepSeek V4 Flash"
     assert stage.REQUEST_MODEL == "deepseek-v4-flash"
     assert stage.RETURNED_MODEL == "deepseek-v4-flash"
@@ -49,8 +49,12 @@ def test_release_stages_all_canonical_v4_sources(tmp_path):
     assert {Path(path).name for path in stage.CANONICAL_V4_FILES} <= staged
     assert "RELEASE-MANIFEST.json" in staged
     assert "CHECKSUMS.sha256" in staged
+    assert "PROVENANCE.md" in staged
+    assert "v4_flash_lethal_case_stats.json" in staged
+    assert "v3_cell_provenance.json" in staged
+    assert "v3_model_caller_eval.json" in staged
     manifest = json.loads((tmp_path / "RELEASE-MANIFEST.json").read_text())
-    assert manifest["release"]["tag"] == "agentic-pgx-benchmark-v2.9"
+    assert manifest["release"]["tag"] == "agentic-pgx-benchmark-v2.10"
     assert manifest["release"]["model_label"] == "DeepSeek V4 Flash"
     assert manifest["canonical_v4_validation"]["calls"] == 8901
 
@@ -61,7 +65,7 @@ def test_current_metadata_names_the_reserved_v4_release_identity():
         for path in ("README.md", "data/README.md", "data/MANIFEST.md")
     )
     assert "zenodo.22141182" in combined
-    assert "agentic-pgx-benchmark-v2.9" in combined
+    assert "agentic-pgx-benchmark-v2.10" in combined
     assert "agentic-pgx-benchmark-v2.8" not in combined
     assert "DeepSeek V3" not in (ROOT / "MODEL-VERSIONS.md").read_text()
     assert "deepseek-chat" not in (ROOT / "MODEL-VERSIONS.md").read_text()
