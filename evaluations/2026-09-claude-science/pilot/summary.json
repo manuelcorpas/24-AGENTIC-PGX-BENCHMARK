@@ -1,0 +1,34 @@
+{
+ "claude_science": {
+  "n_cases": 110,
+  "parsed_ok": 110,
+  "abstained": 0,
+  "a1_phenotype": 0.9727,
+  "a2_recommendation": 0.5773,
+  "lethal_n": 14,
+  "lethal_errors": 6,
+  "note": "one pass over 110 cases; manuscript arms are 8 models x 3 reps, so compare rates not counts"
+ },
+ "manuscript_table1": {
+  "free generation (no knowledge)": {
+   "a2": 0.63,
+   "lethal_errors": 46
+  },
+  "RAG generation": {
+   "a2": 0.555,
+   "lethal_errors": 137
+  },
+  "authored-rule generation (skill)": {
+   "a2": 0.971,
+   "lethal_errors": 24
+  },
+  "authored-rule execution (skill as code)": {
+   "a2": 0.973,
+   "lethal_errors": 23
+  },
+  "RAG-assisted execution": {
+   "a2": 0.97,
+   "lethal_errors": null
+  }
+ }
+}

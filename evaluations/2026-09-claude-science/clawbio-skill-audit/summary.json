@@ -1,0 +1,29 @@
+{
+ "n_skills": 97,
+ "benchmark_validated": 0,
+ "ci_tested": 11,
+ "has_tests": 87,
+ "status": {
+  "planned": 68,
+  "mvp": 29
+ },
+ "maturity_tier": {
+  "cli-registered": 40,
+  "tested": 38,
+  "spec-only": 4,
+  "scripted": 4,
+  "ci-validated": 11
+ },
+ "triage": {
+  "ships-data-files": 32,
+  "no-signal": 24,
+  "mentions-external-binary": 41
+ },
+ "disclaimer": "Triage labels name an observed file-level signal, not a depreciation class. They do NOT map to the D1/D2/D3 rubric: a binary named inside a data structure is a mention and not a call, and shipping a CSV is not the same as encoding an authoritative mapping. Work-ordering for Phase 1 only; hand-check against SKILL.md.",
+ "drift": {
+  "catalogued_without_directory": [],
+  "directory_without_catalogue_entry": [
+   "wes-clinical-report-es"
+  ]
+ }
+}

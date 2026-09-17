@@ -1,0 +1,96 @@
+{
+ "api_corpus": {
+  "n_replicates": 3,
+  "status": "ok",
+  "replicates": [
+   "rep1",
+   "rep2",
+   "rep3"
+  ],
+  "phenotype": {
+   "mean": 0.9424,
+   "sd": 0.0043,
+   "min": 0.9364,
+   "max": 0.9455,
+   "per_replicate": [
+    0.9455,
+    0.9364,
+    0.9455
+   ]
+  },
+  "recommendation": {
+   "mean": 0.5758,
+   "sd": 0.0107,
+   "min": 0.5682,
+   "max": 0.5909,
+   "per_replicate": [
+    0.5682,
+    0.5682,
+    0.5909
+   ]
+  },
+  "lethal_errors": [
+   6,
+   6,
+   6
+  ],
+  "lethal_n": 14,
+  "abstained": [
+   0,
+   5,
+   0
+  ],
+  "parsed_ok": [
+   110,
+   110,
+   110
+  ]
+ },
+ "corpus_only": {
+  "n_replicates": 3,
+  "status": "ok",
+  "replicates": [
+   "rep1",
+   "rep2",
+   "rep3"
+  ],
+  "phenotype": {
+   "mean": 0.9182,
+   "sd": 0.0207,
+   "min": 0.8909,
+   "max": 0.9409,
+   "per_replicate": [
+    0.9227,
+    0.8909,
+    0.9409
+   ]
+  },
+  "recommendation": {
+   "mean": 0.5833,
+   "sd": 0.0247,
+   "min": 0.5636,
+   "max": 0.6182,
+   "per_replicate": [
+    0.5682,
+    0.5636,
+    0.6182
+   ]
+  },
+  "lethal_errors": [
+   5,
+   5,
+   0
+  ],
+  "lethal_n": 14,
+  "abstained": [
+   2,
+   2,
+   2
+  ],
+  "parsed_ok": [
+   110,
+   110,
+   110
+  ]
+ }
+}

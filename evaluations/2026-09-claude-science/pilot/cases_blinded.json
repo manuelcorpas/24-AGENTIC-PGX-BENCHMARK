@@ -1,0 +1,662 @@
+[
+ {
+  "id": "cyp2d6_codeine_pm",
+  "gene": "CYP2D6",
+  "drug": "codeine",
+  "genotype": "rs3892097 T/T (homozygous)"
+ },
+ {
+  "id": "cyp2d6_codeine_im",
+  "gene": "CYP2D6",
+  "drug": "codeine",
+  "genotype": "rs3892097 C/T (heterozygous)"
+ },
+ {
+  "id": "cyp2d6_codeine_nm",
+  "gene": "CYP2D6",
+  "drug": "codeine",
+  "genotype": "All CYP2D6 SNPs homozygous reference"
+ },
+ {
+  "id": "cyp2d6_codeine_um",
+  "gene": "CYP2D6",
+  "drug": "codeine",
+  "genotype": "CYP2D6 *1xN duplication detected by copy-number assay (qPCR/MLPA/long-range PCR); duplications are structural variants with no defining single SNV"
+ },
+ {
+  "id": "cyp2d6_codeine_im_decreased",
+  "gene": "CYP2D6",
+  "drug": "codeine",
+  "genotype": "rs3892097 C/T + rs1065852 G/A (compound)"
+ },
+ {
+  "id": "cyp2d6_tamox_pm",
+  "gene": "CYP2D6",
+  "drug": "tamoxifen",
+  "genotype": "rs3892097 T/T (homozygous)"
+ },
+ {
+  "id": "cyp2d6_tamox_im",
+  "gene": "CYP2D6",
+  "drug": "tamoxifen",
+  "genotype": "rs3892097 C/T (heterozygous)"
+ },
+ {
+  "id": "cyp2d6_tamox_nm",
+  "gene": "CYP2D6",
+  "drug": "tamoxifen",
+  "genotype": "All CYP2D6 SNPs homozygous reference"
+ },
+ {
+  "id": "cyp2d6_tamox_um",
+  "gene": "CYP2D6",
+  "drug": "tamoxifen",
+  "genotype": "CYP2D6 *1xN duplication detected by copy-number assay (qPCR/MLPA/long-range PCR); structural variant, no defining single SNV"
+ },
+ {
+  "id": "cyp2d6_ondan_pm",
+  "gene": "CYP2D6",
+  "drug": "ondansetron",
+  "genotype": "rs3892097 T/T"
+ },
+ {
+  "id": "cyp2d6_ondan_nm",
+  "gene": "CYP2D6",
+  "drug": "ondansetron",
+  "genotype": "All CYP2D6 SNPs homozygous reference"
+ },
+ {
+  "id": "cyp2d6_ondan_um",
+  "gene": "CYP2D6",
+  "drug": "ondansetron",
+  "genotype": "CYP2D6 *1xN duplication detected by copy-number assay (qPCR/MLPA/long-range PCR); structural variant, no defining single SNV"
+ },
+ {
+  "id": "cyp2d6_parox_pm",
+  "gene": "CYP2D6",
+  "drug": "paroxetine",
+  "genotype": "rs3892097 T/T"
+ },
+ {
+  "id": "cyp2d6_parox_im",
+  "gene": "CYP2D6",
+  "drug": "paroxetine",
+  "genotype": "rs3892097 C/T"
+ },
+ {
+  "id": "cyp2d6_parox_nm",
+  "gene": "CYP2D6",
+  "drug": "paroxetine",
+  "genotype": "All CYP2D6 SNPs homozygous reference"
+ },
+ {
+  "id": "cyp2d6_parox_um",
+  "gene": "CYP2D6",
+  "drug": "paroxetine",
+  "genotype": "CYP2D6 *1xN duplication detected by copy-number assay (qPCR/MLPA/long-range PCR); structural variant, no defining single SNV"
+ },
+ {
+  "id": "cyp2d6_amitrip_pm",
+  "gene": "CYP2D6",
+  "drug": "amitriptyline",
+  "genotype": "rs3892097 T/T"
+ },
+ {
+  "id": "cyp2d6_amitrip_im",
+  "gene": "CYP2D6",
+  "drug": "amitriptyline",
+  "genotype": "rs3892097 C/T"
+ },
+ {
+  "id": "cyp2d6_amitrip_nm",
+  "gene": "CYP2D6",
+  "drug": "amitriptyline",
+  "genotype": "All CYP2D6 SNPs homozygous reference"
+ },
+ {
+  "id": "cyp2d6_amitrip_um",
+  "gene": "CYP2D6",
+  "drug": "amitriptyline",
+  "genotype": "CYP2D6 *1xN duplication detected by copy-number assay (qPCR/MLPA/long-range PCR); structural variant, no defining single SNV"
+ },
+ {
+  "id": "cyp2c19_clop_pm",
+  "gene": "CYP2C19",
+  "drug": "clopidogrel",
+  "genotype": "rs4244285 A/A (homozygous)"
+ },
+ {
+  "id": "cyp2c19_clop_im",
+  "gene": "CYP2C19",
+  "drug": "clopidogrel",
+  "genotype": "rs4244285 G/A (heterozygous)"
+ },
+ {
+  "id": "cyp2c19_clop_nm",
+  "gene": "CYP2C19",
+  "drug": "clopidogrel",
+  "genotype": "All CYP2C19 SNPs homozygous reference"
+ },
+ {
+  "id": "cyp2c19_clop_rm",
+  "gene": "CYP2C19",
+  "drug": "clopidogrel",
+  "genotype": "rs12248560 C/T (heterozygous)"
+ },
+ {
+  "id": "cyp2c19_clop_um",
+  "gene": "CYP2C19",
+  "drug": "clopidogrel",
+  "genotype": "rs12248560 T/T (homozygous)"
+ },
+ {
+  "id": "cyp2c19_vori_pm",
+  "gene": "CYP2C19",
+  "drug": "voriconazole",
+  "genotype": "rs4244285 A/A"
+ },
+ {
+  "id": "cyp2c19_vori_im",
+  "gene": "CYP2C19",
+  "drug": "voriconazole",
+  "genotype": "rs4244285 G/A"
+ },
+ {
+  "id": "cyp2c19_vori_nm",
+  "gene": "CYP2C19",
+  "drug": "voriconazole",
+  "genotype": "All CYP2C19 SNPs homozygous reference"
+ },
+ {
+  "id": "cyp2c19_vori_rm",
+  "gene": "CYP2C19",
+  "drug": "voriconazole",
+  "genotype": "rs12248560 C/T"
+ },
+ {
+  "id": "cyp2c19_vori_um",
+  "gene": "CYP2C19",
+  "drug": "voriconazole",
+  "genotype": "rs12248560 T/T"
+ },
+ {
+  "id": "cyp2c19_cital_pm",
+  "gene": "CYP2C19",
+  "drug": "citalopram",
+  "genotype": "rs4244285 A/A"
+ },
+ {
+  "id": "cyp2c19_cital_im",
+  "gene": "CYP2C19",
+  "drug": "citalopram",
+  "genotype": "rs4244285 G/A"
+ },
+ {
+  "id": "cyp2c19_cital_nm",
+  "gene": "CYP2C19",
+  "drug": "citalopram",
+  "genotype": "All CYP2C19 SNPs homozygous reference"
+ },
+ {
+  "id": "cyp2c19_cital_rm",
+  "gene": "CYP2C19",
+  "drug": "citalopram",
+  "genotype": "rs12248560 C/T"
+ },
+ {
+  "id": "cyp2c19_cital_um",
+  "gene": "CYP2C19",
+  "drug": "citalopram",
+  "genotype": "rs12248560 T/T"
+ },
+ {
+  "id": "cyp2c19_omep_pm",
+  "gene": "CYP2C19",
+  "drug": "omeprazole",
+  "genotype": "rs4244285 A/A"
+ },
+ {
+  "id": "cyp2c19_omep_im",
+  "gene": "CYP2C19",
+  "drug": "omeprazole",
+  "genotype": "rs4244285 G/A"
+ },
+ {
+  "id": "cyp2c19_omep_nm",
+  "gene": "CYP2C19",
+  "drug": "omeprazole",
+  "genotype": "All CYP2C19 SNPs homozygous reference"
+ },
+ {
+  "id": "cyp2c19_omep_rm",
+  "gene": "CYP2C19",
+  "drug": "omeprazole",
+  "genotype": "rs12248560 C/T"
+ },
+ {
+  "id": "cyp2c19_omep_um",
+  "gene": "CYP2C19",
+  "drug": "omeprazole",
+  "genotype": "rs12248560 T/T"
+ },
+ {
+  "id": "cyp2c9_warf_pm",
+  "gene": "CYP2C9",
+  "drug": "warfarin",
+  "genotype": "rs1057910 C/C (homozygous alt)"
+ },
+ {
+  "id": "cyp2c9_warf_im",
+  "gene": "CYP2C9",
+  "drug": "warfarin",
+  "genotype": "rs1057910 A/C (heterozygous)"
+ },
+ {
+  "id": "cyp2c9_warf_nm",
+  "gene": "CYP2C9",
+  "drug": "warfarin",
+  "genotype": "All CYP2C9 SNPs homozygous reference"
+ },
+ {
+  "id": "cyp2c9_phen_pm",
+  "gene": "CYP2C9",
+  "drug": "phenytoin",
+  "genotype": "rs1057910 C/C"
+ },
+ {
+  "id": "cyp2c9_phen_im",
+  "gene": "CYP2C9",
+  "drug": "phenytoin",
+  "genotype": "rs1057910 A/C"
+ },
+ {
+  "id": "cyp2c9_phen_nm",
+  "gene": "CYP2C9",
+  "drug": "phenytoin",
+  "genotype": "All CYP2C9 SNPs homozygous reference"
+ },
+ {
+  "id": "cyp2c9_celec_pm",
+  "gene": "CYP2C9",
+  "drug": "celecoxib",
+  "genotype": "rs1057910 C/C"
+ },
+ {
+  "id": "cyp2c9_celec_im",
+  "gene": "CYP2C9",
+  "drug": "celecoxib",
+  "genotype": "rs1057910 A/C"
+ },
+ {
+  "id": "cyp2c9_celec_nm",
+  "gene": "CYP2C9",
+  "drug": "celecoxib",
+  "genotype": "All CYP2C9 SNPs homozygous reference"
+ },
+ {
+  "id": "cyp3a5_tacr_nm_expressor",
+  "gene": "CYP3A5",
+  "drug": "tacrolimus",
+  "genotype": "rs776746 A/A (homozygous *1)"
+ },
+ {
+  "id": "cyp3a5_tacr_im",
+  "gene": "CYP3A5",
+  "drug": "tacrolimus",
+  "genotype": "rs776746 A/G (heterozygous)"
+ },
+ {
+  "id": "cyp3a5_tacr_pm_nonexpressor",
+  "gene": "CYP3A5",
+  "drug": "tacrolimus",
+  "genotype": "rs776746 G/G (homozygous)"
+ },
+ {
+  "id": "cyp2b6_efa_pm",
+  "gene": "CYP2B6",
+  "drug": "efavirenz",
+  "genotype": "rs3745274 T/T (homozygous)"
+ },
+ {
+  "id": "cyp2b6_efa_im",
+  "gene": "CYP2B6",
+  "drug": "efavirenz",
+  "genotype": "rs3745274 G/T (heterozygous)"
+ },
+ {
+  "id": "cyp2b6_efa_nm",
+  "gene": "CYP2B6",
+  "drug": "efavirenz",
+  "genotype": "All CYP2B6 SNPs homozygous reference"
+ },
+ {
+  "id": "cyp2b6_efa_rm",
+  "gene": "CYP2B6",
+  "drug": "efavirenz",
+  "genotype": "rs2279343 A/G (heterozygous)"
+ },
+ {
+  "id": "dpyd_fu_pm",
+  "gene": "DPYD",
+  "drug": "fluorouracil",
+  "genotype": "rs3918290 T/T (homozygous)"
+ },
+ {
+  "id": "dpyd_fu_im_2a",
+  "gene": "DPYD",
+  "drug": "fluorouracil",
+  "genotype": "rs3918290 C/T (heterozygous)"
+ },
+ {
+  "id": "dpyd_fu_im_hapb3",
+  "gene": "DPYD",
+  "drug": "fluorouracil",
+  "genotype": "rs56038477 C/T (HapB3 marker)"
+ },
+ {
+  "id": "dpyd_fu_nm",
+  "gene": "DPYD",
+  "drug": "fluorouracil",
+  "genotype": "All DPYD risk variants reference"
+ },
+ {
+  "id": "dpyd_cape_pm",
+  "gene": "DPYD",
+  "drug": "capecitabine",
+  "genotype": "rs3918290 T/T"
+ },
+ {
+  "id": "dpyd_cape_im",
+  "gene": "DPYD",
+  "drug": "capecitabine",
+  "genotype": "rs3918290 C/T"
+ },
+ {
+  "id": "dpyd_cape_nm",
+  "gene": "DPYD",
+  "drug": "capecitabine",
+  "genotype": "All DPYD risk variants reference"
+ },
+ {
+  "id": "tpmt_aza_pm",
+  "gene": "TPMT",
+  "drug": "azathioprine",
+  "genotype": "rs1800460 T/T + rs1142345 C/C (forward-genomic; transcript: c.460G>A + c.719A>G; TPMT on minus strand)"
+ },
+ {
+  "id": "tpmt_aza_im_3b",
+  "gene": "TPMT",
+  "drug": "azathioprine",
+  "genotype": "rs1800460 C/T (heterozygous, forward-genomic; transcript: c.460G>A; TPMT on minus strand)"
+ },
+ {
+  "id": "tpmt_aza_im_3c",
+  "gene": "TPMT",
+  "drug": "azathioprine",
+  "genotype": "rs1142345 T/C (heterozygous)"
+ },
+ {
+  "id": "tpmt_aza_nm",
+  "gene": "TPMT",
+  "drug": "azathioprine",
+  "genotype": "All TPMT SNPs homozygous reference"
+ },
+ {
+  "id": "nudt15_thio_pm",
+  "gene": "NUDT15",
+  "drug": "thiopurines",
+  "genotype": "rs116855232 T/T (homozygous)"
+ },
+ {
+  "id": "nudt15_thio_im",
+  "gene": "NUDT15",
+  "drug": "thiopurines",
+  "genotype": "rs116855232 C/T (heterozygous)"
+ },
+ {
+  "id": "nudt15_thio_nm",
+  "gene": "NUDT15",
+  "drug": "thiopurines",
+  "genotype": "rs116855232 C/C (reference)"
+ },
+ {
+  "id": "slco1b1_simva_poor",
+  "gene": "SLCO1B1",
+  "drug": "simvastatin",
+  "genotype": "rs4149056 C/C (homozygous)"
+ },
+ {
+  "id": "slco1b1_simva_decr",
+  "gene": "SLCO1B1",
+  "drug": "simvastatin",
+  "genotype": "rs4149056 T/C (heterozygous)"
+ },
+ {
+  "id": "slco1b1_simva_normal",
+  "gene": "SLCO1B1",
+  "drug": "simvastatin",
+  "genotype": "rs4149056 T/T (reference)"
+ },
+ {
+  "id": "slco1b1_atorv_poor",
+  "gene": "SLCO1B1",
+  "drug": "atorvastatin",
+  "genotype": "rs4149056 C/C"
+ },
+ {
+  "id": "slco1b1_atorv_decr",
+  "gene": "SLCO1B1",
+  "drug": "atorvastatin",
+  "genotype": "rs4149056 T/C"
+ },
+ {
+  "id": "slco1b1_atorv_normal",
+  "gene": "SLCO1B1",
+  "drug": "atorvastatin",
+  "genotype": "rs4149056 T/T"
+ },
+ {
+  "id": "ugt1a1_iri_pm",
+  "gene": "UGT1A1",
+  "drug": "irinotecan",
+  "genotype": "rs8175347 TA7/TA7 (homozygous)"
+ },
+ {
+  "id": "ugt1a1_iri_im",
+  "gene": "UGT1A1",
+  "drug": "irinotecan",
+  "genotype": "rs8175347 TA6/TA7 (heterozygous)"
+ },
+ {
+  "id": "ugt1a1_iri_nm",
+  "gene": "UGT1A1",
+  "drug": "irinotecan",
+  "genotype": "rs8175347 TA6/TA6 (reference)"
+ },
+ {
+  "id": "ugt1a1_ataz_pm",
+  "gene": "UGT1A1",
+  "drug": "atazanavir",
+  "genotype": "rs8175347 TA7/TA7"
+ },
+ {
+  "id": "ugt1a1_ataz_im",
+  "gene": "UGT1A1",
+  "drug": "atazanavir",
+  "genotype": "rs8175347 TA6/TA7"
+ },
+ {
+  "id": "ugt1a1_ataz_nm",
+  "gene": "UGT1A1",
+  "drug": "atazanavir",
+  "genotype": "rs8175347 TA6/TA6"
+ },
+ {
+  "id": "hlab5701_aba_pos",
+  "gene": "HLA-B*57:01",
+  "drug": "abacavir",
+  "genotype": "rs2395029 G/T or G/G (any positive)"
+ },
+ {
+  "id": "hlab5701_aba_neg",
+  "gene": "HLA-B*57:01",
+  "drug": "abacavir",
+  "genotype": "rs2395029 T/T (no risk allele)"
+ },
+ {
+  "id": "hlab1502_carba_pos",
+  "gene": "HLA-B*15:02",
+  "drug": "carbamazepine",
+  "genotype": "HLA-B typing positive for *15:02"
+ },
+ {
+  "id": "hlab1502_carba_neg",
+  "gene": "HLA-B*15:02",
+  "drug": "carbamazepine",
+  "genotype": "HLA-B typing negative for *15:02"
+ },
+ {
+  "id": "hlab1502_oxcarba_pos",
+  "gene": "HLA-B*15:02",
+  "drug": "oxcarbazepine",
+  "genotype": "HLA-B typing positive for *15:02"
+ },
+ {
+  "id": "hlab1502_oxcarba_neg",
+  "gene": "HLA-B*15:02",
+  "drug": "oxcarbazepine",
+  "genotype": "HLA-B typing negative for *15:02"
+ },
+ {
+  "id": "hlaa3101_carba_pos",
+  "gene": "HLA-A*31:01",
+  "drug": "carbamazepine",
+  "genotype": "HLA-A typing positive for *31:01"
+ },
+ {
+  "id": "hlaa3101_carba_neg",
+  "gene": "HLA-A*31:01",
+  "drug": "carbamazepine",
+  "genotype": "HLA-A typing negative for *31:01"
+ },
+ {
+  "id": "hlab5801_allo_pos",
+  "gene": "HLA-B*58:01",
+  "drug": "allopurinol",
+  "genotype": "HLA-B typing positive for *58:01"
+ },
+ {
+  "id": "hlab5801_allo_neg",
+  "gene": "HLA-B*58:01",
+  "drug": "allopurinol",
+  "genotype": "HLA-B typing negative for *58:01"
+ },
+ {
+  "id": "g6pd_rasb_def_severe",
+  "gene": "G6PD",
+  "drug": "rasburicase",
+  "genotype": "rs5030868 A (hemizygous male) or A/A (homozygous female) [forward-genomic; transcript c.563C>T, p.Ser188Phe; G6PD on minus strand of X]"
+ },
+ {
+  "id": "g6pd_rasb_def_mild",
+  "gene": "G6PD",
+  "drug": "rasburicase",
+  "genotype": "rs1050828 T + rs1050829 C in cis (compound A- haplotype; hemizygous male) or rs1050828 T/T + rs1050829 C/C (homozygous female) [forward-genomic; transcript c.202G>A + c.376A>G; G6PD on minus strand of X]"
+ },
+ {
+  "id": "g6pd_rasb_normal",
+  "gene": "G6PD",
+  "drug": "rasburicase",
+  "genotype": "rs1050828 C + rs5030868 G (no deficiency variants; hemizygous male) or C/C + G/G (homozygous female) [forward-genomic; G6PD on minus strand of X]"
+ },
+ {
+  "id": "g6pd_prim_def",
+  "gene": "G6PD",
+  "drug": "primaquine",
+  "genotype": "rs1050828 T + rs1050829 C in cis (compound A- haplotype) [forward-genomic; transcript c.202G>A + c.376A>G; G6PD on minus strand of X]"
+ },
+ {
+  "id": "g6pd_prim_int",
+  "gene": "G6PD",
+  "drug": "primaquine",
+  "genotype": "rs1050828 C/T + rs1050829 T/C or T/T (heterozygous female; X-inactivation creates variable enzyme activity) [forward-genomic]"
+ },
+ {
+  "id": "g6pd_prim_normal",
+  "gene": "G6PD",
+  "drug": "primaquine",
+  "genotype": "rs1050828 C + rs5030868 G (no deficiency variants) [forward-genomic; G6PD on minus strand of X]"
+ },
+ {
+  "id": "ifnl3_pegifn_fav",
+  "gene": "IFNL3",
+  "drug": "PEG-IFN-\u03b1",
+  "genotype": "rs12979860 C/C (homozygous reference)"
+ },
+ {
+  "id": "ifnl3_pegifn_unf",
+  "gene": "IFNL3",
+  "drug": "PEG-IFN-\u03b1",
+  "genotype": "rs12979860 T/T (homozygous variant)"
+ },
+ {
+  "id": "vkorc1_warf_sens",
+  "gene": "VKORC1",
+  "drug": "warfarin",
+  "genotype": "rs9923231 A/A (homozygous, -1639 promoter)"
+ },
+ {
+  "id": "vkorc1_warf_normal",
+  "gene": "VKORC1",
+  "drug": "warfarin",
+  "genotype": "rs9923231 G/G (homozygous reference)"
+ },
+ {
+  "id": "cyp4f2_warf_decr",
+  "gene": "CYP4F2",
+  "drug": "warfarin",
+  "genotype": "rs2108622 T/T (homozygous)"
+ },
+ {
+  "id": "cyp4f2_warf_normal",
+  "gene": "CYP4F2",
+  "drug": "warfarin",
+  "genotype": "rs2108622 C/C (reference)"
+ },
+ {
+  "id": "cftr_iva_resp",
+  "gene": "CFTR",
+  "drug": "ivacaftor",
+  "genotype": "rs75527207 G/A or A/A (G551D positive)"
+ },
+ {
+  "id": "cftr_iva_nonresp",
+  "gene": "CFTR",
+  "drug": "ivacaftor",
+  "genotype": "rs113993960 (F508del homozygous)"
+ },
+ {
+  "id": "mtrnr1_amino_var",
+  "gene": "MT-RNR1",
+  "drug": "aminoglycosides",
+  "genotype": "m.1555A>G (homoplasmic mitochondrial variant)"
+ },
+ {
+  "id": "mtrnr1_amino_wt",
+  "gene": "MT-RNR1",
+  "drug": "aminoglycosides",
+  "genotype": "m.1555A (no variant)"
+ },
+ {
+  "id": "ryr1_anaes_susc",
+  "gene": "RYR1",
+  "drug": "volatile-anaesthetics",
+  "genotype": "RYR1 mutation (e.g. p.Arg614Cys, c.1840C>T)"
+ },
+ {
+  "id": "ryr1_anaes_norm",
+  "gene": "RYR1",
+  "drug": "volatile-anaesthetics",
+  "genotype": "RYR1 no pathogenic variant"
+ }
+]

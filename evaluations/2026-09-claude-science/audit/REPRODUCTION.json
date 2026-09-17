@@ -1,0 +1,67 @@
+[
+  {
+    "mode": "offline",
+    "status": "network_required",
+    "error": "Uncached request: {\"method\": \"GET\", \"params\": {\"diplotype\": \"eq.A- 202A_376G\", \"genesymbol\": \"eq.G6PD\", \"select\": \"diplotype,generesult,lookupkey,totalactivityscore\"}, \"url\": \"https://api.cpicpgx.org/v1/diplotype\"}",
+    "requests": [
+      {
+        "method": "GET",
+        "params": {
+          "diplotype": "eq.A- 202A_376G",
+          "genesymbol": "eq.G6PD",
+          "select": "diplotype,generesult,lookupkey,totalactivityscore"
+        },
+        "url": "https://api.cpicpgx.org/v1/diplotype"
+      }
+    ],
+    "network_calls": 0,
+    "stdout": ""
+  },
+  {
+    "mode": "recorded",
+    "status": "completed",
+    "requests": [
+      {
+        "method": "GET",
+        "params": {
+          "diplotype": "eq.A- 202A_376G",
+          "genesymbol": "eq.G6PD",
+          "select": "diplotype,generesult,lookupkey,totalactivityscore"
+        },
+        "url": "https://api.cpicpgx.org/v1/diplotype"
+      },
+      {
+        "method": "GET",
+        "params": {
+          "diplotype": "eq.A- 202A_376G/B (reference)",
+          "genesymbol": "eq.G6PD",
+          "select": "diplotype,generesult,lookupkey,totalactivityscore"
+        },
+        "url": "https://api.cpicpgx.org/v1/diplotype"
+      },
+      {
+        "method": "GET",
+        "params": {
+          "diplotype": "eq.B (reference)",
+          "genesymbol": "eq.G6PD",
+          "select": "diplotype,generesult,lookupkey,totalactivityscore"
+        },
+        "url": "https://api.cpicpgx.org/v1/diplotype"
+      },
+      {
+        "method": "GET",
+        "params": {
+          "diplotype": "eq.Mediterranean, Dallas, Panama, Sassari, Cagliari, Birmingham",
+          "genesymbol": "eq.G6PD",
+          "select": "diplotype,generesult,lookupkey,totalactivityscore"
+        },
+        "url": "https://api.cpicpgx.org/v1/diplotype"
+      }
+    ],
+    "network_calls": 0,
+    "stdout": "110 cases written\n",
+    "row_count": 110,
+    "exact_rows_matching_delivered": 110,
+    "same_ids_as_delivered": true
+  }
+]

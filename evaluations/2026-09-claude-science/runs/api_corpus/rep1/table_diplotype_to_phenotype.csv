@@ -1,0 +1,61 @@
+gene,diplotype,cpic_phenotype,cpic_lookup_key,source
+CFTR,G551D/ivacaftor non-responsive CFTR sequence,ivacaftor responsive in CF patients,ivacaftor responsive in CF patients,CPIC diplotype table
+CFTR,ivacaftor non-responsive CFTR sequence/ivacaftor non-responsive CFTR sequence,ivacaftor non-responsive in CF patients,ivacaftor non-responsive in CF patients,CPIC diplotype table
+CYP2B6,*1/*1,Normal Metabolizer,Normal Metabolizer,CPIC diplotype table
+CYP2B6,*1/*4,Rapid Metabolizer,Rapid Metabolizer,CPIC diplotype table
+CYP2B6,*1/*9,Intermediate Metabolizer,Intermediate Metabolizer,CPIC diplotype table
+CYP2B6,*9/*9,Poor Metabolizer,Poor Metabolizer,CPIC diplotype table
+CYP2C19,*1/*1,Normal Metabolizer,Normal Metabolizer,CPIC diplotype table
+CYP2C19,*1/*17,Rapid Metabolizer,Rapid Metabolizer,CPIC diplotype table
+CYP2C19,*1/*2,Intermediate Metabolizer,Intermediate Metabolizer,CPIC diplotype table
+CYP2C19,*17/*17,Ultrarapid Metabolizer,Ultrarapid Metabolizer,CPIC diplotype table
+CYP2C19,*2/*2,Poor Metabolizer,Poor Metabolizer,CPIC diplotype table
+CYP2C9,*1/*1,Normal Metabolizer,2.0,CPIC diplotype table
+CYP2C9,*1/*3,Intermediate Metabolizer,1.0,CPIC diplotype table
+CYP2C9,*3/*3,Poor Metabolizer,0.0,CPIC diplotype table
+CYP2D6,*1/*1,Normal Metabolizer,2.0,CPIC diplotype table
+CYP2D6,*1/*1x2,Ultrarapid Metabolizer,3.0,CPIC diplotype table
+CYP2D6,*1/*4,Intermediate Metabolizer,1.0,CPIC diplotype table
+CYP2D6,*4/*4,Poor Metabolizer,0.0,CPIC diplotype table
+CYP3A5,*1/*1,Normal Metabolizer,Normal Metabolizer,CPIC diplotype table
+CYP3A5,*1/*3,Intermediate Metabolizer,Intermediate Metabolizer,CPIC diplotype table
+CYP3A5,*3/*3,Poor Metabolizer,Poor Metabolizer,CPIC diplotype table
+CYP4F2,*1/*1,Reference (*1/*1); CPIC defines no CYP4F2 phenotype term,,CPIC guideline text (no CPIC diplotype table for this gene)
+CYP4F2,*3/*3,Increased warfarin dose requirement (*3/*3); CPIC defines no CYP4F2 phenotype term,,CPIC guideline text (no CPIC diplotype table for this gene)
+DPYD,Reference/Reference,Normal Metabolizer,2.0,CPIC diplotype table
+DPYD,"c.1129-5923C>G, c.1236G>A (HapB3)/Reference",Intermediate Metabolizer,1.5,CPIC diplotype table
+DPYD,c.1905+1G>A (*2A)/Reference,Intermediate Metabolizer,1.0,CPIC diplotype table
+DPYD,c.1905+1G>A (*2A)/c.1905+1G>A (*2A),Poor Metabolizer,0.0,CPIC diplotype table
+G6PD,A- 202A_376G,Deficient,Deficient,CPIC diplotype table
+G6PD,A- 202A_376G/B (reference),Variable,Variable,CPIC diplotype table
+G6PD,B (reference),Normal,Normal,CPIC diplotype table
+G6PD,"Mediterranean, Dallas, Panama, Sassari, Cagliari, Birmingham",Deficient,Deficient,CPIC diplotype table
+HLA-A,*31:01 negative,*31:01 negative,*31:01 negative,CPIC diplotype table
+HLA-A,*31:01 positive,*31:01 positive,*31:01 positive,CPIC diplotype table
+HLA-B,*15:02 negative,*15:02 negative,*15:02 negative,CPIC diplotype table
+HLA-B,*15:02 positive,*15:02 positive,*15:02 positive,CPIC diplotype table
+HLA-B,*57:01 negative,*57:01 negative,*57:01 negative,CPIC diplotype table
+HLA-B,*57:01 positive,*57:01 positive,*57:01 positive,CPIC diplotype table
+HLA-B,*58:01 negative,*58:01 negative,*58:01 negative,CPIC diplotype table
+HLA-B,*58:01 positive,*58:01 positive,*58:01 positive,CPIC diplotype table
+IFNL3,rs12979860 reference (C)/rs12979860 reference (C),Favourable response genotype (rs12979860 C/C),,CPIC guideline text (no CPIC diplotype table for this gene)
+IFNL3,rs12979860 variant (T)/rs12979860 variant (T),Unfavourable response genotype (rs12979860 T/T),,CPIC guideline text (no CPIC diplotype table for this gene)
+MT-RNR1,Reference,normal risk of aminoglycoside-induced hearing loss,normal risk of aminoglycoside-induced hearing loss,CPIC allele table
+MT-RNR1,m.1555A>G,increased risk of aminoglycoside-induced hearing loss,increased risk of aminoglycoside-induced hearing loss,CPIC diplotype table
+NUDT15,*1/*1,Normal Metabolizer,Normal Metabolizer,CPIC diplotype table
+NUDT15,*1/*3,Intermediate Metabolizer,Intermediate Metabolizer,CPIC diplotype table
+NUDT15,*3/*3,Poor Metabolizer,Poor Metabolizer,CPIC diplotype table
+RYR1,Reference/Reference,Uncertain Susceptibility,Uncertain Susceptibility,CPIC diplotype table
+RYR1,c.1840C>T/Reference,Malignant Hyperthermia Susceptibility,Malignant Hyperthermia Susceptibility,CPIC diplotype table
+SLCO1B1,*1/*1,Normal Function,Normal Function,CPIC diplotype table
+SLCO1B1,*1/*5,Decreased Function,Decreased Function,CPIC diplotype table
+SLCO1B1,*5/*5,Poor Function,Poor Function,CPIC diplotype table
+TPMT,*1/*1,Normal Metabolizer,Normal Metabolizer,CPIC diplotype table
+TPMT,*1/*3B,Intermediate Metabolizer,Intermediate Metabolizer,CPIC diplotype table
+TPMT,*1/*3C,Intermediate Metabolizer,Intermediate Metabolizer,CPIC diplotype table
+TPMT,*3A/*3A,Poor Metabolizer,Poor Metabolizer,CPIC diplotype table
+UGT1A1,*1/*1,Normal Metabolizer,Normal Metabolizer,CPIC diplotype table
+UGT1A1,*1/*28,Intermediate Metabolizer,Intermediate Metabolizer,CPIC diplotype table
+UGT1A1,*28/*28,Poor Metabolizer,Poor Metabolizer,CPIC diplotype table
+VKORC1,rs9923231 reference (C)/rs9923231 reference (C),Reference VKORC1 promoter genotype (-1639 G/G); CPIC defines no VKORC1 phenotype term,,CPIC guideline text (no CPIC diplotype table for this gene)
+VKORC1,rs9923231 variant (T)/rs9923231 variant (T),Warfarin-sensitive genotype (-1639 A/A); CPIC defines no VKORC1 phenotype term,,CPIC guideline text (no CPIC diplotype table for this gene)

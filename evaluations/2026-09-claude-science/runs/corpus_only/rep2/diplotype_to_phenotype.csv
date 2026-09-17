@@ -1,0 +1,61 @@
+gene,diplotype,activity_score,phenotype,phenotype_key
+CFTR,F508del/F508del,,Unlikely to respond to ivacaftor (F508del homozygous),NONRESPONSIVE
+CFTR,G551D/other (heterozygous) or G551D/G551D,,Ivacaftor-responsive CFTR gating variant (G551D),RESPONSIVE
+CYP2B6,*1/*1,,Normal metabolizer,NM
+CYP2B6,*1/*4,,Rapid metabolizer,RM
+CYP2B6,*1/*6,,Intermediate metabolizer,IM
+CYP2B6,*6/*6,,Poor metabolizer,PM
+CYP2C19,*1/*1,,Normal metabolizer,NM
+CYP2C19,*1/*17,,Rapid metabolizer,RM
+CYP2C19,*1/*2,,Intermediate metabolizer,IM
+CYP2C19,*17/*17,,Ultrarapid metabolizer,UM
+CYP2C19,*2/*2,,Poor metabolizer,PM
+CYP2C9,*1/*1,2,Normal metabolizer (activity score 2),NM
+CYP2C9,*1/*3,1,Intermediate metabolizer (activity score 1),IM_AS1
+CYP2C9,*3/*3,0,Poor metabolizer (activity score 0),PM
+CYP2D6,*1/*1,2,Normal metabolizer (activity score 2),NM
+CYP2D6,*1/*1xN,3,Ultrarapid metabolizer (activity score 3),UM
+CYP2D6,*1/*4,1,Intermediate metabolizer (activity score 1),IM
+CYP2D6,*4/*4,0,Poor metabolizer (activity score 0),PM
+CYP3A5,*1/*1,,Extensive metabolizer (CYP3A5 expresser),EM
+CYP3A5,*1/*3,,Intermediate metabolizer (CYP3A5 expresser),IM
+CYP3A5,*3/*3,,Poor metabolizer (CYP3A5 non-expresser),PM
+CYP4F2,*1/*1,,Normal CYP4F2 function,NORMAL
+CYP4F2,*3/*3,,Decreased CYP4F2 function (*3/*3),DECREASED
+DPYD,"c.[1129-5923C>G];[=] (HapB3, tagged by c.1236G>A)",1.5,Intermediate metabolizer (activity score 1.5),IM
+DPYD,c.[1905+1G>A];[1905+1G>A],0,Poor metabolizer (activity score 0),PM_AS0
+DPYD,c.[1905+1G>A];[=],1,Intermediate metabolizer (activity score 1),IM
+DPYD,c.[=];[=],2,Normal metabolizer (activity score 2),NM
+G6PD,A- (hemizygous male) or A-/A- (homozygous female),,Deficient (WHO class II-III),DEFICIENT
+G6PD,B (hemizygous male) or B/B (homozygous female),,Normal,NORMAL
+G6PD,B/A-,,Variable,VARIABLE
+G6PD,Mediterranean (hemizygous male) or Mediterranean/Mediterranean (homozygous female),,Deficient (WHO class II-III),DEFICIENT
+HLA-A*31:01,HLA-A*31:01 negative (*X/*X),,Non-carrier of HLA-A*31:01: normal or reduced risk,NEG
+HLA-A*31:01,HLA-A*31:01 positive (*31:01/*X),,Carrier of HLA-A*31:01: increased risk of severe cutaneous adverse reaction,POS
+HLA-B*15:02,HLA-B*15:02 negative (*X/*X),,Non-carrier of HLA-B*15:02: normal or reduced risk,NEG
+HLA-B*15:02,HLA-B*15:02 positive (*15:02/*X),,Carrier of HLA-B*15:02: increased risk of severe cutaneous adverse reaction,POS
+HLA-B*57:01,HLA-B*57:01 negative (*X/*X),,Very low risk of abacavir hypersensitivity,NEG
+HLA-B*57:01,HLA-B*57:01 positive (*57:01/*X),,High risk of abacavir hypersensitivity,POS
+HLA-B*58:01,HLA-B*58:01 negative (*X/*X),,Low or reduced risk of allopurinol SCAR,NEG
+HLA-B*58:01,HLA-B*58:01 positive (*58:01/*X),,Significantly increased risk of allopurinol SCAR,POS
+IFNL3,rs12979860 C/C,,Favorable response genotype,FAV
+IFNL3,rs12979860 T/T,,Unfavorable response genotype,UNFAV
+MT-RNR1,m.1555A (no increased-risk variant at the assayed position),,Normal risk of aminoglycoside-induced hearing loss,NEG
+MT-RNR1,m.1555A>G (homoplasmic),,Increased risk of aminoglycoside-induced hearing loss,POS
+NUDT15,*1/*1,,Normal metabolizer,NM
+NUDT15,*1/*3,,Intermediate metabolizer,IM
+NUDT15,*3/*3,,Poor metabolizer,PM
+RYR1,"RYR1 c.1840C>T p.(Arg614Cys), heterozygous",,Malignant hyperthermia susceptible,MHS
+RYR1,no EMHG causative RYR1/CACNA1S variant detected,,Uncertain susceptibility (no causative variant detected),UNCERTAIN
+SLCO1B1,*1/*1,,Normal function,NORMAL
+SLCO1B1,*1/*15,,Decreased function,DECREASED
+SLCO1B1,*15/*15,,Poor function,POOR
+TPMT,*1/*1,,Normal metabolizer,NM
+TPMT,*1/*3B,,Intermediate metabolizer,IM
+TPMT,*1/*3C,,Intermediate metabolizer,IM
+TPMT,*3A/*3A,,Poor metabolizer,PM
+UGT1A1,*1/*1,,Normal (extensive) metabolizer,NM
+UGT1A1,*1/*28,,Intermediate metabolizer,IM
+UGT1A1,*28/*28,,Poor metabolizer,PM
+VKORC1,-1639A/A,,Increased warfarin sensitivity (low dose requirement),AA
+VKORC1,-1639G/G,,Normal warfarin sensitivity (reference),GG

@@ -1,0 +1,32 @@
+gene,marker,variant_allele,defines,allele_function,source
+CYP2C9,rs1799853,T,CYP2C9*2,Decreased function,corpus: PA166104949 allele table ('*2 | C>T at rs1799853 | R144C | Decreased')
+CYP2C9,rs1057910,C,CYP2C9*3,No/decreased function (activity score 0),"corpus: PA166104949 allele table ('*3 | A>C at rs1057910 | I359L | Decreased'); AS 0 for *3 inferred from corpus phenotype rows (*1/*3 = AS 1, *3/*3 = AS 0-0.5)"
+CYP2C19,rs4244285,A,CYP2C19*2,No function,"reasoning (c.681G>A, splice defect)"
+CYP2C19,rs12248560,T,CYP2C19*17,Increased function,reasoning (c.-806C>T)
+CYP2D6,rs3892097,T,CYP2D6*4,No function,"reasoning (c.506-1G>A / 1846G>A splice defect; CYP2D6 on minus strand, forward-genomic C>T)"
+CYP2D6,rs1065852,A,CYP2D6*10 (also carried in cis on *4),Decreased function (*10),"reasoning (c.100C>T, P34S; forward-genomic G>A)"
+CYP2D6,CNV *1xN,dup,CYP2D6*1xN,Increased copies of normal function allele,reasoning (structural duplication; corpus lists *1/*1xN as ultrarapid example diplotype)
+CYP2B6,rs3745274,T,CYP2B6*9 (or *6 when in cis with rs2279343 G),Decreased function,"reasoning (c.516G>T, Q172H)"
+CYP2B6,rs2279343,G,CYP2B6*4 (alone) / part of *6,Increased function (*4),"reasoning (c.785A>G, K262R)"
+CYP3A5,rs776746,G,CYP3A5*3,No function (non-expresser),reasoning (c.219-237A>G cryptic splice); case text states A = *1
+CYP4F2,rs2108622,T,CYP4F2*3,Not assigned by CPIC,"reasoning (c.1297G>A, V433M); no CYP4F2 allele or phenotype table in supplied corpus"
+VKORC1,rs9923231,A,VKORC1 -1639A (haplotype A),Increased warfarin sensitivity,corpus: PA166104949 dose table is indexed by rs9923231 GG/GA/AA
+DPYD,rs3918290,T,DPYD*2A (c.1905+1G>A),No function,reasoning; corpus lists c.1905+1G>A as a no-function allele
+DPYD,rs56038477,T,DPYD HapB3 (c.1236G>A / c.1129-5923C>G),Decreased function,reasoning for the rsID; corpus lists c.1129-5923C>G as a decreased function allele
+TPMT,rs1800460,T,TPMT c.460G>A (*3B; *3A when in cis with rs1142345),No function,"reasoning (A154T); case text states forward-genomic, TPMT reported on minus strand"
+TPMT,rs1142345,C,TPMT c.719A>G (*3C; *3A when in cis with rs1800460),No function,reasoning (Y240C)
+NUDT15,rs116855232,T,"NUDT15*3 (c.415C>T, R139C)",No function,reasoning
+SLCO1B1,rs4149056,C,"SLCO1B1*5 (c.521T>C, V174A; *15/*17 haplotypes)",No function,corpus: PA166105005 second table maps rs4149056 TT/TC/CC directly onto phenotype
+UGT1A1,rs8175347,TA7,UGT1A1*28 (promoter (TA)7),Decreased function,reasoning; corpus lists *28 as a decreased function allele
+G6PD,rs1050828,T,G6PD c.202G>A (V68M); with c.376A>G in cis = G6PD A- (class III),Deficient (class III),reasoning; corpus lists A- as a class II-III deficient allele
+G6PD,rs1050829,C,"G6PD c.376A>G (N126D); A (class IV) alone, A- with c.202G>A in cis",Non-deficient alone,reasoning; corpus lists B/A as a Normal genotype
+G6PD,rs5030868,A,"G6PD Mediterranean (c.563C>T, S188F)",Deficient (class II),reasoning; corpus lists Mediterranean as a class II deficient allele
+HLA-B*57:01,rs2395029,G,HCP5 tag SNP for HLA-B*57:01,Risk allele carrier,reasoning (HCP5 rs2395029 is in near-complete LD with HLA-B*57:01)
+HLA-A*31:01,HLA typing,positive,HLA-A*31:01,Risk allele carrier,corpus: PA166105008
+HLA-B*15:02,HLA typing,positive,HLA-B*15:02,Risk allele carrier,corpus: PA166105008
+HLA-B*58:01,HLA typing,positive,HLA-B*58:01,Risk allele carrier,corpus: PA166105003
+IFNL3,rs12979860,T,IFNL3 (IL28B) unfavourable T allele,Unfavourable response,corpus: PA166110235 table is indexed by rs12979860 CC vs CT/TT
+MT-RNR1,m.1555A>G,G,MT-RNR1 m.1555A>G,Increased risk of AIHL,corpus: PA166229081 lists m.1555A>G as an increased-risk variant
+RYR1,c.1840C>T,T,RYR1 p.Arg614Cys,MH causative (EMHG),corpus: PA166303941 lists RYR1 c.1840C>T; p.(Arg614Cys) as an MH causative variant
+CFTR,rs113993960,del,CFTR F508del,Not ivacaftor-responsive,"corpus: PA166114461 ('Homozygous for F508del-CFTR, rs113993960 ... genotype del/del')"
+CFTR,rs75527207,A,CFTR G551D,Ivacaftor-responsive (gating),"corpus: PA166114461 ('Homozygous or Heterozygous G551D-CFTR, rs75527207 genotype AA or AG')"
