@@ -1,0 +1,32 @@
+{
+  "baseline": {
+    "claude_science_supplied": {
+      "n": 110,
+      "parse_failures": 0,
+      "abstentions": 0,
+      "coverage": 1.0,
+      "a1_phenotype_mean": 0.9727,
+      "a2_recommendation_mean": 0.5773,
+      "no_substitution_rate": 1.0,
+      "a1_among_emitted": 0.9727,
+      "lethal_n": 14,
+      "lethal_action_accuracy": 0.5714,
+      "lethal_errors": 6
+    }
+  },
+  "clinical_equivalence": {
+    "claude_science_supplied": {
+      "n": 110,
+      "parse_failures": 0,
+      "abstentions": 0,
+      "coverage": 1.0,
+      "a1_phenotype_mean": 0.9727,
+      "a2_recommendation_mean": 0.5773,
+      "no_substitution_rate": 1.0,
+      "a1_among_emitted": 0.9727,
+      "lethal_n": 14,
+      "lethal_action_accuracy": 0.5714,
+      "lethal_errors": 6
+    }
+  }
+}

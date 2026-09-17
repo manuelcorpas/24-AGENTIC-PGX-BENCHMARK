@@ -1,0 +1,26 @@
+gene,rsid,allele,cdna_change,forward_ref_allele,forward_variant_allele,gene_strand,allele_function,cpic_activity_value
+CYP2D6,rs3892097,*4,c.1846G>A,C,T,minus,no function,0
+CYP2D6,rs1065852,*10-defining / also carried in cis on *4,c.100C>T (p.P34S),G,A,minus,decreased function,0.25
+CYP2C19,rs4244285,*2,c.681G>A,G,A,plus,no function,0
+CYP2C19,rs12248560,*17,c.-806C>T,C,T,plus,increased function,1.5
+CYP2C9,rs1057910,*3,c.1075A>C (p.I359L),A,C,plus,no function,0
+CYP2C9,rs1799853,*2,c.430C>T (p.R144C),C,T,plus,decreased function,0.5
+CYP3A5,rs776746,*3,g.6986A>G,A,G,as-reported,no function,0
+CYP2B6,rs3745274,*6 (516G>T component),c.516G>T (p.Q172H),G,T,plus,decreased function,0.5
+CYP2B6,rs2279343,*4,c.785A>G (p.K262R),A,G,plus,increased function,1.5
+DPYD,rs3918290,c.1905+1G>A (*2A),c.1905+1G>A,C,T,minus,no function,0
+DPYD,rs56038477,c.1236G>A / HapB3 (c.1129-5923C>G),c.1236G>A,C,T,minus,decreased function,0.5
+TPMT,rs1800460,*3B component,c.460G>A (p.A154T),C,T,minus,no function,0
+TPMT,rs1142345,*3C component,c.719A>G (p.Y240C),T,C,minus,no function,0
+NUDT15,rs116855232,*3,c.415C>T (p.R139C),C,T,plus,no function,0
+SLCO1B1,rs4149056,*15 (521T>C; *5 on the *1a background),c.521T>C (p.V174A),T,C,plus,no function,0
+UGT1A1,rs8175347,*28 (TA7),TA repeat in TATA box,TA6,TA7,plus,decreased function,0.5
+G6PD,rs5030868,Mediterranean (class II),c.563C>T (p.S188F),G,A,minus,deficient (class II),
+G6PD,rs1050828,A- component (c.202G>A),c.202G>A (p.V68M),C,T,minus,deficient (class III),
+G6PD,rs1050829,A component (c.376A>G),c.376A>G (p.N126D),T,C,minus,non-deficient (class IV),
+CYP4F2,rs2108622,*3,c.1297G>A (p.V433M),C,T,minus,decreased function,
+VKORC1,rs9923231,-1639A (haplotype A),c.-1639G>A,G,A,as-reported (corpus convention),reduced VKORC1 expression,
+IFNL3,rs12979860,T (unfavourable),rs12979860 C>T,C,T,plus,unfavourable response,
+CFTR,rs75527207,G551D,c.1652G>A (p.G551D),G,A,plus,"gating defect, ivacaftor-responsive",
+CFTR,rs113993960,F508del,c.1521_1523delCTT (p.F508del),CTT,del,plus,"processing defect, ivacaftor-non-responsive",
+HLA-B*57:01,rs2395029,"HCP5 G, tags HLA-B*57:01",HCP5 g.-,T,G,plus,risk-allele tag,

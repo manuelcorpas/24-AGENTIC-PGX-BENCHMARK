@@ -1,0 +1,17 @@
+{
+  "report_links_and_style": true,
+  "exported_file_count": 9,
+  "export_preserved_exactly": true,
+  "json_parses": true,
+  "score_rows": 110,
+  "phenotype_total": 107.0,
+  "recommendation_total": 63.5,
+  "frozen_files_checked": 5,
+  "frozen_sources_match_commit": true,
+  "offline_exact_row_matches": 110,
+  "offline_live_study_calls": 0,
+  "supplemental_responses": 4,
+  "hashed_raw_files": 30,
+  "verified_utc": "2026-09-15T19:25:30.950112+00:00",
+  "unit_tests": "8 passed during the implementation red/green cycle; code unchanged since that pass"
+}

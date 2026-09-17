@@ -1,0 +1,134 @@
+gene,diplotype,cpic_phenotype,total_activity_score,function_allele_1,function_allele_2,cpic_lookupkey,used_by_a_case
+CFTR,G551D/ivacaftor non-responsive CFTR sequence,ivacaftor responsive in CF patients,n/a,ivacaftor responsive,ivacaftor non-responsive,"{""CFTR"": ""ivacaftor responsive in CF patients""}",yes
+CFTR,ivacaftor non-responsive CFTR sequence/ivacaftor non-responsive CFTR sequence,ivacaftor non-responsive in CF patients,n/a,ivacaftor non-responsive,ivacaftor non-responsive,"{""CFTR"": ""ivacaftor non-responsive in CF patients""}",yes
+CYP2B6,*9/*9,Poor Metabolizer,n/a,Decreased function,Decreased function,"{""CYP2B6"": ""Poor Metabolizer""}",yes
+CYP2B6,*1/*1,Normal Metabolizer,n/a,Normal function,Normal function,"{""CYP2B6"": ""Normal Metabolizer""}",yes
+CYP2B6,*1/*4,Rapid Metabolizer,n/a,Normal function,Increased function,"{""CYP2B6"": ""Rapid Metabolizer""}",yes
+CYP2B6,*1/*9,Intermediate Metabolizer,n/a,Normal function,Decreased function,"{""CYP2B6"": ""Intermediate Metabolizer""}",yes
+CYP2C19,*2/*2,Poor Metabolizer,n/a,No function,No function,"{""CYP2C19"": ""Poor Metabolizer""}",yes
+CYP2C19,*1/*2,Intermediate Metabolizer,n/a,Normal function,No function,"{""CYP2C19"": ""Intermediate Metabolizer""}",yes
+CYP2C19,*1/*17,Rapid Metabolizer,n/a,Increased function,Normal function,"{""CYP2C19"": ""Rapid Metabolizer""}",yes
+CYP2C19,*1/*1,Normal Metabolizer,n/a,Normal function,Normal function,"{""CYP2C19"": ""Normal Metabolizer""}",yes
+CYP2C19,*17/*17,Ultrarapid Metabolizer,n/a,Increased function,Increased function,"{""CYP2C19"": ""Ultrarapid Metabolizer""}",yes
+CYP2C9,*3/*3,Poor Metabolizer,0.0,No function,No function,"{""CYP2C9"": ""0.0""}",yes
+CYP2C9,*1/*1,Normal Metabolizer,2.0,Normal function,Normal function,"{""CYP2C9"": ""2.0""}",yes
+CYP2C9,*1/*3,Intermediate Metabolizer,1.0,Normal function,No function,"{""CYP2C9"": ""1.0""}",yes
+CYP2D6,*1/*1x≥3,Ultrarapid Metabolizer,≥4.0,Increased function,Normal function,"{""CYP2D6"": ""\u22654.0""}",yes
+CYP2D6,*1/*1x2,Ultrarapid Metabolizer,3.0,Increased function,Normal function,"{""CYP2D6"": ""3.0""}",yes
+CYP2D6,*1/*1,Normal Metabolizer,2.0,Normal function,Normal function,"{""CYP2D6"": ""2.0""}",yes
+CYP2D6,*1/*4,Intermediate Metabolizer,1.0,Normal function,No function,"{""CYP2D6"": ""1.0""}",yes
+CYP2D6,*4/*4,Poor Metabolizer,0.0,No function,No function,"{""CYP2D6"": ""0.0""}",yes
+CYP3A5,*1/*1,Normal Metabolizer,n/a,Normal function,Normal function,"{""CYP3A5"": ""Normal Metabolizer""}",yes
+CYP3A5,*1/*3,Intermediate Metabolizer,n/a,Normal function,No function,"{""CYP3A5"": ""Intermediate Metabolizer""}",yes
+CYP3A5,*1/*6,Intermediate Metabolizer,n/a,Normal function,No function,"{""CYP3A5"": ""Intermediate Metabolizer""}",no
+CYP3A5,*1/*7,Intermediate Metabolizer,n/a,Normal function,No function,"{""CYP3A5"": ""Intermediate Metabolizer""}",no
+CYP3A5,*3/*3,Poor Metabolizer,n/a,No function,No function,"{""CYP3A5"": ""Poor Metabolizer""}",yes
+CYP3A5,*6/*6,Poor Metabolizer,n/a,No function,No function,"{""CYP3A5"": ""Poor Metabolizer""}",no
+CYP3A5,*7/*7,Poor Metabolizer,n/a,No function,No function,"{""CYP3A5"": ""Poor Metabolizer""}",no
+CYP3A5,*3/*6,Poor Metabolizer,n/a,No function,No function,"{""CYP3A5"": ""Poor Metabolizer""}",no
+CYP3A5,*3/*7,Poor Metabolizer,n/a,No function,No function,"{""CYP3A5"": ""Poor Metabolizer""}",no
+CYP3A5,*6/*7,Poor Metabolizer,n/a,No function,No function,"{""CYP3A5"": ""Poor Metabolizer""}",no
+CYP3A5,*1/*8,Possible Intermediate Metabolizer,n/a,Unknown function,Normal function,"{""CYP3A5"": ""Possible Intermediate Metabolizer""}",no
+CYP3A5,*1/*9,Possible Intermediate Metabolizer,n/a,Unknown function,Normal function,"{""CYP3A5"": ""Possible Intermediate Metabolizer""}",no
+CYP3A5,*3/*8,Indeterminate,n/a,Unknown function,No function,"{""CYP3A5"": ""Indeterminate""}",no
+CYP3A5,*3/*9,Indeterminate,n/a,Unknown function,No function,"{""CYP3A5"": ""Indeterminate""}",no
+CYP3A5,*6/*8,Indeterminate,n/a,Unknown function,No function,"{""CYP3A5"": ""Indeterminate""}",no
+CYP3A5,*6/*9,Indeterminate,n/a,Unknown function,No function,"{""CYP3A5"": ""Indeterminate""}",no
+CYP3A5,*7/*8,Indeterminate,n/a,Unknown function,No function,"{""CYP3A5"": ""Indeterminate""}",no
+CYP3A5,*7/*9,Indeterminate,n/a,Unknown function,No function,"{""CYP3A5"": ""Indeterminate""}",no
+CYP3A5,*8/*8,Indeterminate,n/a,Unknown function,Unknown function,"{""CYP3A5"": ""Indeterminate""}",no
+CYP3A5,*9/*9,Indeterminate,n/a,Unknown function,Unknown function,"{""CYP3A5"": ""Indeterminate""}",no
+CYP3A5,*8/*9,Indeterminate,n/a,Unknown function,Unknown function,"{""CYP3A5"": ""Indeterminate""}",no
+DPYD,Reference/Reference,Normal Metabolizer,2.0,Normal function,Normal function,"{""DPYD"": ""2.0""}",yes
+DPYD,"c.1129-5923C>G, c.1236G>A (HapB3)/Reference",Intermediate Metabolizer,1.5,Normal function,Decreased function,"{""DPYD"": ""1.5""}",yes
+DPYD,c.1905+1G>A (*2A)/Reference,Intermediate Metabolizer,1.0,Normal function,No function,"{""DPYD"": ""1.0""}",yes
+DPYD,c.1905+1G>A (*2A)/c.1905+1G>A (*2A),Poor Metabolizer,0.0,No function,No function,"{""DPYD"": ""0.0""}",yes
+G6PD,A- 202A_376G,Deficient,n/a,III/Deficient,N/A,"{""G6PD"": ""Deficient""}",yes
+G6PD,"Mediterranean, Dallas, Panama, Sassari, Cagliari, Birmingham",Deficient,n/a,II/Deficient,N/A,"{""G6PD"": ""Deficient""}",yes
+G6PD,A- 202A_376G/A- 202A_376G,Deficient,n/a,III/Deficient,III/Deficient,"{""G6PD"": ""Deficient""}",yes
+G6PD,"Mediterranean, Dallas, Panama, Sassari, Cagliari, Birmingham/Mediterranean, Dallas, Panama, Sassari, Cagliari, Birmingham",Deficient,n/a,II/Deficient,II/Deficient,"{""G6PD"": ""Deficient""}",yes
+G6PD,B (reference),Normal,n/a,IV/Normal,N/A,"{""G6PD"": ""Normal""}",yes
+G6PD,B (reference)/B (reference),Normal,n/a,IV/Normal,IV/Normal,"{""G6PD"": ""Normal""}",yes
+G6PD,A/Asahi,Variable,n/a,IV/Normal,III/Deficient,"{""G6PD"": ""Variable""}",yes
+G6PD,A- 202A_376G/B (reference),Variable,n/a,IV/Normal,III/Deficient,"{""G6PD"": ""Variable""}",yes
+MT-RNR1,m.1095T>C,increased risk of aminoglycoside-induced hearing loss,n/a,increased risk of aminoglycoside-induced hearing loss,N/A,"{""MT-RNR1"": ""increased risk of aminoglycoside-induced hearing loss""}",no
+MT-RNR1,m.1494C>T,increased risk of aminoglycoside-induced hearing loss,n/a,increased risk of aminoglycoside-induced hearing loss,N/A,"{""MT-RNR1"": ""increased risk of aminoglycoside-induced hearing loss""}",no
+MT-RNR1,m.1555A>G,increased risk of aminoglycoside-induced hearing loss,n/a,increased risk of aminoglycoside-induced hearing loss,N/A,"{""MT-RNR1"": ""increased risk of aminoglycoside-induced hearing loss""}",no
+MT-RNR1,m.827A>G,normal risk of aminoglycoside-induced hearing loss,n/a,normal risk of aminoglycoside-induced hearing loss,N/A,"{""MT-RNR1"": ""normal risk of aminoglycoside-induced hearing loss""}",no
+MT-RNR1,m.1189T>C,uncertain risk of aminoglycoside-induced hearing loss,n/a,uncertain risk of aminoglycoside-induced hearing loss,N/A,"{""MT-RNR1"": ""uncertain risk of aminoglycoside-induced hearing loss""}",no
+MT-RNR1,m.1243T>C,uncertain risk of aminoglycoside-induced hearing loss,n/a,uncertain risk of aminoglycoside-induced hearing loss,N/A,"{""MT-RNR1"": ""uncertain risk of aminoglycoside-induced hearing loss""}",no
+MT-RNR1,m.1520T>C,uncertain risk of aminoglycoside-induced hearing loss,n/a,uncertain risk of aminoglycoside-induced hearing loss,N/A,"{""MT-RNR1"": ""uncertain risk of aminoglycoside-induced hearing loss""}",no
+MT-RNR1,m.1537C>T,uncertain risk of aminoglycoside-induced hearing loss,n/a,uncertain risk of aminoglycoside-induced hearing loss,N/A,"{""MT-RNR1"": ""uncertain risk of aminoglycoside-induced hearing loss""}",no
+MT-RNR1,m.1556C>T,uncertain risk of aminoglycoside-induced hearing loss,n/a,uncertain risk of aminoglycoside-induced hearing loss,N/A,"{""MT-RNR1"": ""uncertain risk of aminoglycoside-induced hearing loss""}",no
+MT-RNR1,m.663A>G,uncertain risk of aminoglycoside-induced hearing loss,n/a,uncertain risk of aminoglycoside-induced hearing loss,N/A,"{""MT-RNR1"": ""uncertain risk of aminoglycoside-induced hearing loss""}",no
+MT-RNR1,m.669T>C,uncertain risk of aminoglycoside-induced hearing loss,n/a,uncertain risk of aminoglycoside-induced hearing loss,N/A,"{""MT-RNR1"": ""uncertain risk of aminoglycoside-induced hearing loss""}",no
+MT-RNR1,m.747A>G,uncertain risk of aminoglycoside-induced hearing loss,n/a,uncertain risk of aminoglycoside-induced hearing loss,N/A,"{""MT-RNR1"": ""uncertain risk of aminoglycoside-induced hearing loss""}",no
+MT-RNR1,m.786G>A,uncertain risk of aminoglycoside-induced hearing loss,n/a,uncertain risk of aminoglycoside-induced hearing loss,N/A,"{""MT-RNR1"": ""uncertain risk of aminoglycoside-induced hearing loss""}",no
+MT-RNR1,m.807A>C,uncertain risk of aminoglycoside-induced hearing loss,n/a,uncertain risk of aminoglycoside-induced hearing loss,N/A,"{""MT-RNR1"": ""uncertain risk of aminoglycoside-induced hearing loss""}",no
+MT-RNR1,m.807A>G,uncertain risk of aminoglycoside-induced hearing loss,n/a,uncertain risk of aminoglycoside-induced hearing loss,N/A,"{""MT-RNR1"": ""uncertain risk of aminoglycoside-induced hearing loss""}",no
+MT-RNR1,m.839A>G,uncertain risk of aminoglycoside-induced hearing loss,n/a,uncertain risk of aminoglycoside-induced hearing loss,N/A,"{""MT-RNR1"": ""uncertain risk of aminoglycoside-induced hearing loss""}",no
+MT-RNR1,m.896A>G,uncertain risk of aminoglycoside-induced hearing loss,n/a,uncertain risk of aminoglycoside-induced hearing loss,N/A,"{""MT-RNR1"": ""uncertain risk of aminoglycoside-induced hearing loss""}",no
+MT-RNR1,m.930G>A,uncertain risk of aminoglycoside-induced hearing loss,n/a,uncertain risk of aminoglycoside-induced hearing loss,N/A,"{""MT-RNR1"": ""uncertain risk of aminoglycoside-induced hearing loss""}",no
+MT-RNR1,m.951G>A,uncertain risk of aminoglycoside-induced hearing loss,n/a,uncertain risk of aminoglycoside-induced hearing loss,N/A,"{""MT-RNR1"": ""uncertain risk of aminoglycoside-induced hearing loss""}",no
+MT-RNR1,m.960C>del,uncertain risk of aminoglycoside-induced hearing loss,n/a,uncertain risk of aminoglycoside-induced hearing loss,N/A,"{""MT-RNR1"": ""uncertain risk of aminoglycoside-induced hearing loss""}",no
+MT-RNR1,m.961T>del,uncertain risk of aminoglycoside-induced hearing loss,n/a,uncertain risk of aminoglycoside-induced hearing loss,N/A,"{""MT-RNR1"": ""uncertain risk of aminoglycoside-induced hearing loss""}",no
+MT-RNR1,m.961T>del+Cn,uncertain risk of aminoglycoside-induced hearing loss,n/a,uncertain risk of aminoglycoside-induced hearing loss,N/A,"{""MT-RNR1"": ""uncertain risk of aminoglycoside-induced hearing loss""}",no
+MT-RNR1,m.961T>G,uncertain risk of aminoglycoside-induced hearing loss,n/a,uncertain risk of aminoglycoside-induced hearing loss,N/A,"{""MT-RNR1"": ""uncertain risk of aminoglycoside-induced hearing loss""}",no
+MT-RNR1,m.988G>A,uncertain risk of aminoglycoside-induced hearing loss,n/a,uncertain risk of aminoglycoside-induced hearing loss,N/A,"{""MT-RNR1"": ""uncertain risk of aminoglycoside-induced hearing loss""}",no
+NUDT15,*1/*1,Normal Metabolizer,n/a,Normal function,Normal function,"{""NUDT15"": ""Normal Metabolizer""}",yes
+NUDT15,*1/*3,Intermediate Metabolizer,n/a,Normal function,No function,"{""NUDT15"": ""Intermediate Metabolizer""}",yes
+NUDT15,*3/*3,Poor Metabolizer,n/a,No function,No function,"{""NUDT15"": ""Poor Metabolizer""}",yes
+RYR1,c.1840C>T/Reference,Malignant Hyperthermia Susceptibility,n/a,Malignant Hyperthermia associated,Normal function,"{""RYR1"": ""Malignant Hyperthermia Susceptibility""}",yes
+RYR1,Reference/Reference,Uncertain Susceptibility,n/a,Normal function,Normal function,"{""RYR1"": ""Uncertain Susceptibility""}",yes
+SLCO1B1,*1/*5,Decreased Function,n/a,Normal function,No function,"{""SLCO1B1"": ""Decreased Function""}",yes
+SLCO1B1,*1/*1,Normal Function,n/a,Normal function,Normal function,"{""SLCO1B1"": ""Normal Function""}",yes
+SLCO1B1,*5/*5,Poor Function,n/a,No function,No function,"{""SLCO1B1"": ""Poor Function""}",yes
+TPMT,*1/*3B,Intermediate Metabolizer,n/a,Normal function,No function,"{""TPMT"": ""Intermediate Metabolizer""}",yes
+TPMT,*1/*3C,Intermediate Metabolizer,n/a,Normal function,No function,"{""TPMT"": ""Intermediate Metabolizer""}",yes
+TPMT,*1/*1,Normal Metabolizer,n/a,Normal function,Normal function,"{""TPMT"": ""Normal Metabolizer""}",yes
+TPMT,*3A/*3A,Poor Metabolizer,n/a,No function,No function,"{""TPMT"": ""Poor Metabolizer""}",yes
+UGT1A1,*36/*80,Indeterminate,n/a,Unknown function,Increased function,"{""UGT1A1"": ""Indeterminate""}",no
+UGT1A1,*1/*80,Indeterminate,n/a,Unknown function,Normal function,"{""UGT1A1"": ""Indeterminate""}",no
+UGT1A1,*27/*80,Indeterminate,n/a,Unknown function,Decreased function,"{""UGT1A1"": ""Indeterminate""}",no
+UGT1A1,*28/*80,Indeterminate,n/a,Unknown function,Decreased function,"{""UGT1A1"": ""Indeterminate""}",no
+UGT1A1,*37/*80,Indeterminate,n/a,Unknown function,Decreased function,"{""UGT1A1"": ""Indeterminate""}",no
+UGT1A1,*6/*80,Indeterminate,n/a,Unknown function,Decreased function,"{""UGT1A1"": ""Indeterminate""}",no
+UGT1A1,*80/*80+*28,Indeterminate,n/a,Unknown function,Decreased function,"{""UGT1A1"": ""Indeterminate""}",no
+UGT1A1,*80/*80+*37,Indeterminate,n/a,Unknown function,Decreased function,"{""UGT1A1"": ""Indeterminate""}",no
+UGT1A1,*80/*80,Indeterminate,n/a,Unknown function,Unknown function,"{""UGT1A1"": ""Indeterminate""}",no
+UGT1A1,*27/*36,Intermediate Metabolizer,n/a,Increased function,Decreased function,"{""UGT1A1"": ""Intermediate Metabolizer""}",no
+UGT1A1,*28/*36,Intermediate Metabolizer,n/a,Increased function,Decreased function,"{""UGT1A1"": ""Intermediate Metabolizer""}",no
+UGT1A1,*36/*37,Intermediate Metabolizer,n/a,Increased function,Decreased function,"{""UGT1A1"": ""Intermediate Metabolizer""}",no
+UGT1A1,*36/*80+*28,Intermediate Metabolizer,n/a,Increased function,Decreased function,"{""UGT1A1"": ""Intermediate Metabolizer""}",no
+UGT1A1,*36/*80+*37,Intermediate Metabolizer,n/a,Increased function,Decreased function,"{""UGT1A1"": ""Intermediate Metabolizer""}",no
+UGT1A1,*6/*36,Intermediate Metabolizer,n/a,Increased function,Decreased function,"{""UGT1A1"": ""Intermediate Metabolizer""}",no
+UGT1A1,*1/*27,Intermediate Metabolizer,n/a,Normal function,Decreased function,"{""UGT1A1"": ""Intermediate Metabolizer""}",no
+UGT1A1,*1/*28,Intermediate Metabolizer,n/a,Normal function,Decreased function,"{""UGT1A1"": ""Intermediate Metabolizer""}",yes
+UGT1A1,*1/*37,Intermediate Metabolizer,n/a,Normal function,Decreased function,"{""UGT1A1"": ""Intermediate Metabolizer""}",no
+UGT1A1,*1/*6,Intermediate Metabolizer,n/a,Normal function,Decreased function,"{""UGT1A1"": ""Intermediate Metabolizer""}",no
+UGT1A1,*1/*80+*28,Intermediate Metabolizer,n/a,Normal function,Decreased function,"{""UGT1A1"": ""Intermediate Metabolizer""}",no
+UGT1A1,*1/*80+*37,Intermediate Metabolizer,n/a,Normal function,Decreased function,"{""UGT1A1"": ""Intermediate Metabolizer""}",no
+UGT1A1,*36/*36,Normal Metabolizer,n/a,Increased function,Increased function,"{""UGT1A1"": ""Normal Metabolizer""}",no
+UGT1A1,*1/*36,Normal Metabolizer,n/a,Increased function,Normal function,"{""UGT1A1"": ""Normal Metabolizer""}",no
+UGT1A1,*1/*1,Normal Metabolizer,n/a,Normal function,Normal function,"{""UGT1A1"": ""Normal Metabolizer""}",yes
+UGT1A1,*27/*27,Poor Metabolizer,n/a,Decreased function,Decreased function,"{""UGT1A1"": ""Poor Metabolizer""}",no
+UGT1A1,*28/*28,Poor Metabolizer,n/a,Decreased function,Decreased function,"{""UGT1A1"": ""Poor Metabolizer""}",yes
+UGT1A1,*37/*37,Poor Metabolizer,n/a,Decreased function,Decreased function,"{""UGT1A1"": ""Poor Metabolizer""}",no
+UGT1A1,*6/*6,Poor Metabolizer,n/a,Decreased function,Decreased function,"{""UGT1A1"": ""Poor Metabolizer""}",no
+UGT1A1,*80+*28/*80+*28,Poor Metabolizer,n/a,Decreased function,Decreased function,"{""UGT1A1"": ""Poor Metabolizer""}",no
+UGT1A1,*80+*37/*80+*37,Poor Metabolizer,n/a,Decreased function,Decreased function,"{""UGT1A1"": ""Poor Metabolizer""}",no
+UGT1A1,*27/*28,Poor Metabolizer,n/a,Decreased function,Decreased function,"{""UGT1A1"": ""Poor Metabolizer""}",no
+UGT1A1,*27/*37,Poor Metabolizer,n/a,Decreased function,Decreased function,"{""UGT1A1"": ""Poor Metabolizer""}",no
+UGT1A1,*27/*80+*28,Poor Metabolizer,n/a,Decreased function,Decreased function,"{""UGT1A1"": ""Poor Metabolizer""}",no
+UGT1A1,*27/*80+*37,Poor Metabolizer,n/a,Decreased function,Decreased function,"{""UGT1A1"": ""Poor Metabolizer""}",no
+UGT1A1,*28/*37,Poor Metabolizer,n/a,Decreased function,Decreased function,"{""UGT1A1"": ""Poor Metabolizer""}",no
+UGT1A1,*28/*80+*28,Poor Metabolizer,n/a,Decreased function,Decreased function,"{""UGT1A1"": ""Poor Metabolizer""}",no
+UGT1A1,*28/*80+*37,Poor Metabolizer,n/a,Decreased function,Decreased function,"{""UGT1A1"": ""Poor Metabolizer""}",no
+UGT1A1,*37/*80+*28,Poor Metabolizer,n/a,Decreased function,Decreased function,"{""UGT1A1"": ""Poor Metabolizer""}",no
+UGT1A1,*37/*80+*37,Poor Metabolizer,n/a,Decreased function,Decreased function,"{""UGT1A1"": ""Poor Metabolizer""}",no
+UGT1A1,*6/*27,Poor Metabolizer,n/a,Decreased function,Decreased function,"{""UGT1A1"": ""Poor Metabolizer""}",no
+UGT1A1,*6/*28,Poor Metabolizer,n/a,Decreased function,Decreased function,"{""UGT1A1"": ""Poor Metabolizer""}",no
+UGT1A1,*6/*37,Poor Metabolizer,n/a,Decreased function,Decreased function,"{""UGT1A1"": ""Poor Metabolizer""}",no
+UGT1A1,*6/*80+*28,Poor Metabolizer,n/a,Decreased function,Decreased function,"{""UGT1A1"": ""Poor Metabolizer""}",no
+UGT1A1,*6/*80+*37,Poor Metabolizer,n/a,Decreased function,Decreased function,"{""UGT1A1"": ""Poor Metabolizer""}",no
+UGT1A1,*80+*28/*80+*37,Poor Metabolizer,n/a,Decreased function,Decreased function,"{""UGT1A1"": ""Poor Metabolizer""}",no

@@ -1,0 +1,61 @@
+gene,diplotype,activity_score,phenotype
+CYP2D6,*4/*4,0,CYP2D6 poor metabolizer
+CYP2D6,*1/*4,1.0,CYP2D6 intermediate metabolizer
+CYP2D6,*1/*1,2.0,CYP2D6 normal metabolizer
+CYP2D6,*1/*1xN,>2.25,CYP2D6 ultrarapid metabolizer
+CYP2C19,*2/*2,n/a,CYP2C19 poor metabolizer
+CYP2C19,*1/*2,n/a,CYP2C19 intermediate metabolizer
+CYP2C19,*1/*1,n/a,CYP2C19 normal metabolizer
+CYP2C19,*1/*17,n/a,CYP2C19 rapid metabolizer
+CYP2C19,*17/*17,n/a,CYP2C19 ultrarapid metabolizer
+CYP2C9,*3/*3,0,CYP2C9 poor metabolizer
+CYP2C9,*1/*3,1,CYP2C9 intermediate metabolizer
+CYP2C9,*1/*1,2,CYP2C9 normal metabolizer
+CYP3A5,*1/*1,n/a,"CYP3A5 normal metabolizer (extensive metabolizer, CYP3A5 expresser)"
+CYP3A5,*1/*3,n/a,CYP3A5 intermediate metabolizer (CYP3A5 expresser)
+CYP3A5,*3/*3,n/a,CYP3A5 poor metabolizer (CYP3A5 non-expresser)
+CYP2B6,*6/*6,n/a,CYP2B6 poor metabolizer
+CYP2B6,*1/*6,n/a,CYP2B6 intermediate metabolizer
+CYP2B6,*1/*1,n/a,CYP2B6 normal metabolizer
+CYP2B6,*1/*4,n/a,CYP2B6 rapid metabolizer
+DPYD,c.1905+1G>A/c.1905+1G>A (*2A/*2A),0,DPYD poor metabolizer
+DPYD,c.1905+1G>A/Reference (*1/*2A),1,DPYD intermediate metabolizer
+DPYD,c.1236G>A(HapB3)/Reference,1.5,DPYD intermediate metabolizer
+DPYD,Reference/Reference (*1/*1),2,DPYD normal metabolizer
+TPMT,*3A/*3A,n/a,TPMT poor metabolizer
+TPMT,*1/*3B,n/a,TPMT intermediate metabolizer
+TPMT,*1/*3C,n/a,TPMT intermediate metabolizer
+TPMT,*1/*1,n/a,TPMT normal metabolizer
+NUDT15,*3/*3,n/a,NUDT15 poor metabolizer
+NUDT15,*1/*3,n/a,NUDT15 intermediate metabolizer
+NUDT15,*1/*1,n/a,NUDT15 normal metabolizer
+SLCO1B1,*5/*5 (521CC; *15/*15 indistinguishable),n/a,SLCO1B1 poor function
+SLCO1B1,*1/*5 (521TC; *1/*15 indistinguishable),n/a,SLCO1B1 decreased function
+SLCO1B1,*1/*1 (521TT),n/a,SLCO1B1 normal function
+UGT1A1,*28/*28,n/a,UGT1A1 poor metabolizer
+UGT1A1,*1/*28,n/a,UGT1A1 intermediate metabolizer
+UGT1A1,*1/*1,n/a,UGT1A1 extensive (normal) metabolizer
+HLA-B*57:01,HLA-B*57:01 positive (inferred from HCP5 rs2395029 G),n/a,High risk of abacavir hypersensitivity (HLA-B*57:01 positive)
+HLA-B*57:01,HLA-B*57:01 negative (inferred from HCP5 rs2395029 T/T),n/a,Very low risk of abacavir hypersensitivity (HLA-B*57:01 negative)
+HLA-B*15:02,HLA-B*15:02 positive (one or two *15:02 alleles),n/a,Increased risk of carbamazepine/oxcarbazepine-induced SJS/TEN (HLA-B*15:02 carrier)
+HLA-B*15:02,HLA-B*15:02 negative,n/a,Normal risk of HLA-B*15:02-mediated SJS/TEN (non-carrier)
+HLA-A*31:01,HLA-A*31:01 positive (one or two *31:01 alleles),n/a,Increased risk of carbamazepine-induced hypersensitivity (HLA-A*31:01 carrier)
+HLA-A*31:01,HLA-A*31:01 negative,n/a,Normal risk of HLA-A*31:01-mediated hypersensitivity (non-carrier)
+HLA-B*58:01,HLA-B*58:01 positive (one or two *58:01 alleles),n/a,Significantly increased risk of allopurinol SCAR (HLA-B*58:01 carrier)
+HLA-B*58:01,HLA-B*58:01 negative,n/a,Low or reduced risk of allopurinol SCAR (non-carrier)
+G6PD,Mediterranean (hemizygous male) or Mediterranean/Mediterranean (homozygous female),n/a,G6PD Deficient (WHO class II)
+G6PD,A- (hemizygous male) or A-/A- (homozygous female),n/a,G6PD Deficient (WHO class III)
+G6PD,B/A- (heterozygous female),n/a,G6PD Variable
+G6PD,B (hemizygous male) or B/B (homozygous female),n/a,G6PD Normal (WHO class IV)
+IFNL3,rs12979860 C/C,n/a,Favorable response genotype
+IFNL3,rs12979860 T/T,n/a,Unfavorable response genotype
+VKORC1,rs9923231 (-1639G>A) A/A,n/a,VKORC1 -1639 A/A: increased warfarin sensitivity (decreased dose requirement)
+VKORC1,rs9923231 (-1639G>A) G/G,n/a,VKORC1 -1639 G/G: normal warfarin sensitivity
+CYP4F2,*3/*3,n/a,CYP4F2 decreased function (*3 homozygote)
+CYP4F2,*1/*1,n/a,CYP4F2 normal function
+CFTR,G551D positive (rs75527207 AA or AG),n/a,CFTR ivacaftor-responsive genotype (G551D gating variant)
+CFTR,F508del/F508del,n/a,CFTR ivacaftor-non-responsive genotype (F508del homozygote)
+MT-RNR1,m.1555A>G (homoplasmic),n/a,MT-RNR1 increased risk of aminoglycoside-induced hearing loss
+MT-RNR1,m.1555A (reference),n/a,MT-RNR1 normal risk of aminoglycoside-induced hearing loss
+RYR1,"RYR1 c.1840C>T p.(Arg614Cys), heterozygous",n/a,Malignant Hyperthermia susceptible
+RYR1,No RYR1/CACNA1S MH-causative variant detected,n/a,Uncertain susceptibility

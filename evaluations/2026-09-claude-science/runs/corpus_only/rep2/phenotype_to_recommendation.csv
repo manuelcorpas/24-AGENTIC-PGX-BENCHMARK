@@ -1,0 +1,117 @@
+gene,drug,phenotype_key,recommendation,harm_class,corpus_source
+CFTR,ivacaftor,NONE,ivacaftor: no responsive CFTR variant detected; ivacaftor is recommended only for patients with responsive variants,routine,CPIC:PA166114461
+CFTR,ivacaftor,NONRESPONSIVE,ivacaftor: not recommended - F508del homozygotes are unlikely to respond to ivacaftor monotherapy,severe,CPIC:PA166114461
+CFTR,ivacaftor,RESPONSIVE,ivacaftor: use according to the product label (G551D is a responsive gating variant),routine,CPIC:PA166114461
+CYP2B6,efavirenz,IM,efavirenz: consider initiating with a decreased dose of 400 mg/day,routine,CPIC:PA166182603
+CYP2B6,efavirenz,NM,efavirenz: initiate with standard dosing (600 mg/day),routine,CPIC:PA166182603
+CYP2B6,efavirenz,PM,efavirenz: consider initiating with a decreased dose of 400 or 200 mg/day,routine,CPIC:PA166182603
+CYP2B6,efavirenz,RM,efavirenz: initiate with standard dosing (600 mg/day),routine,CPIC:PA166182603
+CYP2B6,efavirenz,UM,efavirenz: initiate with standard dosing (600 mg/day),routine,CPIC:PA166182603
+CYP2C19,citalopram,IM,citalopram: initiate with the recommended starting dose; consider a slower titration schedule and a lower maintenance dose than for normal metabolizers,routine,CPIC:PA166127638
+CYP2C19,citalopram,NM,citalopram: initiate therapy with the recommended starting dose,routine,CPIC:PA166127638
+CYP2C19,citalopram,PM,"citalopram: consider an antidepressant not predominantly metabolised by CYP2C19; if citalopram is used, lower starting dose, slower titration and 50% reduction of the standard maintenance dose (FDA maximum 20 mg/day in CYP2C19 poor metabolizers because of QT prolongation)",severe,CPIC:PA166127638
+CYP2C19,citalopram,RM,citalopram: initiate with the recommended starting dose; if response is inadequate consider a higher maintenance dose or an alternative antidepressant not predominantly metabolised by CYP2C19,routine,CPIC:PA166127638
+CYP2C19,citalopram,UM,"citalopram: consider a clinically appropriate antidepressant not predominantly metabolised by CYP2C19; if citalopram is used and efficacy is inadequate at standard maintenance dosing, consider titrating to a higher maintenance dose",routine,CPIC:PA166127638
+CYP2C19,clopidogrel,IM,clopidogrel: avoid standard-dose clopidogrel if possible - use prasugrel or ticagrelor at standard dose if no contraindication,lethal,CPIC:PA166104948
+CYP2C19,clopidogrel,NM,clopidogrel: use at standard dose (75 mg/day),routine,CPIC:PA166104948
+CYP2C19,clopidogrel,PM,clopidogrel: avoid if possible - use prasugrel or ticagrelor at standard dose if no contraindication,lethal,CPIC:PA166104948
+CYP2C19,clopidogrel,RM,"clopidogrel: if considering clopidogrel, use at standard dose (75 mg/day)",routine,CPIC:PA166104948
+CYP2C19,clopidogrel,UM,"clopidogrel: if considering clopidogrel, use at standard dose (75 mg/day)",routine,CPIC:PA166104948
+CYP2C19,omeprazole,IM,"omeprazole: initiate the standard starting daily dose; for chronic therapy (>12 weeks) with efficacy achieved, consider a 50% dose reduction",routine,CPIC:PA166219103;CPIC:PA166220321
+CYP2C19,omeprazole,NM,omeprazole: initiate the standard starting daily dose; consider a 50-100% increase for H. pylori infection or erosive oesophagitis; monitor for efficacy,routine,CPIC:PA166219103;CPIC:PA166220321
+CYP2C19,omeprazole,PM,"omeprazole: initiate the standard starting daily dose; for chronic therapy (>12 weeks) with efficacy achieved, consider a 50% dose reduction",routine,CPIC:PA166219103;CPIC:PA166220321
+CYP2C19,omeprazole,RM,omeprazole: initiate the standard starting daily dose; consider a 50-100% increase for H. pylori infection or erosive oesophagitis; monitor for efficacy,routine,CPIC:PA166219103;CPIC:PA166220321
+CYP2C19,omeprazole,UM,omeprazole: increase the starting daily dose by 100% (may be divided) and monitor for efficacy,routine,CPIC:PA166219103;CPIC:PA166220321
+CYP2C19,voriconazole,IM,voriconazole: initiate therapy with recommended standard-of-care dosing,routine,CPIC:PA166161537
+CYP2C19,voriconazole,NM,voriconazole: initiate therapy with recommended standard-of-care dosing,routine,CPIC:PA166161537
+CYP2C19,voriconazole,PM,"voriconazole: choose an alternative agent not dependent on CYP2C19 metabolism; if voriconazole is judged most appropriate, use a lower than standard dose with careful therapeutic drug monitoring",severe,CPIC:PA166161537
+CYP2C19,voriconazole,RM,voriconazole: choose an alternative agent not dependent on CYP2C19 metabolism (adult recommendation; in children initiate standard dosing and titrate by therapeutic drug monitoring),lethal,CPIC:PA166161537
+CYP2C19,voriconazole,UM,"voriconazole: choose an alternative agent not dependent on CYP2C19 metabolism (isavuconazole, liposomal amphotericin B, posaconazole)",lethal,CPIC:PA166161537
+CYP2C9,celecoxib,IM_AS1,"celecoxib: initiate therapy with the lowest recommended starting dose and titrate upward with caution, monitoring blood pressure and kidney function",routine,CPIC:PA166191841
+CYP2C9,celecoxib,IM_AS1.5,celecoxib: initiate therapy with the recommended starting dose; monitor for adverse events,routine,CPIC:PA166191841
+CYP2C9,celecoxib,NM,celecoxib: initiate therapy with the recommended starting dose at the lowest effective dosage for the shortest duration,routine,CPIC:PA166191841
+CYP2C9,celecoxib,PM,"celecoxib: initiate at 25-50% of the lowest recommended starting dose, titrating no sooner than steady state (>=8 days), or use an alternative NSAID not metabolised by CYP2C9 (e.g. naproxen, sulindac, aspirin, ketorolac)",routine,CPIC:PA166191841
+CYP2C9,phenytoin,IM_AS1,"phenytoin: use a typical loading dose, then approximately 25% less than the typical maintenance dose, adjusted by therapeutic drug monitoring (HLA-B*15:02 not supplied)",routine,CPIC:PA166122806
+CYP2C9,phenytoin,IM_AS1.5,phenytoin: no adjustment from typical dosing; adjust by therapeutic drug monitoring (HLA-B*15:02 not supplied),routine,CPIC:PA166122806
+CYP2C9,phenytoin,NM,phenytoin: no adjustment from typical dosing; adjust by therapeutic drug monitoring (HLA-B*15:02 not supplied - CPIC advises avoiding phenytoin in *15:02 carriers),routine,CPIC:PA166122806
+CYP2C9,phenytoin,PM,"phenytoin: use a typical loading dose, then approximately 50% less than the typical maintenance dose, adjusted by therapeutic drug monitoring (HLA-B*15:02 not supplied - CPIC advises avoiding phenytoin in *15:02 carriers)",severe,CPIC:PA166122806
+CYP2C9,warfarin,IM_AS1,warfarin: reduced dose required - CPIC dose table for *1/*3 gives 3-4 mg/day with VKORC1 -1639 GG or GA and 0.5-2 mg/day with AA (VKORC1 genotype not supplied); use a genotype-guided algorithm with close INR monitoring,lethal,CPIC:PA166104949
+CYP2C9,warfarin,IM_AS1.5,warfarin: use a genotype-guided dosing algorithm; CPIC dose table for *1/*2 gives 5-7 mg/day with VKORC1 -1639 GG and 3-4 mg/day with GA or AA (VKORC1 genotype not supplied),routine,CPIC:PA166104949
+CYP2C9,warfarin,NM,warfarin: use a genotype-guided dosing algorithm; CPIC dose table for *1/*1 gives 5-7 mg/day with VKORC1 -1639 GG or GA and 3-4 mg/day with AA (VKORC1 genotype not supplied),routine,CPIC:PA166104949
+CYP2C9,warfarin,PM,"warfarin: markedly reduced dose required - CPIC dose table gives 0.5-2 mg/day for *3/*3 at every VKORC1 -1639 genotype; consider an alternative anticoagulant, or use a genotype-guided algorithm with close INR monitoring",lethal,CPIC:PA166104949
+CYP2D6,amitriptyline,IM,amitriptyline: consider a 25% reduction of the recommended starting dose with therapeutic drug monitoring (CYP2C19 genotype not supplied),routine,CPIC:PA166105006
+CYP2D6,amitriptyline,NM,amitriptyline: initiate therapy with the recommended starting dose (CYP2C19 genotype not supplied),routine,CPIC:PA166105006
+CYP2D6,amitriptyline,PM,amitriptyline: avoid because of potential for side effects; if a TCA is warranted consider a 50% dose reduction with therapeutic drug monitoring (CYP2C19 genotype not supplied),severe,CPIC:PA166105006
+CYP2D6,amitriptyline,UM,amitriptyline: avoid because of potential lack of efficacy; consider a drug not metabolised by CYP2D6 (CYP2C19 genotype not supplied),routine,CPIC:PA166105006
+CYP2D6,codeine,IM,"codeine: use label-recommended age- or weight-specific dosing; if no response and an opioid is warranted, consider a non-tramadol opioid",routine,CPIC:PA166104996
+CYP2D6,codeine,NM,codeine: use label-recommended age- or weight-specific dosing,routine,CPIC:PA166104996
+CYP2D6,codeine,PM,codeine: avoid because of diminished analgesia; if an opioid is warranted use a non-tramadol opioid,routine,CPIC:PA166104996
+CYP2D6,codeine,UM,codeine: avoid; risk of life-threatening morphine toxicity - if an opioid is needed use a non-tramadol opioid (e.g. morphine) or a non-opioid analgesic,lethal,CPIC:PA166104996
+CYP2D6,ondansetron,IM,ondansetron: insufficient evidence of clinical impact - initiate therapy with the recommended starting dose,routine,CPIC:PA166161954
+CYP2D6,ondansetron,NM,ondansetron: initiate therapy with the recommended starting dose,routine,CPIC:PA166161954
+CYP2D6,ondansetron,PM,ondansetron: insufficient evidence of clinical impact - initiate therapy with the recommended starting dose,routine,CPIC:PA166161954
+CYP2D6,ondansetron,UM,ondansetron: select an alternative antiemetic not predominantly metabolised by CYP2D6 (e.g. granisetron),routine,CPIC:PA166161954
+CYP2D6,paroxetine,IM,paroxetine: consider a lower starting dose and a slower titration schedule than for normal metabolizers,routine,CPIC:PA166127636
+CYP2D6,paroxetine,NM,paroxetine: initiate therapy with the recommended starting dose,routine,CPIC:PA166127636
+CYP2D6,paroxetine,PM,"paroxetine: consider a 50% reduction in starting dose, a slower titration schedule and a 50% lower maintenance dose",routine,CPIC:PA166127636
+CYP2D6,paroxetine,UM,paroxetine: select an alternative drug not predominantly metabolised by CYP2D6,routine,CPIC:PA166127636
+CYP2D6,tamoxifen,IM,tamoxifen: consider an aromatase inhibitor (plus ovarian function suppression if premenopausal); if an aromatase inhibitor is contraindicated consider tamoxifen 40 mg/day; avoid CYP2D6 inhibitors,routine,CPIC:PA166176068
+CYP2D6,tamoxifen,NM,tamoxifen: initiate standard-of-care dosing (20 mg/day); avoid moderate and strong CYP2D6 inhibitors,routine,CPIC:PA166176068
+CYP2D6,tamoxifen,PM,"tamoxifen: avoid - recommend alternative hormonal therapy (aromatase inhibitor, plus ovarian function suppression if premenopausal); if an aromatase inhibitor is contraindicated, tamoxifen 40 mg/day may be considered",severe,CPIC:PA166176068
+CYP2D6,tamoxifen,UM,tamoxifen: initiate standard-of-care dosing (20 mg/day); avoid moderate and strong CYP2D6 inhibitors,routine,CPIC:PA166176068
+CYP3A5,tacrolimus,EM,tacrolimus: increase the starting dose 1.5-2 times the recommended starting dose (not exceeding 0.3 mg/kg/day) and use therapeutic drug monitoring,routine,CPIC:PA166124619
+CYP3A5,tacrolimus,IM,tacrolimus: increase the starting dose 1.5-2 times the recommended starting dose (not exceeding 0.3 mg/kg/day) and use therapeutic drug monitoring,routine,CPIC:PA166124619
+CYP3A5,tacrolimus,PM,tacrolimus: initiate therapy with the standard recommended dose and use therapeutic drug monitoring,routine,CPIC:PA166124619
+CYP4F2,warfarin,DECREASED,"ABSTAIN: The supplied CPIC warfarin excerpt indexes its dose table on VKORC1 -1639 and CYP2C9 only; it contains no CYP4F2 row and no CYP4F2-specific dosing statement, so no recommendation can be derived from the corpus for a CYP4F2-only genotype.",routine,CPIC:PA166104949
+CYP4F2,warfarin,NORMAL,"ABSTAIN: The supplied CPIC warfarin excerpt indexes its dose table on VKORC1 -1639 and CYP2C9 only; it contains no CYP4F2 row and no CYP4F2-specific dosing statement, so no recommendation can be derived from the corpus for a CYP4F2-only genotype.",routine,CPIC:PA166104949
+DPYD,capecitabine,IM,"capecitabine: reduce the starting dose by 50%, then titrate by toxicity or therapeutic drug monitoring",lethal,CPIC:PA166109594
+DPYD,capecitabine,NM,capecitabine: no change from label-recommended dosage and administration,routine,CPIC:PA166109594
+DPYD,capecitabine,PM_AS0,capecitabine: avoid capecitabine and fluoropyrimidine prodrug-based regimens (complete DPD deficiency - risk of fatal toxicity),lethal,CPIC:PA166109594
+DPYD,capecitabine,PM_AS0.5,"capecitabine: avoid capecitabine and fluoropyrimidine-based regimens; if no suitable alternative exists, use a strongly reduced dose with early therapeutic drug monitoring",lethal,CPIC:PA166109594
+DPYD,fluorouracil,IM,"fluorouracil: reduce the starting dose by 50%, then titrate by toxicity or therapeutic drug monitoring",lethal,CPIC:PA166122686
+DPYD,fluorouracil,NM,fluorouracil: no change from label-recommended dosage and administration,routine,CPIC:PA166122686
+DPYD,fluorouracil,PM_AS0,fluorouracil: avoid fluorouracil and fluoropyrimidine prodrug-based regimens (complete DPD deficiency - risk of fatal toxicity),lethal,CPIC:PA166122686
+DPYD,fluorouracil,PM_AS0.5,"fluorouracil: avoid fluorouracil and fluoropyrimidine-based regimens; if no suitable alternative exists, use a strongly reduced dose with early therapeutic drug monitoring",lethal,CPIC:PA166122686
+G6PD,primaquine,DEFICIENT,"primaquine: avoid standard 14-day anti-relapse dosing; only use per expert consensus regimens (0.75 mg/kg weekly for 8 weeks with monitoring for haemolysis, or a single 0.25 mg/kg gametocytocidal dose)",lethal,CPIC:PA166279621
+G6PD,primaquine,NORMAL,primaquine: no reason to avoid primaquine on the basis of G6PD status,routine,CPIC:PA166279621
+G6PD,primaquine,VARIABLE,primaquine: measure G6PD enzyme activity and treat according to the activity-based phenotype,severe,CPIC:PA166279621
+G6PD,rasburicase,DEFICIENT,rasburicase: contraindicated (risk of acute haemolytic anaemia and methaemoglobinaemia); alternatives include allopurinol,lethal,CPIC:PA166119846
+G6PD,rasburicase,NORMAL,rasburicase: no reason to withhold rasburicase on the basis of G6PD status,routine,CPIC:PA166119846
+G6PD,rasburicase,VARIABLE,rasburicase: measure G6PD enzyme activity before use to confirm normal status; alternatives include allopurinol,severe,CPIC:PA166119846
+HLA-A*31:01,carbamazepine,NEG,carbamazepine: use per standard dosing guidelines,routine,CPIC:PA166105008
+HLA-A*31:01,carbamazepine,POS,"carbamazepine: if carbamazepine-naive and alternatives are available, do not use carbamazepine (increased risk of SJS/TEN, DRESS and maculopapular exanthema); if no alternative exists, use with increased clinical monitoring and stop at the first cutaneous reaction",lethal,CPIC:PA166105008
+HLA-B*15:02,carbamazepine,NEG,carbamazepine: use per standard dosing guidelines,routine,CPIC:PA166105008
+HLA-B*15:02,carbamazepine,POS,"carbamazepine: if carbamazepine-naive, do not use carbamazepine (high risk of SJS/TEN); avoid other aromatic anticonvulsants with caution",lethal,CPIC:PA166105008
+HLA-B*15:02,oxcarbazepine,NEG,oxcarbazepine: use per standard dosing guidelines,routine,CPIC:PA166176623
+HLA-B*15:02,oxcarbazepine,POS,"oxcarbazepine: if oxcarbazepine-naive, do not use oxcarbazepine (high risk of SJS/TEN)",lethal,CPIC:PA166176623
+HLA-B*57:01,abacavir,NEG,abacavir: use per standard dosing guidelines,routine,CPIC:PA166104997
+HLA-B*57:01,abacavir,POS,abacavir: not recommended (high risk of abacavir hypersensitivity reaction),lethal,CPIC:PA166104997
+HLA-B*58:01,allopurinol,NEG,allopurinol: use per standard dosing guidelines,routine,CPIC:PA166105003
+HLA-B*58:01,allopurinol,POS,allopurinol: contraindicated (significantly increased risk of severe cutaneous adverse reaction),lethal,CPIC:PA166105003
+IFNL3,PEG-IFN-α,FAV,"PEG-IFN-alpha (with ribavirin): favourable response genotype - approximately 70% chance of SVR after 48 weeks, or approximately 90% with a protease-inhibitor combination; weighs in favour of an interferon-containing regimen",routine,none for this drug in corpus
+IFNL3,PEG-IFN-α,UNFAV,"PEG-IFN-alpha (with ribavirin): unfavourable response genotype - approximately 30% chance of SVR after 48 weeks, or approximately 60% with a protease-inhibitor combination; consider the implications before initiating an interferon-containing regimen",routine,none for this drug in corpus
+MT-RNR1,aminoglycosides,NEG,aminoglycosides: use at standard doses for the shortest feasible course with therapeutic drug monitoring and regular hearing assessment,routine,none for this drug in corpus
+MT-RNR1,aminoglycosides,POS,"aminoglycosides: avoid unless the high risk of permanent hearing loss is outweighed by infection severity and the lack of a safe alternative; if unavoidable, use the lowest dose and shortest duration with frequent audiometry",severe,none for this drug in corpus
+NUDT15,thiopurines,IM,"thiopurines (azathioprine/mercaptopurine/thioguanine): consider a lower than standard starting dose, with adjustment based on tolerance and myelosuppression monitoring",lethal,none for this drug in corpus
+NUDT15,thiopurines,NM,thiopurines (azathioprine/mercaptopurine/thioguanine): start at the normal starting dose,routine,none for this drug in corpus
+NUDT15,thiopurines,PM,thiopurines (azathioprine/mercaptopurine/thioguanine): consider an alternative immunosuppressant; if a thiopurine is used it must be at a drastically reduced dose with close haematological monitoring,lethal,none for this drug in corpus
+RYR1,volatile-anaesthetics,MHS,"volatile anaesthetics and succinylcholine: relatively contraindicated - use a non-triggering anaesthetic technique (total intravenous anaesthesia), have dantrolene available",lethal,none for this drug in corpus
+RYR1,volatile-anaesthetics,UNCERTAIN,"volatile anaesthetics and succinylcholine: a negative result does not exclude malignant hyperthermia susceptibility; let clinical findings, family history and further testing guide use",routine,none for this drug in corpus
+SLCO1B1,atorvastatin,DECREASED,"atorvastatin: prescribe <=40 mg as a starting dose; be aware of increased myopathy risk, especially at 40 mg",routine,CPIC:PA166262221
+SLCO1B1,atorvastatin,NORMAL,atorvastatin: prescribe the desired starting dose and adjust by disease-specific guidelines,routine,CPIC:PA166262221
+SLCO1B1,atorvastatin,POOR,atorvastatin: prescribe <=20 mg as a starting dose; if >20 mg is needed consider rosuvastatin or combination therapy,severe,CPIC:PA166262221
+SLCO1B1,simvastatin,DECREASED,simvastatin: prescribe an alternative statin depending on the desired potency; if simvastatin is warranted limit the dose to <20 mg/day,severe,CPIC:PA166105005
+SLCO1B1,simvastatin,NORMAL,simvastatin: prescribe the desired starting dose and adjust by disease-specific guidelines,routine,CPIC:PA166105005
+SLCO1B1,simvastatin,POOR,simvastatin: prescribe an alternative statin depending on the desired potency (high myopathy risk),lethal,CPIC:PA166105005
+TPMT,azathioprine,IM,"azathioprine: consider a lower than standard starting dose, with adjustment based on tolerance and myelosuppression monitoring",lethal,CPIC:PA166104933
+TPMT,azathioprine,NM,azathioprine: start at the normal starting dose and adjust by disease-specific guidelines,routine,CPIC:PA166104933
+TPMT,azathioprine,PM,azathioprine: consider an alternative immunosuppressant; if a thiopurine is used it must be at a drastically reduced dose with close haematological monitoring,lethal,CPIC:PA166104933
+UGT1A1,atazanavir,IM,atazanavir: no need to avoid atazanavir; inform the patient that jaundice is unlikely with this genotype,routine,CPIC:PA166128738
+UGT1A1,atazanavir,NM,atazanavir: no need to avoid atazanavir on the basis of UGT1A1 genotype,routine,CPIC:PA166128738
+UGT1A1,atazanavir,PM,"atazanavir: consider an alternative agent, particularly where jaundice would be of concern to the patient (high likelihood of bilirubin-related discontinuation)",routine,CPIC:PA166128738
+UGT1A1,irinotecan,IM,irinotecan: no action needed for this gene-drug interaction (DPWG/RNPGx; the corpus contains no CPIC guideline for irinotecan),routine,DPWG:PA166104951;RNPGx:PA166127626
+UGT1A1,irinotecan,NM,irinotecan: no action needed for this gene-drug interaction (DPWG/RNPGx; the corpus contains no CPIC guideline for irinotecan),routine,DPWG:PA166104951;RNPGx:PA166127626
+UGT1A1,irinotecan,PM,"irinotecan: start at 70% of the normal dose and increase as tolerated, guided by neutrophil count; an intensified dose (>=240 mg/m2) is contraindicated (DPWG/RNPGx; the corpus contains no CPIC guideline for irinotecan)",lethal,DPWG:PA166104951;RNPGx:PA166127626
+VKORC1,warfarin,AA,"warfarin: increased sensitivity, lower dose required - CPIC dose table gives 3-4 mg/day for -1639 AA with CYP2C9 *1/*1 and 0.5-2 mg/day with *1/*3, *2/*2, *2/*3 or *3/*3 (CYP2C9 genotype not supplied); use a genotype-guided algorithm",lethal,CPIC:PA166104949
+VKORC1,warfarin,GA,warfarin: CPIC dose table gives 5-7 mg/day for -1639 GA with CYP2C9 *1/*1 (CYP2C9 genotype not supplied); use a genotype-guided algorithm,routine,CPIC:PA166104949
+VKORC1,warfarin,GG,warfarin: CPIC dose table gives 5-7 mg/day for -1639 GG with CYP2C9 *1/*1 or *1/*2 (CYP2C9 genotype not supplied); use a genotype-guided algorithm,routine,CPIC:PA166104949

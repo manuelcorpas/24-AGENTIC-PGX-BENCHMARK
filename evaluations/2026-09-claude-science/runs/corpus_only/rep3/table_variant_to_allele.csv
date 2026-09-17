@@ -1,0 +1,62 @@
+gene,assay_result_pattern,allele_call,basis,reasoning
+CYP2D6,rs3892097 T/T,*4/*4,analyst-knowledge,"rs3892097 = CYP2D6 1846G>A (c.506-1G>A splice defect), the *4-defining SNV; forward-genomic C>T (CYP2D6 on minus strand). T/T = *4/*4, two no-function alleles."
+CYP2D6,rs3892097 C/T + rs1065852 G/A,*1/*4,analyst-knowledge,"rs1065852 (100C>T, P34S) is part of the *4 core haplotype, so the two heterozygous variants are most parsimoniously in cis on one *4 allele -> *1/*4. Phase is not measured; a trans arrangement (*4-like/*10-like) cannot be formally excluded."
+CYP2D6,rs3892097 C/T,*1/*4,analyst-knowledge,Heterozygous for the *4-defining 1846G>A; other CYP2D6 SNVs reference -> *1/*4.
+CYP2D6,All CYP2D6 SNPs homozygous reference,*1/*1,analyst-knowledge,No variant detected at any interrogated CYP2D6 SNV -> *1/*1. Caveat: a SNV-only panel cannot exclude *5 whole-gene deletion or duplications.
+CYP2D6,*1xN duplication,*1/*1xN,case-annotation,"Duplication reported by copy-number assay (qPCR/MLPA/long-range PCR). No SNV defines a duplication, so this call is only possible because a CNV assay was run. Copy number N is not specified; *1/*1xN is the corpus's own example UM diplotype."
+CYP2C19,rs4244285 A/A,*2/*2,analyst-knowledge,"rs4244285 = 681G>A (splice defect), the *2-defining SNV. A/A = *2/*2, two no-function alleles."
+CYP2C19,rs4244285 G/A,*1/*2,analyst-knowledge,Heterozygous *2.
+CYP2C19,rs12248560 T/T,*17/*17,analyst-knowledge,"rs12248560 = -806C>T, the *17-defining SNV (increased function). T/T = *17/*17."
+CYP2C19,rs12248560 C/T,*1/*17,analyst-knowledge,Heterozygous *17.
+CYP2C19,All CYP2C19 SNPs homozygous reference,*1/*1,analyst-knowledge,No variant detected -> *1/*1.
+CYP2C9,rs1057910 C/C,*3/*3,corpus,Corpus allele table: '*3 | A>C at rs1057910 | I359L | Decreased'. C/C = *3/*3.
+CYP2C9,rs1057910 A/C,*1/*3,corpus,Corpus allele table: *3 = A>C at rs1057910. A/C = *1/*3.
+CYP2C9,All CYP2C9 SNPs homozygous reference,*1/*1,corpus,Corpus allele table: '*1 | reference allele at all positions | Normal'.
+CYP3A5,rs776746 A/A,*1/*1,case-annotation,"Case annotates A/A as homozygous *1; rs776746 = 6986A>G, the *3-defining intron-3 SNV (A = *1, G = *3)."
+CYP3A5,rs776746 A/G,*1/*3,case-annotation,Heterozygous *3.
+CYP3A5,rs776746 G/G,*3/*3,case-annotation,Homozygous *3 (non-expresser).
+CYP2B6,rs3745274 T/T,*6/*6,analyst-knowledge,"rs3745274 = 516G>T (Q172H). *6 = 516G>T + 785A>G; 516G>T alone = *9. rs2279343 not reported, so *9/*9 cannot be excluded - but *6 and *9 are both decreased-function, so the phenotype (poor metaboliser) is identical either way."
+CYP2B6,rs3745274 G/T,*1/*6,analyst-knowledge,"Heterozygous 516G>T -> *1/*6 (or *1/*9; both decreased function, same phenotype)."
+CYP2B6,rs2279343 A/G,*1/*4,analyst-knowledge,"rs2279343 = 785A>G (K262R). 785A>G without 516G>T defines *4, an INCREASED-function allele -> *1/*4. Calling this *1/*6 would invert the phenotype."
+CYP2B6,All CYP2B6 SNPs homozygous reference,*1/*1,analyst-knowledge,No variant detected -> *1/*1.
+DPYD,rs3918290 T/T,c.1905+1G>A/c.1905+1G>A (*2A/*2A),analyst-knowledge,"rs3918290 = DPYD c.1905+1G>A (*2A), no function; forward-genomic C>T (DPYD on minus strand). T/T = homozygous, activity score 0."
+DPYD,rs3918290 C/T,c.1905+1G>A/Reference (*1/*2A),analyst-knowledge,"Heterozygous c.1905+1G>A, activity score 1 (1 + 0)."
+DPYD,rs56038477 C/T,c.1236G>A(HapB3)/Reference,analyst-knowledge,"rs56038477 = c.1236G>A, the HapB3 tag; DECREASED (not no) function, allele value 0.5 -> activity score 1.5. Treating HapB3 as a no-function allele would over-reduce the dose."
+DPYD,All DPYD risk variants reference,Reference/Reference (*1/*1),analyst-knowledge,No DPYD no/decreased-function variant detected -> activity score 2.
+TPMT,rs1800460 T/T + rs1142345 C/C,*3A/*3A,analyst-knowledge,"Forward-genomic alleles; TPMT is on the minus strand, so c.460G>A = genomic C>T (variant = T) and c.719A>G = genomic T>C (variant = C). Both variants homozygous = *3A/*3A (*3A carries c.460A + c.719G in cis)."
+TPMT,rs1800460 C/T,*1/*3B,analyst-knowledge,"Heterozygous c.460G>A only (c.719A>G reference) = *3B, not *3A. Reading the forward-genomic letters as transcript letters would wrongly call this reference."
+TPMT,rs1142345 T/C,*1/*3C,analyst-knowledge,Heterozygous c.719A>G only = *3C (the commonest TPMT no-function allele outside Europe).
+TPMT,All TPMT SNPs homozygous reference,*1/*1,analyst-knowledge,No variant detected -> *1/*1.
+NUDT15,rs116855232 T/T,*3/*3,analyst-knowledge,"rs116855232 = c.415C>T (R139C), the *3-defining SNV, no function. T/T = *3/*3."
+NUDT15,rs116855232 C/T,*1/*3,analyst-knowledge,Heterozygous *3.
+NUDT15,rs116855232 C/C,*1/*1,analyst-knowledge,Reference -> *1/*1.
+SLCO1B1,rs4149056 C/C,*5/*5 (521CC; *15/*15 indistinguishable),corpus,"Corpus simvastatin table maps rs4149056 CC to *5/*5, *5/*15, *5/*17, *15/*15, *15/*17, *17/*17. rs2306283 (388A>G) not typed, so *5 vs *15/*17 cannot be separated; all are no-function, so the phenotype is unaffected."
+SLCO1B1,rs4149056 T/C,*1/*5 (521TC; *1/*15 indistinguishable),corpus,"Corpus simvastatin table maps rs4149056 TC to *1a/*5, *1a/*15, *1a/*17 etc."
+SLCO1B1,rs4149056 T/T,*1/*1 (521TT),corpus,"Corpus simvastatin table maps rs4149056 TT to *1a/*1a, *1a/*1b, *1b/*1b (two normal-function alleles)."
+UGT1A1,rs8175347 TA7/TA7,*28/*28,analyst-knowledge,"rs8175347 = promoter (TA)n repeat; TA7 = *28 (decreased function), TA6 = *1."
+UGT1A1,rs8175347 TA6/TA7,*1/*28,analyst-knowledge,Heterozygous *28.
+UGT1A1,rs8175347 TA6/TA6,*1/*1,analyst-knowledge,Two TA6 (reference) alleles -> *1/*1.
+HLA-B*57:01,rs2395029 G/T or G/G,HLA-B*57:01 positive (inferred from HCP5 rs2395029 G),analyst-knowledge,"rs2395029 is an HCP5 tag SNP in strong LD with HLA-B*57:01 in European ancestry; it is a PROXY, not HLA typing. Positive tag is treated as *57:01 positive."
+HLA-B*57:01,rs2395029 T/T,HLA-B*57:01 negative (inferred from HCP5 rs2395029 T/T),analyst-knowledge,"No tag allele. LD with *57:01 is incomplete outside European ancestry, so a negative tag does not fully exclude carriage."
+HLA-B*15:02,positive for *15:02,HLA-B*15:02 positive (one or two *15:02 alleles),case-annotation,Direct HLA typing reported positive.
+HLA-B*15:02,negative for *15:02,HLA-B*15:02 negative,case-annotation,Direct HLA typing reported negative.
+HLA-A*31:01,positive for *31:01,HLA-A*31:01 positive (one or two *31:01 alleles),case-annotation,Direct HLA typing reported positive.
+HLA-A*31:01,negative for *31:01,HLA-A*31:01 negative,case-annotation,Direct HLA typing reported negative.
+HLA-B*58:01,positive for *58:01,HLA-B*58:01 positive (one or two *58:01 alleles),case-annotation,Direct HLA typing reported positive.
+HLA-B*58:01,negative for *58:01,HLA-B*58:01 negative,case-annotation,Direct HLA typing reported negative.
+G6PD,rs5030868 A (hemizygous male),Mediterranean (hemizygous male) or Mediterranean/Mediterranean (homozygous female),analyst-knowledge,"rs5030868 = c.563C>T (p.Ser188Phe) = G6PD Mediterranean, WHO class II; forward-genomic G>A (G6PD on minus strand of X), so forward A = variant."
+G6PD,rs1050828 T + rs1050829 C in cis,A- (hemizygous male) or A-/A- (homozygous female),analyst-knowledge,"c.202G>A (rs1050828, forward C>T) + c.376A>G (rs1050829, forward T>C) in cis = G6PD A-, WHO class III."
+G6PD,rs1050828 C/T + rs1050829,B/A- (heterozygous female),analyst-knowledge,"Heterozygous female carrying one non-deficient (class IV, B) and one deficient (class III, A-) allele. X-inactivation mosaicism makes measured activity unpredictable."
+G6PD,rs1050828 C + rs5030868 G,B (hemizygous male) or B/B (homozygous female),analyst-knowledge,Reference at both interrogated positions -> non-deficient class IV B allele.
+IFNL3,rs12979860 C/C,rs12979860 C/C,corpus,Corpus table is keyed directly on rs12979860 genotype; no star alleles are used for IFNL3.
+IFNL3,rs12979860 T/T,rs12979860 T/T,corpus,Corpus table is keyed directly on rs12979860 genotype.
+VKORC1,rs9923231 A/A,rs9923231 (-1639G>A) A/A,corpus,Corpus warfarin dose table rows are keyed on VKORC1 -1639G>A (rs9923231) GG/GA/AA.
+VKORC1,rs9923231 G/G,rs9923231 (-1639G>A) G/G,corpus,Corpus warfarin dose table rows are keyed on VKORC1 -1639G>A (rs9923231) GG/GA/AA.
+CYP4F2,rs2108622 T/T,*3/*3,analyst-knowledge,"rs2108622 = c.1297G>A (V433M), the CYP4F2*3-defining SNV (decreased function). rs2108622 does NOT appear anywhere in the supplied corpus."
+CYP4F2,rs2108622 C/C,*1/*1,analyst-knowledge,Reference at rs2108622 -> *1/*1. rs2108622 does NOT appear anywhere in the supplied corpus.
+CFTR,rs75527207 G/A or A/A,G551D positive (rs75527207 AA or AG),corpus,"Corpus row: 'Homozygous or Heterozygous G551D-CFTR, rs75527207 genotype AA or AG'."
+CFTR,rs113993960 (F508del homozygous),F508del/F508del,corpus,"Corpus row: 'Homozygous for F508del-CFTR, rs113993960 or rs199826652 genotype del/del'."
+MT-RNR1,m.1555A>G,m.1555A>G (homoplasmic),analyst-knowledge,"m.1555A>G is the canonical MT-RNR1 increased-risk variant for aminoglycoside ototoxicity. Mitochondrial, so 'diplotype' is a homoplasmy/heteroplasmy state, not a diplotype."
+MT-RNR1,m.1555A (no variant),m.1555A (reference),analyst-knowledge,No increased-risk MT-RNR1 variant at m.1555.
+RYR1,RYR1 mutation,"RYR1 c.1840C>T p.(Arg614Cys), heterozygous",corpus,Corpus lists 'RYR1 c.1840C>T; p.(Arg614Cys)' among EMHG malignant-hyperthermia causative variants.
+RYR1,RYR1 no pathogenic variant,No RYR1/CACNA1S MH-causative variant detected,corpus,Corpus row: 'An individual negative for a RYR1 or CACNA1S malignant hyperthermia causative variant as designated by the EMHG'.

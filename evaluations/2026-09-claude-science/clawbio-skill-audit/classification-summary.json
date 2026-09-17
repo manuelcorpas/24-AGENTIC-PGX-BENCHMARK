@@ -1,0 +1,37 @@
+{
+ "n_classified": 97,
+ "primary_class": {
+  "D2": 54,
+  "D1": 23,
+  "D3": 17,
+  "D0": 3
+ },
+ "confidence": {
+  "medium": 43,
+  "high": 48,
+  "low": 6
+ },
+ "verifiability": {
+  "partial": 56,
+  "ground-truth": 30,
+  "none": 11
+ },
+ "consequence": {
+  "research": 65,
+  "clinical": 18,
+  "exploratory": 14
+ },
+ "locality": {
+  "portable": 85,
+  "local-required": 12
+ },
+ "signal_misleading": 42,
+ "clinical_consequence": 18,
+ "problems": {
+  "classified_but_not_in_inventory": [],
+  "in_inventory_but_unclassified": [],
+  "duplicate_rows": [],
+  "invalid_rows": []
+ },
+ "n_reader_files": 5
+}

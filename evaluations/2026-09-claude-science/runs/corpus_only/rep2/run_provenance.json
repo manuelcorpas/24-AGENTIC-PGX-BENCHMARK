@@ -1,0 +1,11 @@
+{
+  "corpus_schema_version": "v3.1",
+  "corpus_generated_at_utc": "2026-05-10T04:40:15Z",
+  "n_genes": 21,
+  "n_cases": 110,
+  "cases_sha256": "bcda9e79e870a15ed378c4f9d7c97e42c52db4984599c4015dd1ee73b9b6ae1c",
+  "corpus_sha256": "f5ef71428715cacaeaed5f593c35fe04796732923e685b5366d725ec8f13b232",
+  "n_abstained": 2,
+  "n_lethal_class": 29,
+  "n_severe_class": 10
+}

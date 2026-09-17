@@ -1,0 +1,75 @@
+gene,genotype,diplotype,cpic_phenotype,cpic_lookup_key,unconfirmed_defining_variants,alternative_diplotypes
+CYP2D6,rs3892097 C/C; rs1065852 A/A,*10/*10,Intermediate Metabolizer,"{""CYP2D6"": ""0.5""}",2,*10/*100; *10/*101; *10/*56
+CYP2D6,rs3892097 C/C; rs1065852 A/G,*1/*10,Normal Metabolizer,"{""CYP2D6"": ""1.25""}",1,*1/*100; *1/*101; *1/*56
+CYP2D6,rs3892097 C/C; rs1065852 G/G,*1/*1,Normal Metabolizer,"{""CYP2D6"": ""2.0""}",0,*1/*106; *1/*107; *1/*110
+CYP2D6,rs3892097 C/T; rs1065852 A/A,*4/*10,Intermediate Metabolizer,"{""CYP2D6"": ""0.25""}",1,*4/*100; *4/*101; *4/*56
+CYP2D6,rs3892097 C/T; rs1065852 A/G,*1/*4,Intermediate Metabolizer,"{""CYP2D6"": ""1.0""}",0,*4/*106; *4/*107; *4/*110
+CYP2D6,rs3892097 C/T; rs1065852 G/G,*1/*4,Intermediate Metabolizer,"{""CYP2D6"": ""1.0""}",0,*4/*106; *4/*107; *4/*110
+CYP2D6,rs3892097 T/T; rs1065852 A/A,*4/*4,Poor Metabolizer,"{""CYP2D6"": ""0.0""}",0,
+CYP2D6,rs3892097 T/T; rs1065852 A/G,*4/*4,Poor Metabolizer,"{""CYP2D6"": ""0.0""}",0,
+CYP2D6,rs3892097 T/T; rs1065852 G/G,*4/*4,Poor Metabolizer,"{""CYP2D6"": ""0.0""}",0,
+CYP2C19,rs4244285 A/A; rs12248560 C/C,*2/*2,Poor Metabolizer,"{""CYP2C19"": ""Poor Metabolizer""}",0,
+CYP2C19,rs4244285 A/G; rs12248560 C/C,*1/*2,Intermediate Metabolizer,"{""CYP2C19"": ""Intermediate Metabolizer""}",0,*1/*2; *2/*16; *2/*30
+CYP2C19,rs4244285 A/G; rs12248560 C/T,*2/*17,Intermediate Metabolizer,"{""CYP2C19"": ""Intermediate Metabolizer""}",1,*2/*4; *2/*44; *2/*45
+CYP2C19,rs4244285 G/G; rs12248560 C/C,*1/*1,Normal Metabolizer,"{""CYP2C19"": ""Normal Metabolizer""}",0,*1/*1; *1/*16; *1/*30
+CYP2C19,rs4244285 G/G; rs12248560 C/T,*1/*17,Rapid Metabolizer,"{""CYP2C19"": ""Rapid Metabolizer""}",1,*1/*4; *1/*44; *1/*45
+CYP2C19,rs4244285 G/G; rs12248560 T/T,*17/*17,Ultrarapid Metabolizer,"{""CYP2C19"": ""Ultrarapid Metabolizer""}",2,*17/*44; *17/*45; *4/*17
+CYP2C9,rs1057910 A/A; rs1799853 C/C,*1/*1,Normal Metabolizer,"{""CYP2C9"": ""2.0""}",0,*1/*10; *1/*11; *1/*12
+CYP2C9,rs1057910 A/C; rs1799853 C/C,*1/*3,Intermediate Metabolizer,"{""CYP2C9"": ""1.0""}",0,*1/*18; *1/*68; *3/*10
+CYP2C9,rs1057910 C/C; rs1799853 C/C,*3/*3,Poor Metabolizer,"{""CYP2C9"": ""0.0""}",0,*18/*18; *3/*18; *3/*68
+CYP2B6,rs3745274 G/G; rs2279343 A/A,*1/*1,Normal Metabolizer,"{""CYP2B6"": ""Normal Metabolizer""}",0,*1/*11; *1/*12; *1/*14
+CYP2B6,rs3745274 G/G; rs2279343 A/G,*1/*4,Rapid Metabolizer,"{""CYP2B6"": ""Rapid Metabolizer""}",0,*1/*18; *4/*11; *4/*12
+CYP2B6,rs3745274 G/G; rs2279343 G/G,*4/*4,Ultrarapid Metabolizer,"{""CYP2B6"": ""Ultrarapid Metabolizer""}",0,*18/*18; *4/*18
+CYP2B6,rs3745274 G/T; rs2279343 A/A,*1/*9,Intermediate Metabolizer,"{""CYP2B6"": ""Intermediate Metabolizer""}",0,*9/*11; *9/*12; *9/*14
+CYP2B6,rs3745274 G/T; rs2279343 A/G,*1/*6,Intermediate Metabolizer,"{""CYP2B6"": ""Intermediate Metabolizer""}",0,*1/*13; *1/*19; *4/*9
+CYP2B6,rs3745274 G/T; rs2279343 G/G,*4/*6,Intermediate Metabolizer,"{""CYP2B6"": ""Intermediate Metabolizer""}",0,*4/*13; *4/*19; *6/*18
+CYP2B6,rs3745274 T/T; rs2279343 A/A,*9/*9,Poor Metabolizer,"{""CYP2B6"": ""Poor Metabolizer""}",0,
+CYP2B6,rs3745274 T/T; rs2279343 A/G,*6/*9,Poor Metabolizer,"{""CYP2B6"": ""Poor Metabolizer""}",0,*9/*13; *9/*19; *9/*20
+CYP2B6,rs3745274 T/T; rs2279343 G/G,*6/*6,Poor Metabolizer,"{""CYP2B6"": ""Poor Metabolizer""}",0,*6/*13; *6/*19; *6/*20
+CYP3A5,rs776746 C/C,*3/*3,Poor Metabolizer,"{""CYP3A5"": ""Poor Metabolizer""}",0,
+CYP3A5,rs776746 C/T,*1/*3,Intermediate Metabolizer,"{""CYP3A5"": ""Intermediate Metabolizer""}",0,*3/*10; *3/*11; *3/*6
+CYP3A5,rs776746 T/T,*1/*1,Normal Metabolizer,"{""CYP3A5"": ""Normal Metabolizer""}",0,*1/*10; *1/*11; *1/*6
+TPMT,rs1800460 C/C; rs1142345 C/C,*3C/*3C,Poor Metabolizer,"{""TPMT"": ""Poor Metabolizer""}",0,
+TPMT,rs1800460 C/C; rs1142345 C/T,*1/*3C,Intermediate Metabolizer,"{""TPMT"": ""Intermediate Metabolizer""}",0,*3C/*10; *3C/*11; *3C/*12
+TPMT,rs1800460 C/C; rs1142345 T/T,*1/*1,Normal Metabolizer,"{""TPMT"": ""Normal Metabolizer""}",0,*1/*10; *1/*11; *1/*12
+TPMT,rs1800460 C/T; rs1142345 C/C,*3A/*3C,Poor Metabolizer,"{""TPMT"": ""Poor Metabolizer""}",0,
+TPMT,rs1800460 C/T; rs1142345 C/T,*1/*3A,Intermediate Metabolizer,"{""TPMT"": ""Intermediate Metabolizer""}",0,*3A/*10; *3A/*11; *3B/*3C
+TPMT,rs1800460 C/T; rs1142345 T/T,*1/*3B,Intermediate Metabolizer,"{""TPMT"": ""Intermediate Metabolizer""}",0,*3B/*10; *3B/*11; *3B/*12
+TPMT,rs1800460 T/T; rs1142345 C/C,*3A/*3A,Poor Metabolizer,"{""TPMT"": ""Poor Metabolizer""}",0,
+TPMT,rs1800460 T/T; rs1142345 C/T,*3A/*3B,Poor Metabolizer,"{""TPMT"": ""Poor Metabolizer""}",0,
+TPMT,rs1800460 T/T; rs1142345 T/T,*3B/*3B,Poor Metabolizer,"{""TPMT"": ""Poor Metabolizer""}",0,
+NUDT15,rs116855232 C/C,*1/*1,Normal Metabolizer,"{""NUDT15"": ""Normal Metabolizer""}",0,*1/*10; *1/*11; *1/*12
+NUDT15,rs116855232 C/T,*1/*3,Intermediate Metabolizer,"{""NUDT15"": ""Intermediate Metabolizer""}",1,*3/*10; *3/*11; *3/*12
+NUDT15,rs116855232 T/T,*3/*3,Poor Metabolizer,"{""NUDT15"": ""Poor Metabolizer""}",2,
+SLCO1B1,rs4149056 C/C,*5/*5,Poor Function,"{""SLCO1B1"": ""Poor Function""}",0,*5/*15; *5/*40; *5/*45
+SLCO1B1,rs4149056 C/T,*1/*5,Decreased Function,"{""SLCO1B1"": ""Decreased Function""}",0,*1/*15; *1/*40; *1/*45
+SLCO1B1,rs4149056 T/T,*1/*1,Normal Function,"{""SLCO1B1"": ""Normal Function""}",0,*1/*10; *1/*11; *1/*16
+DPYD,rs3918290 C/C; rs56038477 C/C,Reference/Reference,Normal Metabolizer,"{""DPYD"": ""2.0""}",0,Reference/c.1003G>T (*11); Reference/c.1024G>A; Reference/c.1057C>T
+DPYD,rs3918290 C/C; rs56038477 C/T,"Reference/c.1129-5923C>G, c.1236G>A (HapB3)",Intermediate Metabolizer,"{""DPYD"": ""1.5""}",1,"c.1003G>T (*11)/c.1129-5923C>G, c.1236G>A (HapB3); c.1024G>A/c.1129-5923C>G, c.1236G>A (HapB3); c.1057C>T/c.1129-5923C>G, c.1236G>A (HapB3)"
+DPYD,rs3918290 C/C; rs56038477 T/T,"c.1129-5923C>G, c.1236G>A (HapB3)/c.1129-5923C>G, c.1236G>A (HapB3)",Intermediate Metabolizer,"{""DPYD"": ""1.0""}",2,
+DPYD,rs3918290 C/T; rs56038477 C/C,Reference/c.1905+1G>A (*2A),Intermediate Metabolizer,"{""DPYD"": ""1.0""}",0,c.1003G>T (*11)/c.1905+1G>A (*2A); c.1024G>A/c.1905+1G>A (*2A); c.1057C>T/c.1905+1G>A (*2A)
+DPYD,rs3918290 C/T; rs56038477 C/T,"c.1129-5923C>G, c.1236G>A (HapB3)/c.1905+1G>A (*2A)",Poor Metabolizer,"{""DPYD"": ""0.5""}",1,
+DPYD,rs3918290 T/T; rs56038477 C/C,c.1905+1G>A (*2A)/c.1905+1G>A (*2A),Poor Metabolizer,"{""DPYD"": ""0.0""}",0,
+CYP4F2,rs2108622 C/C,*1/*1,Normal function,"{""CYP4F2"": ""Normal function""}",0,*1/*10; *1/*11; *1/*12
+CYP4F2,rs2108622 C/T,*1/*3,not in CPIC table,,0,*1/*22; *1/*4; *3/*10
+CYP4F2,rs2108622 T/T,*3/*3,Decreased function (CYP4F2*3 homozygous),"{""CYP4F2"": ""Decreased function (CYP4F2*3 homozygous)""}",0,*22/*22; *3/*22; *3/*4
+VKORC1,rs9923231 C/C,rs9923231 reference (C)/rs9923231 reference (C),Normal warfarin sensitivity (VKORC1 -1639 G/G),"{""VKORC1"": ""Normal warfarin sensitivity (VKORC1 -1639 G/G)""}",0,
+VKORC1,rs9923231 C/T,rs9923231 reference (C)/rs9923231 variant (T),Warfarin sensitive (VKORC1 -1639 A/A),"{""VKORC1"": ""Warfarin sensitive (VKORC1 -1639 A/A)""}",0,
+VKORC1,rs9923231 T/T,rs9923231 variant (T)/rs9923231 variant (T),Warfarin sensitive (VKORC1 -1639 A/A),"{""VKORC1"": ""Warfarin sensitive (VKORC1 -1639 A/A)""}",0,
+IFNL3,rs12979860 C/C,rs12979860 reference (C)/rs12979860 reference (C),Favourable response genotype,"{""IFNL3"": ""Favourable response genotype""}",0,
+IFNL3,rs12979860 C/T,rs12979860 reference (C)/rs12979860 variant (T),Unfavourable response genotype,"{""IFNL3"": ""Unfavourable response genotype""}",0,
+IFNL3,rs12979860 T/T,rs12979860 variant (T)/rs12979860 variant (T),Unfavourable response genotype,"{""IFNL3"": ""Unfavourable response genotype""}",0,
+G6PD,rs1050828 C/C; rs1050829 C/C; rs5030868 G/G,A/A,not in CPIC table,,0,A/A- 680T_376G; A/A- 968C_376G; A/Acrokorinthos
+G6PD,rs1050828 C/C; rs1050829 C/T; rs5030868 A/G,"A/Mediterranean, Dallas, Panama, Sassari, Cagliari, Birmingham",not in CPIC table,,0,"A- 680T_376G/Mediterranean, Dallas, Panama, Sassari, Cagliari, Birmingham; A- 968C_376G/Mediterranean, Dallas, Panama, Sassari, Cagliari, Birmingham; A/Mediterranean Haplotype"
+G6PD,rs1050828 C/C; rs1050829 C/T; rs5030868 G/G,A/B (reference),not in CPIC table,,0,A- 680T_376G/B (reference); A- 968C_376G/B (reference); Acrokorinthos/B (reference)
+G6PD,rs1050828 C/C; rs1050829 T/T; rs5030868 A/A,"Mediterranean, Dallas, Panama, Sassari, Cagliari, Birmingham/Mediterranean, Dallas, Panama, Sassari, Cagliari, Birmingham",not in CPIC table,,0,"Mediterranean Haplotype/Mediterranean Haplotype; Mediterranean Haplotype/Mediterranean, Dallas, Panama, Sassari, Cagliari, Birmingham"
+G6PD,rs1050828 C/C; rs1050829 T/T; rs5030868 A/G,"B (reference)/Mediterranean, Dallas, Panama, Sassari, Cagliari, Birmingham",not in CPIC table,,0,"Aachen/Mediterranean, Dallas, Panama, Sassari, Cagliari, Birmingham; Abeno/Mediterranean, Dallas, Panama, Sassari, Cagliari, Birmingham; B (reference)/Mediterranean Haplotype"
+G6PD,rs1050828 C/C; rs1050829 T/T; rs5030868 G/G,B (reference)/B (reference),not in CPIC table,,0,Aachen/B (reference); Abeno/B (reference); Alhambra/B (reference)
+G6PD,rs1050828 C/T; rs1050829 C/C; rs5030868 G/G,A/A- 202A_376G,not in CPIC table,,0,202G>A_376A>G_1264C>G/A; A- 202A_376G/A- 680T_376G; A- 202A_376G/A- 968C_376G
+G6PD,rs1050828 C/T; rs1050829 C/T; rs5030868 A/G,"A- 202A_376G/Mediterranean, Dallas, Panama, Sassari, Cagliari, Birmingham",not in CPIC table,,0,"202G>A_376A>G_1264C>G/Mediterranean Haplotype; 202G>A_376A>G_1264C>G/Mediterranean, Dallas, Panama, Sassari, Cagliari, Birmingham; A- 202A_376G/Mediterranean Haplotype"
+G6PD,rs1050828 C/T; rs1050829 C/T; rs5030868 G/G,A- 202A_376G/B (reference),Variable,"{""G6PD"": ""Variable""}",0,202G>A_376A>G_1264C>G/B (reference); A/Asahi; A/Hechi
+G6PD,rs1050828 C/T; rs1050829 T/T; rs5030868 A/G,"Asahi/Mediterranean, Dallas, Panama, Sassari, Cagliari, Birmingham",not in CPIC table,,0,"Asahi/Mediterranean Haplotype; Hechi/Mediterranean Haplotype; Hechi/Mediterranean, Dallas, Panama, Sassari, Cagliari, Birmingham"
+G6PD,rs1050828 C/T; rs1050829 T/T; rs5030868 G/G,Asahi/B (reference),not in CPIC table,,0,Aachen/Asahi; Abeno/Asahi; B (reference)/Hechi
+G6PD,rs1050828 T/T; rs1050829 C/C; rs5030868 G/G,A- 202A_376G/A- 202A_376G,not in CPIC table,,0,202G>A_376A>G_1264C>G/202G>A_376A>G_1264C>G; 202G>A_376A>G_1264C>G/A- 202A_376G
+G6PD,rs1050828 T/T; rs1050829 C/T; rs5030868 G/G,A- 202A_376G/Asahi,not in CPIC table,,0,202G>A_376A>G_1264C>G/Asahi; 202G>A_376A>G_1264C>G/Hechi; A- 202A_376G/Hechi
+G6PD,rs1050828 T/T; rs1050829 T/T; rs5030868 G/G,Asahi/Asahi,not in CPIC table,,0,Asahi/Hechi; Hechi/Hechi

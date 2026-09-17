@@ -1,0 +1,86 @@
+[
+  {
+    "probe": "missing_all",
+    "input": "No genotype result is available.",
+    "observed": {},
+    "genotype_used": {
+      "rs4244285": "G/G",
+      "rs12248560": "C/C"
+    },
+    "best_call": {
+      "call": "*38/*38",
+      "unconfirmed": 0,
+      "n_variant_alleles": 0,
+      "n_defining": 0
+    },
+    "best_phenotype": [
+      "Normal Metabolizer"
+    ],
+    "observed_only_phenotype_examples": []
+  },
+  {
+    "probe": "missing_cyp2c19_locus",
+    "input": "rs12248560 C/T (heterozygous)",
+    "observed": {
+      "rs12248560": "C/T"
+    },
+    "genotype_used": {
+      "rs4244285": "G/G",
+      "rs12248560": "C/T"
+    },
+    "best_call": {
+      "call": "*17/*38",
+      "unconfirmed": 1,
+      "n_variant_alleles": 1,
+      "n_defining": 2
+    },
+    "best_phenotype": [
+      "Rapid Metabolizer"
+    ],
+    "observed_only_phenotype_examples": [
+      {
+        "call": "*17/*38",
+        "phenotype": "Rapid Metabolizer"
+      },
+      {
+        "call": "*38/*4",
+        "phenotype": "Intermediate Metabolizer"
+      },
+      {
+        "call": "*16/*17",
+        "phenotype": "Likely Intermediate Metabolizer"
+      },
+      {
+        "call": "*17/*30",
+        "phenotype": "Indeterminate"
+      },
+      {
+        "call": "*16/*4",
+        "phenotype": "Likely Poor Metabolizer"
+      },
+      {
+        "call": "*2/*4",
+        "phenotype": "Poor Metabolizer"
+      }
+    ]
+  },
+  {
+    "probe": "negated_duplication",
+    "input": {
+      "id": "probe_opaque_01",
+      "gene": "CYP2D6",
+      "drug": "codeine",
+      "genotype": "Laboratory-confirmed *1/*1, copy number 2; no duplication detected. rs3892097 C/C; rs1065852 G/G."
+    },
+    "output": {
+      "diplotype": "*1/*1xN",
+      "lookup_gene": "CYP2D6",
+      "lookup_value": "3.0",
+      "phenotype": "Ultrarapid Metabolizer",
+      "rationale": "copy-number assay reports a *1 duplication and both assayed SNVs (rs3892097, rs1065852) are reference: *1/*1xN. Activity score = 1 + N >= 3 for any N >= 2, which exceeds the CPIC ultrarapid threshold of >2.25, so the phenotype is UM whatever the exact copy number."
+    },
+    "reference_phenotypes_for_stated_diplotype": [
+      "Normal Metabolizer"
+    ]
+  }
+]

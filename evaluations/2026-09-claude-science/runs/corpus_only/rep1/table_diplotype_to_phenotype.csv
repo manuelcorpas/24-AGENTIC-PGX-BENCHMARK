@@ -1,0 +1,62 @@
+gene,genotype_pattern_regex,diplotype,activity_score,phenotype,note
+CYP2D6,\*1xN duplication,*1/*1xN,>2.25,CYP2D6 Ultrarapid Metabolizer,"Copy-number call of a duplicated normal-function allele; corpus lists *1/*1xN as an ultrarapid example diplotype. Exact N and the second allele are not resolvable from a CNV assay, but any *1xN with a normal-function partner gives AS > 2.25."
+CYP2D6,rs3892097\s+T/T,*4/*4,0,CYP2D6 Poor Metabolizer,Homozygous rs3892097 variant = two no-function *4 alleles.
+CYP2D6,rs3892097\s+C/T\s*\+\s*rs1065852\s+G/A,*1/*4 (unphased; *4-without-c.100C>T / *10 combination not formally excluded),1.0,CYP2D6 Intermediate Metabolizer,"c.100C>T (rs1065852) is carried in cis on the *4 haplotype, so a *1/*4 subject is heterozygous at both markers; *4/*10 would require rs1065852 A/A and is excluded. The residual unphased alternative (*4 lacking c.100C>T together with *10) would give AS 0.25, which is also Intermediate Metabolizer, so the phenotype call is unaffected."
+CYP2D6,rs3892097\s+C/T,*1/*4,1.0,CYP2D6 Intermediate Metabolizer,One no-function *4 allele plus one normal-function allele; AS 1.0. Assigned by the current CPIC activity-score translation (codeine/paroxetine tables in the corpus: IM = 0 < AS < 1.25). The older amitriptyline/ondansetron/tamoxifen tables in the same corpus place *1/*4 in a Normal-metabolizer band; those annotations state that CPIC has since updated the CYP2D6 genotype-phenotype translation.
+CYP2D6,All CYP2D6 SNPs homozygous reference,*1/*1,2.0,CYP2D6 Normal Metabolizer,"No variant detected on the assayed SNP panel. A SNP panel cannot exclude the gene-deletion (*5) or duplication structural alleles, so *1/*1 is the panel-level call."
+CYP2C19,rs4244285\s+A/A,*2/*2,,CYP2C19 Poor Metabolizer,Homozygous *2 (two no-function alleles).
+CYP2C19,rs4244285\s+G/A,*1/*2,,CYP2C19 Intermediate Metabolizer,One normal-function plus one no-function allele.
+CYP2C19,rs12248560\s+T/T,*17/*17,,CYP2C19 Ultrarapid Metabolizer,Two increased-function *17 alleles.
+CYP2C19,rs12248560\s+C/T,*1/*17,,CYP2C19 Rapid Metabolizer,One normal-function plus one increased-function allele.
+CYP2C19,All CYP2C19 SNPs homozygous reference,*1/*1,,CYP2C19 Normal Metabolizer,No variant detected on the assayed SNP panel.
+CYP2C9,rs1057910\s+C/C,*3/*3,0,CYP2C9 Poor Metabolizer,Two *3 alleles; corpus phenytoin table gives *3/*3 activity score 0-0.5 = Poor Metabolizer.
+CYP2C9,rs1057910\s+A/C,*1/*3,1,CYP2C9 Intermediate Metabolizer (activity score 1),One normal-function plus one *3 allele; corpus phenytoin and celecoxib tables both give *1/*3 = activity score 1 Intermediate Metabolizer.
+CYP2C9,All CYP2C9 SNPs homozygous reference,*1/*1,2,CYP2C9 Normal Metabolizer,No variant detected on the assayed SNP panel.
+CYP2B6,rs3745274\s+T/T,*6/*6 or *9/*9 (c.516G>T homozygous; rs2279343 not reported),,CYP2B6 Poor Metabolizer,"c.516G>T defines *9 on its own and *6 when in cis with c.785A>G (rs2279343). rs2279343 was not reported, so *6/*6 and *9/*9 cannot be distinguished; both are decreased-function alleles, so the phenotype (two decreased-function alleles = Poor Metabolizer) is the same either way."
+CYP2B6,rs3745274\s+G/T,*1/*6 or *1/*9 (c.516G>T heterozygous; rs2279343 not reported),,CYP2B6 Intermediate Metabolizer,One normal-function plus one decreased-function allele either way.
+CYP2B6,rs2279343\s+A/G,*1/*4,,CYP2B6 Rapid Metabolizer,"c.785A>G alone defines the increased-function *4 allele; c.516G>T is reference, which excludes *6. One normal plus one increased-function allele."
+CYP2B6,All CYP2B6 SNPs homozygous reference,*1/*1,,CYP2B6 Normal Metabolizer,No variant detected on the assayed SNP panel.
+CYP3A5,rs776746\s+A/A,*1/*1,,CYP3A5 Extensive Metabolizer (CYP3A5 expresser),Case text states A = *1; two functional alleles.
+CYP3A5,rs776746\s+A/G,*1/*3,,CYP3A5 Intermediate Metabolizer (CYP3A5 expresser),One functional plus one non-functional (*3) allele.
+CYP3A5,rs776746\s+G/G,*3/*3,,CYP3A5 Poor Metabolizer (CYP3A5 non-expresser),Two non-functional *3 alleles.
+CYP4F2,rs2108622\s+T/T,*3/*3,,No CPIC phenotype defined for CYP4F2,"CYP4F2*3 homozygous. The supplied warfarin excerpt (PA166104949) contains only the VKORC1 x CYP2C9 dose table and the CYP2C9 allele table; it carries no CYP4F2 allele table, phenotype assignment or CYP4F2-specific dosing action."
+CYP4F2,rs2108622\s+C/C,*1/*1,,No CPIC phenotype defined for CYP4F2,CYP4F2 reference. Same corpus limitation as above.
+VKORC1,rs9923231\s+A/A,-1639A/-1639A (rs9923231 A/A),,Increased warfarin sensitivity (low dose requirement),"Read off the corpus warfarin dose table, whose AA row carries the lowest predicted stable doses at every CYP2C9 genotype."
+VKORC1,rs9923231\s+G/G,-1639G/-1639G (rs9923231 G/G),,Normal warfarin sensitivity (reference),GG row of the corpus warfarin dose table.
+DPYD,rs3918290\s+T/T,c.[1905+1G>A];[1905+1G>A] (*2A/*2A),0,DPYD Poor Metabolizer,Two no-function alleles; corpus lists c.[1905+1G>A];[1905+1G>A] as an activity score 0 example.
+DPYD,rs3918290\s+C/T,c.[1905+1G>A];[=] (*1/*2A),1,DPYD Intermediate Metabolizer,One no-function plus one normal allele; corpus lists c.[1905+1G>A];[=] as an activity score 1 example.
+DPYD,rs56038477\s+C/T,c.[1129-5923C>G];[=] (HapB3 heterozygous),1.5,DPYD Intermediate Metabolizer,"rs56038477 (c.1236G>A) is the HapB3 tag marker, in complete LD with the causal c.1129-5923C>G decreased-function variant; corpus lists c.[1129-5923C>G];[=] as an intermediate metaboliser example (activity score 1.5)."
+DPYD,All DPYD risk variants reference,c.[=];[=] (*1/*1),2,DPYD Normal Metabolizer,No risk variant detected.
+TPMT,rs1800460\s+T/T\s*\+\s*rs1142345\s+C/C,*3A/*3A,,TPMT Poor Metabolizer,"Homozygous variant at both c.460G>A and c.719A>G. The two variants occur in cis on the *3A haplotype, so the homozygous-both genotype is *3A/*3A (two no-function alleles). The formally possible *3B/*3C compound configuration is a recognised rarity and is also a two-no-function-allele Poor Metabolizer."
+TPMT,rs1800460\s+C/T,*1/*3B,,TPMT Intermediate Metabolizer,Heterozygous c.460G>A only; one no-function plus one normal-function allele.
+TPMT,rs1142345\s+T/C,*1/*3C,,TPMT Intermediate Metabolizer,Heterozygous c.719A>G only; one no-function plus one normal-function allele.
+TPMT,All TPMT SNPs homozygous reference,*1/*1,,TPMT Normal Metabolizer,No variant detected on the assayed SNP panel.
+NUDT15,rs116855232\s+T/T,*3/*3,,NUDT15 Poor Metabolizer,Two no-function *3 alleles.
+NUDT15,rs116855232\s+C/T,*1/*3,,NUDT15 Intermediate Metabolizer,One normal plus one no-function allele.
+NUDT15,rs116855232\s+C/C,*1/*1,,NUDT15 Normal Metabolizer,Reference.
+SLCO1B1,rs4149056\s+C/C,*5/*5 (or *15/*15; rs4149056 C/C),,SLCO1B1 Poor Function,Two no-function c.521C alleles; corpus maps rs4149056 CC directly onto the low/poor function phenotype.
+SLCO1B1,rs4149056\s+T/C,*1/*5 (or *1/*15; rs4149056 T/C),,SLCO1B1 Decreased Function,One normal plus one no-function allele; corpus maps rs4149056 TC onto the intermediate/decreased function phenotype.
+SLCO1B1,rs4149056\s+T/T,*1/*1 (rs4149056 T/T),,SLCO1B1 Normal Function,Two normal-function alleles.
+UGT1A1,TA7/TA7,*28/*28,,UGT1A1 Poor Metabolizer,Two decreased-function (TA)7 promoter alleles.
+UGT1A1,TA6/TA7,*1/*28,,UGT1A1 Intermediate Metabolizer,One reference plus one decreased-function allele.
+UGT1A1,TA6/TA6,*1/*1,,UGT1A1 Extensive (Normal) Metabolizer,Two reference-function alleles.
+G6PD,rs5030868 A,Mediterranean (hemizygous male) or Mediterranean/Mediterranean,,G6PD Deficient,"c.563C>T = G6PD Mediterranean, a class II deficient allele. One X carrying a class II allele, or two class II alleles, is the corpus Deficient row."
+G6PD,rs1050828 C/T\s*\+\s*rs1050829,B/A- (heterozygous female),,G6PD Variable,One non-deficient class IV allele (B) and one deficient class III allele (A-). The corpus Variable row is exactly this configuration and notes that X-linked mosaicism means an enzyme activity test is needed to assign the phenotype.
+G6PD,rs1050828 T\s*\+\s*rs1050829 C in cis,A- (hemizygous male) or A-/A-,,G6PD Deficient,"c.202G>A and c.376A>G in cis = G6PD A-, a class III deficient allele."
+G6PD,rs1050828 C\s*\+\s*rs5030868 G,B (hemizygous male) or B/B,,G6PD Normal,No deficiency variant detected; class IV (B) allele(s) only.
+HLA-A*31:01,positive,HLA-A*31:01 positive (*31:01/*X or *31:01/*31:01),,"HLA-A*31:01 positive (increased risk of carbamazepine-induced SJS/TEN, DRESS and MPE)",Corpus carrier row.
+HLA-A*31:01,negative,HLA-A*31:01 negative (*X/*X),,HLA-A*31:01 negative (normal or reduced risk),Corpus non-carrier row.
+HLA-B*15:02,positive,HLA-B*15:02 positive (*15:02/*X or *15:02/*15:02),,HLA-B*15:02 positive (increased risk of SJS/TEN),Corpus carrier row.
+HLA-B*15:02,negative,HLA-B*15:02 negative (*X/*X),,HLA-B*15:02 negative (normal or reduced risk),Corpus non-carrier row.
+HLA-B*58:01,positive,HLA-B*58:01 positive (*58:01/*X or *58:01/*58:01),,HLA-B*58:01 positive (significantly increased risk of allopurinol-induced SCAR),Corpus carrier row.
+HLA-B*58:01,negative,HLA-B*58:01 negative (*X/*X),,HLA-B*58:01 negative (low or reduced risk of allopurinol SCAR),Corpus non-carrier row.
+HLA-B*57:01,rs2395029 G/T or G/G,HLA-B*57:01 positive (*57:01/*X or *57:01/*57:01),,HLA-B*57:01 positive (high risk of abacavir hypersensitivity),"rs2395029 (HCP5) G is the tag allele for HLA-B*57:01; a positive tag result is treated as the corpus carrier row. A tag SNP is not a typing result, so the diplotype is reported as *57:01-positive rather than as a resolved HLA diplotype."
+HLA-B*57:01,rs2395029 T/T,HLA-B*57:01 negative (*X/*X),,HLA-B*57:01 negative (very low risk of abacavir hypersensitivity),No HCP5 tag risk allele.
+IFNL3,rs12979860 C/C,rs12979860 C/C,,IFNL3 favourable response genotype,Corpus CC row.
+IFNL3,rs12979860 T/T,rs12979860 T/T,,IFNL3 unfavourable response genotype,Corpus 'CT or TT' unfavourable row.
+MT-RNR1,m\.1555A>G,m.1555A>G (homoplasmic),,MT-RNR1 increased risk of aminoglycoside-induced hearing loss,Corpus lists m.1555A>G among the increased-risk variants.
+MT-RNR1,m\.1555A\b,m.1555A (reference),,MT-RNR1 normal risk of aminoglycoside-induced hearing loss,No detectable increased-risk variant.
+RYR1,RYR1 mutation,RYR1 c.1840C>T p.(Arg614Cys) heterozygous,,Malignant Hyperthermia susceptible,Corpus lists RYR1 c.1840C>T; p.(Arg614Cys) as an EMHG malignant-hyperthermia causative variant.
+RYR1,no pathogenic variant,RYR1 no MH causative variant detected,,Uncertain susceptibility,"Corpus assigns 'Uncertain susceptibility', not 'not susceptible', to a negative result: about half of contracture-test-confirmed MH has no identified genetic cause."
+CFTR,G551D positive,G551D/other (rs75527207 A/G or A/A),,CFTR gating variant present (ivacaftor-responsive),"Corpus row 'Homozygous or Heterozygous G551D-CFTR, rs75527207 genotype AA or AG'."
+CFTR,F508del homozygous,F508del/F508del,,CFTR F508del homozygous (not ivacaftor-responsive),Corpus row 'Homozygous for F508del-CFTR'.

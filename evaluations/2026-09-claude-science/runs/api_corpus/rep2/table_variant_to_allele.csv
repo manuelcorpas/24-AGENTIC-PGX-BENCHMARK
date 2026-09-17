@@ -1,0 +1,125 @@
+gene,rsid,cpic_variant_name,genomic_location,allele,allele_base_plus_strand,cpic_allele_function,cpic_activity_value,in_cpic_diplotype_table
+CFTR,rs75527207,G551D/Class: III,g.117587806G>A,G551D,A,ivacaftor responsive,,yes
+CFTR,rs75527207,G551D/Class: III,g.117587806G>A,ivacaftor non-responsive CFTR sequence,G,ivacaftor non-responsive,,yes
+CYP2B6,rs2279343,18053A>G,g.41009358A>G,*1,A,Normal function,,yes
+CYP2B6,rs2279343,18053A>G,g.41009358A>G,*13,G,No function,,yes
+CYP2B6,rs2279343,18053A>G,g.41009358A>G,*18,AG,No function,,yes
+CYP2B6,rs2279343,18053A>G,g.41009358A>G,*19,G,Decreased function,,yes
+CYP2B6,rs2279343,18053A>G,g.41009358A>G,*20,G,Decreased function,,yes
+CYP2B6,rs2279343,18053A>G,g.41009358A>G,*26,G,Decreased function,,yes
+CYP2B6,rs2279343,18053A>G,g.41009358A>G,*34,G,Decreased function,,yes
+CYP2B6,rs2279343,18053A>G,g.41009358A>G,*36,G,Decreased function,,yes
+CYP2B6,rs2279343,18053A>G,g.41009358A>G,*37,G,Decreased function,,yes
+CYP2B6,rs2279343,18053A>G,g.41009358A>G,*38,G,No function,,yes
+CYP2B6,rs2279343,18053A>G,g.41009358A>G,*39,G,Decreased function,,yes
+CYP2B6,rs2279343,18053A>G,g.41009358A>G,*4,G,Increased function,,yes
+CYP2B6,rs2279343,18053A>G,g.41009358A>G,*40,G,Decreased function,,yes
+CYP2B6,rs2279343,18053A>G,g.41009358A>G,*41,G,Decreased function,,yes
+CYP2B6,rs2279343,18053A>G,g.41009358A>G,*42,G,Decreased function,,yes
+CYP2B6,rs2279343,18053A>G,g.41009358A>G,*43,G,Decreased function,,yes
+CYP2B6,rs2279343,18053A>G,g.41009358A>G,*6,G,Decreased function,,yes
+CYP2B6,rs2279343,18053A>G,g.41009358A>G,*7,G,Decreased function,,yes
+CYP2B6,rs3745274,15631G>T,g.41006936G>T,*1,G,Normal function,,yes
+CYP2B6,rs3745274,15631G>T,g.41006936G>T,*13,T,No function,,yes
+CYP2B6,rs3745274,15631G>T,g.41006936G>T,*19,T,Decreased function,,yes
+CYP2B6,rs3745274,15631G>T,g.41006936G>T,*20,T,Decreased function,,yes
+CYP2B6,rs3745274,15631G>T,g.41006936G>T,*26,T,Decreased function,,yes
+CYP2B6,rs3745274,15631G>T,g.41006936G>T,*34,T,Decreased function,,yes
+CYP2B6,rs3745274,15631G>T,g.41006936G>T,*36,T,Decreased function,,yes
+CYP2B6,rs3745274,15631G>T,g.41006936G>T,*37,T,Decreased function,,yes
+CYP2B6,rs3745274,15631G>T,g.41006936G>T,*38,T,No function,,yes
+CYP2B6,rs3745274,15631G>T,g.41006936G>T,*39,T,Decreased function,,yes
+CYP2B6,rs3745274,15631G>T,g.41006936G>T,*40,T,Decreased function,,yes
+CYP2B6,rs3745274,15631G>T,g.41006936G>T,*41,T,Decreased function,,yes
+CYP2B6,rs3745274,15631G>T,g.41006936G>T,*42,T,Decreased function,,yes
+CYP2B6,rs3745274,15631G>T,g.41006936G>T,*43,T,Decreased function,,yes
+CYP2B6,rs3745274,15631G>T,g.41006936G>T,*6,T,Decreased function,,yes
+CYP2B6,rs3745274,15631G>T,g.41006936G>T,*7,T,Decreased function,,yes
+CYP2B6,rs3745274,15631G>T,g.41006936G>T,*9,T,Decreased function,,yes
+CYP2C19,rs12248560,-806C>T,g.94761900C>T,*17,T,Increased function,,yes
+CYP2C19,rs12248560,-806C>T,g.94761900C>T,*38,C,Normal function,,yes
+CYP2C19,rs12248560,-806C>T,g.94761900C>T,*4,CT,No function,,yes
+CYP2C19,rs12248560,-806C>T,g.94761900C>T,*44,T,,,no
+CYP2C19,rs12248560,-806C>T,g.94761900C>T,*45,T,,,no
+CYP2C19,rs4244285,19154G>A,g.94781859G>A,*2,A,No function,,yes
+CYP2C19,rs4244285,19154G>A,g.94781859G>A,*38,G,Normal function,,yes
+CYP2C9,rs1057910,42614A>C,g.94981296A>C,*1,A,Normal function,1.0,yes
+CYP2C9,rs1057910,42614A>C,g.94981296A>C,*18,C,Uncertain function,n/a,yes
+CYP2C9,rs1057910,42614A>C,g.94981296A>C,*3,C,No function,0.0,yes
+CYP2C9,rs1057910,42614A>C,g.94981296A>C,*68,C,Uncertain function,n/a,yes
+CYP2D6,rs1065852,100C>T,g.42130692G>A,*1,G,Normal function,1.0,yes
+CYP2D6,rs1065852,100C>T,g.42130692G>A,*10,A,Decreased function,0.25,yes
+CYP2D6,rs1065852,100C>T,g.42130692G>A,*100,A,No function,0.0,yes
+CYP2D6,rs1065852,100C>T,g.42130692G>A,*101,A,No function,0.0,yes
+CYP2D6,rs1065852,100C>T,g.42130692G>A,*114,A,No function,0.0,yes
+CYP2D6,rs1065852,100C>T,g.42130692G>A,*132,A,Decreased function,0.25,yes
+CYP2D6,rs1065852,100C>T,g.42130692G>A,*142,A,Uncertain function,n/a,yes
+CYP2D6,rs1065852,100C>T,g.42130692G>A,*147,A,Uncertain function,n/a,yes
+CYP2D6,rs1065852,100C>T,g.42130692G>A,*150,AG,,,no
+CYP2D6,rs1065852,100C>T,g.42130692G>A,*177,A,,,no
+CYP2D6,rs1065852,100C>T,g.42130692G>A,*36,A,No function,0.0,yes
+CYP2D6,rs1065852,100C>T,g.42130692G>A,*37,A,Uncertain function,n/a,yes
+CYP2D6,rs1065852,100C>T,g.42130692G>A,*4,AG,No function,0.0,yes
+CYP2D6,rs1065852,100C>T,g.42130692G>A,*47,A,No function,0.0,yes
+CYP2D6,rs1065852,100C>T,g.42130692G>A,*49,A,Decreased function,0.5,yes
+CYP2D6,rs1065852,100C>T,g.42130692G>A,*52,A,Decreased function,0.25,yes
+CYP2D6,rs1065852,100C>T,g.42130692G>A,*54,A,Decreased function,0.5,yes
+CYP2D6,rs1065852,100C>T,g.42130692G>A,*56,AG,No function,0.0,yes
+CYP2D6,rs1065852,100C>T,g.42130692G>A,*64,A,Uncertain function,n/a,yes
+CYP2D6,rs1065852,100C>T,g.42130692G>A,*65,A,Uncertain function,n/a,yes
+CYP2D6,rs1065852,100C>T,g.42130692G>A,*69,A,No function,0.0,yes
+CYP2D6,rs1065852,100C>T,g.42130692G>A,*72,A,Uncertain function,n/a,yes
+CYP2D6,rs1065852,100C>T,g.42130692G>A,*87,A,Uncertain function,n/a,yes
+CYP2D6,rs1065852,100C>T,g.42130692G>A,*94,A,Uncertain function,n/a,yes
+CYP2D6,rs1065852,100C>T,g.42130692G>A,*95,A,Uncertain function,n/a,yes
+CYP2D6,rs1065852,100C>T,g.42130692G>A,*99,A,No function,0.0,yes
+CYP2D6,rs3892097,1847G>A,g.42128945C>T,*1,C,Normal function,1.0,yes
+CYP2D6,rs3892097,1847G>A,g.42128945C>T,*4,T,No function,0.0,yes
+CYP3A5,rs776746,6981A>G,g.99672916T>C,*1,T,Normal function,,yes
+CYP3A5,rs776746,6981A>G,g.99672916T>C,*3,C,No function,,yes
+CYP4F2,rs2108622,17991G>A,g.15879621C>T,*1,C,,,no
+CYP4F2,rs2108622,17991G>A,g.15879621C>T,*22,T,,,no
+CYP4F2,rs2108622,17991G>A,g.15879621C>T,*3,T,,,no
+CYP4F2,rs2108622,17991G>A,g.15879621C>T,*4,T,,,no
+DPYD,rs3918290,c.1905+1G>A,g.97450058C>T,Reference,C,Normal function,1.0,yes
+DPYD,rs3918290,c.1905+1G>A,g.97450058C>T,c.1905+1G>A (*2A),T,No function,0.0,yes
+DPYD,rs56038477,c.1236G>A,g.97573863C>T,Reference,C,Normal function,1.0,yes
+DPYD,rs56038477,c.1236G>A,g.97573863C>T,"c.1129-5923C>G, c.1236G>A (HapB3)",T,Decreased function,0.5,yes
+G6PD,rs1050828,c.202G>A,g.154536002C>T,202G>A_376A>G_1264C>G,T,I/Deficient with CNSHA,,yes
+G6PD,rs1050828,c.202G>A,g.154536002C>T,A- 202A_376G,T,III/Deficient,,yes
+G6PD,rs1050828,c.202G>A,g.154536002C>T,Asahi,T,III/Deficient,,yes
+G6PD,rs1050828,c.202G>A,g.154536002C>T,B (reference),C,IV/Normal,,yes
+G6PD,rs1050828,c.202G>A,g.154536002C>T,Hechi,T,II/Deficient,,yes
+G6PD,rs1050829,c.376A>G,g.154535277T>C,202G>A_376A>G_1264C>G,C,I/Deficient with CNSHA,,yes
+G6PD,rs1050829,c.376A>G,g.154535277T>C,A,C,IV/Normal,,yes
+G6PD,rs1050829,c.376A>G,g.154535277T>C,A- 202A_376G,C,III/Deficient,,yes
+G6PD,rs1050829,c.376A>G,g.154535277T>C,A- 680T_376G,C,III/Deficient,,yes
+G6PD,rs1050829,c.376A>G,g.154535277T>C,A- 968C_376G,C,III/Deficient,,yes
+G6PD,rs1050829,c.376A>G,g.154535277T>C,Acrokorinthos,C,II/Deficient,,yes
+G6PD,rs1050829,c.376A>G,g.154535277T>C,Ananindeua,C,II/Deficient,,yes
+G6PD,rs1050829,c.376A>G,g.154535277T>C,B (reference),T,IV/Normal,,yes
+G6PD,rs1050829,c.376A>G,g.154535277T>C,Mt Sinai,C,I/Deficient with CNSHA,,yes
+G6PD,rs1050829,c.376A>G,g.154535277T>C,Santa Maria,C,II/Deficient,,yes
+G6PD,rs1050829,c.376A>G,g.154535277T>C,Sierra Leone,C,III/Deficient,,yes
+G6PD,rs5030868,c.563C>T,g.154534419G>A,B (reference),G,IV/Normal,,yes
+G6PD,rs5030868,c.563C>T,g.154534419G>A,Mediterranean Haplotype,A,II/Deficient,,yes
+G6PD,rs5030868,c.563C>T,g.154534419G>A,"Mediterranean, Dallas, Panama, Sassari, Cagliari, Birmingham",A,II/Deficient,,yes
+IFNL3,rs12979860,-1595G>A,g.39248147C>T,rs12979860 reference (C),C,,,no
+IFNL3,rs12979860,-1595G>A,g.39248147C>T,rs12979860 variant (T),T,,,no
+NUDT15,rs116855232,7973C>T,g.48045719C>T,*1,C,Normal function,,yes
+NUDT15,rs116855232,7973C>T,g.48045719C>T,*3,T,No function,,yes
+SLCO1B1,rs4149056,37041T>C,g.21178615T>C,*1,T,Normal function,,yes
+SLCO1B1,rs4149056,37041T>C,g.21178615T>C,*15,C,No function,,yes
+SLCO1B1,rs4149056,37041T>C,g.21178615T>C,*40,C,Uncertain function,,yes
+SLCO1B1,rs4149056,37041T>C,g.21178615T>C,*45,CT,No function,,yes
+SLCO1B1,rs4149056,37041T>C,g.21178615T>C,*47,C,No function,,yes
+SLCO1B1,rs4149056,37041T>C,g.21178615T>C,*5,C,No function,,yes
+TPMT,rs1142345,719A>G;719A>C,g.18130687T>C; g.18130687T>G,*1,T,Normal function,,yes
+TPMT,rs1142345,719A>G;719A>C,g.18130687T>C; g.18130687T>G,*3A,C,No function,,yes
+TPMT,rs1142345,719A>G;719A>C,g.18130687T>C; g.18130687T>G,*3C,C,No function,,yes
+TPMT,rs1142345,719A>G;719A>C,g.18130687T>C; g.18130687T>G,*41,G,No function,,yes
+TPMT,rs1800460,460G>A,g.18138997C>T,*1,C,Normal function,,yes
+TPMT,rs1800460,460G>A,g.18138997C>T,*3A,T,No function,,yes
+TPMT,rs1800460,460G>A,g.18138997C>T,*3B,T,No function,,yes
+VKORC1,rs9923231,-1639G>A,g.31096368C>T,rs9923231 reference (C),C,,,no
+VKORC1,rs9923231,-1639G>A,g.31096368C>T,rs9923231 variant (T),T,,,no

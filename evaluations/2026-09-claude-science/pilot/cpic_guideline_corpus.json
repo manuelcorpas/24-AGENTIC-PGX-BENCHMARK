@@ -1,0 +1,936 @@
+{
+  "schema_version": "v3.1",
+  "generated_at_utc": "2026-05-10T04:40:15Z",
+  "pharmgkb_bundle_path": "SPECS/cpic_rag_cache/_pharmgkb_bundle/20260509T203526Z",
+  "genes": {
+    "CFTR": {
+      "guideline_excerpt": "### Annotation of CPIC Guideline for ivacaftor and CFTR (PharmGKB PA166114461, source: CPIC)\nDrug scope: ivacaftor\n\nIvacaftor treatment is recommended only in cystic fibrosis (CF) patients that have certain CFTR variants. See full guideline for disclaimers, further details and supporting evidence. The guideline has been updated since its original publication with more variants listed on the website based on FDA label updates.\n\nCFTR Genotype | Examples of diplotypes | Implications for ivacaftor effects | Recommendations for ivacaftor therapy | Classification of recommendation for ivacaftor therapy c \n\nHomozygous or Heterozygous G551D-CFTR, rs75527207 genotype AA or AG | G551D/ F508del, G551D/ G551D | Significant improvement in lung function, weight, risk of pulmonary exacerbation, patient reported outcomes, and reduction in sweat chloride concentrations through enhanced CFTR channel activity (increase probability of open channel). | Use ivacaftor according to the product label | Strong \n\nHomozygous for F508del-CFTR, rs113993960 or rs199826652 genotype del/del | F508del/F508del | No significant reduction in sweat chloride concentrations; no changes in other clinical measurements including spirometric measurements, pulmonary exacerbations, or body weight b . Unlikely to respond to treatment. | Ivacaftor is not recommended a | Moderate b \n\nHomozygous or heterozygous for one of the following CFTR variants: E56K, P67L, R74W, D110E, D110H, R117C, R117H, G178R, E193K, L206W, R347H, R352Q, A455E, S549N, S549R, G551D, G551S, D579G, S945L, S977F, F1052V, K1060T, A1067T, G1069R, R1070Q, R1070W, F1074L, D1152H, G1244E, S1251N, S1255P, D1270N, G1349D, 2789+5G->A, 3272-26A->G, 3849+10kbC->T, 711+1G->T and E831X, A120T, A234D, A349V, D192G, D924N, E822K, F311del, F311L, F508C, G1249R, G178E, G194R, G314E, G576A, G970D, H1375P, H939R, I1027T, I1139V, I148T, I175V, I807M, L1480P, L320V, L967S, L997F, M152V, M952I, M952T, Q1291R, Q237E, Q237H, Q359R, R1162L, R117G, R117L, R117P, R1283M, R170H, R347L, R553Q, R668C, R75Q, R792G, R933G, S1159F, S1159P, S589N, T1053I, T338I, V1293G, V232D, V562I, V754M, W1282R, Y1014C, Y1032C d | F508del/S549N | Significantly enhanced channel open probability in vitro [Article: 22293084 ]. In vitro assays with CFBEo- cells expressing S549N-CFTR showed ivacaftor potentiated chloride channel function [Article: 23027855 ], and a case study showed improved lung function after ivacaftor treatment in a 12-year-old girl with CF with a copy of the S549N variant [Article: 24081349 ]. Improvement in sweat chloride and CFQ-R respiratory domain scores in patients with the R117H variant [Article: 26070913 ]. Or, variant was listed in the FDA-approved drug label as being responsive to ivacaftor. | Use ivacaftor according to the product label | Moderate",
+      "char_count": 2799,
+      "sha256": "e5320eceff0f60ba972b97cfcd336f14a228038ddfc5940d48dea7011d5a3686",
+      "verbatim_fraction_estimate": 0.95,
+      "drugs_covered": [
+        "ivacaftor"
+      ],
+      "n_test_cases": 2,
+      "verification": {
+        "missing_diplotype_cores": [],
+        "missing_phenotype_variants": [],
+        "passed": true
+      },
+      "sources": [
+        {
+          "pa_id": "PA166114461",
+          "name": "Annotation of CPIC Guideline for ivacaftor and CFTR",
+          "source_org": "CPIC",
+          "drug_scope": [
+            "ivacaftor"
+          ],
+          "citations": [],
+          "byte_size_html": 11628,
+          "char_count_text": 2368,
+          "sha256": "b0e71891cb3a60f97bbbc021a65ddd4df9d5dc7d794c52e4d7542059cf3e0bbd",
+          "retrieved_date": "2026-05-10"
+        }
+      ]
+    },
+    "CYP2B6": {
+      "guideline_excerpt": "### Annotation of CPIC Guideline for efavirenz and CYP2B6 (PharmGKB PA166182603, source: CPIC)\nDrug scope: efavirenz\n\nThe CPIC Dosing Guideline for efavirenz recommends initiating efavirenz with a decreased dose of either 400 or 200 mg/day for patients who are CYP2B6 poor metabolizers, and a decreased dose of 400 mg/day for patients who are CYP2B6 intermediate metabolizers.\n\nCYP2B6 phenotype | Genotypes | Examples of diplotypes | Implications | Dosing recommendations | Classification of recommendations \n\nUltra Rapid Metabolizer | An individual carrying two increased function alleles | *4/*4, *22/*22, *4/*22 | Slightly lower dose-adjusted trough concentrations of efavirenz compared with normal metabolizers | Initiate efavirenz with standard dosing (600 mg/day) | Strong \n\nRapid Metabolizer | An individual carrying one normal function allele and one increased function allele | *1/*4, *1/*22 | Slightly lower dose-adjusted trough concentrations of efavirenz compared with normal metabolizers | Initiate efavirenz with standard dosing (600 mg/day) | Strong \n\nNormal Metabolizer | An individual carrying two normal function alleles | *1/*1 | Normal efavirenz metabolism | Initiate efavirenz with standard dosing (600 mg/day) | Strong c \n\nIntermediate Metabolizer | An individual carrying one normal function allele and one decreased function allele OR one normal function allele and one no function allele OR one increased function allele and one decreased function allele OR one increased function allele and one no function allele | *1/*6, *1/*18, *4/*6, *4/*18, *6/*22, *18/*22 | Higher dose-adjusted trough concentrations of efavirenz compared with normal metabolizers; increased risk of CNS adverse events. | Consider initiating efavirenz with decreased dose of 400 mg/day a,b . | Moderate \n\nPoor Metabolizer | An individual carrying two decreased function alleles OR two no function alleles OR one decreased function allele and one no function allele | *6/*6, *18/*18, *6/*18 | Higher dose-adjusted trough concentrations of efavirenz compared with normal metabolizers; significantly increased risk of CNS adverse events and treatment discontinuation | Consider initiating efavirenz with decreased dose of 400 or 200 mg/day a,b . | Moderate",
+      "char_count": 2252,
+      "sha256": "3b14cb2ca092644150e08a24be0c6556157872914055e54f430e9d0716cf5413",
+      "verbatim_fraction_estimate": 0.93,
+      "drugs_covered": [
+        "efavirenz"
+      ],
+      "n_test_cases": 4,
+      "verification": {
+        "missing_diplotype_cores": [],
+        "missing_phenotype_variants": [],
+        "passed": true
+      },
+      "sources": [
+        {
+          "pa_id": "PA166182603",
+          "name": "Annotation of CPIC Guideline for efavirenz and CYP2B6",
+          "source_org": "CPIC",
+          "drug_scope": [
+            "efavirenz"
+          ],
+          "citations": [],
+          "byte_size_html": 10710,
+          "char_count_text": 1874,
+          "sha256": "d843344b49d85c1d9de5baeaaa97d493ce3aa25bd2329fe302d3dc149c707d01",
+          "retrieved_date": "2026-05-10"
+        }
+      ]
+    },
+    "CYP2C19": {
+      "guideline_excerpt": "### Annotation of CPIC Guideline for clopidogrel and CYP2C19 (PharmGKB PA166104948, source: CPIC)\nDrug scope: clopidogrel\n\nThe CPIC Dosing Guideline for clopidogrel recommends an alternative antiplatelet therapy for CYP2C19 poor or intermediate metabolizers (cardiovascular indications: prasugrel or ticagrelor if no contraindication; neurovascular indications: alternative P2Y12 inhibitor if clinically indicated and no contraindication.)\n\nPhenotype | Genotype | Examples of genotypes | Implications | Therapeutic recommendations | Classification of recommendations a - ACS and/or PCI b | Classification of recommendations a - non-ACS, non-PCI cardiovascular indications c \n\nCYP2C19 ultrarapid metabolizer | An individual carrying two increased function alleles | *17/*17 | Increased clopidogrel active metabolite formation; lower on-treatment platelet reactivity; no association with higher bleeding risk | If considering clopidogrel, use at standard dose (75 mg/day) | Strong | No recommendation \n\nCYP2C19 rapid metabolizer | An individual carrying one normal function allele and one increased function allele | *1/*17 | Normal or increased clopidogrel active metabolite formation; normal or lower on-treatment platelet reactivity; no association with higher bleeding risk | If considering clopidogrel, use at standard dose (75 mg/day) | Strong | No recommendation \n\nCYP2C19 normal metabolizer | An individual carrying two normal function alleles | *1/*1 | Normal clopidogrel active metabolite formation; normal on-treatment platelet reactivity | If considering clopidogrel, use at standard dose (75 mg/day) | Strong | Strong \n\nCYP2C19 likely intermediate metabolizer d | An individual carrying one normal function allele and one decreased function allele or one increased function allele and one decreased function allele or two decreased function alleles | *1/*9, *9/*17, *9/*9 | Reduced clopidogrel active metabolite formation; increased on-treatment platelet reactivity; increased risk for adverse cardiac and cerebrovascular events | Avoid standard dose clopidogrel (75 mg) if possible. Use prasugrel or ticagrelor at standard dose if no contraindication. | Strong e | No recommendation e \n\nCYP2C19 intermediate metabolizer | An individual carrying one normal function allele and one no function allele or one increased function allele and one no function allele | *1/*2, *1/*3, *2/*17, *3/*17 | Reduced clopidogrel active metabolite formation; increased on-treatment platelet reactivity; increased risk for adverse cardiac and cerebrovascular events | Avoid standard dose (75 mg) clopidogrel if possible. Use prasugrel or ticagrelor at standard dose if no contraindication. | Strong | No recommendation \n\nCYP2C19 likely poor metabolizer d | An individual carrying one decreased function allele and one no function allele | *2/*9, *3/*9 | Significantly reduced clopidogrel active metabolite formation; increased on-treatment platelet reactivity; increased risk for adverse cardiac and cerebrovascular events | Avoid clopidogrel if possible. Use prasugrel or ticagrelor at standard dose if no contraindication. | Strong e | Moderate e \n\nCYP2C19 poor metabolizer | An individual carrying two no function alleles | *2/*2, *3/*3, *2/*3 | Significantly reduced clopidogrel active metabolite formation; increased on-treatment platelet reactivity; increased risk for adverse cardiac and cerebrovascular events | Avoid clopidogrel if possible. Use prasugrel or ticagrelor at standard dose if no contraindication. | Strong | Moderate\n\nPhenotype | Genotype | Examples of genotypes | Implications | Therapeutic recommendations | Classification of recommendations a | Other Considerations \n\nCYP2C19 ultrarapid metabolizer | An individual carrying two increased function alleles | *17/*17 | Increased clopidogrel active metabolite formation; lower on-treatment platelet reactivity | No recommendation | No recommendation | \n\nCYP2C19 rapid metabolizer | An individual carrying one normal function allele and one increased function allele | *1/*17 | Normal or increased clopidogrel active metabolite formation; normal or lower on-treatment platelet reactivity | No recommendation | No recommendation | \n\nCYP2C19 normal metabolizer | An individual carrying two normal function alleles | *1/*1 | Normal clopidogrel active metabolite formation; normal on-treatment platelet reactivity | If considering clopidogrel, use at standard dose (75 mg/day) | Strong | \n\nCYP2C19 likely intermediate metabolizer c | An individual carrying one normal function allele and one decreased function allele or one increased function allele and one decreased function allele or two decreased function alleles | *1/*9, *9/*17, *9/*9 | Reduced clopidogrel active metabolite formation; increased on-treatment platelet reactivity; increased risk for adverse cardiac and cerebrovascular events | Consider an alternative P2Y12 inhibitor at standard dose if clinically indicated and no contraindication. | Moderate d | Alternative P2Y12 inhibitors not impacted by CYP2C19 genetic variants include ticagrelor and ticlopidine. Prasugrel is contraindicated in patients with a history of stroke or TIA. e \n\nCYP2C19 intermediate metabolizer | An individual carrying one normal function allele and one no function allele or one increased function allele and one no function allele | *1/*2, *1/*3, *2/*17, *3/*17 | Reduced clopidogrel active metabolite formation; increased on-treatment platelet reactivity; increased risk for adverse cardiac and cerebrovascular events | Consider an alternative P2Y12 inhibitor at standard dose if clinically indicated and no contraindication. | Moderate | Alternative P2Y12 inhibitors not impacted by CYP2C19 genetic variants include ticagrelor and ticlopidine. Prasugrel is contraindicated in patients with a history of stroke or TIA. e \n\nCYP2C19 likely poor metabolizer c | An individual carrying one decreased function allele and one no function allele | *2/*9, *3/*9 | Significantly reduced clopidogrel active metabolite formation; increased on-treatment platelet reactivity; increased risk for adverse cardiac and cerebrovascular events | Avoid clopidogrel if possible. Consider an alternative P2Y12 inhibitor at standard dose if clinically indicated and no contraindication. | Moderate d | Alternative P2Y12 inhibitors not impacted by CYP2C19 genetic variants include ticagrelor and ticlopidine. Prasugrel is contraindicated in patients with a history of stroke or TIA. e \n\nCYP2C19 poor metabolizer | An individual carrying two no function alleles | *2/*2, *3/*3, *2/*3 | Significantly reduced clopidogrel active metabolite formation; increased on-treatment platelet reactivity; increased risk for adverse cardiac and cerebrovascular events | Avoid clopidogrel if possible. Consider an alternative P2Y12 inhibitor at standard dose if clinically indicated and no contraindication. | Moderate | Alternative P2Y12 inhibitors not impacted by CYP2C19 genetic variants include ticagrelor and ticlopidine. Prasugrel is contraindicated in patients with a history of stroke or TIA. e\n\n\n### Annotation of CPIC Guideline for voriconazole and CYP2C19 (PharmGKB PA166161537, source: CPIC)\nDrug scope: voriconazole\n\nThe CPIC dosing guideline for voriconazole recommends selecting an alternative agent that is not dependent on CYP2C19 metabolism in adults who are CYP2C19 ultrarapid metabolizers, rapid metabolizers or poor metabolizers. In pediatric patients, an alternative agent should be used in patients who are ultrarapid metabolizers or poor metabolizers. In pediatric rapid metabolizers, therapy should be initiated at recommended standard case dosing, then therapeutic dosing monitoring should be used to titrate dose to therapeutic trough concentrations.\n\nLikely Phenotype | Genotypes b | Examples of diplotypes | Implications for pharmacologic measures | Therapeutic recommendations | Classification of Recommendations e \n\nUltrarapid metabolizer (~2-5% of patients) a | An individual carrying two increased function alleles | *17/*17 | In patients for whom an ultrarapid metabolizer genotype is identified, the probability of attainment of therapeutic voriconazole concentrations is small with standard dosing. | Choose an alternative agent that is not dependent on CYP2C19 metabolism as primary therapy in lieu of voriconazole. Such agents include isavuconazole, liposomal amphotericin B, and posaconazole. f | Moderate g \n\nRapid metabolizer (~2-30% of patients) a | An individual carrying one normal function allele and one increased function allele | *1/*17 | In patients for whom a rapid metabolizer genotype is identified, the probability of attainment of therapeutic concentrations is modest with standard dosing. | Choose an alternative agent that is not dependent on CYP2C19 metabolism as primary therapy in lieu of voriconazole. Such agents include isavuconazole, liposomal amphotericin B, and posaconazole. f | Moderate \n\nNormal metabolizer c (~35-50% of patients) a | An individual carrying two normal function alleles | *1/*1 | Normal voriconazole metabolism | Initiate therapy with recommended standard of care dosing. f | Strong \n\nIntermediate metabolizer (~18-45% of patients) a | An individual carrying one normal function allele and one no function allele or one no function allele and one increased function allele | *1/*2, *1/*3, *2/*17 d | Higher dose-adjusted trough concentrations of voriconazole compared to normal metabolizers. | Initiate therapy with recommended standard of care dosing. f | Moderate \n\nPoor metabolizer (~2-15% of patients) a | An individual carrying two no function alleles | *2/*2, *2/*3, *3/*3 | Higher dose-adjusted trough concentrations of voriconazole and may increase probability of adverse events. | Choose an alternative agent that is not dependent on CYP2C19 metabolism as primary therapy in lieu of voriconazole. Such agents include isavuconazole, liposomal amphotericin B, and posaconazole. f In the event that voriconazole is considered to be the most appropriate agent, based on clinical advice, for a patient with poor metabolizer genotype, voriconazole should be administered at a preferably lower than standard dosage with careful therapeutic drug monitoring. | Moderate\n\nLikely Phenotype | Genotypes b | Examples of diplotypes | Implications for pharmacologic measures | Therapeutic recommendations | Classification of Recommendations e \n\nUltrarapid metabolizer (~2-5% of patients) a | An individual carrying two increased function alleles | *17/*17 | In patients for whom an ultrarapid metabolizer genotype is identified, the probability of attainment of therapeutic voriconazole concentrations is small. | Choose an alternative agent that is not dependent on CYP2C19 metabolism as primary therapy in lieu of voriconazole. Such agents include liposomal amphotericin B, and posaconazole. f,g | Moderate \n\nRapid metabolizer (~2-30% of patients) a | An individual carrying one normal function allele and one increased function allele | *1/*17 | In patients for whom a rapid metabolizer genotype is identified, the probability of attainment of therapeutic concentrations is variable. | Initiate therapy with recommended standard case dosing. f Use therapeutic dose monitoring to titrate dose to therapeutic trough concentrations. g,h | Moderate \n\nNormal metabolizer c (~35-50% of patients) a | An individual carrying two normal function alleles | *1/*1 | Normal voriconazole metabolism | Initiate therapy with recommended standard of care dosing. f | Strong \n\nIntermediate metabolizer (~18-45% of patients) a | An individual carrying one normal function allele and one no function allele or one no function allele and one increased function allele | *1/*2, *1/*3, *2/*17 d | Higher dose-adjusted trough concentrations of voriconazole compared to normal metabolizers. | Initiate therapy with recommended standard of care dosing. f | Moderate \n\nPoor metabolizer (~2-15% of patients) a | An individual carrying two no function alleles | *2/*2, *2/*3, *3/*3 | Higher dose-adjusted trough concentrations of voriconazole and may increase probability of adverse events. | Choose an alternative agent that is not dependent on CYP2C19 metabolism as primary therapy in lieu of voriconazole. Such agents include liposomal amphotericin B, and posaconazole f,i . In the event that voriconazole is considered to be the most appropriate agent, based on clinical advice, for a patient with poor metabolizer genotype, voriconazole should be administered at a preferably lower than standard dosage with careful therapeutic drug monitoring. | Moderate i\n\n\n### Annotation of CPIC Guideline for citalopram, escitalopram and CYP2C19 (PharmGKB PA166127638, source: CPIC)\nDrug scope: citalopram, escitalopram\n\nThe CPIC Dosing Guideline for the selective serotonin reuptake inhibitors citalopram and escitalopram recommends to consider a clinically appropriate antidepressant not predominantly metabolized by CYP2C19 for CYP2C19 ultrarapid, likely poor, and poor metabolizers. In case citalopram or escitalopram are clinically appropriate, dose alterations are recommended.\n\nPhenotype | Genotypes | Examples | Implications | Therapeutic\nRecommendations | Classification of\nRecommendations a | Considerations \n\nUltrarapid Metabolizer | An individual carrying two increased function alleles. | *17/*17 | Increased metabolism of citalopram and escitalopram to less active compounds when compared to CYP2C19 rapid and normal metabolizers. Lower plasma concentrations decrease the probability of clinical benefit. | Consider a clinically appropriate alternative antidepressant not predominantly metabolized by CYP2C19. If citalopram or escitalopram are clinically appropriate, and adequate efficacy is not achieved at standard maintenance dosing, consider titrating to a higher maintenance dose. | Strong | Drug-drug interactions and other patient characteristics (e.g., age, renal function, liver function) should be considered when adjusting dose or selecting an alternative therapy. \n\nRapid Metabolizer | An individual carrying one normal function allele and one increased function allele. | *1/*17 | Increase in metabolism of citalopram and escitalopram to less active compounds when compared to CYP2C19 normal metabolizers. Lower plasma concentrations decrease the probability of clinical benefit. | Initiate therapy with recommended starting dose. If patient does not adequately respond to recommended maintenance dosing, consider titrating to a higher maintenance dose or switching to a clinically appropriate alternative antidepressant not predominantly metabolized by CYP2C19. | Optional | Drug-drug interactions and other patient characteristics (e.g., age, renal function, liver function) should be considered when adjusting dose or selecting an alternative therapy. \n\nNormal Metabolizer | An individual carrying two normal function alleles. | *1/*1 | Normal metabolism | Initiate therapy with recommended starting dose. | Strong | \n\nLikely Intermediate Metabolizer | An individual carrying one normal function allele and one decreased b function allele or one increased function allele and one decreased b function allele or two decreased b function alleles. | *1/*9, *9/*17, *9/*9 | Reduced metabolism when compared to CYP2C19 normal metabolizers. Higher plasma concentrations may increase the probability of side effects. | Initiate therapy with recommended starting dose. Consider a slower titration schedule and lower maintenance dose than normal metabolizers. | Moderate | Drug-drug interactions and other patient characteristics (e.g., age, renal function, liver function) should be considered when adjusting dose. \n\nIntermediate Metabolizer | An individual carrying one normal function allele and one no function allele or one increased function allele and one no function allele. | *1/*2, *1/*3, *2/*17, *3/*17 | Reduced metabolism when compared to CYP2C19 normal metabolizers. Higher plasma concentrations may increase the probability of side effects. | Initiate therapy with recommended starting dose. Consider a slower titration schedule and lower maintenance dose than normal metabolizers. | Moderate | Drug-drug interactions and other patient characteristics (e.g., age, renal function, liver function) should be considered when adjusting dose. \n\nLikely Poor Metabolizer | An individual carrying one decreased b function allele and one no function allele. | *2/*9, *3/*9 | Reduced metabolism of citalopram and escitalopram to less active compounds when compared to CYP2C19 normal and intermediate metabolizers. Higher plasma concentrations may increase the probability of side effects. | Consider a clinically appropriate antidepressant not predominantly metabolized by CYP2C19. If citalopram or escitalopram are clinically appropriate, consider a lower starting dose, slower titration schedule and 50% reduction of the standard maintenance dose as compared to normal metabolizers. | Strong | Per the FDA warning, citalopram 20 mg/day is the maximum recommended dose in CYP2C19 poor metabolizers due to the risk of QT prolongation. FDA product labeling additionally cautions that citalopram dose should be limited to 20 mg/day in patients with hepatic impairment, those taking a CYP2C19 inhibitor, and patients greater than 60 years of age. \n\nPoor Metabolizer | An individual carrying two no function alleles. | *2/*2, *2/*3, *3/*3 | Reduced metabolism of citalopram and escitalopram to less active compounds when compared to CYP2C19 normal and intermediate metabolizers. Higher plasma concentrations may increase the probability of side effects. | Consider a clinically appropriate antidepressant not predominantly metabolized by CYP2C19. If citalopram or escitalopram are clinically appropriate, consider a lower starting dose, slower titration schedule and 50% reduction of the standard maintenance dose as compared to normal metabolizers. | Strong | Per the FDA warning, citalopram 20 mg/day is the maximum recommended dose in CYP2C19 poor metabolizers due to the risk of QT prolongation. FDA product labeling additionally cautions that citalopram dose should be limited to 20 mg/day in patients with hepatic impairment, those taking a CYP2C19 inhibitor, and patients greater than 60 years of age. \n\nIndeterminate | An individual carrying one or two uncertain function alleles. | *1/*12, *2/*12, *12/*14 | | No recommendation | No recommendation |\n\nLikely phenotype | Genotypes | Examples of CYP2C19 diplotypes | Implications for citalopram/escitalopram metabolism | Therapeutic Recommendations | Classification of recommendations a \n\nUltrarapid metabolizer (~5-30% of patients) b | An individual carrying two increased function alleles or one normal function allele and one increased function allele | *17/*17, *1/*17 | Increased metabolism when compared to extensive metabolizers. Lower plasma concentrations will increase probability of pharmacotherapy failure. | Consider an alternative drug not predominantly metabolized by CYP2C19. c | Moderate \n\nExtensive metabolizer (~35-50% of patients) | An individual carrying two normal function alleles | *1/*1 | Normal metabolism | Initiate therapy with recommended starting dose. | Strong \n\nIntermediate metabolizer (~18-45% of patients) | An individual carrying one normal function allele or one increased function allele and one no function allele | *1/*2, *1/*3, *2/*17 d | Reduced metabolism when compared to extensive metabolizers. | Initiate therapy with recommended starting dose. | Strong \n\nPoor metabolizer (~2-15% of patients) | An individual carrying two no function alleles | *2/*2, *2/*3, *3/*3 | Greatly reduced metabolism when compared to extensive metabolizers. Higher plasma concentrations may increase the probability of side effects. | Consider a 50% reduction e,f of recommended starting dose and titrate to response or select alternative drug not predominantly metabolized by CYP2C19. c | Moderate\n\n\n### Annotation of CPIC Guideline for lansoprazole, omeprazole, pantoprazole and CYP2C19 (PharmGKB PA166219103, source: CPIC)\nDrug scope: lansoprazole, omeprazole, pantoprazole\n\nThe CPIC Dosing Guideline for omeprazole, lansoprazole, pantoprazole recommends to increase the starting daily dose and to monitor efficacy in CYP2C19 ultrarapid metabolizer. For CYP2C19 rapid and normal metabolizers, a dose increase might be considered for the treatment of H. pylori infection and erosive esophagitis. The recommendations for intermediate and poor metabolizer for chronic therapy (>12 weeks) and efficacy achieved is to consider 50% reduction in daily dose. See full guideline for further details and supporting evidence.\n\nPhenotype a | Genotype | Examples of genotypes b | Implications | Therapeutic recommendations | Classification of recommendations c \n\nCYP2C19 Ultrarapid metabolizer | An individual carrying two increased function alleles | *17/*17 | Decreased plasma concentrations of PPIs compared to CYP2C19 NMs; increased risk of therapeutic failure | Increase starting daily dose by 100%. Daily dose may be given in divided doses. Monitor for efficacy. | Optional \n\nCYP2C19 Rapid metabolizer | An individual carrying one normal function allele and one increased function allele | *1/*17 | Decreased plasma concentrations of PPIs compared to CYP2C19 NMs; increased risk of therapeutic failure | Initiate standard starting daily dose. Consider increasing dose by 50-100% for the treatment of H. pylori infection and erosive esophagitis. Daily dose may be given in divided doses. Monitor for efficacy. | Moderate \n\nCYP2C19 Normal metabolizer | An individual carrying two normal function alleles | *1/*1 | Normal PPI metabolism; may be at increased risk of therapeutic failure compared to CYP2C19 IMs and PMs | Initiate standard starting daily dose. Consider increasing dose by 50-100% for the treatment of H. pylori infection and erosive esophagitis. Daily dose may be given in divided doses. Monitor for efficacy. | Moderate \n\nCYP2C19 likely intermediate metabolizer d | An individual carrying one normal function allele and one decreased function allele or one increased function allele and one decreased function allele or two decreased function alleles | *1/*9, *9/*17, *9/*9 | Likely increased plasma concentration of PPI compared to CYP2C19 NMs; likely increased chance of efficacy and potentially toxicity | Initiate standard starting daily dose. For chronic therapy (>12 weeks) and efficacy achieved, consider 50% reduction in daily dose and monitor for continued efficacy. | Optional e \n\nCYP2C19 intermediate metabolizer | An individual carrying one normal function allele and one no function allele or one increased function allele and one no function allele | *1/*2, *1/*3, *2/*17, *3/*17 | Increased plasma concentration of PPI compared to CYP2C19 NMs; increased chance of efficacy and potentially toxicity | Initiate standard starting daily dose. For chronic therapy (>12 weeks) and efficacy achieved, consider 50% reduction in daily dose and monitor for continued efficacy. | Optional \n\nCYP2C19 likely poor metabolizer d | An individual carrying one decreased function allele and one no function allele | *2/*9, *3/*9 | Likely increased plasma concentration of PPI compared to CYP2C19 NMs; likely increased chance of efficacy and potentially toxicity | Initiate standard starting daily dose. For chronic therapy (>12 weeks) and efficacy achieved, consider 50% reduction in daily dose and monitor for continued efficacy. | Moderate e \n\nCYP2C19 poor metabolizer | An individual carrying two no function alleles | *2/*2, *3/*3, *2/*3 | Increased plasma concentration of PPI compared to CYP2C19 NMs; increased chance of efficacy and potentially toxicity | Initiate standard starting daily dose. For chronic therapy (>12 weeks) and efficacy achieved, consider 50% reduction in daily dose and monitor for continued efficacy. | Moderate \n\nIndeterminate | An individual carrying one or two uncertain function alleles | *1/*12, *2/*12, *12/*14 | N/A | No recommendation | No recommendation\n\n\n### Annotation of CPIC Guideline for esomeprazole, rabeprazole and CYP2C19 (PharmGKB PA166220321, source: CPIC)\nDrug scope: esomeprazole, rabeprazole\n\nThe CPIC Dosing Guideline for CYP2C19 and Proton Pump Inhibitor Dosing states that inconsistent findings regarding the effect of CYP2C19 genotype on the pharmacokinetics and therapeutic response to esomeprazole and rabeprazole preclude making recommendations for these proton pump inhibitors.\n\nAugust 2020\n\nAdvance online publication August 2020. \n\nThe CPIC Guideline for CYP2C19 and Proton Pump Inhibitor Dosing is published in Clinical Pharmacology and Therapeutics . \n\nThese guidelines are applicable to: \n\npediatric patients \n\nadult patients \n\nExcerpts from the 2020 Proton Pump Inhibitor Dosing dosing guideline: \n\n\"There is less evidence linking CYP2C19 genotype with variability in plasma concentrations and effectiveness of second-generation PPIs (esomeprazole, rabeprazole, and dexlansoprazole).\" \n\n\"The evidence associating CYP2C19 genotype with esomeprazole, rabeprazole, and dexlansoprazole plasma concentrations, efficacy, and toxicity was graded as moderate or weak.\" (see guideline supplement) \n\n\"Inconsistent findings regarding the effect of CYP2C19 genotype on the pharmacokinetics and therapeutic response to esomeprazole and rabeprazole preclude making recommendations for these second-generation PPIs (i.e., CPIC level C; no recommendation).\" \n\nDownload and read: \n\nClinical Pharmacogenetics Implementation Consortium guideline for CYP2C19 and Proton Pump Inhibitors \n\n2020 supplement",
+      "char_count": 25574,
+      "sha256": "fd3879a79f1c1f2f23283539fa150dc9e9c7ab66860f191aa3cb6082f617c66e",
+      "verbatim_fraction_estimate": 0.97,
+      "drugs_covered": [
+        "citalopram",
+        "clopidogrel",
+        "omeprazole",
+        "voriconazole"
+      ],
+      "n_test_cases": 20,
+      "verification": {
+        "missing_diplotype_cores": [],
+        "missing_phenotype_variants": [],
+        "passed": true
+      },
+      "sources": [
+        {
+          "pa_id": "PA166104948",
+          "name": "Annotation of CPIC Guideline for clopidogrel and CYP2C19",
+          "source_org": "CPIC",
+          "drug_scope": [
+            "clopidogrel"
+          ],
+          "citations": [],
+          "byte_size_html": 15960,
+          "char_count_text": 6631,
+          "sha256": "fc26be64b7797c97fb435d989a023449b47ac5615619a7c2681f1f37e0733b9b",
+          "retrieved_date": "2026-05-10"
+        },
+        {
+          "pa_id": "PA166161537",
+          "name": "Annotation of CPIC Guideline for voriconazole and CYP2C19",
+          "source_org": "CPIC",
+          "drug_scope": [
+            "voriconazole"
+          ],
+          "citations": [],
+          "byte_size_html": 12431,
+          "char_count_text": 4836,
+          "sha256": "450e4b84e2402b492e95dc6ad1128a85c528b0217b683365f1a9c4e724a2fffb",
+          "retrieved_date": "2026-05-10"
+        },
+        {
+          "pa_id": "PA166127638",
+          "name": "Annotation of CPIC Guideline for citalopram, escitalopram and CYP2C19",
+          "source_org": "CPIC",
+          "drug_scope": [
+            "citalopram",
+            "escitalopram"
+          ],
+          "citations": [],
+          "byte_size_html": 17432,
+          "char_count_text": 6816,
+          "sha256": "5ffa59657f9fa7692c6073c4bbc55f9e807f202d786dc253161640e919126695",
+          "retrieved_date": "2026-05-10"
+        },
+        {
+          "pa_id": "PA166219103",
+          "name": "Annotation of CPIC Guideline for lansoprazole, omeprazole, pantoprazole and CYP2C19",
+          "source_org": "CPIC",
+          "drug_scope": [
+            "lansoprazole",
+            "omeprazole",
+            "pantoprazole"
+          ],
+          "citations": [],
+          "byte_size_html": 11808,
+          "char_count_text": 3378,
+          "sha256": "3e8fffc3efd0e337ca969f0315d429cc9a3047c1d4d173d040db92c1c915bfd0",
+          "retrieved_date": "2026-05-10"
+        },
+        {
+          "pa_id": "PA166220321",
+          "name": "Annotation of CPIC Guideline for esomeprazole, rabeprazole and CYP2C19",
+          "source_org": "CPIC",
+          "drug_scope": [
+            "esomeprazole",
+            "rabeprazole"
+          ],
+          "citations": [],
+          "byte_size_html": 2093,
+          "char_count_text": 1110,
+          "sha256": "688099a393a904b6668c9853d31e05a57d7a42385f7dab98fe9e91f68433ba66",
+          "retrieved_date": "2026-05-10"
+        }
+      ]
+    },
+    "CYP2C9": {
+      "guideline_excerpt": "### Annotation of CPIC Guideline for warfarin and CYP2C9, CYP4F2, VKORC1 (PharmGKB PA166104949, source: CPIC)\nDrug scope: warfarin\n\nThe updated guideline for pharmacogenetics-guided warfarin dosing is published by the Clinical Pharmacogenetics Implementation Consortium. The recommendations for dosing are for adult and pediatric patients that are specific to continental ancestry, and are based on genotypes from CYP2C9, VKORC1, CYP4F2, and rs12777823.\n\nVKORC1 Genotype (-1639G>A, rs9923231 ) | CYP2C9*1/*1 | CYP2C9*1/*2 | CYP2C9*1/*3 | CYP2C9*2/*2 | CYP2C9*2/*3 | CYP2C9*3/*3 \n\nGG | 5-7 | 5-7 | 3-4 | 3-4 | 3-4 | 0.5-2 \n\nGA | 5-7 | 3-4 | 3-4 | 3-4 | 0.5-2 | 0.5-2 \n\nAA | 3-4 | 3-4 | 0.5-2 | 0.5-2 | 0.5-2 | 0.5-2\n\nAllele | Constituted by genotypes at: | Amino acid changes | Enzymatic Activity \n\n*1 | reference allele at all positions | | Normal \n\n*2 | C>T at rs1799853 | R144C | Decreased \n\n*3 | A>C at rs1057910 | I359L | Decreased\n\n\n### Annotation of CPIC Guideline for fosphenytoin, phenytoin and CYP2C9, HLA-B (PharmGKB PA166122806, source: CPIC)\nDrug scope: fosphenytoin, phenytoin\n\nThe CPIC Dosing Guideline for phenytoin/fosphenytoin recommends not using the drug in individuals with the HLA-B*15:02 allele due to significantly increased risk of phenytoin-induced cutaneous adverse reactions of Stevens-Johnson syndrome (SJS) and toxic epidermal necrolysis (TEN). Additionally, patients with the CYP2C9 poor metabolizer phenotype (activity score of 0 or 0.5) or with a CYP2C9 activity score of 1 may require reduced doses of phenytoin/fosphenytoin.\n\nHLA-B*15:02 Genotype | CYP2C9 Phenotype | CYP2C9 Activity Score | CYP2C9 genotype | Implication | Therapeutic Recommendation | Classification of Recommendation | Considerations \n\nHLA-B*15:02 \"positive\" | Any CYP2C9 Phenotype | Any CYP2C9 Activity Score | Any CYP2C9 genotype | Increased risk of phenytoin-induced SJS/TEN | If patient is phenytoin-naive, do not use phenytoin/fosphenytoin. Avoid carbamazepine and oxcarbazepine.\nOptional recommendation: If the patient has previously used phenytoin continuously for longer than three months without incidence of cutaneous adverse reactions, cautiously consider use of phenytoin in the future. The latency period for drug-induced SJS/TEN is short with continuous dosing and adherence to therapy (4-28 days), and cases usually occur within three months of dosing. | STRONG | Other aromatic anticonvulsants, including eslicarbazepine, lamotrigine, and phenobarbital, have weaker evidence linking SJS/TEN with the HLA- B*15:02 allele; however, caution should still be used in choosing an alternative agent. Previous tolerance of phenytoin is not indicative of tolerance to other aromatic anticonvulsants. \n\nHLA-B*15:02 \u201cnegative\u201d | CYP2C9 Normal Metabolizer | 2 | An individual carrying two normal function alleles; Example diplotype:*1/*1 | Normal phenytoin metabolism | No adjustments needed from typical dosing strategies. Subsequent doses should be adjusted according to therapeutic drug monitoring, response, and side effects. An HLA-B*15:02 negative test does not eliminate the risk of phenytoin-induced SJS/TEN, and patients should be carefully monitored according to standard practice. | STRONG | \n\nHLA-B*15:02 \u201cnegative\u201d | CYP2C9 Intermediate Metabolizer (AS 1.5) | 1.5 | An individual carrying one normal function allele plus one decreased function allele; Example diplotype: *1/*2 | Slightly reduced phenytoin metabolism; however, this does not appear to translate into increased side effects. | No adjustments needed from typical dosing strategies. Subsequent doses should be adjusted according to therapeutic drug monitoring, response and side effects. An HLA-B*15:02 negative test does not eliminate the risk of phenytoin-induced SJS/TEN, and patients should be carefully monitored according to standard practice. | MODERATE | \n\nHLA-B*15:02 \u201cnegative\u201d | CYP2C9 Intermediate Metabolizer (AS 1) | 1 | An individual carrying one normal function allele plus one decreased function allele OR two decreased function alleles; Example diplotypes: *1/*3, *2/*2 | Reduced phenytoin metabolism, higher plasma concentrations will increase probability of toxicities. | For first dose, use typical initial or loading dose. For subsequent doses, use approximately 25% less than typical maintenance dose. Subsequent doses should be adjusted according to therapeutic drug monitoring, response and side effects. An HLA-B*15:02 negative test does not eliminate the risk of phenytoin-induced SJS/TEN, and patients should be carefully monitored according to standard practice. | MODERATE | \n\nHLA-B*15:02 \u201cnegative\u201d | CYP2C9 Poor Metabolizer | 0-0.5 | An individual carrying one no function allele plus one decreased function allele OR two no function alleles; Example diplotypes: *2/*3, *3/*3 | Reduced phenytoin metabolism, higher plasma concentrations will increase probability of toxicities. | For first dose, use typical initial or loading dose. For subsequent doses use approximately 50% less than typical maintenance dose. Subsequent doses should be adjusted according to therapeutic drug monitoring, response, and side effects. An HLA-B*15:02 negative test does not eliminate the risk of phenytoin-induced SJS/TEN, and patients should be carefully monitored according to standard practice. | STRONG | \n\nHLA-B*15:02 \u201cnegative\u201d | Indeterminate | N/A | An individual carrying one or two CYP2C9 unknown function or uncertain function alleles. | N/A | No recommendation | N/A |\n\nCYP2C9 Phenotype | CYP2C9 genotype | HLA-B*15:02 \"positive\" - Implications | HLA-B*15:02 \"positive\" - Therapeutic recommendation | HLA-B*15:02 \"positive\" - Classification of recommendation | HLA-B*15:02 \"negative\"- Implications | HLA-B*15:02 \"negative\"-Therapeutic recommendation | HLA-B*15:02 \"negative\"-Classification of Recommendation \n\nCYP2C9 Extensive Metabolizer | Normal activity ~91% of patients; An individual carrying 2 normal activity alleles; Example diplotype:*1/*1 | Increased risk of phenytoin-induced SJS/TEN | If patient is phenytoin-naive b , do not use phenytoin/fosphenytoin. | STRONG | Normal phenytoin metabolism | Initiate therapy with recommended maintenance dose d . | STRONG \n\nCYP2C9 Intermediate Metabolizer | Heterozygote ~8% of patients; An individual carrying one normal activity allele plus one decreased function allele; Example diplotypes: *1/*3, *1/*2 | Increased risk of phenytoin-induced SJS/TEN | If patient is phenytoin-naive b , do not use phenytoin/fosphenytoin. | STRONG | Reduced phenytoin metabolism, higher plasma concentrations will increase probability of toxicities. | Consider 25% reduction of recommended starting maintenance dose d . Subsequent doses should be adjusted according to therapeutic drug monitoring and response. | MODERATE \n\nCYP2C9 Poor Metabolizer | Homozygous variant ~1% of patients; An individual carrying 2 decreased function alleles; Example diplotypes: *2/*2, *3/*3, *2/*3 | Increased risk of phenytoin-induced SJS/TEN. | If patient is phenytoin-naive b , do not use phenytoin/fosphenytoin. | STRONG | Reduced phenytoin metabolism, higher plasma concentrations will increase probability of toxicities. | Consider 50% reduction of recommended starting maintenance dose d . Subsequent maintenance doses should be adjusted according to therapeutic drug monitoring and response. | STRONG\n\n\n### Annotation of CPIC Guideline for celecoxib, flurbiprofen, ibuprofen, lornoxicam and CYP2C9 (PharmGKB PA166191841, source: CPIC)\nDrug scope: celecoxib, flurbiprofen, ibuprofen, lornoxicam\n\nThe CPIC Dosing Guideline for celecoxib, flurbiprofen, ibuprofen and lornoxicam recommends initiating therapy with 25-50% of\nthe lowest recommended starting dose for CYP2C9 poor metabolizers and initiating therapy with lowest recommended starting dose for CYP2C9 intermediate metabolizers with activity score of 1. See full guideline for further details and supporting evidence.\n\nPhenotype a | Activity Score | Genotype | Examples of genotypes b | Implications | Therapeutic recommendations c | Classification of recommendations d | Other considerations \n\nCYP2C9 Normal metabolizer | 2 c | An individual carrying two normal function alleles | *1/*1 | Normal metabolism | Initiate therapy with recommended starting dose. In accordance with the prescribing information, use the lowest effective dosage for shortest duration consistent with individual patient treatment goals. | Strong | \n\nCYP2C9 Intermediate metabolizer f | 1.5 c | An individual carrying one normal function and one decreased function allele. | *1/*2 | Mildly reduced metabolism | Initiate therapy with recommended starting dose. In accordance with the prescribing information, use the lowest effective dosage for shortest duration consistent with individual patient treatment goals. | Moderate | IMs might have a higher than normal risk of adverse events especially in individuals with other factors affecting clearance of these drugs such as hepatic impairment or advanced age.Further caution should be taken with ibuprofen use in individuals carrying the CYP2C9*2 allele as it is in linkage disequilibrium with CYP2C8*3 and ibuprofen is also metabolized by CYP2C8. \n\nCYP2C9 Intermediate metabolizer f | 1 c | An individual carrying one normal function allele plus one no function allele OR two decreased function alleles. | *1/*3, *2/*2 | Moderately reduced metabolism; higher plasma concentrations may increase probability of toxicities | Initiate therapy with lowest recommended starting dose. Titrate dose upward to clinical effect or maximum recommended dose with caution. In accordance with the prescribing information, use the lowest effective dosage for shortest duration consistent with individual patient treatment goals. Carefully monitor adverse events such as blood pressure and kidney function during course of therapy. | Moderate | IMs might have a higher than normal risk of adverse events especially in individuals with other factors affecting clearance of these drugs such as hepatic impairment or advanced age. Further caution should be taken with ibuprofen use in individuals carrying the CYP2C9*2 allele as it is in linkage \n\nCYP2C9 Poor metabolizer | 0 or 0.5 c | An individual carrying one no function allele plus one decreased function allele; OR two no function alleles | *2/*3, *3/*3 | Significantly reduced metabolism and prolonged half life; higher plasma concentrations may increase probability and/or severity of toxicities | Initiate therapy with 25-50% of the lowest recommended starting dose. Titrate dose upward to clinical effect or 25-50% of the maximum recommended dose with caution. In accordance with the prescribing information, use the lowest effective dosage for shortest duration consistent with individual patient treatment goals.Upward dose titration should not occur until after steady state is reached (at least 8 days for celecoxib and 5 days for ibuprofen, flurbiprofen and lornoxicam after first dose in PMs). Carefully monitor adverse events such as blood pressure and kidney function during course of therapy. Alternatively, consider an alternate therapy not metabolized by CYP2C9 or not significantly impacted by CYP2C9 genetic variants in vivo. | Moderate | Alternative therapies not primarily metabolized by CYP2C9 include aspirin, ketorolac, naproxen and sulindac. Selection of therapy will depend on individual patient treatment goals and risks for toxicity. \n\nIndeterminate | n/a c | An individual carrying allele combinations with uncertain and/or unknown function alleles | *1/*7, *1/*10, *7/*10, *1/*57 | n/a | No recommendation. | n/a |",
+      "char_count": 11593,
+      "sha256": "c6e213d9540eecfe7188f5b244dabe76bb29c75a5c3e94a36cfae65f16c4a445",
+      "verbatim_fraction_estimate": 0.96,
+      "drugs_covered": [
+        "celecoxib",
+        "phenytoin",
+        "warfarin"
+      ],
+      "n_test_cases": 9,
+      "verification": {
+        "missing_diplotype_cores": [],
+        "missing_phenotype_variants": [],
+        "passed": true
+      },
+      "sources": [
+        {
+          "pa_id": "PA166104949",
+          "name": "Annotation of CPIC Guideline for warfarin and CYP2C9, CYP4F2, VKORC1",
+          "source_org": "CPIC",
+          "drug_scope": [
+            "warfarin"
+          ],
+          "citations": [],
+          "byte_size_html": 17998,
+          "char_count_text": 480,
+          "sha256": "d35fd88c69e972226a3d14edc21edf3aabb9623b8e3e945c2dc56781a1bb804d",
+          "retrieved_date": "2026-05-10"
+        },
+        {
+          "pa_id": "PA166122806",
+          "name": "Annotation of CPIC Guideline for fosphenytoin, phenytoin and CYP2C9, HLA-B",
+          "source_org": "CPIC",
+          "drug_scope": [
+            "fosphenytoin",
+            "phenytoin"
+          ],
+          "citations": [],
+          "byte_size_html": 14958,
+          "char_count_text": 5772,
+          "sha256": "eac5bc9264bb92bb2f96e4c22dd0a337b32f692f0caae8c3a24406d6ca908513",
+          "retrieved_date": "2026-05-10"
+        },
+        {
+          "pa_id": "PA166191841",
+          "name": "Annotation of CPIC Guideline for celecoxib, flurbiprofen, ibuprofen, lornoxicam and CYP2C9",
+          "source_org": "CPIC",
+          "drug_scope": [
+            "celecoxib",
+            "flurbiprofen",
+            "ibuprofen",
+            "lornoxicam"
+          ],
+          "citations": [],
+          "byte_size_html": 15582,
+          "char_count_text": 3686,
+          "sha256": "956ea24c4be94c9e64225fcf7b15500895cb7b320aea1c74a4b3b0edb81f2021",
+          "retrieved_date": "2026-05-10"
+        }
+      ]
+    },
+    "CYP2D6": {
+      "guideline_excerpt": "### Annotation of CPIC Guideline for codeine and CYP2D6 (PharmGKB PA166104996, source: CPIC)\nDrug scope: codeine\n\nIn the CPIC Dosing Guideline, alternate non-tramadol analgesics are recommended for CYP2D6 ultrarapid and poor metabolizers. A label recommended age- or weight-specific dose of codeine is warranted for CYP2D6 normal and intermediate metabolizers.\n\nPhenotype a | Activity score\nrange | Activity score b | Examples of\nCYP2D6 diplotypes b | Implications | Recommendations | Classification of\nrecommendation d \n\nCYP2D6 ultrarapid metabolizer | >2.25 | >2.25 | *1/*1xN, *1/*2xN, *2/*2xN c | Increased formation of morphine leading to higher risk of toxicity. | Avoid codeine use because of potential for serious toxicity. If opioid use is warranted, consider a non-tramadol opioid. | Strong \n\nCYP2D6 normal metabolizer | 1.25 <= x <= 2.25 | 1.25\n1.5\n1.75\n2.0\n2.25 | *1/*10\n*1/*41, *1/*9\n*10/*41x3\n*1/*1, *1/*2\n*2x2/*10 | Expected morphine formation | Use codeine label recommended age- or weight-specific dosing | Strong \n\nCYP2D6 intermediate metabolizer | 0 < x < 1.25 | 0.25\n0.5\n0.75\n1.0 | *4/*10\n*4/*41, *10/*10\n*10/*41\n*41/*41, *1/*5 | Reduced morphine formation. | Use codeine label recommended age- or weight-specific dosing. If no response and opioid use is warranted, consider a non-tramadol opioid | Moderate \n\nCYP2D6 poor metabolizer | 0 | 0 | *3/*4, *4/*4, *5/*5, *5/*6 | Greatly reduced morphine formation leading to diminished analgesia | Avoid codeine use because of possibility of diminished analgesia. If opioid use is warranted, consider a non-tramadol opioid. | Strong \n\nCYP2D6 Indeterminate | n/a | An individual carrying one or two unknown or uncertain function alleles | *1/*22, *1/*25, *22/*25 | n/a | No recommendation | No recommendation\n\nLikely phenotype. a | Activity score | Genotypes | Examples of diplotypes | Implications for codeine metabolism | Recommendations for codeine therapy. b | Classification of recommendation for codeine therapy | Considerations for alternative opioids \n\nUltrarapid metabolizer (~1-2% of patients) | >2.0 | An individual carrying more than two copies of functional alleles | *1/*1xN, *1/*2xN | Increased formation of morphine following codeine administration, leading to higher risk of toxicity | Avoid codeine use due to potential for toxicity. | Strong | Alternatives that are not affected by this CYP2D6 phenotype include morphine and non-opioid analgesics. Tramadol, and to a lesser extent hydrocodone and oxycodone, are not good alternatives because their metabolism is affected by CYP2D6 activity. d,e \n\nExtensive metabolizer (~77-92% of patients) | 1.0-2.0. c | An individual carrying two alleles encoding full or reduced function or one full function allele together with either one nonfunctional or one reduced-function allele | *1/*1, *1/*2, *2/*2, *1/*41, *1/*4, *2/*5, *10/*10 | Normal morphine formation | Use label recommended age- or weight-specific dosing. | Strong | \n\nIntermediate metabolizer (~2-11% of patients) | 0.5. c | An individual carrying one reduced and one nonfunctional allele | *4/*10, *5/*41 | Reduced morphine formation | Use label recommended age- or weight-specific dosing. If no response, consider alternative analgesics such as morphine or a non-opioid. | Moderate | Monitor tramadol use for response. \n\nPoor metabolizer (~5-10% of patients) | 0 | An individual carrying no functional alleles | *4/*4, *4/*5, *5/*5, *4/*6 | Greatly reduced morphine formation following codeine administration, leading to insufficient pain relief | Avoid codeine use due to lack of efficacy. | Strong | Alternatives that are not affected by this CYP2D6 phenotype include morphine and non-opioid analgesics. Tramadol, and to a lesser extent hydrocodone and oxycodone, are not good alternatives because their metabolism is affected by CYP2D6 activity; these agents should be avoided. d,e\n\n\n### Annotation of CPIC Guideline for tamoxifen and CYP2D6 (PharmGKB PA166176068, source: CPIC)\nDrug scope: tamoxifen\n\nThe CPIC Dosing Guideline for tamoxifen recommends the use of alternative hormonal therapy such as an aromatase inhibitor for postmenopausal women or aromatase inhibitor along with ovarian function suppression in premenopausal women for CYP2D6 poor metabolizer, if aromatase inhibitor use is not contraindicated. For CYP2D6 intermediate metabolizers the recommendation is to consider the recommendations stated for the CYP2D6 poor metabolizer. If aromatase inhibitor use is contraindicated, consideration should be given to use a higher but FDA approved tamoxifen dose for CYP2D6 intermediate metabolizers. For poor metabolizer, higher dose tamoxifen (40 mg/day) increases but does not normalize endoxifen concentrations and can be considered if there are contraindications to aromatase inhibitor therapy. CPIC has updated the CYP2D6 genotype-phenotype translation in all supplemental files since the guideline was published.\n\nPhenotype a | Activity Score | Genotype | Examples of genotypes b | Implications | Therapeutic recommendations c | Classification of recommendations d \n\nCYP2D6 Ultrarapid Metabolizer | >2 | An individual carrying duplications of functional alleles | *1/*1xN, *1/*2xN, *2/*2xN e | Therapeutic endoxifen concentrations | Avoid moderate and strong CYP2D6 inhibitors. Initiate therapy with recommended standard of care dosing (tamoxifen 20 mg/day). | Strong \n\nCYP2D6 Normal metabolizer | 1.5 and 2 | An individual carrying two normal function alleles or one normal function and one decreased function allele | *1/*1, *1/*2, *1/*9, *1/*41, *2/*2 | Therapeutic endoxifen concentrations | Avoid moderate and strong CYP2D6 inhibitors. Initiate therapy with recommended standard of care dosing (tamoxifen 20 mg/day). | Strong \n\nCYP2D6 Normal metabolizer or Intermediate metabolizer (controversy remains) f | 1 (no *10 allele present) c | An individual carrying two decreased function alleles or one normal function and one no function allele. An activity score (AS) of 1.0 is associated with decreased tamoxifen metabolism to endoxifen compared to those with an AS of 1.5 or 2. | *1/*4, *1/*5, *41/*41 | Lower endoxifen concentrations compared to normal metabolizers; higher risk of breast cancer recurrence, event-free and recurrence-free survival compared to normal metabolizers. | Consider hormonal therapy such as an aromatase inhibitor for postmenopausal women or aromatase inhibitor along with ovarian function suppression in premenopausal women, given that these approaches are superior to tamoxifen regardless of CYP2D6 genotype [Articles: 26211827 , 24881463 ]. If aromatase inhibitor use is contraindicated, consideration should be given to use a higher but FDA approved tamoxifen dose (40 mg/day) [Article: 27226358 ]. Avoid CYP2D6 strong to weak inhibitors. | Optional c \n\nCYP2D6 Normal metabolizer or Intermediate metabolizer (controversy remains) f | 1 (*10 allele present) c | An individual carrying two decreased function alleles with the *10 allele present. An activity score (AS) of 1.0 is associated with decreased tamoxifen metabolism to endoxifen compared to those with an AS of 1.5 or 2. | *10/*10, *10/*41 | Lower endoxifen concentrations compared to normal metabolizers; higher risk of breast cancer recurrence, event-free and recurrence-free survival compared to normal metabolizers. | Consider hormonal therapy such as an aromatase inhibitor for postmenopausal women or aromatase inhibitor along with ovarian function suppression in premenopausal women, given that these approaches are superior to tamoxifen regardless of CYP2D6 genotype [Articles: 26211827 , 24881463 ]. If aromatase inhibitor use is contraindicated, consideration should be given to use a higher but FDA approved tamoxifen dose (40 mg/day) [Article: 27226358 ]. Avoid CYP2D6 strong to weak inhibitors. | Moderate c \n\nCYP2D6 Intermediate metabolizer | 0.5 | An individual carrying one decreased function and one no function allele | *4/*10,*4/*41, *5/*9 | Lower endoxifen concentrations compared to normal metabolizers; higher risk of breast cancer recurrence, event-free and recurrence-free survival compared to normal metabolizers. | Consider hormonal therapy such as an aromatase inhibitor for postmenopausal women or aromatase inhibitor along with ovarian function suppression in premenopausal women, given that these approaches are superior to tamoxifen regardless of CYP2D6 genotype [Articles: 26211827 , 24881463 ]. If aromatase inhibitor use is contraindicated, consideration should be given to use a higher but FDA approved tamoxifen dose (40 mg/day) [Article: 27226358 ]. Avoid CYP2D6 strong to weak inhibitors. | Moderate \n\nCYP2D6 Poor metabolizer | 0 | An individual carrying only no functional alleles | *3/*4,*4/*4, *5/*5, *5/*6 | Lower endoxifen concentrations compared to normal metabolizers; higher risk of breast cancer recurrence, event-free and recurrence-free survival compared to normal metabolizers. | Recommend alternative hormonal therapy such as an aromatase inhibitor for postmenopausal women or aromatase inhibitor along with ovarian function suppression in premenopausal women given that these approaches are superior to tamoxifen regardless of CYP2D6 genotype [Articles: 26211827 , 24881463 ] and based on knowledge that CYP2D6 poor metabolizers switched from tamoxifen to anastrozole do not have an increased risk of recurrence [Article: 23213055 ]. Note, higher dose tamoxifen (40 mg/day) increases but does not normalize endoxifen concentrations and can be considered if there are contraindications to aromatase inhibitor therapy [Articles: 27226358 , 21768473 ]. | Strong\n\n\n### Annotation of CPIC Guideline for ondansetron and CYP2D6 (PharmGKB PA166161954, source: CPIC)\nDrug scope: ondansetron\n\nThe CPIC dosing guideline for ondansetron recommends selecting an alternate drug for CYP2D6 ultrarapid metabolizers. It is recommended that the alternate drug not be predominantly metabolized by CYP2D6 (eg. granisetron). CPIC has updated the CYP2D6 genotype-phenotype translation in all supplemental files since the guideline was published.\n\nCYP2D6 Phenotype | Activity score | CYP2D6 Genotypes a | Examples of diplotypes | Implications | Therapeutic recommendations | Classification of Recommendations b | Consideration for alternative 5-HT 3 receptor antagonists antiemetics c \n\nUltrarapid metabolizer | >2.0 | An individual carrying duplications of function alleles | *1/*1xN, *1/*2xN, *2/*2xN d | Increased metabolism to less active compounds when compared to normal metabolizers and is associated with decreased response to ondansetron and tropisetron (i.e. vomiting). | Select and alternative drug not predominantly metabolized by CYP2D6 (i.e. granisetron). e | Moderate | Dolasetron, palonosetron, and ramosetron are also metabolized by CYP2D6. Limited evidence is available regarding the utilization of CYP2D6 genetic variation to guide use of these drugs. \n\nNormal metabolizer | 2.0-1.0 f | An individual carrying two normal function alleles, or two decreased function alleles, or one normal function and one no function allele, or one normal function and one decreased function allele, or combinations of duplicated alleles that result in an activity score of 1.0-2.0 | *1/*1, *1/*2, *1/*4, *1/*5, *1/*9, *1/*41, *2/*2,*41/*41 | Normal metabolism | Initiate therapy with recommended starting dose. | Strong | \n\nIntermediate metabolizer | 0.5 | An individual carrying one decreased function and one no function allele | *4/*10,*4/*41, *5/*9 | Very limited data available for CYP2D6 intermediate metabolizers | Insufficient evidence demonstrating clinical impact based on CYP2D6 genotype. Initiate therapy with recommended starting dose. | No recommendation | \n\nPoor metabolizer | 0 | An individual carrying no functional alleles | *3/*4,*4/*4, *5/*5, *5/*6 | Very limited data available for CYP2D6 poor metabolizers | Insufficient evidence demonstrating clinical impact based on CYP2D6 genotype. Initiate therapy with recommended starting dose. | No recommendation |\n\n\n### Annotation of CPIC Guideline for paroxetine and CYP2D6 (PharmGKB PA166127636, source: CPIC)\nDrug scope: paroxetine\n\nThe CPIC Dosing Guideline for the selective serotonin reuptake inhibitor paroxetine recommends an alternative drug not predominantly metabolized by CYP2D6 for CYP2D6 ultrarapid metabolizers. For CYP2D6 poor metabolizers, consider a 50% reduction in recommended starting dose, slower titration schedule, and a 50% lower maintenance dose.\n\nPhenotype | Activity score\nrange | Activity score | Examples | Implications | Therapeutic\nRecommendations | Classification of\nrecommendation a | Considerations \n\nCYP2D6 ultrarapid metabolizer | >2.25 | >2.25 | *1/*1xN, *1/*2xN, *2/*2xN c | Increased metabolism of paroxetine to less active compounds when compared to CYP2D6 normal metabolizers. Lower plasma concentrations decrease the probability of clinical benefit. The extent to which ultrarapid metabolizers phenoconvert to normal, intermediate, or poor metabolizers due to paroxetine autoinhibition of CYP2D6 is unclear. | Select alternative drug not predominantly metabolized by CYP2D6. | Moderate | Drug-drug interactions and other patient characteristics (e.g., age, renal function, liver function) should be considered when selecting an alternative therapy. \n\nCYP2D6 normal metabolizer | 1.25 <= x <= 2.25 | 1.25\n1.5\n1.75\n2.0\n2.25 | *1/*10\n*1/*41, *1/*9\n*10/*41x3\n*1/*1, *1/*2\n*2x2/*10 | Normal metabolism of paroxetine to less active compounds. Paroxetine-associated phenoconversion of normal metabolizers to intermediate or poor metabolizers due to CYP2D6 autoinhibition may occur and is dose-dependent and greater at steady state concentrations. | Initiate therapy with recommended starting dose. | Strong | \n\nCYP2D6 intermediate metabolizer | 0 < x < 1.25 | 0.25\n0.5\n0.75\n1.0 | *4/*10\n*4/*41, *10/*10\n*10/*41\n*41/*41, *1/*5 | Reduced metabolism of paroxetine to less active compounds when compared to CYP2D6 normal metabolizers when starting treatment or at lower doses. Higher plasma concentrations may increase the probability of side effects. Paroxetine-associated phenoconversion of intermediate metabolizers to poor metabolizers due to CYP2D6 autoinhibition may occur and is dose-dependent and greater at steady state concentrations. | Consider a lower starting dose and slower titration schedule as compared to normal metabolizers. | Optional | Drug-drug interactions and other patient characteristics (e.g., age, renal function, liver function) should be considered when adjusting dose or selecting an alternative therapy. \n\nCYP2D6 poor metabolizer | 0 | 0 | *3/*4, *4/*4, *5/*5, *5/*6 | Greatly reduced metabolism when compared to CYP2D6 normal metabolizers. Higher plasma concentrations may increase the probability of side effects. The impact of paroxetine-associated autoinhibition of CYP2D6 is minimal in poor metabolizers. | Consider a 50% reduction in recommended starting dose, slower titration schedule, and a 50% lower maintenance dose as compared to normal metabolizers. | Moderate | Drug-drug interactions and other patient characteristics (e.g., age, renal function, liver function) should be considered when adjusting dose or selecting an alternative therapy. \n\nCYP2D6 Indeterminate | n/a | An individual carrying one or two unknown or uncertain function alleles | *1/*22, *1/*25, *22/*25 | | No recommendation | No recommendation |\n\nLikely phenotype | Activity Score | Genotypes | Examples of CYP2D6 diplotypes | Implications for paroxetine metabolism | Therapeutic Recommendations | Classification of recommendations a \n\nUltrarapid metabolizer (~1-2% of patients) b | > 2.0 | An individual carrying duplications of functional alleles | *1/*1xN, *1/*2xN, *2/*2xN c | Increased metabolism to less active compounds when compared to extensive metabolizers. Lower/undetectable plasma concentrations may increase probability of pharmacotherapy failure. | Select alternative drug not predominantly metabolized by CYP2D6. d | Strong \n\nExtensive metabolizer (~77-92% of patients) | 2.0-1.0 e | An individual carrying two normal function alleles or two decreased function alleles or one normal function and one no function allele or one normal function and one decreased function allele | *1/*1, *1/*2, *1/*4, *1/*5, *1/*9, *1/*41, *2/*2,*41/*41 | Normal metabolism | Initiate therapy with recommended starting dose. | Strong \n\nIntermediate metabolizer (~2-11% of patients) | 0.5 | An individual carrying one decreased function and one no function allele | *4/*10,*4/*41, *5/*9 | Reduced metabolism when compared to extensive metabolizers. Higher plasma concentrations may increase the probability of side effects. | Initiate therapy with recommended starting dose. | Moderate \n\nPoor metabolizers (~5-10% of patients) | 0 | An individual carrying only no functional alleles | *3/*4,*4/*4, *5/*5, *5/*6 | Greatly reduced metabolism when compared to extensive metabolizers. Higher plasma concentrations may increase the probability of side effects. | Select alternative drug not predominantly metabolized by CYP2D6 d or if paroxetine use warranted, consider a 50% reduction of recommended starting dose and titrate to response. | Optional\n\n\n### Annotation of CPIC Guideline for amitriptyline and CYP2C19, CYP2D6 (PharmGKB PA166105006, source: CPIC)\nDrug scope: amitriptyline\n\nThe CPIC Dosing Guideline update for amitriptyline recommends an alternative drug for CYP2D6 ultrarapid or poor metabolizers and CYP2C19 ultrarapid, rapid or poor metabolizers. If amitriptyline is warranted, consider a 50% dose reduction in CYP2D6 or CYP2C19 poor metabolizers. For CYP2D6 intermediate metabolizers, a 25% dose reduction should be considered. CPIC has updated the CYP2D6 genotype-phenotype translation in all supplemental files since the guideline was published.\n\nLikely phenotype | Activity score | Genotypes | Examples of diplotypes | Implications | Therapeutic Recommendations a, b | Classification of recommendation for amitriptyline and nortriptyline c \n\nCYP2D6 Ultrarapid metabolizer (~1-20% of patients) d | >2.0 | An individual carrying more than two copies of functional alleles | *1/*1xN, *1/*2xN | Increased metabolism of TCAs to less active compounds compared to normal metabolizers. Lower plasma concentrations of active drug will increase probability of pharmacotherapy failure. | Avoid tricyclic use due to potential lack of efficacy. Consider alternative drug not metabolized by CYP2D6.\nIf a TCA is warranted, consider titrating to a higher target dose (compared to normal metabolizers). Utilize therapeutic drug monitoring to guide dose adjustments. e | Strong \n\nCYP2D6 Normal metabolizer (~72-88% of patients) d | 1.0-2.0 f | An individual carrying two normal function alleles or two decreased function alleles or one normal and no function allele or one normal and decreased function allele or combinations of duplicated alleles that result in an activity score of 1.0-2.0 | *1/*1, *1/*2, *2/*2, *1/*9, *1/*41, *41/*41, *1/*4, *1/*5 | Normal metabolism of TCAs. | Initiate therapy with recommended starting dose. g | Strong \n\nCYP2D6 Intermediate metabolizer (~1-13% of patients) d | 0.5 | An individual carrying one decreased and one no function allele | *4/*41, *5/*9, *4/*10 | Reduced metabolism of TCAs to less active compounds when compared to normal metabolizers. Higher plasma concentrations of active drug will increase the probability of side effects. | Consider 25% reduction of recommended starting dose. g Utilize therapeutic drug monitoring to guide dose adjustments. e | Moderate \n\nCYP2D6 Poor metabolizer (~1-10% of patients) d | 0 | An individual carrying only no function alleles | *4/*4, *4/*4xN, *3/*4, *5/*5, *5/*6 | Greatly reduced metabolism of TCAs to less active compounds compared to normal metabolizers. Higher plasma concentrations of active drug will increase the probability of side effects. | Avoid tricyclic use due to potential for side effects. Consider alternative drug not metabolized by CYP2D6.\nIf a TCA is warranted, consider 50% reduction of recommended starting dose. g Utilize therapeutic drug monitoring to guide dose adjustments. e | Strong\n\nLikely phenotype | Genotypes | Examples of diplotypes | Implications | Therapeutic recommendations a,b | Classification of recommendations for amitriptyline c \n\nCYP2C19 Ultrarapid metabolizer (~2-5% of patients) d | An individual carrying two increased function alleles | *17/*17 | Increased metabolism of tertiary amines compared to normal metabolizers. Greater conversion of tertiary amines to secondary amines may affect response or side effects. | Avoid tertiary amine use due to potential for sub-optimal response. Consider alternative drug not metabolized by CYP2C19. TCAs without major CYP2C19 metabolism include the secondary amines nortriptyline and desipramine.\nIf a tertiary amine is warranted, utilize therapeutic drug monitoring to guide dose adjustments. e | Optional \n\nCYP2C19 Rapid metabolizer (~2-30% of patients) d | An individual carrying one normal and one increased function allele | *1/*17 | Increased metabolism of tertiary amines compared to normal metabolizers. Greater conversion of tertiary amines to secondary amines may affect response or side effects. | Avoid tertiary amine use due to potential for sub-optimal response. Consider alternative drug not metabolized by CYP2C19. TCAs without major CYP2C19 metabolism include the secondary amines nortriptyline and desipramine.\nIf a tertiary amine is warranted, utilize therapeutic drug monitoring to guide dose adjustments. e | Optional \n\nCYP2C19 Normal metabolizer (~35-50% of patients) d | An individual carrying two normal function alleles | *1/*1 | Normal metabolism of tertiary amines. | Initiate therapy with recommended starting dose. f | Strong \n\nCYP2C19 Intermediate metabolizer (~18-45% of patients) d | An individual carrying one normal and one no function allele or one no and one increased function allele | *1/*2, *1/*3, *2/*17 g | Reduced metabolism of tertiary amines compared to normal metabolizers. | Initiate therapy with recommended starting dose. f | Strong \n\nCYP2C19 Poor metabolizer (~2-15% of patients) d | An individual carrying two no function alleles | *2/*2, *2/*3, *3/*3 | Greatly reduced metabolism of tertiary amines compared to normal metabolizers. Decreased conversion of tertiary amines to secondary amines may affect response or side effects. | Avoid tertiary amine use due to potential for sub-optimal response. Consider alternative drug not metabolized by CYP2C19. TCAs without major CYP2C19 metabolism include the secondary amines nortriptyline and desipramine.\nFor tertiary amines, consider a 50% reduction of the recommended starting dose. f Utilize therapeutic drug monitoring to guide dose adjustments. e | Moderate\n\nPhenotype | CYP2D6 Ultrarapid metabolizer | CYP2D6 Normal metabolizer | CYP2D6 Intermediate metabolizer | CYP2D6 Poor metabolizer \n\nCYP2C19 Ultrarapid or Rapid metabolizer | Avoid amitriptyline use. c Classification of recommendation d : Optional | Consider alternative drug not metabolized by CYP2C19. c, e Classification of recommendation d : Optional | Consider alternative drug not metabolized by CYP2C19. c, e Classification of recommendation d : Optional | Avoid amitriptyline use. c Classification of recommendation d : Optional \n\nCYP2C19 Normal metabolizer | Avoid amitriptyline use. If amitriptyline is warranted, consider titrating to a higher target dose (compared to normal metabolizers). f, g Classification of recommendation d : Strong | Initiate therapy with recommended starting dose. h Classification of recommendation d : Strong | Consider 25% reduction of recommended starting dose. f, h Classification of recommendation d : Moderate | Avoid amitriptyline use. If amitriptyline is warranted, consider 50% reduction of recommended starting dose. f, h Classification of recommendation d : Strong \n\nCYP2C19 Intermediate metabolizer | Avoid amitriptyline use. c Classification of recommendation d : Optional | Initiate therapy with recommended starting dose. h Classification of recommendation d : Strong | Consider 25% reduction of recommended starting dose. f, h Classification of recommendation d : Optional | Avoid amitriptyline use. If amitriptyline is warranted, consider 50% reduction of recommended starting dose. f, h Classification of recommendation d : Optional \n\nCYP2C19 Poor metabolizer | Avoid amitriptyline use. c Classification of recommendation d : Optional | Avoid amitriptyline use. c If amitriptyline is warranted, consider a 50% reduction of recommended starting dose. f, h Classification of recommendation d : Moderate | Avoid amitriptyline use. c Classification of recommendation d : Optional | Avoid amitriptyline use. c Classification of recommendation d : Optional",
+      "char_count": 24781,
+      "sha256": "b8167d6a334b2ed38e852ea340fed0f491909aa4a38f9ba3e3c756d2f2482e8e",
+      "verbatim_fraction_estimate": 0.97,
+      "drugs_covered": [
+        "amitriptyline",
+        "codeine",
+        "ondansetron",
+        "paroxetine",
+        "tamoxifen"
+      ],
+      "n_test_cases": 20,
+      "verification": {
+        "missing_diplotype_cores": [],
+        "missing_phenotype_variants": [],
+        "passed": true
+      },
+      "sources": [
+        {
+          "pa_id": "PA166104996",
+          "name": "Annotation of CPIC Guideline for codeine and CYP2D6",
+          "source_org": "CPIC",
+          "drug_scope": [
+            "codeine"
+          ],
+          "citations": [],
+          "byte_size_html": 16508,
+          "char_count_text": 3510,
+          "sha256": "c8b55d233fe36f5c45eda2c13e6fe7314692c3f84cce0aa0dff53a73cfdd0d14",
+          "retrieved_date": "2026-05-10"
+        },
+        {
+          "pa_id": "PA166176068",
+          "name": "Annotation of CPIC Guideline for tamoxifen and CYP2D6",
+          "source_org": "CPIC",
+          "drug_scope": [
+            "tamoxifen"
+          ],
+          "citations": [],
+          "byte_size_html": 16149,
+          "char_count_text": 4690,
+          "sha256": "a6046c9f9244521c9fb3df6e303c125574b9a3ad04c0df2a23ba6c07a54c16e9",
+          "retrieved_date": "2026-05-10"
+        },
+        {
+          "pa_id": "PA166161954",
+          "name": "Annotation of CPIC Guideline for ondansetron and CYP2D6",
+          "source_org": "CPIC",
+          "drug_scope": [
+            "ondansetron"
+          ],
+          "citations": [],
+          "byte_size_html": 9383,
+          "char_count_text": 1933,
+          "sha256": "59954cbdaa86bb9a8053e156ac15f551d7cc53cd19d1aea1128dd7813b990163",
+          "retrieved_date": "2026-05-10"
+        },
+        {
+          "pa_id": "PA166127636",
+          "name": "Annotation of CPIC Guideline for paroxetine and CYP2D6",
+          "source_org": "CPIC",
+          "drug_scope": [
+            "paroxetine"
+          ],
+          "citations": [],
+          "byte_size_html": 16965,
+          "char_count_text": 4713,
+          "sha256": "8275c0a955b2ce4239dfc8e5f602a70d32d2a06922be9cddaadddae77da4385b",
+          "retrieved_date": "2026-05-10"
+        },
+        {
+          "pa_id": "PA166105006",
+          "name": "Annotation of CPIC Guideline for amitriptyline and CYP2C19, CYP2D6",
+          "source_org": "CPIC",
+          "drug_scope": [
+            "amitriptyline"
+          ],
+          "citations": [],
+          "byte_size_html": 21027,
+          "char_count_text": 6979,
+          "sha256": "7d10a6f5a739b4f1f077d5897f49d124778c5713a5c41ab1b07b8026afcbe2d0",
+          "retrieved_date": "2026-05-10"
+        }
+      ]
+    },
+    "CYP3A5": {
+      "guideline_excerpt": "### Annotation of CPIC Guideline for tacrolimus and CYP3A5 (PharmGKB PA166124619, source: CPIC)\nDrug scope: tacrolimus\n\nThe CPIC dosing guideline for tacrolimus recommends increasing the starting dose by 1.5 to 2 times the recommended starting dose in patients who are CYP3A5 intermediate or extensive metabolizers, though total starting dose should not exceed 0.3 mg/kg/day. Therapeutic drug monitoring should also be used to guide dose adjustments.\n\nLikely phenotype a | Genotypes | Examples of diplotypes b | Implications for tacrolimus pharmacologic measures | Therapeutic Recommendations c | Classification of recommendations e \n\nExtensive metabolizer (CYP3A5 expresser) | An individual carrying two functional alleles | *1/*1 | Lower dose-adjusted trough concentrations of tacrolimus and decreased chance of achieving target tacrolimus concentrations | Increase starting dose 1.5 to 2 times recommended starting dose d . Total starting dose should not exceed 0.3mg/kg/day. Use therapeutic drug monitoring to guide dose adjustments | Strong \n\nIntermediate metabolizer (CYP3A5 expresser) | An individual carrying one functional allele and one non-functional allele | *1/*3, *1/*6, *1/*7 | Lower dose-adjusted trough concentrations of tacrolimus and decreased chance of achieving target tacrolimus concentrations | Increase starting dose 1.5 to 2 times recommended starting dose d . Total starting dose should not exceed 0.3mg/kg/day. Use therapeutic drug monitoring to guide dose adjustments | Strong \n\nPoor metabolizer (CYP3A5 non-expresser) | An individual carrying two non-functional alleles | *3/*3, *6/*6, *7/*7, *3/*6, *3/*7, *6/*7 | Higher (\u201cnormal\u201d) dose-adjusted trough concentrations of tacrolimus and increased chance of achieving target tacrolimus concentrations | Initiate therapy with standard recommended dose. Use therapeutic drug monitoring to guide dose adjustments | Strong",
+      "char_count": 1896,
+      "sha256": "a8247ab40d7ec34abbe7f5776e0a866d54e68d282673973f042abd030d0f7497",
+      "verbatim_fraction_estimate": 0.92,
+      "drugs_covered": [
+        "tacrolimus"
+      ],
+      "n_test_cases": 3,
+      "verification": {
+        "missing_diplotype_cores": [],
+        "missing_phenotype_variants": [],
+        "passed": true
+      },
+      "sources": [
+        {
+          "pa_id": "PA166124619",
+          "name": "Annotation of CPIC Guideline for tacrolimus and CYP3A5",
+          "source_org": "CPIC",
+          "drug_scope": [
+            "tacrolimus"
+          ],
+          "citations": [],
+          "byte_size_html": 6577,
+          "char_count_text": 1444,
+          "sha256": "bd7c513c3e283c9632453522adfbd5d3e4ab67ae4c0fc13bde69beaeab9ef01a",
+          "retrieved_date": "2026-05-10"
+        }
+      ]
+    },
+    "CYP4F2": {
+      "guideline_excerpt": "### Annotation of CPIC Guideline for warfarin and CYP2C9, CYP4F2, VKORC1 (PharmGKB PA166104949, source: CPIC)\nDrug scope: warfarin\n\nThe updated guideline for pharmacogenetics-guided warfarin dosing is published by the Clinical Pharmacogenetics Implementation Consortium. The recommendations for dosing are for adult and pediatric patients that are specific to continental ancestry, and are based on genotypes from CYP2C9, VKORC1, CYP4F2, and rs12777823.\n\nVKORC1 Genotype (-1639G>A, rs9923231 ) | CYP2C9*1/*1 | CYP2C9*1/*2 | CYP2C9*1/*3 | CYP2C9*2/*2 | CYP2C9*2/*3 | CYP2C9*3/*3 \n\nGG | 5-7 | 5-7 | 3-4 | 3-4 | 3-4 | 0.5-2 \n\nGA | 5-7 | 3-4 | 3-4 | 3-4 | 0.5-2 | 0.5-2 \n\nAA | 3-4 | 3-4 | 0.5-2 | 0.5-2 | 0.5-2 | 0.5-2\n\nAllele | Constituted by genotypes at: | Amino acid changes | Enzymatic Activity \n\n*1 | reference allele at all positions | | Normal \n\n*2 | C>T at rs1799853 | R144C | Decreased \n\n*3 | A>C at rs1057910 | I359L | Decreased",
+      "char_count": 935,
+      "sha256": "bb2ae1842cd2e7f24eae6eb3537701a20b6577e16443856575e916f7d459b024",
+      "verbatim_fraction_estimate": 0.84,
+      "drugs_covered": [
+        "warfarin"
+      ],
+      "n_test_cases": 2,
+      "verification": {
+        "missing_diplotype_cores": [],
+        "missing_phenotype_variants": [],
+        "passed": true
+      },
+      "sources": [
+        {
+          "pa_id": "PA166104949",
+          "name": "Annotation of CPIC Guideline for warfarin and CYP2C9, CYP4F2, VKORC1",
+          "source_org": "CPIC",
+          "drug_scope": [
+            "warfarin"
+          ],
+          "citations": [],
+          "byte_size_html": 17998,
+          "char_count_text": 480,
+          "sha256": "d35fd88c69e972226a3d14edc21edf3aabb9623b8e3e945c2dc56781a1bb804d",
+          "retrieved_date": "2026-05-10"
+        }
+      ]
+    },
+    "DPYD": {
+      "guideline_excerpt": "### Annotation of CPIC Guideline for fluorouracil and DPYD (PharmGKB PA166122686, source: CPIC)\nDrug scope: fluorouracil\n\nThe CPIC Dosing Guideline for 5-fluorouracil and capecitabine recommends an alternative drug for patients who are DPYD poor metabolizers with an activity score of 0. In those who are poor metabolizers with an activity score of 0.5, an alternative drug is also recommended, but if this is not considered a suitable therapeutic option, 5-fluorouracil or capecitabine should be administered at a strongly reduced dose with early therapeutic drug monitoring. Patients who are intermediate metabolizers with an activity score of 1 or 1.5 should receive a dose reduction of 50%. Patients with the c.[2846A>T];[2846A>T] genotype may require a >50% dose reduction. This guideline has been updated online since publication in 2017, and is in the process of being updated again based on a complete evidence review.\n\nLikely Phenotype | Activity Score a | Genotypes b | Examples of genotypes c | Implications | Dosing recommendations | Classification of recommendations d \n\nDPYD Normal Metabolizer | 2 | An individual carrying two normal alleles | c.[=];[=], c.[85T>C e ];[=], c.[1627A>G f ];[=] | Normal DPD activity and \u201cnormal\u201d risk for fluoropyrimidine toxicity | Based on genotype, there is no indication to change dose or therapy. Use label-recommended dosage and administration | Strong \n\nDPYD Intermediate Metabolizer | 1 or 1.5 | An individual carrying one normal function allele plus one no function allele or one decreased function allele, or an individual carrying two decreased function alleles | c.[1905+1G>A g ];[=], c.[1679T>G h ];[=], c.[2846A>T i ];[=]; c.[1129\u20135923C>G j ];[=]; c.[1129\u20135923C>G];[1129\u20135923C>G]; c.[2846A>T];[2846A>T] | Decreased DPD activity (leukocyte DPD activity at 30% to 70% that of the normal population) and increased risk for severe or even fatal drug toxicity when treated with fluoropyrimidine drugs | Reduce starting dose by 50% followed by titration of dose based on toxicity or therapeutic drug monitoring (if available). Patients with the c.[2846A>T];[2846A>T] genotype may require >50% reduction in starting dose. | Activity score 1: Strong\nActivity score 1.5: Moderate \n\nDPYD Poor Metabolizer | 0 or 0.5 | An individual carrying two no function alleles or an individual carrying one no function plus one decreased function allele | c.[1905+1G>A];[1905+1G>A], c.[1679T>G];[1679T>G], c.[1905+1G>A];[2846A>T] c.[1905+1G>A];[1129-5923C>G] | Complete DPD deficiency and increased risk for severe or even fatal drug toxicity when treated with fluoropyrimidine drugs | Activity score 0.5: Avoid use of 5- fluorouracil or 5-fluorouracil prodrug-based regimens. In the event, based on clinical advice, alternative agents are not considered a suitable therapeutic option, 5-fluorouracil should be administered at a strongly reduced dose k with early therapeutic drug monitoring. l \nActivity score 0: Avoid use of 5-fluorouracil or 5-fluorouracil prodrug-based regimens. | Strong\n\n\n### Annotation of CPIC Guideline for capecitabine and DPYD (PharmGKB PA166109594, source: CPIC)\nDrug scope: capecitabine\n\nThe CPIC Dosing Guideline for 5-fluorouracil and capecitabine recommends an alternative drug for patients who are DPYD poor metabolizers with an activity score of 0. In those who are poor metabolizers with an activity score of 0.5, an alternative drug is also recommended, but if this is not considered a suitable therapeutic option, 5-fluorouracil or capecitabine should be administered at a strongly reduced dose with early therapeutic drug monitoring. Patients who are intermediate metabolizers with an activity score of 1 or 1.5 should receive a dose reduction of 50%. Patients with the c.[2846A>T];[2846A>T] genotype may require a >50% dose reduction. This guideline has been updated online since publication in 2017, and is in the process of being updated again based on a complete evidence review.\n\nLikely Phenotype | Activity Score a | Genotypes b | Examples of genotypes c | Implications | Dosing recommendations | Classification of recommendations d \n\nDPYD Normal Metabolizer | 2 | An individual carrying two normal alleles | c.[=];[=], c.[85T>C e ];[=], c.[1627A>G f ];[=] | Normal DPD activity and \u201cnormal\u201d risk for fluoropyrimidine toxicity | Based on genotype, there is no indication to change dose or therapy. Use label-recommended dosage and administration | Strong \n\nDPYD Intermediate Metabolizer | 1 or 1.5 | An individual carrying one normal function allele plus one no function allele or one decreased function allele, or an individual carrying two decreased function alleles | c.[1905+1G>A g ];[=], c.[1679T>G h ];[=], c.[2846A>T i ];[=]; c.[1129\u20135923C>G j ];[=]; c.[1129\u20135923C>G];[1129\u20135923C>G]; c.[2846A>T];[2846A>T] | Decreased DPD activity (leukocyte DPD activity at 30% to 70% that of the normal population) and increased risk for severe or even fatal drug toxicity when treated with fluoropyrimidine drugs | Reduce starting dose by 50% followed by titration of dose based on toxicity or therapeutic drug monitoring (if available). Patients with the c.[2846A>T];[2846A>T] genotype may require >50% reduction in starting dose. | Activity score 1: Strong\nActivity score 1.5: Moderate \n\nDPYD Poor Metabolizer | 0 or 0.5 | An individual carrying two no function alleles or an individual carrying one no function plus one decreased function allele | c.[1905+1G>A];[1905+1G>A], c.[1679T>G];[1679T>G], c.[1905+1G>A];[2846A>T] c.[1905+1G>A];[1129-5923C>G] | Complete DPD deficiency and increased risk for severe or even fatal drug toxicity when treated with fluoropyrimidine drugs | Activity score 0.5: Avoid use of 5- fluorouracil or 5-fluorouracil prodrug-based regimens. In the event, based on clinical advice, alternative agents are not considered a suitable therapeutic option, 5-fluorouracil should be administered at a strongly reduced dose k with early therapeutic drug monitoring. l \nActivity score 0: Avoid use of 5-fluorouracil or 5-fluorouracil prodrug-based regimens. | Strong",
+      "char_count": 6061,
+      "sha256": "db994db14ba44a885f4ad9b3bf058cf80cdfb2a44bde6db780612b1df2daf212",
+      "verbatim_fraction_estimate": 0.95,
+      "drugs_covered": [
+        "capecitabine",
+        "fluorouracil"
+      ],
+      "n_test_cases": 7,
+      "verification": {
+        "missing_diplotype_cores": [],
+        "missing_phenotype_variants": [],
+        "passed": true
+      },
+      "sources": [
+        {
+          "pa_id": "PA166122686",
+          "name": "Annotation of CPIC Guideline for fluorouracil and DPYD",
+          "source_org": "CPIC",
+          "drug_scope": [
+            "fluorouracil"
+          ],
+          "citations": [],
+          "byte_size_html": 13447,
+          "char_count_text": 2101,
+          "sha256": "ce6dd6c0f9ce7eb619276c8b331081e9a531bc901c2ed9b5b99f5ec5b78ee921",
+          "retrieved_date": "2026-05-10"
+        },
+        {
+          "pa_id": "PA166109594",
+          "name": "Annotation of CPIC Guideline for capecitabine and DPYD",
+          "source_org": "CPIC",
+          "drug_scope": [
+            "capecitabine"
+          ],
+          "citations": [],
+          "byte_size_html": 13451,
+          "char_count_text": 2101,
+          "sha256": "e2061aab8903bae72ecf0299283f016563dd5ce1342cd62c3558f2d2da36db12",
+          "retrieved_date": "2026-05-10"
+        }
+      ]
+    },
+    "G6PD": {
+      "guideline_excerpt": "### Annotation of CPIC Guideline for dapsone, methylene blue, pegloticase, rasburicase, tafenoquine, toluidine blue and G6PD (PharmGKB PA166119846, source: CPIC)\nDrug scope: dapsone, methylene blue, pegloticase, rasburicase, tafenoquine, toluidine blue\n\nThe CPIC dosing guideline recommends that high risk drugs should be avoided in G6PD deficient patients with or without chronic non-spherocytic hemolytic anemia (CNSHA). In patients with a G6PD variable or indeterminate phenotype, an enzyme activity test should be carried out before initiating drug therapy. The G6PD gene is located on the X chromosome. Therefore, some patients will only have one copy, whereas others will have two copies. See full guideline for disclaimers, further details and supporting evidence.\n\nPredicted Phenotype | Genotype a | Example genotypes b | Implications | Therapeutic Recommendations | Classification of recommendations c | Considerations \n\nNormal | A person with one X chromosome carrying a non-deficient (class IV) allele\nOR\nA person carrying two non-deficient (class IV) alleles | B, Sao Boria, IV\n\nB/B, B/Sao Boria, B/A, IV/IV | Low risk of acute hemolytic anemia | No reason to avoid high risk drugs based on G6PD status | Strong | Tafenoquine\u2019s safety has been established for a G6PD enzyme activity \u226570% of normal. \n\nDeficient | A person with one X chromosome carrying a deficient (class II-III) allele\nOR\nA person carrying two deficient (class II-III) alleles OR one class I allele and one class II or III allele | A-, Orissa, Kalyan-Kerala, Mediterranean, Canton, Chatham, II, III\n\nA-/A-, A-/Orissa, Orissa/ Kalyan-Kerala, Mediterranean/ Mediterranean, Chatham /Mediterranean, Canton/ Viangchan, II/II, II/III, III/III, I/II, I/III | High risk of acute hemolytic anemia | Avoid use of high risk drugs | Methylene blue and toluidine blue f : Moderate.\n\nAll other high risk drugs: Strong | \n\nDeficient with CNSHA | A person with one X chromosome carrying a deficient (class I) allele\nOR\nA person carrying two deficient (class I) alleles d | Bangkok, Villeurbanne, I\n\nBangkok/Bangkok, Bangkok/Villeurbanne, I/I | High risk of acute exacerbation of chronic hemolysis | Avoid use of high risk drugs | Strong | Although there are no published data in individuals with the G6PD Deficient with CNSHA phenotype, there is a strong rationale to avoid these drugs based on evidence in G6PD Deficient individuals. \n\nVariable e | A person carrying one non-deficient (class IV) allele and one deficient (class I-III) allele | B /Bangkok, B/Mediterranean, B/A-, IV/I, IV/II, IV/III | Variable risk of acute hemolytic anemia | No reason to avoid low-to-no risk drugs based on G6PD status at standard doses | Moderate | Due to X-linked mosaicism, individuals with more than one X chromosome (e.g., females, individuals with Klinefelter syndrome) and heterozygous for one non-deficient (class IV) and one deficient (class I\u2013III) allele may display a normal or a deficient phenotype; an enzyme activity test is needed to assign G6PD phenotype in such cases.\n\nTafenoquine\u2019s safety has been established for a G6PD enzyme activity \u226570% of normal. \n\nIndeterminate | A person carrying at least one allele with uncertain function | Dagua\n\nB/Dagua | Unknown risk of acute hemolytic anemia | To ascertain G6PD status, enzyme activity must be measured. Drug use should be guided per the recommendations based on the activity-based phenotype. | Moderate |\n\nPhenotype (Genotype) a | Examples of diplotypes b | Implications for phenotypic measures | Dosing recommendations for rasburicase | Classification of recommendations c \n\nNormal d . A male carrying a non-deficient (class IV) allele or a female carrying two non-deficient (class IV) alleles. | Male: B, Sao Boria. Female: B/B, B/ Sao Boria. | Low or reduced risk of hemolytic anemia. | No reason to withhold rasburicase based on G6PD status d . | Strong \n\nDeficient or Deficient with CNSHA. A male carrying a class I, II or III allele, a female carrying two deficient class I-III alleles. | Male: A-, Orissa, Kalyan-Kerala, Mediterranean, Canton, Chatham, Bangkok, Villeurbanne. Female: A-/A-, A-/ Orissa, Orissa/ Kalyan-Kerala, Mediterranean/ Mediterranean, Chatham/Mediterranean, Canton/ Viangchan, Bangkok/ Bangkok, Bangkok/ Villeurbanne. | At risk of acute hemolytic anemia. | Rasburicase is contraindicated; alternatives include allopurinol e . | Strong \n\nVariable d,f . A female carrying one non-deficient (class IV) and one deficient (class I-III variants) allele. | B/A-, B/Mediterranean, B/Bangkok. | Unknown risk of hemolytic anemia. | To ascertain that G6PD status is normal, enzyme activity must be measured; alternatives include allopurinol e . | Moderate\n\n\n### Annotation of CPIC Guideline for primaquine and G6PD (PharmGKB PA166279621, source: CPIC)\nDrug scope: primaquine\n\nThe CPIC dosing guideline recommends that primaquine should be avoided in G6PD deficient patients with or without chronic non-spherocytic hemolytic anemia (CNSHA) in most cases, with some exceptions for G6PD deficient patients without CNSHA. In patients with a G6PD variable or indeterminate phenotype, an enzyme activity test should be carried out before initiating drug therapy. The G6PD gene is located on the X chromosome. Therefore, some patients will only have one copy, whereas others will have two copies. See full guideline for disclaimers, further details and supporting evidence.\n\nPredicted Phenotype | Genotype a | Example genotypes b | Implications | Therapeutic Recommendations | Classification of recommendations c | Considerations \n\nNormal | A person with one X chromosome carrying a non-deficient (class IV) allele\nOR\nA person carrying two non-deficient (class IV) alleles | B, Sao Boria, IV\n\nB/B, B/Sao Boria, B/A, IV/IV | Low risk of acute hemolytic anemia | No reason to avoid primaquine based on G6PD status | Strong | \n\nDeficient | A person with one X chromosome carrying a deficient (class II-III) allele\nOR\nA person carrying two deficient (class II-III) alleles OR one class I allele and one class II or III allele | A-, Orissa, Kalyan-Kerala, Mediterranean, Canton, Chatham, II, III\n\nA-/A-, A-/Orissa, Orissa/ Kalyan-Kerala, Mediterranean/ Mediterranean, Chatham /Mediterranean, Canton/ Viangchan, II/II, II/III, III/III, I/II, I/III | High risk of acute hemolytic anemia with standard (or higher than standard) anti-relapse dosages for Plasmodium vivax or Plasmodium ovale of 0.25-0.5 mg/kg daily for 14 days | Avoid primaquine, except in the following cases where established expert consensus guidelines for the treatment of malaria should be followed: (1) Treating Plasmodium vivax or Plasmodium ovale malaria for radical cure of liver-stage infections: 0.75 mg/kg once weekly x8 weeks (WHO) or 45 mg once weekly x8 weeks (CDC) - with close monitoring for hemolysis; (2) Treating Plasmodium falciparum malaria by using primaquine single dose as a gametocytocide at 0.25 mg/kg (WHO) - without need for monitoring for hemolysis. | Strong | Dosing recommendations for primaquine in patients with G6PD deficiency are derived from the malaria treatment guidelines issued by the World Health Organization and the U.S. Centers for Disease Control and Prevention . \n\nDeficient with CNSHA | A person with one X chromosome carrying a deficient (class I) allele\nOR\nA person carrying two deficient (class I) alleles d | Bangkok, Villeurbanne, I\n\nBangkok/Bangkok, Bangkok/Villeurbanne, I/I | High risk of acute exacerbation of chronic hemolysis | Avoid primaquine | Strong | The strength of evidence among patients with the G6PD Deficient phenotype provides strong rationale to also avoid primaquine in the setting of the more severe G6PD Deficient with CNSHA phenotype. \n\nVariable e | A person carrying one non-deficient (class IV) allele and one deficient (class I-III) allele | B /Bangkok, B/Mediterranean, B/A-, IV/I, IV/II, IV/III | Variable risk of acute hemolytic anemia | To ascertain G6PD status, enzyme activity must be measured. Drug use should be guided per the recommendations based on the activity-based phenotype. | Moderate | Due to X-linked mosaicism, individuals with more than one X chromosome (e.g., females, individuals with Klinefelter syndrome) and heterozygous for one nondeficient (class IV) and one deficient (class I\u2013III) allele may display a normal or a deficient phenotype; an enzyme activity test is needed to guide treatment in such cases. \n\nIndeterminate | A person carrying at least one allele with uncertain function | Dagua\n\nB/Dagua | Unknown risk of acute hemolytic anemia | To ascertain G6PD status, enzyme activity must be measured. Drug use should be guided per the recommendations based on the activity-based phenotype. | Moderate |",
+      "char_count": 8699,
+      "sha256": "59c54edbba1d01b4d25bb42eb54b5e64df9d7dbfebc6c40c57bbed48c40c06a1",
+      "verbatim_fraction_estimate": 0.97,
+      "drugs_covered": [
+        "primaquine",
+        "rasburicase"
+      ],
+      "n_test_cases": 6,
+      "verification": {
+        "missing_diplotype_cores": [],
+        "missing_phenotype_variants": [],
+        "passed": true
+      },
+      "sources": [
+        {
+          "pa_id": "PA166119846",
+          "name": "Annotation of CPIC Guideline for dapsone, methylene blue, pegloticase, rasburicase, tafenoquine, toluidine blue and G6PD",
+          "source_org": "CPIC",
+          "drug_scope": [
+            "dapsone",
+            "methylene blue",
+            "pegloticase",
+            "rasburicase",
+            "tafenoquine",
+            "toluidine blue"
+          ],
+          "citations": [],
+          "byte_size_html": 18643,
+          "char_count_text": 3918,
+          "sha256": "8c4c35141e41d4630ec8390cf9646364d1c51fda9d1ae57d0cc0ef6be35f849a",
+          "retrieved_date": "2026-05-10"
+        },
+        {
+          "pa_id": "PA166279621",
+          "name": "Annotation of CPIC Guideline for primaquine and G6PD",
+          "source_org": "CPIC",
+          "drug_scope": [
+            "primaquine"
+          ],
+          "citations": [],
+          "byte_size_html": 10043,
+          "char_count_text": 3295,
+          "sha256": "7e59a77377cc4a3eebd3813fb8550644be649ef5e44c256668f0328e45545643",
+          "retrieved_date": "2026-05-10"
+        }
+      ]
+    },
+    "HLA-A*31:01": {
+      "guideline_excerpt": "### Annotation of CPIC Guideline for carbamazepine and HLA-A, HLA-B (PharmGKB PA166105008, source: CPIC)\nDrug scope: carbamazepine\n\nThe CPIC Dosing Guideline update for carbamazepine recommends an alternative drug for carbamazepine-naive patients carrying at least one copy of either HLA-B*15:02 or HLA-A*31:01 due to the association of those alleles with an increased risk of Stevens-Johnson syndrome (SJS) and toxic epidermal necrolysis (TEN). In addition, HLA-A*31:01 is associated with an increased risk of drug reaction with eosinophilia and systemic symptoms (DRESS) and maculopapular exanthema (MPE).\n\nLikely phenotype | Genotypes | Examples of Diplotypes | Phenotypic Implications | Therapeutic Recommendations | Classification of Recommendation a | Considerations for other aromatic anticonvulsants \n\nHomozygous for alleles other than HLA-B*15:02 and HLA-A*31:01 | Non-carrier of HLA-B*15:02 or HLA-A*31:01 . No HLA-B*15:02 or HLA-A*31:01 alleles reported, often reported as \"negative\" on genotyping tests. | *X/*X b \n*Y/*Y c | Normal or reduced risk of carbamazepine-induced SJS/TEN, DRESS and MPE. | Use carbamazepine per standard dosing guidelines. d | Strong | \n\nHeterozygote or homozygous for HLA-A*31:01 and homozygous for HLA-B alleles other than *15:02 | Carrier of HLA-A*31:01 . One or two *31:01 alleles, often reported as \"positive\" on a genotyping test.\nNon-carrier of HLA-B*15:02 . No HLA-B*15:02 alleles reported, often reported as \"negative\" on genotyping tests. | *X/*X b \n*31:01 /*Y c \n*31:01/*31:01 | Increased risk of carbamazepine-induced SJS/TEN, DRESS and MPE | A. If patient is carbamazepine-naive and alternative agents are available, do not use carbamazepine.\nB. If patient is carbamazepine-naive and alternative agents are not available, consider the use of carbamazepine with increased frequency of clinical monitoring. Discontinue therapy at first evidence of a cutaneous adverse reaction.\nC. The latency period for cutaneous adverse drug reactions is variable depending on phenotype; however, all usually occur within 3 months of regular dosing. Therefore, if patient has previously used carbamazepine for longer than 3 months without incidence of cutaneous adverse reactions, cautiously consider use of carbamazepine. | A. Strong\nB. Optional\nC. Optional | A. Other aromatic anticonvulsants (e.g. eslicarbazepine, lamotrigine, phenytoin, fosphenytoin and phenoarbital) have very limited evidence, if any, linking SJS/TEN, DRESS and/or MPE with the _HLA-A*31:01 allele, and thus no recommendation can be made with respect to choosing another aromatic anticonvulsant as an alternative agent.\nC. Previous tolerance of carbamazepine is not indicative of tolerance to other aromatic anticonvulsants. \n\nHeterozygote or homozygous for HLA-B*15:02 and any HLA-A*31:01 genotype (or HLA-A*31:01 genotype unknown) | Carrier of HLA-B*15:02 . One or two *15:02 alleles, often reported as \"positive\" on a genotyping test. | *15:02 /*X b \n*15:02 / *15:02 | Increased risk of carbamazepine-induced SJS/TEN | A. If patient is carbamazepine-naive, do not use carbamazepine.\nB. The latency period for drug-induced SJS/TEN is short with continuous dosing and adherence to therapy (~4-28 days), and cases usually occur within 3 months of dosing; therefore, if the patient has previously used carbamazepine consistently for longer than 3 months without incidence of cutaneous adverse reactions, cautiously consider use of carbamazepine in the future. | A. Strong\nB. Optional | A. Other aromatic anticonvulsants (e.g. eslicarbazepine, lamotrigine, phenytoin, fosphenytoin and phenoarbital) have weaker evidence linking SJS/TEN with the HLA-B*15:02 allele; however, caution should still be used in choosing an alternative agent.\nB. Previous tolerance of carbamazepine is not indicative of tolerance to other aromatic anticonvulsants.",
+      "char_count": 3847,
+      "sha256": "bdcebc5226bfada09b2115ddcf8f89247788ffd613df1d180d5661783fe4215c",
+      "verbatim_fraction_estimate": 0.96,
+      "drugs_covered": [
+        "carbamazepine"
+      ],
+      "n_test_cases": 2,
+      "verification": {
+        "missing_diplotype_cores": [],
+        "missing_phenotype_variants": [],
+        "passed": true
+      },
+      "sources": [
+        {
+          "pa_id": "PA166105008",
+          "name": "Annotation of CPIC Guideline for carbamazepine and HLA-A, HLA-B",
+          "source_org": "CPIC",
+          "drug_scope": [
+            "carbamazepine"
+          ],
+          "citations": [],
+          "byte_size_html": 9653,
+          "char_count_text": 3238,
+          "sha256": "eeebe0829c1b58d51cacb53d68d8e97bda61f3e703f71eb64167e0c83f1235f5",
+          "retrieved_date": "2026-05-10"
+        }
+      ]
+    },
+    "HLA-B*15:02": {
+      "guideline_excerpt": "### Annotation of CPIC Guideline for carbamazepine and HLA-A, HLA-B (PharmGKB PA166105008, source: CPIC)\nDrug scope: carbamazepine\n\nThe CPIC Dosing Guideline update for carbamazepine recommends an alternative drug for carbamazepine-naive patients carrying at least one copy of either HLA-B*15:02 or HLA-A*31:01 due to the association of those alleles with an increased risk of Stevens-Johnson syndrome (SJS) and toxic epidermal necrolysis (TEN). In addition, HLA-A*31:01 is associated with an increased risk of drug reaction with eosinophilia and systemic symptoms (DRESS) and maculopapular exanthema (MPE).\n\nLikely phenotype | Genotypes | Examples of Diplotypes | Phenotypic Implications | Therapeutic Recommendations | Classification of Recommendation a | Considerations for other aromatic anticonvulsants \n\nHomozygous for alleles other than HLA-B*15:02 and HLA-A*31:01 | Non-carrier of HLA-B*15:02 or HLA-A*31:01 . No HLA-B*15:02 or HLA-A*31:01 alleles reported, often reported as \"negative\" on genotyping tests. | *X/*X b \n*Y/*Y c | Normal or reduced risk of carbamazepine-induced SJS/TEN, DRESS and MPE. | Use carbamazepine per standard dosing guidelines. d | Strong | \n\nHeterozygote or homozygous for HLA-A*31:01 and homozygous for HLA-B alleles other than *15:02 | Carrier of HLA-A*31:01 . One or two *31:01 alleles, often reported as \"positive\" on a genotyping test.\nNon-carrier of HLA-B*15:02 . No HLA-B*15:02 alleles reported, often reported as \"negative\" on genotyping tests. | *X/*X b \n*31:01 /*Y c \n*31:01/*31:01 | Increased risk of carbamazepine-induced SJS/TEN, DRESS and MPE | A. If patient is carbamazepine-naive and alternative agents are available, do not use carbamazepine.\nB. If patient is carbamazepine-naive and alternative agents are not available, consider the use of carbamazepine with increased frequency of clinical monitoring. Discontinue therapy at first evidence of a cutaneous adverse reaction.\nC. The latency period for cutaneous adverse drug reactions is variable depending on phenotype; however, all usually occur within 3 months of regular dosing. Therefore, if patient has previously used carbamazepine for longer than 3 months without incidence of cutaneous adverse reactions, cautiously consider use of carbamazepine. | A. Strong\nB. Optional\nC. Optional | A. Other aromatic anticonvulsants (e.g. eslicarbazepine, lamotrigine, phenytoin, fosphenytoin and phenoarbital) have very limited evidence, if any, linking SJS/TEN, DRESS and/or MPE with the _HLA-A*31:01 allele, and thus no recommendation can be made with respect to choosing another aromatic anticonvulsant as an alternative agent.\nC. Previous tolerance of carbamazepine is not indicative of tolerance to other aromatic anticonvulsants. \n\nHeterozygote or homozygous for HLA-B*15:02 and any HLA-A*31:01 genotype (or HLA-A*31:01 genotype unknown) | Carrier of HLA-B*15:02 . One or two *15:02 alleles, often reported as \"positive\" on a genotyping test. | *15:02 /*X b \n*15:02 / *15:02 | Increased risk of carbamazepine-induced SJS/TEN | A. If patient is carbamazepine-naive, do not use carbamazepine.\nB. The latency period for drug-induced SJS/TEN is short with continuous dosing and adherence to therapy (~4-28 days), and cases usually occur within 3 months of dosing; therefore, if the patient has previously used carbamazepine consistently for longer than 3 months without incidence of cutaneous adverse reactions, cautiously consider use of carbamazepine in the future. | A. Strong\nB. Optional | A. Other aromatic anticonvulsants (e.g. eslicarbazepine, lamotrigine, phenytoin, fosphenytoin and phenoarbital) have weaker evidence linking SJS/TEN with the HLA-B*15:02 allele; however, caution should still be used in choosing an alternative agent.\nB. Previous tolerance of carbamazepine is not indicative of tolerance to other aromatic anticonvulsants.\n\n\n### Annotation of CPIC Guideline for oxcarbazepine and HLA-B (PharmGKB PA166176623, source: CPIC)\nDrug scope: oxcarbazepine\n\nThe CPIC Dosing Guideline for oxcarbazepine recommends an alternative drug for oxcarbazepine-naive patients carrying at least one copy of HLA-B*15:02 due to the association of this allele with an increased risk of Stevens-Johnson syndrome (SJS) and toxic epidermal necrolysis (TEN).\n\nLikely phenotype | Genotypes | Examples of Diplotypes | Phenotypic Implications | Therapeutic Recommendations | Classification of Recommendation a | Considerations for other aromatic anticonvulsants \n\nHomozygous for alleles other than HLA-B*15:02 | Non-carrier of HLA-B*15:02 . No HLA-B*15:02 alleles reported, often reported as \"negative\" on genotyping tests. | *X/*X b | Normal or reduced risk of oxcarbazepine-induced SJS/TEN. | Use oxcarbazepine per standard dosing guidelines. | Strong | \n\nHeterozygote or homozygous for HLA-B*15:02 | Carrier of HLA-B*15:02 . One or two *15:02 alleles, often reported as \"positive\" on a genotyping test. | *15:02 /*X b \n*15:02 / *15:02 | Increased risk of oxcarbazepine-induced SJS/TEN | A. If patient is oxcarbazepine-naive, do not use oxcarbazepine.\nB. The latency period for drug-induced SJS/TEN is short with continuous dosing and adherence to therapy (~4-28 days), and cases usually occur within 3 months of dosing; therefore, if the patient has previously used oxcarbazepine consistently for longer than 3 months without incidence of cutaneous adverse reactions, cautiously consider use of oxcarbazepine in the future. | A. Strong\nB. Optional | A. Other aromatic anticonvulsants (e.g. eslicarbazepine, lamotrigine, phenytoin, fosphenytoin and phenoarbital) have weaker evidence linking SJS/TEN with the HLA-B*15:02 allele; however, caution should still be used in choosing an alternative agent.\nB. Previous tolerance of oxcarbazepine is not indicative of tolerance to other aromatic anticonvulsants.",
+      "char_count": 5803,
+      "sha256": "3ed7316c30f543b274c6a02df6bd96a3cfc2e739f042a7ff0a18e49dde73cccc",
+      "verbatim_fraction_estimate": 0.95,
+      "drugs_covered": [
+        "carbamazepine",
+        "oxcarbazepine"
+      ],
+      "n_test_cases": 4,
+      "verification": {
+        "missing_diplotype_cores": [],
+        "missing_phenotype_variants": [],
+        "passed": true
+      },
+      "sources": [
+        {
+          "pa_id": "PA166105008",
+          "name": "Annotation of CPIC Guideline for carbamazepine and HLA-A, HLA-B",
+          "source_org": "CPIC",
+          "drug_scope": [
+            "carbamazepine"
+          ],
+          "citations": [],
+          "byte_size_html": 9653,
+          "char_count_text": 3238,
+          "sha256": "eeebe0829c1b58d51cacb53d68d8e97bda61f3e703f71eb64167e0c83f1235f5",
+          "retrieved_date": "2026-05-10"
+        },
+        {
+          "pa_id": "PA166176623",
+          "name": "Annotation of CPIC Guideline for oxcarbazepine and HLA-B",
+          "source_org": "CPIC",
+          "drug_scope": [
+            "oxcarbazepine"
+          ],
+          "citations": [],
+          "byte_size_html": 5240,
+          "char_count_text": 1544,
+          "sha256": "0612cacd774d61e3eae9d109b459f5a207af4be1942350eecec16489151d0c91",
+          "retrieved_date": "2026-05-10"
+        }
+      ]
+    },
+    "HLA-B*57:01": {
+      "guideline_excerpt": "### Annotation of CPIC Guideline for abacavir and HLA-B (PharmGKB PA166104997, source: CPIC)\nDrug scope: abacavir\n\nThe CPIC dosing guideline does not recommend abacavir for individuals with the HLA-B*57:01 variant allele, and it should be considered only under exceptional circumstances.\n\nLikely phenotype | Genotypes | Examples of diplotypes | Implications for phenotypic measures | Recommendations for abacavir therapy | Classification of recommendation for abacavir therapy a \n\nVery low risk of hypersensitivity (constitutes ~94% b of patients) | Absence of *57:01 alleles (reported as \"negative\" on a genotyping test) | *X/*X c | Low or reduced risk of abacavir hypersensitivity | Use abacavir per standard dosing guidelines | Strong \n\nHigh risk of hypersensitivity (~6% of patients) | Presence of at least one *57:01 allele (reported as \"positive\" on a genotyping test) | *57:01 /*X c *57:01/*57:01 | Significantly increased risk of abacavir hypersensitivity | Abacavir is not recommended | Strong",
+      "char_count": 1002,
+      "sha256": "fae143cf8d8213e006e5fe76b6a8b9029e9ad4947d9f756ac172403bca52f9ba",
+      "verbatim_fraction_estimate": 0.85,
+      "drugs_covered": [
+        "abacavir"
+      ],
+      "n_test_cases": 2,
+      "verification": {
+        "missing_diplotype_cores": [],
+        "missing_phenotype_variants": [],
+        "passed": true
+      },
+      "sources": [
+        {
+          "pa_id": "PA166104997",
+          "name": "Annotation of CPIC Guideline for abacavir and HLA-B",
+          "source_org": "CPIC",
+          "drug_scope": [
+            "abacavir"
+          ],
+          "citations": [],
+          "byte_size_html": 6480,
+          "char_count_text": 713,
+          "sha256": "2ca5196097bc9404db5e0030bdcc61f7dfce360a6b858681f6ee8e9d29fb44a6",
+          "retrieved_date": "2026-05-10"
+        }
+      ]
+    },
+    "HLA-B*58:01": {
+      "guideline_excerpt": "### Annotation of CPIC Guideline for allopurinol and HLA-B (PharmGKB PA166105003, source: CPIC)\nDrug scope: allopurinol\n\nThe CPIC dosing guideline recommends avoiding allopurinol for individuals with the HLA-B*58:01 variant allele due to significantly increased risk of allopurinol-induced SCAR.\n\nLikely Phenotype | Genotypes | Examples of diplotypes | Implications for phenotypic measures | Recommendations for allopurinol therapy | Classification of recommendation for allopurinol therapy \n\nLow or reduced risk of allopurinol SCAR | Absence of *58:01 alleles (reported as \"negative\" on a genotyping test) | *X/*X a | Low or reduced risk of allopurinol SCAR | Use allopurinol per standard dosing guidelines | Strong \n\nSignificantly increased risk of allopurinol SCAR | Presence of at least one *58:01 allele (reported as \"positive\" on a genotyping test) | *58:01 /*X a *58:01/*58:01 | Significantly increased risk of allopurinol SCAR | Allopurinol is contraindicated | Strong",
+      "char_count": 976,
+      "sha256": "a767d28c302c4d1f20b80b630b6584b6e405a704b02d6439b3333bff958e28e3",
+      "verbatim_fraction_estimate": 0.85,
+      "drugs_covered": [
+        "allopurinol"
+      ],
+      "n_test_cases": 2,
+      "verification": {
+        "missing_diplotype_cores": [],
+        "missing_phenotype_variants": [],
+        "passed": true
+      },
+      "sources": [
+        {
+          "pa_id": "PA166105003",
+          "name": "Annotation of CPIC Guideline for allopurinol and HLA-B",
+          "source_org": "CPIC",
+          "drug_scope": [
+            "allopurinol"
+          ],
+          "citations": [],
+          "byte_size_html": 5099,
+          "char_count_text": 679,
+          "sha256": "a37326b4b880c15743709c5b718241af4ffebe6c24c6c0163557af1a371f0b3c",
+          "retrieved_date": "2026-05-10"
+        }
+      ]
+    },
+    "IFNL3": {
+      "guideline_excerpt": "### Annotation of CPIC Guideline for peginterferon alfa-2a, peginterferon alfa-2b, ribavirin and IFNL3 (PharmGKB PA166110235, source: CPIC)\nDrug scope: peginterferon alfa-2a, peginterferon alfa-2b, ribavirin\n\nIFNL3 (IL28B) variation ( rs12979860 ) is the strongest baseline predictor of response to PEG-interferon-alpha-containing regimens in HCV genotype 1 patients. Patients with the favorable response genotype ( rs12979860 CC) have increased likelihood of response (higher SVR rate) to PEG-interferon-alpha-containing regimens as compared to patients with unfavorable response genotype ( rs12979860 CT or TT). Consider implications before initiating PEG-IFN alpha and RBV containing regimens.\n\nGenotype at rs12979860 | Phenotype | Implications for PEG-IFN alpha\u0001 and RBV a | Implications for protease inhibitor combinations with PEG-IFN alpha\u0001 and RBV therapy | Classification of recommendations b \n\nCC | Favorable response genotype | Approximately 70% chance for SVR c after 48 weeks of treatment. Consider implications before initiating PEG-IFN alpha and RBV containing regimens. | Approximately 90% chance for SVR after 24-48 weeks of treatment. Approximately 80-90% of patients are eligible for shortened therapy (24-28 weeks vs. 48 weeks) d . Weighs in favor of using PEG-IFN\u0001 alpha and RBV containing regimens. | Strong \n\nCT or TT | Unfavorable response genotype | Approximately 30% chance for SVR c after 48 weeks of treatment. Consider implications before initiating PEG-IFN alpha and RBV containing regimens. | Approximately 60% chance for SVR after 24-48 weeks of treatment. Approximately 50% of patients are eligible for shortened therapy (24-28 weeks) d . Consider implications before initiating PEG-IFN\u0001 and RBV containing regimens. | Strong",
+      "char_count": 1758,
+      "sha256": "ca6ee1b73b273ad9679ab869752a56ecd8674c1259a98b3478bfb5dd22423798",
+      "verbatim_fraction_estimate": 0.91,
+      "drugs_covered": [
+        "PEG-IFN-\u03b1"
+      ],
+      "n_test_cases": 2,
+      "verification": {
+        "missing_diplotype_cores": [],
+        "missing_phenotype_variants": [],
+        "passed": true
+      },
+      "sources": [
+        {
+          "pa_id": "PA166110235",
+          "name": "Annotation of CPIC Guideline for peginterferon alfa-2a, peginterferon alfa-2b, ribavirin and IFNL3",
+          "source_org": "CPIC",
+          "drug_scope": [
+            "peginterferon alfa-2a",
+            "peginterferon alfa-2b",
+            "ribavirin"
+          ],
+          "citations": [],
+          "byte_size_html": 6013,
+          "char_count_text": 1060,
+          "sha256": "b990887f5148535bdbb2dfaeeda685c96ddc16c076298b007337dc2cee516140",
+          "retrieved_date": "2026-05-10"
+        }
+      ]
+    },
+    "MT-RNR1": {
+      "guideline_excerpt": "### Annotation of CPIC Guideline for amikacin, dibekacin, gentamicin, kanamycin, neomycin, netilmicin, paromomycin, plazomicin, ribostamycin, streptomycin, tobramycin and MT-RNR1 (PharmGKB PA166229081, source: CPIC)\nDrug scope: amikacin, dibekacin, gentamicin, kanamycin, neomycin, netilmicin, paromomycin, plazomicin, ribostamycin, streptomycin, tobramycin\n\nThe CPIC dosing guideline recommends that administration of aminoglycoside antibiotics should be avoided in patients carrying certain MT-RNR1 variants due to the increased risk of developing aminoglycoside-induced hearing loss (AIHL). The guideline has been updated online since the publication to correct a variant allele, add several more drugs and to clarify that vaccine schedules should still be followed.\n\nPhenotype | Genotype | Example genotypes | Implications | Recommendations | Classification of\nrecommendation a | Considerations \n\nMT-RNR1 increased risk of aminoglycoside-induced hearing loss | Individuals with an MT-RNR1 variant with an increased risk of aminoglycoside-induced hearing loss | m.1095T>C\nm.1494C>T\nm.1555A>G | Very high risk of developing hearing loss if administered an aminoglycoside antibiotic | Avoid aminoglycoside antibiotics unless the high risk of permanent hearing loss is outweighed by the severity of infection and lack of safe or effective alternative therapies. | Strong | If no effective alternative to an aminoglycoside antibiotic is available, evaluate for hearing loss frequently during therapy and ensure that all appropriate precautions are utilized (e.g., lowest possible dose and duration, utilization of therapeutic drug monitoring, hydration, renal function monitoring). \n\nMT-RNR1 normal risk of aminoglycoside-induced hearing loss | Individuals with no detectable MT-RNR1 increased risk variant or a MT-RNR1 variant associated with normal risk of aminoglycoside-induced hearing loss | m.827A>G | Normal risk of developing hearing loss if administered an aminoglycoside antibiotic. | Use aminoglycoside antibiotics at standard doses for the shortest feasible course with therapeutic dose monitoring. Evaluate regularly for hearing loss in line with local guidance. | Strong | Individuals without MT-RNR1 aminoglycoside-induced hearing loss increased risk variants are still at risk of aminoglycoside-associated hearing loss, especially with high drug levels or prolonged courses. \n\nMT-RNR1 uncertain risk of aminoglycoside-induced hearing loss | Individuals with a MT-RNR1 variant associated with an uncertain risk of aminoglycoside-induced hearing loss | m.663A>G\nm.669T>C\nm.747A>G\nm.786G>A\nm.807A>G\nm.807A>C\nm.839A>G\nm.896A>G\nm.930G>A\nm.951G>A\nm.960C>del\nm.961T>G\nm.961T>del\nm.961T>del+Cn\nm.988G>A\nm.1189T>C\nm.1243T>C\nm.1520T>C\nm.1537C>T\nm.1556C>T | Weak or no evidence for an increased risk of MT-RNR1-associated hearing loss if administered an aminoglycoside antibiotic. | Use aminoglycoside antibiotics at standard doses for the shortest feasible course with therapeutic drug monitoring. Evaluate regularly for hearing loss in line with local guidance. | Optional | Individuals without MT-RNR1 aminoglycoside-induced hearing loss increased risk variants are still at risk of aminoglycoside-associated hearing loss, especially with high drug levels or prolonged courses.",
+      "char_count": 3284,
+      "sha256": "00dcf3af5cdbdeef96a9913220f1a145be400cbed66d61df8ae19200226f0b28",
+      "verbatim_fraction_estimate": 0.95,
+      "drugs_covered": [
+        "aminoglycosides"
+      ],
+      "n_test_cases": 2,
+      "verification": {
+        "missing_diplotype_cores": [],
+        "missing_phenotype_variants": [],
+        "passed": true
+      },
+      "sources": [
+        {
+          "pa_id": "PA166229081",
+          "name": "Annotation of CPIC Guideline for amikacin, dibekacin, gentamicin, kanamycin, neomycin, netilmicin, paromomycin, plazomicin, ribostamycin, streptomycin, tobramycin and MT-RNR1",
+          "source_org": "CPIC",
+          "drug_scope": [
+            "amikacin",
+            "dibekacin",
+            "gentamicin",
+            "kanamycin",
+            "neomycin",
+            "netilmicin",
+            "paromomycin",
+            "plazomicin",
+            "ribostamycin",
+            "streptomycin",
+            "tobramycin"
+          ],
+          "citations": [],
+          "byte_size_html": 14037,
+          "char_count_text": 2513,
+          "sha256": "7c005837a510fd7545a1dcd3f573df4fcec700aaec93c78150428f478c519853",
+          "retrieved_date": "2026-05-10"
+        }
+      ]
+    },
+    "NUDT15": {
+      "guideline_excerpt": "### Annotation of CPIC Guideline for azathioprine and NUDT15, TPMT (PharmGKB PA166104933, source: CPIC)\nDrug scope: azathioprine\n\nThe CPIC dosing guideline recommends that a lower than standard starting dose of azathioprine should be considered for TPMT or NUDT15 intermediate metabolizers. Compound TMPT/NUDT15 intermediate metabolizers require further dose reduction compared to single gene intermediate metabolizers. For TPMT and/or NUDT15 poor metabolizers, an alternative immunosuppressant therapy should be considered.\n\nFebruary 2026 Update\n\nThe 2025 update of CPIC guidelines regarding azathioprine, thioguanine and mercaptopurine , have been published in Clinical Pharmacology and Therapeutics. A systematic literature review focused on TPMT and NUDT15 genotypes and thiopurine use was conducted, recommendations and supplemental information was updated. \n\nThese guidelines are applicable to:\n\npediatric patients \n\nadult patients \n\nExcerpts from the 2026 thiopurine dosing guideline update:\n\n\"Three thiopurines are used clinically: azathioprine, mercaptopurine, and thioguanine. Although all three medications share many of the same pharmacologic effects, mercaptopurine and azathioprine are generally used for nonmalignant immunologic disorders, and mercaptopurine and thioguanine are used for hematological malignancies. Because azathioprine is converted to mercaptopurine in cells, the two drugs can be considered to have identical interactions with TPMT and NUDT15. \" \n\n\"TPMT catabolizes mercaptopurine to an inactive methylmercaptopurine base, leaving less parent drug available for potential anabolism to pharmacologically active thioguanine nucleotides.\" \n\n\"Through agnostic genome-\u00adwide association studies, variants in NUDT15 were identified that strongly influence thiopurine tolerance in patients with ALL and IBD.\" \n\n\"There is substantial evidence linking TPMT and NUDT15 genotypes with phenotypic variability in thiopurine response\n(see Tables S1 and S2). Pre-\u00ademptive dose adjustments based on TPMT genotype have reduced thiopurine-\u00adinduced adverse\neffects without compromising desired antitumor and immunosuppressive therapeutic effects in several clinical settings.\" \n\n\"[T]he guideline dosing recommendations are intended for use in both age groups [pediatric and adult patients]\". \n\nDownload and read:\n\nClinical Pharmacogenetics Implementation Consortium (CPIC) Guideline for Thiopurine Dosing Based on TPMT and NUDT15 genotypes: 2025 Update \n\n2025 supplement \n\nTPMT Gene-Specific Information Tables \n\nNUDT15 Gene-Specific Information Tables \n\nAzathioprine Drug Resource Mappings \n\nAzathioprine Pre and Post Test Alerts \n\nAzathioprine Clinical Decision Support Flow Chart \n\nFebruary 2024 Update\n\nCPIC have updated the recommendations for patients who are intermediate metabolizers of both TPMT and NUDT15 . Patients who are intermediate metabolizers or possible intermediate metabolizers for both genes are recommended to begin with a starting dose of 20-50% of the normal dosage. The recommendations in the genotype picker tool and on this annotation page have been updated accordingly. \n\nOctober 2018 Update\n\nAdvance online publication November 2018. \n\nThe 2018 update of CPIC guidelines regarding azathioprine, thioguanine and mercaptopurine , have been published in Clinical Pharmacology and Therapeutics. Literature published between October 2012 to June 2017 was reviewed, recommendations and supplemental information was updated. \n\nThese guidelines are applicable to:\n\npediatric patients \n\nadult patients \n\nExcerpt from the 2018 thiopurine dosing guideline update:\n\n\"TPMT activity exhibits a monogenic co-dominant inheritance and catabolizes\nthiopurines. TPMT variant alleles are associated with low enzyme activity and pronounced pharmacologic effects of thiopurines.\" \n\n\"Loss-of-function alleles in the NUDT15 gene are common in Asians and Hispanics and reduces the degradation of active thiopurine nucleotide metabolites, also predisposing to myelosuppression.\" \n\nDownload and read:\n\nClinical Pharmacogenetics Implementation Consortium (CPIC) guideline for thiopurine dosing based on TPMT and NUDT15 genotypes: 2018 Update \n\n2018 supplement \n\nMay 2016 Update\n\nSeveral studies have reported that individuals who carry low-function alleles for NUDT15 are unable to tolerate usual doses of thiopurines. [Articles: 25108385 , 25624441 , 26033531 , 26076924 , 26405151 , 26503813 , 26590936 , 26735160 , 26878724 ] These alleles are more common among those of Asian ancestry and Hispanic ethnicity than others. [Articles: 25624441 , 26878724 ] The dose tolerated by those with two low-function alleles is only ~ 10% that tolerated by those with no low-function NUDT15 or TPMT alleles. [Articles: 25624441 , 26878724 ] CPIC is planning a guideline to address NUDT15 variants and possible dosing recommendations for thiopurines. \n\nApril 2013 Update\n\nAdvance online publication January 2013. \n\nThe 2013 update of CPIC guidelines regarding azathioprine, thioguanine and mercaptopurine , have been published in Clinical Pharmacology and Therapeutics. Literature published between June 2010-November 2012 was reviewed and there is no new evidence that would change the original guidelines. Therefore, the dosing recommendations in the original publication remain clinically current. \n\nThese guidelines are applicable to:\n\npediatric patients \n\nadult patients \n\nDownload and read:\n\nClinical Pharmacogenetics Implementation Consortium Guidelines for Thiopurine Methyltransferase Genotype and Thiopurine Dosing: 2013 Update \n\n2013 supplement \n\nMarch 2011\n\nAdvance online publication January 2011. \n\nGuidelines regarding the use of pharmacogenomic tests in dosing for azathioprine, thioguanine and mercaptopurine were published in Clinical Pharmacology and Therapeutics by the Clinical Pharmacogenetics Implementation Consortium (CPIC). \n\nExcerpt from the 2011 thiopurine dosing guidelines:\n\n\"Thiopurines are most commonly used to treat nonmalignant conditions but are also critical anticancer agents. The approach to dosing adjustments based on TPMT status may differ depending on the clinical indication and the propensity to initiate therapy at higher vs. lower starting doses. We and others advocate testing for TPMT status prior to initiating thiopurine therapy, so that starting dosages can be adjusted accordingly.\" \n\nDownload and read:\n\nClinical Pharmacogenetics Implementation Consortium Guidelines for Thiopurine Methyltransferase Genotype and Thiopurine Dosing \n\n2011 supplement",
+      "char_count": 6508,
+      "sha256": "6f1e22d511e4f692e7a2e230a13930b0119506c2fa413156f583d1d0a98d8cd7",
+      "verbatim_fraction_estimate": 0.98,
+      "drugs_covered": [
+        "thiopurines"
+      ],
+      "n_test_cases": 3,
+      "verification": {
+        "missing_diplotype_cores": [
+          "nudt15_thio_pm: gt_diplotype='*3/*3' unmatched groups [['*3']] (rsIDs=['rs116855232'] also unmatched)",
+          "nudt15_thio_im: gt_diplotype='*1/*3' unmatched groups [['*1'], ['*3']] (rsIDs=['rs116855232'] also unmatched)",
+          "nudt15_thio_nm: gt_diplotype='*1/*1' unmatched groups [['*1']] (rsIDs=['rs116855232'] also unmatched)"
+        ],
+        "missing_phenotype_variants": [
+          "nudt15_thio_nm: gt_phenotype='Normal Metaboliser' (variants ['normal metaboliser', 'normal metabolizer', 'extensive metaboliser', 'extensive metabolizer'])"
+        ],
+        "passed": false,
+        "known_incomplete_reason": "Same as TPMT \u2014 2026 PharmGKB rendering of PA166104933 has no structured *3 allele table.",
+        "accepted_as_known_gap": true
+      },
+      "sources": [
+        {
+          "pa_id": "PA166104933",
+          "name": "Annotation of CPIC Guideline for azathioprine and NUDT15, TPMT",
+          "source_org": "CPIC",
+          "drug_scope": [
+            "azathioprine"
+          ],
+          "citations": [
+            {
+              "title": "Clinical Pharmacogenetics Implementation Consortium (CPIC) Guideline for Thiopurine Dosing Based on TPMT and NUDT15 Genotypes: 2025 Update.",
+              "pmid": "41618934",
+              "doi": "10.1002/cpt.70209"
+            }
+          ],
+          "byte_size_html": 9682,
+          "char_count_text": 5982,
+          "sha256": "9f8debf130fc67ec24b92b43e363c6b6203ddef09aedafb5c5e0fe6185bcc844",
+          "retrieved_date": "2026-05-10"
+        }
+      ]
+    },
+    "RYR1": {
+      "guideline_excerpt": "### Annotation of CPIC Guideline for desflurane, enflurane, halothane, isoflurane, methoxyflurane, sevoflurane, succinylcholine and CACNA1S, RYR1 (PharmGKB PA166303941, source: CPIC)\nDrug scope: desflurane, enflurane, halothane, isoflurane, methoxyflurane, sevoflurane, succinylcholine\n\nThe CPIC Dosing Guideline recommends that halogenated volatile anesthetics such as desflurane, enflurane, halothane, isoflurane, methoxyflurane, sevoflurane and the depolarizing muscle relaxants succinylcholine are relatively contraindicated in persons with malignant hyperthermia susceptibility (MHS). The guideline has been updated online since its original publication, primarily to include more variants and align with the ClinGen variant curation expert panel (VCEP) for RYR1.\n\nRYR1 or CACNA1S phenotype | Genotype | Example Variants | Implications for phenotypic measures | Dosing recommendations for inhaled anesthetics or succinylcholine | Classification of recommendations a \n\nMalignant Hyperthermia susceptible | An individual heterozygous b for a RYR1 or CACNA1S malignant hyperthermia causative variant as designated by the EMHG c,d,e | RYR1 c.103T>C; p.(Cys35Arg), RYR1 c.130C>T; p.(Arg44Cys), RYR1 c.487C>T; p.(Arg163Cys), RYR1 c.488G>T; p.(Arg163Leu), RYR1 c.742G>A/C; p.(Gly248Arg), RYR1 c.982C>T; p.(Arg328Trp), RYR1 c.1021G>C ; p.(Gly341Arg), RYR1 c.1021G>A; p.(Gly341Arg), RYR1 c.1201C>T; p.(Arg401Cys), RYR1 c.1209C>G; p.(Ile403Met), RYR1 c.1565A>C; p.(Try522Ser), RYR1 c.1597C>T; p.(Arg533Cys), RYR1 c.1654C>T; p.(Arg552Trp), RYR1 c.1840C>T; p.(Arg614Cys), RYR1 c.1841G>T; p.(Arg614Leu), RYR1 c.6487C>T; p.(Arg2163Cys), RYR1 c.6488G>A; p.(Arg2163His), RYR1 c.6502G>A; p.(Val2168Met), RYR1 c.6617C>G; p.(Thr2206Arg), RYR1 c.6617C>T; p.(Thr2206Met), RYR1 c.7007G>A; p.(Arg2336His), RYR1 c.7039_7041delGAG/RYR1 c.7042_7044delGAG; p.(Glu2348del), RYR1 c.7048G>A; p.(Ala2350Thr), RYR1 c.7063C>T; p.(Arg2355Trp), RYR1 c.7124G>C; p.(Gly2375Ala), RYR1 c.7282G>A; p.(Ala2428Thr), RYR1 c.7300G>A; p.(Gly2434Arg), RYR1 c.7304G>A; p.(Arg2435His), RYR1 c.7354C>T; p.(Arg2452Trp), RYR1 c.7360C>T; p.(Arg2454Cys), RYR1 c.7361G>A; p.(Arg2454His), RYR1 c.7372C>T; p.(Arg2458Cys), RYR1 c.7373G>A; p.(Arg2458His), RYR1 c.7522C>G; p.(Arg2508Gly), RYR1 c.7522C>T; p.(Arg2508Cys), RYR1 c.7523G>A; p.(Arg2508His), RYR1 c.9310G>A; p.(Glu3104Lys), RYR1 c.11969G>T; p.(Gly3990Val), RYR1 c.14387A>G; p.(Try4796Cys), RYR1 c.14477C>T; p.(Thr4826Ile), RYR1 c.14497C>T; p.(His4833Tyr), RYR1 c.14512C>G; p.(Leu4838Val), RYR1 c.14545G>A; p.(Val4849Ile), RYR1 c.14582G>A; p.(Arg4861His), RYR1 c.14693T>C; p.(Ile4898Thr), CACNA1S c.520C>T; p.(Arg174Trp), CACNA1S c3257G>A; p. (Arg1086His) | Individuals are at increased risk of developing malignant hyperthermia if administered halogenated volatile anesthetics or the depolarizing muscle relaxant succinylcholine f | Halogenated volatile anesthetics or depolarizing muscle relaxants succinylcholine are relatively contraindicated in persons with MHS. They should not be used, except in extraordinary circumstances where the benefits outweigh the risks. In general, alternative anesthetics are widely available and effective in patients with MHS. | Strong \n\nUncertain susceptibility | An individual negative for a RYR1 or CACNA1S malignant hyperthermia causative variant as designated by the European Malignant Hyperthermia Group (EMHG) c,d,e | | These results do not eliminate the chance that this patient is susceptible to Malignant Hyperthermia. The genetic cause of about half of all MH survivors, with MH susceptibility confirmed by contracture test, remains unknown [Article: 28902675 ]. | Clinical findings, family history, further genetic testing and other laboratory data should guide use of halogenated volatile anesthetics or depolarizing muscle relaxants. | Strong",
+      "char_count": 3798,
+      "sha256": "bc11249009ea4ef71c3755e2fd021793811df64de964f29566fc63316dcfb3df",
+      "verbatim_fraction_estimate": 0.96,
+      "drugs_covered": [
+        "volatile-anaesthetics"
+      ],
+      "n_test_cases": 2,
+      "verification": {
+        "missing_diplotype_cores": [],
+        "missing_phenotype_variants": [],
+        "passed": true
+      },
+      "sources": [
+        {
+          "pa_id": "PA166303941",
+          "name": "Annotation of CPIC Guideline for desflurane, enflurane, halothane, isoflurane, methoxyflurane, sevoflurane, succinylcholine and CACNA1S, RYR1",
+          "source_org": "CPIC",
+          "drug_scope": [
+            "desflurane",
+            "enflurane",
+            "halothane",
+            "isoflurane",
+            "methoxyflurane",
+            "sevoflurane",
+            "succinylcholine"
+          ],
+          "citations": [],
+          "byte_size_html": 14253,
+          "char_count_text": 3028,
+          "sha256": "6de6257ae01c0d11dc910aceeef2928cda7896d49ec0e8db9d1c8a7ca3713f1e",
+          "retrieved_date": "2026-05-10"
+        }
+      ]
+    },
+    "SLCO1B1": {
+      "guideline_excerpt": "### Annotation of CPIC Guideline for simvastatin and SLCO1B1 (PharmGKB PA166105005, source: CPIC)\nDrug scope: simvastatin\n\nThe CPIC dosing guideline recommends prescribing an alternative statin depending on the desired potency for patients with SLCO1B1 decreased function, possible decreased function or poor function phenotype. If simvastatin therapy is warranted in patients with SLCO1B1 decreased or possible decreased phenotype, limit dose to <20mg/day.\n\nPhenotype | Genotype | Examples of diplotypes a | Implications for simvastatin | Dosing recommendations for simvastatin b,c | Classification of recommendations d \n\nNormal function | An individual carrying two normal function alleles or one normal plus one increased function allele | *1/*1, *1/*14 | Typical myopathy risk and statin exposure | Prescribe desired starting dose and adjust doses based on disease-specific guidelines. | Strong \n\nIncreased function | An individual carrying two increased function alleles | *14/*14 | Typical myopathy risk and statin exposure | Prescribe desired starting dose and adjust doses based on disease-specific guidelines. | Strong \n\nDecreased function | An individual carrying one normal or increased function allele plus one no function allele | *1/*5, *1/*15 | Increased simvastatin acid exposure as compared to normal function; increased risk of myopathy | Prescribe an alternative statin depending on the desired potency (see Figure 1 for recommendations for alternative statins). If simvastatin therapy is warranted, limit dose to <20mg/day. | Strong \n\nPossible decreased function | An individual carrying one no function allele plus one uncertain/unknown function allele | *5/*6, *15/*10, *5/*43 | Increased simvastatin acid exposure as compared to normal function; increased risk of myopathy | Prescribe an alternative statin depending on the desired potency (see Figure 1 for recommendations for alternative statins). If simvastatin therapy is warranted, limit dose to <20mg/day. | Strong \n\nPoor function | An individual carrying two no function alleles | *5/*5, *5/*15, *15/*15 | Increased simvastatin acid exposure compared to normal and decreased function; highly increased myopathy risk | Prescribe an alternative statin depending on the desired potency (see Figure 1 for recommendations for alternative statins). | Strong \n\nIndeterminate | An individual carrying one normal function allele plus one uncertain or unknown function allele OR allele combinations with uncertain and/or unknown function alleles | *1/*7, *1/*10, *7/*10 | n/a | No recommendation. | No recommendation.\n\nPhenotype | Examples of diplotypes a | Genotype at rs4149056 | Implications for simvastatin | Dosing recommendations for simvastatin b,c | Classification of recommendations d \n\nNormal function, Homozygous wild-type (two normal function alleles) | *1a/*1a, *1a/*1b, *1b/*1b | TT | Normal myopathy risk | Prescribe desired starting dose and adjust doses of simvastatin based on disease-specific guidelines. | Strong \n\nIntermediate function, Heterozygous (one normal function allele plus one decreased function allele) | *1a/*5, *1a/*15, *1a/*17, *1b/*5, *1b/*15, *1b/*17 | TC | Intermediate myopathy risk | Prescribe a lower dose or consider an alternative statin (e.g. pravastatin or rosuvastatin); consider routine CK surveillance. | Strong \n\nLow function, Homozygous variant or mutant (two decreased function alleles) | *5/*5, *5/*15, *5/*17, *15/*15, *15/*17, *17/*17 | CC | High myopathy risk | Prescribe a lower dose or consider an alternative statin (e.g. pravastatin or rosuvastatin); consider routine CK surveillance. | Strong\n\n\n### Annotation of CPIC Guideline for atorvastatin and SLCO1B1 (PharmGKB PA166262221, source: CPIC)\nDrug scope: atorvastatin\n\nThe CPIC dosing guideline recommends prescribing \u226420mg for patients with SLCO1B1 poor function phenotype and \u226440mg for patients with SLCO1B1 decreased or possible decreased phenotype as a starting dose. Adjust doses of atorvastatin based on disease-specific guidelines. Prescriber should be aware of possible increased risk for myopathy especially for 40mg dose.\n\nPhenotype | Genotype | Examples of diplotypes a | Implications for atorvastatin | Dosing recommendations for atorvastatin b,c | Classification of recommendations d \n\nNormal function | An individual carrying two normal function alleles or one normal plus one increased function allele | *1/*1, *1/*14 | Typical myopathy risk and statin exposure | Prescribe desired starting dose and adjust doses based on disease-specific guidelines. | Strong \n\nIncreased function | An individual carrying two increased function alleles | *14/*14 | Typical myopathy risk and statin exposure | Prescribe desired starting dose and adjust doses based on disease-specific guidelines. | Strong \n\nDecreased function | An individual carrying one normal or increased function allele plus one no function allele | *1/*5, *1/*15 | Increased atorvastatin exposure as compared to normal function which may translate to increased myopathy risk | Prescribe \u226440mg as a starting dose and adjust doses of atorvastatin based on disease-specific guidelines. Prescriber should be aware of possible increased risk for myopathy especially for 40mg dose. If dose >40mg needed for desired efficacy, consider combination therapy (i.e., atorvastatin plus non-statin guideline directed medical therapy). | Moderate \n\nPossible decreased function | An individual carrying one no function allele plus one uncertain/unknown function allele | *5/*6, *15/*10, *5/*43 | Increased atorvastatin exposure as compared to normal function which may translate to increased myopathy risk | Prescribe \u226440mg as a starting dose and adjust doses of atorvastatin based on disease-specific guidelines. Prescriber should be aware of possible increased risk for myopathy especially for 40mg dose. If dose >40mg needed for desired efficacy, consider combination therapy (i.e., atorvastatin plus non-statin guideline directed medical therapy). | Moderate \n\nPoor function | An individual carrying two no function alleles | *5/*5, *5/*15, *15/*15 | Increased atorvastatin exposure as compared to normal and decreased function which may translate to increased myopathy risk. | Prescribe \u226420mg as a starting dose and adjust doses of atorvastatin based on disease-specific guidelines. If dose >20mg is needed for desired efficacy, consider rosuvastatin or combination therapy (i.e., atorvastatin plus non-statin guideline directed medical therapy). | Moderate \n\nIndeterminate | An individual carrying one normal function allele plus one uncertain or unknown function allele OR allele combinations with uncertain and/or unknown function alleles | *1/*7, *1/*10, *7/*10 | n/a | No recommendation. | No recommendation.",
+      "char_count": 6754,
+      "sha256": "8b882742b9c9338285b97d11069da25c0f3ed76d0c4d2c4e0fcecdebeb186064",
+      "verbatim_fraction_estimate": 0.96,
+      "drugs_covered": [
+        "atorvastatin",
+        "simvastatin"
+      ],
+      "n_test_cases": 6,
+      "verification": {
+        "missing_diplotype_cores": [],
+        "missing_phenotype_variants": [],
+        "passed": true
+      },
+      "sources": [
+        {
+          "pa_id": "PA166105005",
+          "name": "Annotation of CPIC Guideline for simvastatin and SLCO1B1",
+          "source_org": "CPIC",
+          "drug_scope": [
+            "simvastatin"
+          ],
+          "citations": [],
+          "byte_size_html": 16539,
+          "char_count_text": 3163,
+          "sha256": "3a4e818321b6c9953f46e12179d9b40abf7b67067cfce7e4d11fde4dc182d337",
+          "retrieved_date": "2026-05-10"
+        },
+        {
+          "pa_id": "PA166262221",
+          "name": "Annotation of CPIC Guideline for atorvastatin and SLCO1B1",
+          "source_org": "CPIC",
+          "drug_scope": [
+            "atorvastatin"
+          ],
+          "citations": [],
+          "byte_size_html": 9627,
+          "char_count_text": 2640,
+          "sha256": "3fff83f807d000c0a300264cc786d2ebaf838b1a44a3ea84da1272ec79901f53",
+          "retrieved_date": "2026-05-10"
+        }
+      ]
+    },
+    "TPMT": {
+      "guideline_excerpt": "### Annotation of CPIC Guideline for azathioprine and NUDT15, TPMT (PharmGKB PA166104933, source: CPIC)\nDrug scope: azathioprine\n\nThe CPIC dosing guideline recommends that a lower than standard starting dose of azathioprine should be considered for TPMT or NUDT15 intermediate metabolizers. Compound TMPT/NUDT15 intermediate metabolizers require further dose reduction compared to single gene intermediate metabolizers. For TPMT and/or NUDT15 poor metabolizers, an alternative immunosuppressant therapy should be considered.\n\nFebruary 2026 Update\n\nThe 2025 update of CPIC guidelines regarding azathioprine, thioguanine and mercaptopurine , have been published in Clinical Pharmacology and Therapeutics. A systematic literature review focused on TPMT and NUDT15 genotypes and thiopurine use was conducted, recommendations and supplemental information was updated. \n\nThese guidelines are applicable to:\n\npediatric patients \n\nadult patients \n\nExcerpts from the 2026 thiopurine dosing guideline update:\n\n\"Three thiopurines are used clinically: azathioprine, mercaptopurine, and thioguanine. Although all three medications share many of the same pharmacologic effects, mercaptopurine and azathioprine are generally used for nonmalignant immunologic disorders, and mercaptopurine and thioguanine are used for hematological malignancies. Because azathioprine is converted to mercaptopurine in cells, the two drugs can be considered to have identical interactions with TPMT and NUDT15. \" \n\n\"TPMT catabolizes mercaptopurine to an inactive methylmercaptopurine base, leaving less parent drug available for potential anabolism to pharmacologically active thioguanine nucleotides.\" \n\n\"Through agnostic genome-\u00adwide association studies, variants in NUDT15 were identified that strongly influence thiopurine tolerance in patients with ALL and IBD.\" \n\n\"There is substantial evidence linking TPMT and NUDT15 genotypes with phenotypic variability in thiopurine response\n(see Tables S1 and S2). Pre-\u00ademptive dose adjustments based on TPMT genotype have reduced thiopurine-\u00adinduced adverse\neffects without compromising desired antitumor and immunosuppressive therapeutic effects in several clinical settings.\" \n\n\"[T]he guideline dosing recommendations are intended for use in both age groups [pediatric and adult patients]\". \n\nDownload and read:\n\nClinical Pharmacogenetics Implementation Consortium (CPIC) Guideline for Thiopurine Dosing Based on TPMT and NUDT15 genotypes: 2025 Update \n\n2025 supplement \n\nTPMT Gene-Specific Information Tables \n\nNUDT15 Gene-Specific Information Tables \n\nAzathioprine Drug Resource Mappings \n\nAzathioprine Pre and Post Test Alerts \n\nAzathioprine Clinical Decision Support Flow Chart \n\nFebruary 2024 Update\n\nCPIC have updated the recommendations for patients who are intermediate metabolizers of both TPMT and NUDT15 . Patients who are intermediate metabolizers or possible intermediate metabolizers for both genes are recommended to begin with a starting dose of 20-50% of the normal dosage. The recommendations in the genotype picker tool and on this annotation page have been updated accordingly. \n\nOctober 2018 Update\n\nAdvance online publication November 2018. \n\nThe 2018 update of CPIC guidelines regarding azathioprine, thioguanine and mercaptopurine , have been published in Clinical Pharmacology and Therapeutics. Literature published between October 2012 to June 2017 was reviewed, recommendations and supplemental information was updated. \n\nThese guidelines are applicable to:\n\npediatric patients \n\nadult patients \n\nExcerpt from the 2018 thiopurine dosing guideline update:\n\n\"TPMT activity exhibits a monogenic co-dominant inheritance and catabolizes\nthiopurines. TPMT variant alleles are associated with low enzyme activity and pronounced pharmacologic effects of thiopurines.\" \n\n\"Loss-of-function alleles in the NUDT15 gene are common in Asians and Hispanics and reduces the degradation of active thiopurine nucleotide metabolites, also predisposing to myelosuppression.\" \n\nDownload and read:\n\nClinical Pharmacogenetics Implementation Consortium (CPIC) guideline for thiopurine dosing based on TPMT and NUDT15 genotypes: 2018 Update \n\n2018 supplement \n\nMay 2016 Update\n\nSeveral studies have reported that individuals who carry low-function alleles for NUDT15 are unable to tolerate usual doses of thiopurines. [Articles: 25108385 , 25624441 , 26033531 , 26076924 , 26405151 , 26503813 , 26590936 , 26735160 , 26878724 ] These alleles are more common among those of Asian ancestry and Hispanic ethnicity than others. [Articles: 25624441 , 26878724 ] The dose tolerated by those with two low-function alleles is only ~ 10% that tolerated by those with no low-function NUDT15 or TPMT alleles. [Articles: 25624441 , 26878724 ] CPIC is planning a guideline to address NUDT15 variants and possible dosing recommendations for thiopurines. \n\nApril 2013 Update\n\nAdvance online publication January 2013. \n\nThe 2013 update of CPIC guidelines regarding azathioprine, thioguanine and mercaptopurine , have been published in Clinical Pharmacology and Therapeutics. Literature published between June 2010-November 2012 was reviewed and there is no new evidence that would change the original guidelines. Therefore, the dosing recommendations in the original publication remain clinically current. \n\nThese guidelines are applicable to:\n\npediatric patients \n\nadult patients \n\nDownload and read:\n\nClinical Pharmacogenetics Implementation Consortium Guidelines for Thiopurine Methyltransferase Genotype and Thiopurine Dosing: 2013 Update \n\n2013 supplement \n\nMarch 2011\n\nAdvance online publication January 2011. \n\nGuidelines regarding the use of pharmacogenomic tests in dosing for azathioprine, thioguanine and mercaptopurine were published in Clinical Pharmacology and Therapeutics by the Clinical Pharmacogenetics Implementation Consortium (CPIC). \n\nExcerpt from the 2011 thiopurine dosing guidelines:\n\n\"Thiopurines are most commonly used to treat nonmalignant conditions but are also critical anticancer agents. The approach to dosing adjustments based on TPMT status may differ depending on the clinical indication and the propensity to initiate therapy at higher vs. lower starting doses. We and others advocate testing for TPMT status prior to initiating thiopurine therapy, so that starting dosages can be adjusted accordingly.\" \n\nDownload and read:\n\nClinical Pharmacogenetics Implementation Consortium Guidelines for Thiopurine Methyltransferase Genotype and Thiopurine Dosing \n\n2011 supplement",
+      "char_count": 6508,
+      "sha256": "6f1e22d511e4f692e7a2e230a13930b0119506c2fa413156f583d1d0a98d8cd7",
+      "verbatim_fraction_estimate": 0.98,
+      "drugs_covered": [
+        "azathioprine"
+      ],
+      "n_test_cases": 4,
+      "verification": {
+        "missing_diplotype_cores": [
+          "tpmt_aza_pm: gt_diplotype='*3A/*3A' unmatched groups [['*3A']] (rsIDs=['rs1800460', 'rs1142345'] also unmatched)",
+          "tpmt_aza_im_3b: gt_diplotype='*1/*3B' unmatched groups [['*1'], ['*3B']] (rsIDs=['rs1800460'] also unmatched)",
+          "tpmt_aza_im_3c: gt_diplotype='*1/*3C' unmatched groups [['*1'], ['*3C']] (rsIDs=['rs1142345'] also unmatched)",
+          "tpmt_aza_nm: gt_diplotype='*1/*1' unmatched groups [['*1']]"
+        ],
+        "missing_phenotype_variants": [
+          "tpmt_aza_nm: gt_phenotype='Normal Metaboliser' (variants ['normal metaboliser', 'normal metabolizer', 'extensive metaboliser', 'extensive metabolizer'])"
+        ],
+        "passed": false,
+        "known_incomplete_reason": "2026 PharmGKB rendering of PA166104933 is prose-only; star-allele (*3A, *3B, *3C) functional assignments live in CPIC supplementary tables not exposed in the guideline-annotation JSON.",
+        "accepted_as_known_gap": true
+      },
+      "sources": [
+        {
+          "pa_id": "PA166104933",
+          "name": "Annotation of CPIC Guideline for azathioprine and NUDT15, TPMT",
+          "source_org": "CPIC",
+          "drug_scope": [
+            "azathioprine"
+          ],
+          "citations": [
+            {
+              "title": "Clinical Pharmacogenetics Implementation Consortium (CPIC) Guideline for Thiopurine Dosing Based on TPMT and NUDT15 Genotypes: 2025 Update.",
+              "pmid": "41618934",
+              "doi": "10.1002/cpt.70209"
+            }
+          ],
+          "byte_size_html": 9682,
+          "char_count_text": 5982,
+          "sha256": "9f8debf130fc67ec24b92b43e363c6b6203ddef09aedafb5c5e0fe6185bcc844",
+          "retrieved_date": "2026-05-10"
+        }
+      ]
+    },
+    "UGT1A1": {
+      "guideline_excerpt": "### Annotation of CPIC Guideline for atazanavir and UGT1A1 (PharmGKB PA166128738, source: CPIC)\nDrug scope: atazanavir\n\nThe CPIC dosing guideline recommends considering advising individuals who carry two decreased function UGT1A1 alleles about a substantial likelihood of developing jaundice, which may cause non-adherence. The dosing guideline recommends that alternative agents be considered if the risk of non-adherence due to jaundice is high. The risk of discontinuation is low and very low for individuals carrying one, or no decreased function UGT1A1 alleles, respectively. The guideline has been updated since its original publication to change allele function assignments for UGT1A1*60 and UGT1A1*80.\n\nLikely phenotype | Genotypes | Examples of diplotypes | Implications for phenotypic measures | Recommendations for atazanavir therapy | Classification of recommendation for atazanavir therapy \n\nExtensive Metabolizer | An individual carrying 2 reference b function and/or increased function alleles; or individuals of genotype CC at rs887829 | *1/*1; *1/*36; *36/*36; rs887829 CC | Reference c UGT1A1 activity; very low likelihood of bilirubin-related discontinuation of atazanavir. | There is no need to avoid prescribing of atazanavir based on UGT1A1 genetic test result. | Strong \n\nIntermediate Metabolizer | An individual carrying one reference b function (*1) c or increased function allele (*36) plus one decreased function allele (*6, *28, *37). Alternatively identified by heterozygosity for rs887829 C/T. | *1/*28; *1/*37; *36/*28; *36/*37; rs887829 C/T, *1/*6 | Somewhat decreased UGT1A1 activity; low likelihood of bilirubin-related discontinuation of atazanavir. | There is no need to avoid prescribing of atazanavir based on UGT1A1 genetic test result. Inform the patient that some patients stop atazanavir because of jaundice (yellow eyes and skin), but that this patient\u2019s genotype makes this unlikely | Strong \n\nPoor Metabolizer | An individual carrying two decreased function alleles (*6, *28, *37). Alternatively identified by homozygosity for rs887829 T/T (*80/*80) | *28/*28; *28/*37; *37/*37; rs887829 T/T (*80/*80), *6/*6 a | Markedly decreased UGT1A1 activity; high likelihood of bilirubin-related discontinuation of atazanavir. | Consider an alternative agent particularly where jaundice would be of concern to the patient. | Strong\n\n\n### Annotation of DPWG Guideline for irinotecan and UGT1A1 (PharmGKB PA166104951, source: DPWG)\nDrug scope: irinotecan\n\nDose reductions are recommended for irinotecan for patients who are UGT1A1 *28/*28 or UGT1A1 PM, starting with 70% of starting dose and increasing as tolerated, guided by neutrophil count.\n\nAllele/Genotype/Phenotype | Drug | Description | Recommendation \n\nUGT1A1 *1/*28 | irinotecan | This genetic variation (*1/*28) is more common in Western populations than the wild-type (*1/*1). This means that treatment is largely geared to patients with this genetic variation. Adjustment of the treatment is therefore not useful. | NO action is needed for this gene-drug interaction \n\nUGT1A1 *28/*28 | irinotecan | Serious, life-threatening adverse events occur more often in patients with this genetic variation. The genetic variation reduces conversion of irinotecan to inactive metabolites. | Start with 70% of the normal a dose. If the patient tolerates this initial dose, the dose can be increased, guided by the neutrophil count. \n\nUGT1A1 IM other b | irinotecan | This genetic variation (IM) is more common in Western populations than the wild-type (*1/*1). This means that treatment is largely geared to patients with this genetic variation. Adjustment of the treatment is therefore not useful. | NO action is needed for this gene-drug interaction. \n\nUGT1A1 PM other b | irinotecan | Serious, life-threatening adverse events occur more often in patients with this genetic variation. The genetic variation reduces conversion of irinotecan to inactive metabolites. | Start with 70% of the normal dose a . If the patient tolerates this initial dose, the dose can be increased, guided by the neutrophil count.\n\nPhenotype (Genotype) | Therapeutic Dose Recommendation | Level of Evidence | Clinical Relevance \n\n*1/*28 | None. | Published controlled studies of moderate quality* relating to phenotyped and/or genotyped patients or healthy volunteers, and having relevant pharmacokinetic or clinical endpoints.. | Clinical effect (S): death; arrhythmia; unanticipated myelosuppression. \n\n*28/*28 | Dose >250mg/m 2 : reduce initial dose by 30%. Increase dose in response to neutrophil count. Dose <=250mg/m 2 : no dose adjustment. | Published controlled studies of moderate quality* relating to phenotyped and/or genotyped patients or healthy volunteers, and having relevant pharmacokinetic or clinical endpoints. | Clinical effect (S): Failure of lifesaving therapy e.g. anticipated myelosuppression; prevention of breast cancer relapse; arrhythmia; neutropenia < 0.5x10 9 /l; leucopenia < 1.0x10 9 /l; thrombocytopenia < 25x10 9 /l; life-threatening complications from diarrhea.\n\n\n### Annotation of RNPGx Guideline for irinotecan and UGT1A1 (PharmGKB PA166127626, source: RNPGx)\nDrug scope: irinotecan\n\nA French joint working group comprising the National Pharmacogenetics Network (RNPGx) and the Group of Clinical Onco-pharmacology (GPCO-Unicancer) has published guidelines for the use of UGT1A1*28 genotype when prescribing irinotecan. They recommend that the dose of irinotecan be reduced in patients with the UGT1A1*28/*28 genotype, and that high-dose irinotecan (>=240 mg/m2) only be prescribed to patients with the UGT1A1*1/*1 genotype. The French National Network of Pharmacogenetics (RNPGx) included recommendations for irinotecan in a 2017 paper on several anti-cancer drugs.\n\n2017 Update\n\nThe French National Network of Pharmacogenetics (RNPGx) publication about the state of the art and clinical implementation \u2014 recommendations from the French National Network of Pharmacogenetics for anti-cancer drugs states: \n\nUGT1A1 genotyping is advisable for a standard\ndose (180\u2014230 mg/m2) and essential for intensified dose\n(> 240 mg/m2). \n\nThus, individualized treatment can be proposed based\non the UGT1A1 genotype, with either a dose reduction for\n*28/*28 homozygous patients, or possibly dose intensification for non-carriers of the *28 allele.\nFor the other UGT1A1 alleles, genotyping is performed by\na limited number of laboratories and is considered a second intention test. \n\nRead more about the RNPGx levels of recommendation for testing . \n\n2015 Guideline\n\nThe French joint working group comprising the National Pharmacogenetics Network (RNPGx) and the Group of Clinical Onco-pharmacology (GPCO-Unicancer) has published UGT1A1 -based drug dosing guidelines for irinotecan in Fundamental & Clinical Pharmacology . Excerpts from \" UGT1A1 genotype and irinotecan therapy: general review and implementation in routine practice\" [Article: 25817555 ] follow: \n\n...we recommend pretreatment UGT1A1 genotyping of the TATA box (*28, *36, *37) for all patients scheduled to receive an irinotecan dose >=180 mg/m2. The rare allele *36 (proficient) can be interpreted as an *1 allele and allele *37 (deficient) as an allele *28. \n\nFor low irinotecan doses (<180 mg/m2/week) UGT1A1 genotyping is not indicated as hematological and gastrointestinal toxicities are quite similar regardless of the genotype. \n\nFor initially scheduled doses between 180 and 230 mg/m2 every 2-3 weeks, *28/*28 patients are at increased risk of developing hematological and/or digestive toxicity as compared to other genotypes...a 25-30% dose reduction at the first cycle is recommended, particularly in cases of associated risk factors (performance status >3). \n\nFor initially scheduled doses >=240 mg/m2 every 2-3 weeks, *28/*28 patients are at a much higher risk of hematological toxicity (neutropenia) as compared to other genotypes. We thus recommend contraindicating such an intensified dose in *28/*28 patients. The administration of an intensified dose (240 mg/m2) is only possible in *1/*1 patients, as well as in *1/*28 patients, in the absence of additional risk factors and under strict medical surveillance. \n\nThis...analysis is limited by the fact that other UGT1A1 deficient variants are relevant in non-Caucasian populations, particularly the *6 and *27 alleles in Asian populations. \n\nThe joint working group also provided a decision tree to guide irinotecan dosing based on UGT1A1 genotype: \n\nReprinted with permission from Etienne-Grimaldi et al. UGT1A1 genotype and irinotecan therapy: general review and implementation in routine practice. Fundamental & Clinical Pharmacology (2015)",
+      "char_count": 8661,
+      "sha256": "740e55a99350b0d9b57cd396cc258e7f8add2ab31f59d20ada2daa31282228ff",
+      "verbatim_fraction_estimate": 0.95,
+      "drugs_covered": [
+        "atazanavir",
+        "irinotecan"
+      ],
+      "n_test_cases": 6,
+      "verification": {
+        "missing_diplotype_cores": [],
+        "missing_phenotype_variants": [],
+        "passed": true
+      },
+      "sources": [
+        {
+          "pa_id": "PA166128738",
+          "name": "Annotation of CPIC Guideline for atazanavir and UGT1A1",
+          "source_org": "CPIC",
+          "drug_scope": [
+            "atazanavir"
+          ],
+          "citations": [],
+          "byte_size_html": 6452,
+          "char_count_text": 1655,
+          "sha256": "ebef344092c993430ec56ae62c4badb6f8cdb0b9be6ecf38687533d6f46e2c66",
+          "retrieved_date": "2026-05-10"
+        },
+        {
+          "pa_id": "PA166104951",
+          "name": "Annotation of DPWG Guideline for irinotecan and UGT1A1",
+          "source_org": "DPWG",
+          "drug_scope": [
+            "irinotecan"
+          ],
+          "citations": [
+            {
+              "title": "Pharmacogenetics: from bench to byte--an update of guidelines.",
+              "pmid": "21412232",
+              "doi": "10.1038/clpt.2011.34"
+            }
+          ],
+          "byte_size_html": 6812,
+          "char_count_text": 2380,
+          "sha256": "9c48521d8b2b9caa669509360e1a65f28e287d1ba6748539bfa40b2d2126570b",
+          "retrieved_date": "2026-05-10"
+        },
+        {
+          "pa_id": "PA166127626",
+          "name": "Annotation of RNPGx Guideline for irinotecan and UGT1A1",
+          "source_org": "RNPGx",
+          "drug_scope": [
+            "irinotecan"
+          ],
+          "citations": [
+            {
+              "title": "Pharmacogenetics of anti-cancer drugs: State of the art and implementation - recommendations of the French National Network of Pharmacogenetics.",
+              "pmid": "28262261",
+              "doi": "10.1016/j.therap.2017.01.005"
+            },
+            {
+              "title": "UGT1A1 genotype and irinotecan therapy: general review and implementation in routine practice.",
+              "pmid": "25817555",
+              "doi": "10.1111/fcp.12117"
+            }
+          ],
+          "byte_size_html": 4258,
+          "char_count_text": 2894,
+          "sha256": "7e76ed817f8c4ed309d677e31c2f345e4af84e0b7933972de967b520036d7907",
+          "retrieved_date": "2026-05-10"
+        }
+      ]
+    },
+    "VKORC1": {
+      "guideline_excerpt": "### Annotation of CPIC Guideline for warfarin and CYP2C9, CYP4F2, VKORC1 (PharmGKB PA166104949, source: CPIC)\nDrug scope: warfarin\n\nThe updated guideline for pharmacogenetics-guided warfarin dosing is published by the Clinical Pharmacogenetics Implementation Consortium. The recommendations for dosing are for adult and pediatric patients that are specific to continental ancestry, and are based on genotypes from CYP2C9, VKORC1, CYP4F2, and rs12777823.\n\nVKORC1 Genotype (-1639G>A, rs9923231 ) | CYP2C9*1/*1 | CYP2C9*1/*2 | CYP2C9*1/*3 | CYP2C9*2/*2 | CYP2C9*2/*3 | CYP2C9*3/*3 \n\nGG | 5-7 | 5-7 | 3-4 | 3-4 | 3-4 | 0.5-2 \n\nGA | 5-7 | 3-4 | 3-4 | 3-4 | 0.5-2 | 0.5-2 \n\nAA | 3-4 | 3-4 | 0.5-2 | 0.5-2 | 0.5-2 | 0.5-2\n\nAllele | Constituted by genotypes at: | Amino acid changes | Enzymatic Activity \n\n*1 | reference allele at all positions | | Normal \n\n*2 | C>T at rs1799853 | R144C | Decreased \n\n*3 | A>C at rs1057910 | I359L | Decreased",
+      "char_count": 935,
+      "sha256": "bb2ae1842cd2e7f24eae6eb3537701a20b6577e16443856575e916f7d459b024",
+      "verbatim_fraction_estimate": 0.84,
+      "drugs_covered": [
+        "warfarin"
+      ],
+      "n_test_cases": 2,
+      "verification": {
+        "missing_diplotype_cores": [],
+        "missing_phenotype_variants": [],
+        "passed": true
+      },
+      "sources": [
+        {
+          "pa_id": "PA166104949",
+          "name": "Annotation of CPIC Guideline for warfarin and CYP2C9, CYP4F2, VKORC1",
+          "source_org": "CPIC",
+          "drug_scope": [
+            "warfarin"
+          ],
+          "citations": [],
+          "byte_size_html": 17998,
+          "char_count_text": 480,
+          "sha256": "d35fd88c69e972226a3d14edc21edf3aabb9623b8e3e945c2dc56781a1bb804d",
+          "retrieved_date": "2026-05-10"
+        }
+      ]
+    }
+  }
+}

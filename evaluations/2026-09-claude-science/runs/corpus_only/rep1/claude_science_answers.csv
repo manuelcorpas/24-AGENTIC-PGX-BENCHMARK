@@ -1,0 +1,111 @@
+case_id,diplotype,phenotype,recommendation,abstained
+70dc9c9110f3,*4/*4,CYP2D6 Poor Metabolizer,codeine: avoid because of diminished analgesia; if an opioid is warranted use a non-tramadol opioid,false
+b07cff8c99c0,*1/*4,CYP2D6 Intermediate Metabolizer,"codeine: use label-recommended age- or weight-specific dosing; if no response and an opioid is warranted, consider a non-tramadol opioid",false
+ce34b1a18a3d,*1/*1,CYP2D6 Normal Metabolizer,codeine: use label-recommended age- or weight-specific dosing,false
+74597c5503ec,*1/*1xN,CYP2D6 Ultrarapid Metabolizer,codeine: avoid; potential for serious toxicity from increased morphine formation - if an opioid is warranted use a non-tramadol opioid (e.g. morphine or a non-opioid analgesic),false
+3d0e97b86ad0,*1/*4 (unphased; *4-without-c.100C>T / *10 combination not formally excluded),CYP2D6 Intermediate Metabolizer,"codeine: use label-recommended age- or weight-specific dosing; if no response and an opioid is warranted, consider a non-tramadol opioid",false
+f9e4a13551fd,*4/*4,CYP2D6 Poor Metabolizer,tamoxifen: recommend alternative hormonal therapy - an aromatase inhibitor (postmenopausal) or an aromatase inhibitor plus ovarian function suppression (premenopausal); tamoxifen 40 mg/day only if an aromatase inhibitor is contraindicated,false
+9d75134030af,*1/*4,CYP2D6 Intermediate Metabolizer,tamoxifen: consider an aromatase inhibitor (postmenopausal) or an aromatase inhibitor plus ovarian function suppression (premenopausal); if an aromatase inhibitor is contraindicated consider tamoxifen 40 mg/day; avoid CYP2D6 inhibitors,false
+987d7bd14933,*1/*1,CYP2D6 Normal Metabolizer,tamoxifen: initiate standard of care dosing (20 mg/day) and avoid moderate and strong CYP2D6 inhibitors,false
+61741d10f238,*1/*1xN,CYP2D6 Ultrarapid Metabolizer,tamoxifen: initiate standard of care dosing (20 mg/day) and avoid moderate and strong CYP2D6 inhibitors,false
+c0cb8d7ad685,*4/*4,CYP2D6 Poor Metabolizer,ondansetron: initiate therapy with the recommended starting dose (insufficient evidence of clinical impact for poor metabolisers),false
+3ac7c0b0f795,*1/*1,CYP2D6 Normal Metabolizer,ondansetron: initiate therapy with the recommended starting dose,false
+01166e2ea9ad,*1/*1xN,CYP2D6 Ultrarapid Metabolizer,ondansetron: select an alternative antiemetic not predominantly metabolised by CYP2D6 (e.g. granisetron),false
+13dcd17adf8b,*4/*4,CYP2D6 Poor Metabolizer,"paroxetine: consider a 50% reduction in starting dose, slower titration and a 50% lower maintenance dose",false
+f73ec8cf3d6f,*1/*4,CYP2D6 Intermediate Metabolizer,paroxetine: consider a lower starting dose and a slower titration schedule than for normal metabolisers,false
+c3e9543b882a,*1/*1,CYP2D6 Normal Metabolizer,paroxetine: initiate therapy with the recommended starting dose,false
+9132fcb83a8f,*1/*1xN,CYP2D6 Ultrarapid Metabolizer,paroxetine: select an alternative antidepressant not predominantly metabolised by CYP2D6,false
+d456dcf2b837,*4/*4,CYP2D6 Poor Metabolizer,amitriptyline: avoid (potential for side effects); if a TCA is warranted consider a 50% reduction of the recommended starting dose with therapeutic drug monitoring [assumes CYP2C19 normal metaboliser - CYP2C19 not genotyped],false
+abf51805207b,*1/*4,CYP2D6 Intermediate Metabolizer,amitriptyline: consider a 25% reduction of the recommended starting dose with therapeutic drug monitoring [assumes CYP2C19 normal metaboliser - CYP2C19 not genotyped],false
+c3745d87ea9e,*1/*1,CYP2D6 Normal Metabolizer,amitriptyline: initiate therapy with the recommended starting dose [assumes CYP2C19 normal metaboliser - CYP2C19 not genotyped],false
+ae968d6ae64c,*1/*1xN,CYP2D6 Ultrarapid Metabolizer,amitriptyline: avoid (potential lack of efficacy); consider an alternative drug not metabolised by CYP2D6 [assumes CYP2C19 normal metaboliser - CYP2C19 not genotyped],false
+ca9e14feca53,*2/*2,CYP2C19 Poor Metabolizer,clopidogrel: avoid if possible - use prasugrel or ticagrelor at standard dose if not contraindicated,false
+97d4e4559a13,*1/*2,CYP2C19 Intermediate Metabolizer,clopidogrel: avoid standard dose if possible - use prasugrel or ticagrelor at standard dose if not contraindicated,false
+6eb5488abcec,*1/*1,CYP2C19 Normal Metabolizer,clopidogrel: use at standard dose (75 mg/day),false
+16cfc78cc994,*1/*17,CYP2C19 Rapid Metabolizer,clopidogrel: use at standard dose (75 mg/day),false
+a404faf80b93,*17/*17,CYP2C19 Ultrarapid Metabolizer,clopidogrel: use at standard dose (75 mg/day),false
+00b16db7406d,*2/*2,CYP2C19 Poor Metabolizer,"voriconazole: choose an alternative agent not dependent on CYP2C19 metabolism; if voriconazole is still the most appropriate agent, use a lower than standard dose with careful therapeutic drug monitoring",false
+0e09c7295b3f,*1/*2,CYP2C19 Intermediate Metabolizer,voriconazole: initiate therapy with standard of care dosing,false
+ed8ea5eee8f9,*1/*1,CYP2C19 Normal Metabolizer,voriconazole: initiate therapy with standard of care dosing,false
+1fb04aa9e16c,*1/*17,CYP2C19 Rapid Metabolizer,"voriconazole: in adults choose an alternative agent not dependent on CYP2C19 metabolism (isavuconazole, liposomal amphotericin B, posaconazole); in children initiate standard dosing with therapeutic drug monitoring",false
+0c21c969a5c4,*17/*17,CYP2C19 Ultrarapid Metabolizer,"voriconazole: choose an alternative agent not dependent on CYP2C19 metabolism (isavuconazole, liposomal amphotericin B, posaconazole)",false
+7b7e74f7aa47,*2/*2,CYP2C19 Poor Metabolizer,"citalopram: consider an alternative antidepressant not predominantly metabolised by CYP2C19; if citalopram is clinically appropriate use a lower starting dose, slower titration and a 50% reduced maintenance dose (FDA maximum 20 mg/day in CYP2C19 poor metabolisers because of QT prolongation)",false
+cf79ddd810db,*1/*2,CYP2C19 Intermediate Metabolizer,citalopram: initiate with the recommended starting dose but consider a slower titration schedule and a lower maintenance dose than for normal metabolisers,false
+e33cece05587,*1/*1,CYP2C19 Normal Metabolizer,citalopram: initiate therapy with the recommended starting dose,false
+9500117c514b,*1/*17,CYP2C19 Rapid Metabolizer,"citalopram: initiate with the recommended starting dose; if response is inadequate, consider a higher maintenance dose or an alternative antidepressant not predominantly metabolised by CYP2C19",false
+2bfe29eb50bc,*17/*17,CYP2C19 Ultrarapid Metabolizer,"citalopram: consider an alternative antidepressant not predominantly metabolised by CYP2C19; if citalopram is used and efficacy is inadequate at standard maintenance dosing, consider titrating to a higher maintenance dose",false
+3e838af1da19,*2/*2,CYP2C19 Poor Metabolizer,"omeprazole: initiate the standard starting daily dose; for chronic therapy (>12 weeks) with efficacy achieved, consider a 50% dose reduction",false
+8917b2ba46a5,*1/*2,CYP2C19 Intermediate Metabolizer,"omeprazole: initiate the standard starting daily dose; for chronic therapy (>12 weeks) with efficacy achieved, consider a 50% dose reduction",false
+164a36b8eaf7,*1/*1,CYP2C19 Normal Metabolizer,omeprazole: initiate the standard starting daily dose; consider a 50-100% dose increase for H. pylori eradication or erosive oesophagitis and monitor for efficacy,false
+8f3722944533,*1/*17,CYP2C19 Rapid Metabolizer,omeprazole: initiate the standard starting daily dose; consider a 50-100% dose increase for H. pylori eradication or erosive oesophagitis and monitor for efficacy,false
+c09f743bc629,*17/*17,CYP2C19 Ultrarapid Metabolizer,omeprazole: increase the starting daily dose by 100% (may be divided) and monitor for efficacy,false
+97c3baebed4e,*3/*3,CYP2C9 Poor Metabolizer,warfarin: dose from the CPIC VKORC1 x CYP2C9 table - 0.5-2 mg/day for *3/*3 at every VKORC1 -1639 genotype [VKORC1 not genotyped in this case],false
+9b5e3093ab14,*1/*3,CYP2C9 Intermediate Metabolizer (activity score 1),"warfarin: dose from the CPIC VKORC1 x CYP2C9 table - 3-4 mg/day for *1/*3 with VKORC1 -1639 GG or GA, 0.5-2 mg/day with VKORC1 AA [VKORC1 not genotyped in this case]",false
+fbceea34e708,*1/*1,CYP2C9 Normal Metabolizer,"warfarin: dose from the CPIC VKORC1 x CYP2C9 table - 5-7 mg/day for *1/*1 with VKORC1 -1639 GG or GA, 3-4 mg/day with VKORC1 AA [VKORC1 not genotyped in this case]",false
+e85ecfa887cb,*3/*3,CYP2C9 Poor Metabolizer,"phenytoin: give a typical initial/loading dose, then use approximately 50% less than the typical maintenance dose with therapeutic drug monitoring [assumes HLA-B*15:02 negative - not genotyped]",false
+c9726ef5c899,*1/*3,CYP2C9 Intermediate Metabolizer (activity score 1),"phenytoin: give a typical initial/loading dose, then use approximately 25% less than the typical maintenance dose with therapeutic drug monitoring [assumes HLA-B*15:02 negative - not genotyped]",false
+d242dd2e6bcf,*1/*1,CYP2C9 Normal Metabolizer,phenytoin: no adjustment from typical dosing; adjust by therapeutic drug monitoring [assumes HLA-B*15:02 negative - not genotyped],false
+b0db8db6df72,*3/*3,CYP2C9 Poor Metabolizer,"celecoxib: initiate therapy with 25-50% of the lowest recommended starting dose (upward titration only after steady state, at least 8 days), or alternatively use an NSAID not metabolised by CYP2C9 (aspirin, ketorolac, naproxen, sulindac)",false
+6b95f7ee2785,*1/*3,CYP2C9 Intermediate Metabolizer (activity score 1),"celecoxib: initiate therapy with the lowest recommended starting dose and titrate upward with caution, monitoring blood pressure and kidney function",false
+8b8e9ffff921,*1/*1,CYP2C9 Normal Metabolizer,"celecoxib: initiate therapy with the recommended starting dose, at the lowest effective dosage for the shortest duration",false
+743cd9ebf0e9,*1/*1,CYP3A5 Extensive Metabolizer (CYP3A5 expresser),tacrolimus: increase the starting dose to 1.5-2 times the recommended starting dose (not exceeding 0.3 mg/kg/day) and use therapeutic drug monitoring,false
+22c4e14a3cf9,*1/*3,CYP3A5 Intermediate Metabolizer (CYP3A5 expresser),tacrolimus: increase the starting dose to 1.5-2 times the recommended starting dose (not exceeding 0.3 mg/kg/day) and use therapeutic drug monitoring,false
+de1d2a9b4bed,*3/*3,CYP3A5 Poor Metabolizer (CYP3A5 non-expresser),tacrolimus: initiate therapy with the standard recommended dose and use therapeutic drug monitoring,false
+0bc8ce0fc86a,*6/*6 or *9/*9 (c.516G>T homozygous; rs2279343 not reported),CYP2B6 Poor Metabolizer,efavirenz: consider initiating with a decreased dose of 400 or 200 mg/day,false
+abeedff5601c,*1/*6 or *1/*9 (c.516G>T heterozygous; rs2279343 not reported),CYP2B6 Intermediate Metabolizer,efavirenz: consider initiating with a decreased dose of 400 mg/day,false
+796864c3a54b,*1/*1,CYP2B6 Normal Metabolizer,efavirenz: initiate with standard dosing (600 mg/day),false
+240c62812cbc,*1/*4,CYP2B6 Rapid Metabolizer,efavirenz: initiate with standard dosing (600 mg/day),false
+b94a43e574db,c.[1905+1G>A];[1905+1G>A] (*2A/*2A),DPYD Poor Metabolizer,"fluorouracil: avoid - use an alternative, non-fluoropyrimidine regimen (activity score 0)",false
+c57caa44a38a,c.[1905+1G>A];[=] (*1/*2A),DPYD Intermediate Metabolizer,"fluorouracil: reduce the starting dose by 50%, then titrate by toxicity or therapeutic drug monitoring",false
+6b8d2db91001,c.[1129-5923C>G];[=] (HapB3 heterozygous),DPYD Intermediate Metabolizer,"fluorouracil: reduce the starting dose by 50%, then titrate by toxicity or therapeutic drug monitoring",false
+35c034dbef6f,c.[=];[=] (*1/*1),DPYD Normal Metabolizer,fluorouracil: no genotype-based change - use label-recommended dosage and administration,false
+c6549d637d49,c.[1905+1G>A];[1905+1G>A] (*2A/*2A),DPYD Poor Metabolizer,"capecitabine: avoid - use an alternative, non-fluoropyrimidine regimen (activity score 0)",false
+ae4a7215ae64,c.[1905+1G>A];[=] (*1/*2A),DPYD Intermediate Metabolizer,"capecitabine: reduce the starting dose by 50%, then titrate by toxicity or therapeutic drug monitoring",false
+58c7523da30d,c.[=];[=] (*1/*1),DPYD Normal Metabolizer,capecitabine: no genotype-based change - use label-recommended dosage and administration,false
+08e18e809fcb,*3A/*3A,TPMT Poor Metabolizer,azathioprine: consider an alternative immunosuppressant (drastic dose reduction is required if a thiopurine is used),false
+d00994ea4b9e,*1/*3B,TPMT Intermediate Metabolizer,azathioprine: consider a lower than standard starting dose (further reduction if the patient is also a NUDT15 intermediate metaboliser - NUDT15 not genotyped),false
+13d1cd0cfa0f,*1/*3C,TPMT Intermediate Metabolizer,azathioprine: consider a lower than standard starting dose (further reduction if the patient is also a NUDT15 intermediate metaboliser - NUDT15 not genotyped),false
+24691f1aa325,*1/*1,TPMT Normal Metabolizer,azathioprine: start at the normal standard dose,false
+f3dd19d8a337,*3/*3,NUDT15 Poor Metabolizer,thiopurines (azathioprine/mercaptopurine/thioguanine): consider an alternative immunosuppressant,false
+753560fff22e,*1/*3,NUDT15 Intermediate Metabolizer,thiopurines (azathioprine/mercaptopurine/thioguanine): consider a lower than standard starting dose (further reduction if the patient is also a TPMT intermediate metaboliser - TPMT not genotyped),false
+b9aa6b9b6063,*1/*1,NUDT15 Normal Metabolizer,thiopurines (azathioprine/mercaptopurine/thioguanine): start at the normal standard dose,false
+d1a12c4a16c4,*5/*5 (or *15/*15; rs4149056 C/C),SLCO1B1 Poor Function,simvastatin: prescribe an alternative statin of the desired potency (highly increased myopathy risk),false
+51a382a7ca5c,*1/*5 (or *1/*15; rs4149056 T/C),SLCO1B1 Decreased Function,simvastatin: prescribe an alternative statin of the desired potency; if simvastatin is warranted limit the dose to <20 mg/day,false
+579b74922924,*1/*1 (rs4149056 T/T),SLCO1B1 Normal Function,simvastatin: prescribe the desired starting dose and adjust by disease-specific guidelines,false
+9a62df2e13c7,*5/*5 (or *15/*15; rs4149056 C/C),SLCO1B1 Poor Function,atorvastatin: prescribe <=20 mg as the starting dose; if >20 mg is needed consider rosuvastatin or combination therapy,false
+3480326d71f3,*1/*5 (or *1/*15; rs4149056 T/C),SLCO1B1 Decreased Function,"atorvastatin: prescribe <=40 mg as the starting dose, with awareness of increased myopathy risk especially at 40 mg",false
+de36712bd1b3,*1/*1 (rs4149056 T/T),SLCO1B1 Normal Function,atorvastatin: prescribe the desired starting dose and adjust by disease-specific guidelines,false
+4f19dd3f5283,*28/*28,UGT1A1 Poor Metabolizer,"irinotecan: reduce the starting dose - begin at 70% of the normal dose and escalate as tolerated, guided by neutrophil count; intensified doses >=240 mg/m2 are contraindicated",false
+912145392abc,*1/*28,UGT1A1 Intermediate Metabolizer,irinotecan: no action needed for this gene-drug interaction (standard dosing),false
+6eeeaffed889,*1/*1,UGT1A1 Extensive (Normal) Metabolizer,irinotecan: no action needed for this gene-drug interaction (standard dosing; *1/*1 is the only genotype cleared for intensified doses >=240 mg/m2),false
+3d1d6afeda2e,*28/*28,UGT1A1 Poor Metabolizer,"atazanavir: consider an alternative agent, particularly where jaundice would be of concern to the patient (high likelihood of bilirubin-related discontinuation)",false
+db3107232607,*1/*28,UGT1A1 Intermediate Metabolizer,atazanavir: no need to avoid atazanavir; inform the patient that jaundice is unlikely with this genotype,false
+2a0b5df8f66e,*1/*1,UGT1A1 Extensive (Normal) Metabolizer,atazanavir: no need to avoid atazanavir on the basis of UGT1A1 genotype,false
+e70379d3dbac,HLA-B*57:01 positive (*57:01/*X or *57:01/*57:01),HLA-B*57:01 positive (high risk of abacavir hypersensitivity),abacavir: not recommended - use an alternative antiretroviral (significantly increased risk of hypersensitivity reaction),false
+f17cf45007e4,HLA-B*57:01 negative (*X/*X),HLA-B*57:01 negative (very low risk of abacavir hypersensitivity),abacavir: use per standard dosing guidelines,false
+7181a24a65d5,HLA-B*15:02 positive (*15:02/*X or *15:02/*15:02),HLA-B*15:02 positive (increased risk of SJS/TEN),"carbamazepine: do not use in a carbamazepine-naive patient; avoid other aromatic anticonvulsants (phenytoin, oxcarbazepine) as alternatives",false
+79f1cdf02ba3,HLA-B*15:02 negative (*X/*X),HLA-B*15:02 negative (normal or reduced risk),carbamazepine: use per standard dosing guidelines (a negative result does not eliminate risk),false
+569a842e1a9a,HLA-B*15:02 positive (*15:02/*X or *15:02/*15:02),HLA-B*15:02 positive (increased risk of SJS/TEN),oxcarbazepine: do not use in an oxcarbazepine-naive patient,false
+45979c015fee,HLA-B*15:02 negative (*X/*X),HLA-B*15:02 negative (normal or reduced risk),oxcarbazepine: use per standard dosing guidelines,false
+85976e86289a,HLA-A*31:01 positive (*31:01/*X or *31:01/*31:01),"HLA-A*31:01 positive (increased risk of carbamazepine-induced SJS/TEN, DRESS and MPE)","carbamazepine: if the patient is carbamazepine-naive and alternatives are available, do not use carbamazepine; if no alternative exists, use with increased clinical monitoring and stop at the first sign of a cutaneous reaction",false
+bb0e84eb346d,HLA-A*31:01 negative (*X/*X),HLA-A*31:01 negative (normal or reduced risk),carbamazepine: use per standard dosing guidelines (an HLA-A*31:01 negative result does not eliminate risk),false
+ebf82c3bcfdd,HLA-B*58:01 positive (*58:01/*X or *58:01/*58:01),HLA-B*58:01 positive (significantly increased risk of allopurinol-induced SCAR),allopurinol: contraindicated - use an alternative urate-lowering therapy,false
+26effc15aea1,HLA-B*58:01 negative (*X/*X),HLA-B*58:01 negative (low or reduced risk of allopurinol SCAR),allopurinol: use per standard dosing guidelines,false
+d49e9f88d9c2,Mediterranean (hemizygous male) or Mediterranean/Mediterranean,G6PD Deficient,rasburicase: contraindicated - use an alternative such as allopurinol,false
+3786ab9a929d,A- (hemizygous male) or A-/A-,G6PD Deficient,rasburicase: contraindicated - use an alternative such as allopurinol,false
+6bba052a08a2,B (hemizygous male) or B/B,G6PD Normal,rasburicase: no reason to withhold rasburicase on the basis of G6PD status,false
+2a8544a44d5f,A- (hemizygous male) or A-/A-,G6PD Deficient,"primaquine: avoid, except under expert malaria-treatment consensus regimens - 0.75 mg/kg once weekly for 8 weeks (WHO) or 45 mg once weekly for 8 weeks (CDC) with close monitoring for haemolysis for P. vivax/P. ovale radical cure, or a single 0.25 mg/kg gametocytocidal dose for P. falciparum",false
+7b560d699828,B/A- (heterozygous female),G6PD Variable,primaquine: measure G6PD enzyme activity before prescribing and dose per the activity-based phenotype (X-linked mosaicism makes the genotype non-predictive),false
+37c28a5b1123,B (hemizygous male) or B/B,G6PD Normal,primaquine: no reason to avoid primaquine on the basis of G6PD status,false
+45af285d4e49,rs12979860 C/C,IFNL3 favourable response genotype,PEG-IFN-alpha (with ribavirin): favourable response genotype - approximately 70% chance of SVR after 48 weeks (about 90% with a protease inhibitor); weighs in favour of using a PEG-IFN-alpha/ribavirin regimen,false
+bc4b2a347e0b,rs12979860 T/T,IFNL3 unfavourable response genotype,PEG-IFN-alpha (with ribavirin): unfavourable response genotype - approximately 30% chance of SVR after 48 weeks; consider the implications before initiating a PEG-IFN-alpha/ribavirin regimen,false
+c1e4c84b49dd,-1639A/-1639A (rs9923231 A/A),Increased warfarin sensitivity (low dose requirement),warfarin: use a reduced starting dose - CPIC table predicts 3-4 mg/day with CYP2C9 *1/*1 or *1/*2 and 0.5-2 mg/day with any *3-containing genotype [CYP2C9 not genotyped in this case],false
+a83853be69dc,-1639G/-1639G (rs9923231 G/G),Normal warfarin sensitivity (reference),"warfarin: CPIC table predicts 5-7 mg/day with CYP2C9 *1/*1 or *1/*2, 3-4 mg/day with *1/*3, *2/*2 or *2/*3, and 0.5-2 mg/day with *3/*3 [CYP2C9 not genotyped in this case]",false
+e55c1b0dd1a0,*3/*3,No CPIC phenotype defined for CYP4F2,abstained - no CYP4F2 recommendation in supplied corpus,true
+807ece818520,*1/*1,No CPIC phenotype defined for CYP4F2,abstained - no CYP4F2 recommendation in supplied corpus,true
+80117c8148be,G551D/other (rs75527207 A/G or A/A),CFTR gating variant present (ivacaftor-responsive),ivacaftor: use according to the product label,false
+18325551d245,F508del/F508del,CFTR F508del homozygous (not ivacaftor-responsive),ivacaftor: not recommended - F508del homozygotes are unlikely to respond to ivacaftor monotherapy,false
+369c2bcff713,m.1555A>G (homoplasmic),MT-RNR1 increased risk of aminoglycoside-induced hearing loss,"aminoglycosides: avoid unless the high risk of permanent hearing loss is outweighed by the severity of infection and the lack of a safe or effective alternative; if used, use the lowest dose and shortest duration with therapeutic drug monitoring and frequent audiometry",false
+2356cf8ed498,m.1555A (reference),MT-RNR1 normal risk of aminoglycoside-induced hearing loss,aminoglycosides: use standard doses for the shortest feasible course with therapeutic drug monitoring and regular hearing evaluation,false
+1229a4123378,RYR1 c.1840C>T p.(Arg614Cys) heterozygous,Malignant Hyperthermia susceptible,volatile anaesthetics (and succinylcholine): relatively contraindicated - use a non-triggering anaesthetic technique; do not use except in extraordinary circumstances where the benefits outweigh the risks,false
+879d83c0792d,RYR1 no MH causative variant detected,Uncertain susceptibility,"volatile anaesthetics (and succinylcholine): a negative result does not exclude malignant hyperthermia susceptibility - let clinical findings, family history and further testing guide use",false
