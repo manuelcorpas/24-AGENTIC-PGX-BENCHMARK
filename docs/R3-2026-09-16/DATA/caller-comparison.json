@@ -1,0 +1,962 @@
+{
+  "truth_rows": 5272,
+  "called_rows": 5272,
+  "evaluable": 5272,
+  "truth_without_call": 0,
+  "call_concordance": 0.9573,
+  "call_errors": 225,
+  "truth_states_in_skill_vocabulary": 5272,
+  "per_gene": {
+    "CFTR": {
+      "n": 96,
+      "correct": 96,
+      "concordance": 1.0,
+      "errors": []
+    },
+    "CYP2B6": {
+      "n": 192,
+      "correct": 167,
+      "concordance": 0.8698,
+      "errors": [
+        {
+          "sample": "cyp2b6_efa_pm|Gemini 2.5 Flash|rag_execution|0",
+          "truth": "*6/*6",
+          "called": "*1/*1"
+        },
+        {
+          "sample": "cyp2b6_efa_pm|Gemini 2.5 Flash|rag_execution|1",
+          "truth": "*6/*6",
+          "called": "*1/*1"
+        },
+        {
+          "sample": "cyp2b6_efa_rm|Claude Sonnet 4.5|rag_execution|0",
+          "truth": "*1/*4",
+          "called": "*1/*6"
+        },
+        {
+          "sample": "cyp2b6_efa_rm|Claude Sonnet 4.5|rag_execution|1",
+          "truth": "*1/*4",
+          "called": "*1/*6"
+        },
+        {
+          "sample": "cyp2b6_efa_rm|Claude Sonnet 4.5|rag_execution|2",
+          "truth": "*1/*4",
+          "called": "*1/*6"
+        },
+        {
+          "sample": "cyp2b6_efa_rm|Claude Sonnet 4.5|skill_execution|0",
+          "truth": "*1/*4",
+          "called": "*1/*6"
+        },
+        {
+          "sample": "cyp2b6_efa_rm|Claude Sonnet 4.5|skill_execution|1",
+          "truth": "*1/*4",
+          "called": "*1/*6"
+        },
+        {
+          "sample": "cyp2b6_efa_rm|Claude Sonnet 4.5|skill_execution|2",
+          "truth": "*1/*4",
+          "called": "*1/*6"
+        },
+        {
+          "sample": "cyp2b6_efa_rm|DeepSeek V4 Flash|rag_execution|0",
+          "truth": "*1/*4",
+          "called": "*1/*6"
+        },
+        {
+          "sample": "cyp2b6_efa_rm|DeepSeek V4 Flash|rag_execution|1",
+          "truth": "*1/*4",
+          "called": "*1/*6"
+        },
+        {
+          "sample": "cyp2b6_efa_rm|DeepSeek V4 Flash|rag_execution|2",
+          "truth": "*1/*4",
+          "called": "*1/*6"
+        },
+        {
+          "sample": "cyp2b6_efa_rm|DeepSeek V4 Flash|skill_execution|0",
+          "truth": "*1/*4",
+          "called": "*1/*6"
+        },
+        {
+          "sample": "cyp2b6_efa_rm|DeepSeek V4 Flash|skill_execution|1",
+          "truth": "*1/*4",
+          "called": "*1/*6"
+        },
+        {
+          "sample": "cyp2b6_efa_rm|DeepSeek V4 Flash|skill_execution|2",
+          "truth": "*1/*4",
+          "called": "*1/*6"
+        },
+        {
+          "sample": "cyp2b6_efa_rm|GPT-4.1|rag_execution|0",
+          "truth": "*1/*4",
+          "called": "*1/*6"
+        },
+        {
+          "sample": "cyp2b6_efa_rm|GPT-4.1|rag_execution|1",
+          "truth": "*1/*4",
+          "called": "*1/*6"
+        },
+        {
+          "sample": "cyp2b6_efa_rm|GPT-4.1|rag_execution|2",
+          "truth": "*1/*4",
+          "called": "*1/*6"
+        },
+        {
+          "sample": "cyp2b6_efa_rm|GPT-5.2|skill_execution|1",
+          "truth": "*1/*4",
+          "called": "*1/*6"
+        },
+        {
+          "sample": "cyp2b6_efa_rm|Gemini 2.5 Flash|rag_execution|0",
+          "truth": "*1/*4",
+          "called": "*1/*6"
+        },
+        {
+          "sample": "cyp2b6_efa_rm|Gemini 2.5 Flash|rag_execution|1",
+          "truth": "*1/*4",
+          "called": "*1/*6"
+        }
+      ]
+    },
+    "CYP2C19": {
+      "n": 959,
+      "correct": 937,
+      "concordance": 0.9771,
+      "errors": [
+        {
+          "sample": "cyp2c19_cital_pm|DeepSeek V4 Flash|skill_execution|2",
+          "truth": "*2/*2",
+          "called": "*1/*1"
+        },
+        {
+          "sample": "cyp2c19_cital_pm|Gemini 2.5 Flash|skill_execution|1",
+          "truth": "*2/*2",
+          "called": "*1/*1"
+        },
+        {
+          "sample": "cyp2c19_cital_um|Claude Sonnet 4.5|rag_execution|0",
+          "truth": "*17/*17",
+          "called": "*1/*1"
+        },
+        {
+          "sample": "cyp2c19_cital_um|Claude Sonnet 4.5|rag_execution|1",
+          "truth": "*17/*17",
+          "called": "*1/*1"
+        },
+        {
+          "sample": "cyp2c19_cital_um|Claude Sonnet 4.5|rag_execution|2",
+          "truth": "*17/*17",
+          "called": "*1/*1"
+        },
+        {
+          "sample": "cyp2c19_clop_pm|Gemini 2.5 Flash|rag_execution|0",
+          "truth": "*2/*2",
+          "called": "*1/*1"
+        },
+        {
+          "sample": "cyp2c19_clop_pm|Gemini 2.5 Flash|rag_execution|2",
+          "truth": "*2/*2",
+          "called": "*1/*1"
+        },
+        {
+          "sample": "cyp2c19_clop_pm|Gemini 2.5 Flash|skill_execution|0",
+          "truth": "*2/*2",
+          "called": "*1/*1"
+        },
+        {
+          "sample": "cyp2c19_clop_um|Claude Sonnet 4.5|rag_execution|0",
+          "truth": "*17/*17",
+          "called": "*1/*1"
+        },
+        {
+          "sample": "cyp2c19_clop_um|Claude Sonnet 4.5|rag_execution|1",
+          "truth": "*17/*17",
+          "called": "*1/*1"
+        },
+        {
+          "sample": "cyp2c19_clop_um|Claude Sonnet 4.5|rag_execution|2",
+          "truth": "*17/*17",
+          "called": "*1/*1"
+        },
+        {
+          "sample": "cyp2c19_omep_pm|Gemini 2.5 Flash|rag_execution|0",
+          "truth": "*2/*2",
+          "called": "*1/*1"
+        },
+        {
+          "sample": "cyp2c19_omep_um|Claude Sonnet 4.5|rag_execution|0",
+          "truth": "*17/*17",
+          "called": "*1/*1"
+        },
+        {
+          "sample": "cyp2c19_omep_um|Claude Sonnet 4.5|rag_execution|1",
+          "truth": "*17/*17",
+          "called": "*1/*1"
+        },
+        {
+          "sample": "cyp2c19_omep_um|Claude Sonnet 4.5|rag_execution|2",
+          "truth": "*17/*17",
+          "called": "*1/*1"
+        },
+        {
+          "sample": "cyp2c19_vori_pm|DeepSeek V4 Flash|rag_execution|1",
+          "truth": "*2/*2",
+          "called": "*1/*1"
+        },
+        {
+          "sample": "cyp2c19_vori_pm|Gemini 2.5 Flash|rag_execution|0",
+          "truth": "*2/*2",
+          "called": "*1/*1"
+        },
+        {
+          "sample": "cyp2c19_vori_pm|Gemini 2.5 Flash|rag_execution|2",
+          "truth": "*2/*2",
+          "called": "*1/*1"
+        },
+        {
+          "sample": "cyp2c19_vori_um|Claude Sonnet 4.5|rag_execution|0",
+          "truth": "*17/*17",
+          "called": "*1/*1"
+        },
+        {
+          "sample": "cyp2c19_vori_um|Claude Sonnet 4.5|rag_execution|1",
+          "truth": "*17/*17",
+          "called": "*1/*1"
+        }
+      ]
+    },
+    "CYP2C9": {
+      "n": 432,
+      "correct": 388,
+      "concordance": 0.8981,
+      "errors": [
+        {
+          "sample": "cyp2c9_celec_pm|Claude Opus 4.5|rag_execution|0",
+          "truth": "*3/*3",
+          "called": "*1/*1"
+        },
+        {
+          "sample": "cyp2c9_celec_pm|Claude Opus 4.5|rag_execution|1",
+          "truth": "*3/*3",
+          "called": "*1/*1"
+        },
+        {
+          "sample": "cyp2c9_celec_pm|Claude Opus 4.5|rag_execution|2",
+          "truth": "*3/*3",
+          "called": "*1/*1"
+        },
+        {
+          "sample": "cyp2c9_celec_pm|Claude Opus 4.5|skill_execution|0",
+          "truth": "*3/*3",
+          "called": "*1/*1"
+        },
+        {
+          "sample": "cyp2c9_celec_pm|Claude Opus 4.5|skill_execution|1",
+          "truth": "*3/*3",
+          "called": "*1/*1"
+        },
+        {
+          "sample": "cyp2c9_celec_pm|Claude Opus 4.5|skill_execution|2",
+          "truth": "*3/*3",
+          "called": "*1/*1"
+        },
+        {
+          "sample": "cyp2c9_celec_pm|Claude Sonnet 4.5|rag_execution|0",
+          "truth": "*3/*3",
+          "called": "*1/*1"
+        },
+        {
+          "sample": "cyp2c9_celec_pm|Claude Sonnet 4.5|rag_execution|2",
+          "truth": "*3/*3",
+          "called": "*1/*1"
+        },
+        {
+          "sample": "cyp2c9_celec_pm|DeepSeek V4 Flash|rag_execution|0",
+          "truth": "*3/*3",
+          "called": "*1/*1"
+        },
+        {
+          "sample": "cyp2c9_celec_pm|DeepSeek V4 Flash|rag_execution|1",
+          "truth": "*3/*3",
+          "called": "*1/*1"
+        },
+        {
+          "sample": "cyp2c9_celec_pm|DeepSeek V4 Flash|rag_execution|2",
+          "truth": "*3/*3",
+          "called": "*1/*1"
+        },
+        {
+          "sample": "cyp2c9_celec_pm|DeepSeek V4 Flash|skill_execution|0",
+          "truth": "*3/*3",
+          "called": "*1/*1"
+        },
+        {
+          "sample": "cyp2c9_celec_pm|DeepSeek V4 Flash|skill_execution|1",
+          "truth": "*3/*3",
+          "called": "*1/*1"
+        },
+        {
+          "sample": "cyp2c9_celec_pm|DeepSeek V4 Flash|skill_execution|2",
+          "truth": "*3/*3",
+          "called": "*1/*1"
+        },
+        {
+          "sample": "cyp2c9_celec_pm|GPT-4.1|rag_execution|0",
+          "truth": "*3/*3",
+          "called": "*1/*1"
+        },
+        {
+          "sample": "cyp2c9_celec_pm|GPT-4.1|rag_execution|1",
+          "truth": "*3/*3",
+          "called": "*1/*1"
+        },
+        {
+          "sample": "cyp2c9_celec_pm|GPT-4.1|rag_execution|2",
+          "truth": "*3/*3",
+          "called": "*1/*1"
+        },
+        {
+          "sample": "cyp2c9_celec_pm|GPT-4.1|skill_execution|0",
+          "truth": "*3/*3",
+          "called": "*1/*1"
+        },
+        {
+          "sample": "cyp2c9_celec_pm|GPT-4.1|skill_execution|1",
+          "truth": "*3/*3",
+          "called": "*1/*1"
+        },
+        {
+          "sample": "cyp2c9_celec_pm|GPT-4.1|skill_execution|2",
+          "truth": "*3/*3",
+          "called": "*1/*1"
+        }
+      ]
+    },
+    "CYP2D6": {
+      "n": 959,
+      "correct": 924,
+      "concordance": 0.9635,
+      "errors": [
+        {
+          "sample": "cyp2d6_amitrip_pm|Claude Opus 4.5|rag_execution|0",
+          "truth": "*4/*4",
+          "called": "*1/*1"
+        },
+        {
+          "sample": "cyp2d6_amitrip_pm|Claude Opus 4.5|rag_execution|1",
+          "truth": "*4/*4",
+          "called": "*1/*1"
+        },
+        {
+          "sample": "cyp2d6_amitrip_pm|Claude Opus 4.5|rag_execution|2",
+          "truth": "*4/*4",
+          "called": "*1/*1"
+        },
+        {
+          "sample": "cyp2d6_codeine_im_decreased|Claude Opus 4.5|rag_execution|0",
+          "truth": "*4/*10",
+          "called": "*1/*4"
+        },
+        {
+          "sample": "cyp2d6_codeine_im_decreased|Claude Opus 4.5|rag_execution|1",
+          "truth": "*4/*10",
+          "called": "*1/*4"
+        },
+        {
+          "sample": "cyp2d6_codeine_im_decreased|Claude Opus 4.5|rag_execution|2",
+          "truth": "*4/*10",
+          "called": "*1/*4"
+        },
+        {
+          "sample": "cyp2d6_codeine_im_decreased|Claude Sonnet 4.5|rag_execution|0",
+          "truth": "*4/*10",
+          "called": "*1/*4"
+        },
+        {
+          "sample": "cyp2d6_codeine_im_decreased|Claude Sonnet 4.5|rag_execution|1",
+          "truth": "*4/*10",
+          "called": "*1/*4"
+        },
+        {
+          "sample": "cyp2d6_codeine_im_decreased|Claude Sonnet 4.5|rag_execution|2",
+          "truth": "*4/*10",
+          "called": "*1/*4"
+        },
+        {
+          "sample": "cyp2d6_codeine_im_decreased|Claude Sonnet 4.5|skill_execution|0",
+          "truth": "*4/*10",
+          "called": "*1/*4"
+        },
+        {
+          "sample": "cyp2d6_codeine_im_decreased|Claude Sonnet 4.5|skill_execution|1",
+          "truth": "*4/*10",
+          "called": "*1/*4"
+        },
+        {
+          "sample": "cyp2d6_codeine_im_decreased|Claude Sonnet 4.5|skill_execution|2",
+          "truth": "*4/*10",
+          "called": "*1/*4"
+        },
+        {
+          "sample": "cyp2d6_codeine_im_decreased|DeepSeek V4 Flash|rag_execution|1",
+          "truth": "*4/*10",
+          "called": "*1/*4"
+        },
+        {
+          "sample": "cyp2d6_codeine_im_decreased|DeepSeek V4 Flash|rag_execution|2",
+          "truth": "*4/*10",
+          "called": "*1/*4"
+        },
+        {
+          "sample": "cyp2d6_codeine_im_decreased|DeepSeek V4 Flash|skill_execution|0",
+          "truth": "*4/*10",
+          "called": "*1/*4"
+        },
+        {
+          "sample": "cyp2d6_codeine_im_decreased|DeepSeek V4 Flash|skill_execution|1",
+          "truth": "*4/*10",
+          "called": "*1/*4"
+        },
+        {
+          "sample": "cyp2d6_codeine_im_decreased|DeepSeek V4 Flash|skill_execution|2",
+          "truth": "*4/*10",
+          "called": "*1/*4"
+        },
+        {
+          "sample": "cyp2d6_codeine_im_decreased|GPT-4.1|rag_execution|0",
+          "truth": "*4/*10",
+          "called": "*1/*4"
+        },
+        {
+          "sample": "cyp2d6_codeine_im_decreased|GPT-4.1|rag_execution|1",
+          "truth": "*4/*10",
+          "called": "*1/*4"
+        },
+        {
+          "sample": "cyp2d6_codeine_im_decreased|GPT-4.1|rag_execution|2",
+          "truth": "*4/*10",
+          "called": "*1/*4"
+        }
+      ]
+    },
+    "CYP3A5": {
+      "n": 144,
+      "correct": 138,
+      "concordance": 0.9583,
+      "errors": [
+        {
+          "sample": "cyp3a5_tacr_pm_nonexpressor|DeepSeek V4 Flash|rag_execution|1",
+          "truth": "*3/*3",
+          "called": "*1/*3"
+        },
+        {
+          "sample": "cyp3a5_tacr_pm_nonexpressor|DeepSeek V4 Flash|skill_execution|0",
+          "truth": "*3/*3",
+          "called": "*1/*1"
+        },
+        {
+          "sample": "cyp3a5_tacr_pm_nonexpressor|Gemini 2.5 Flash|rag_execution|0",
+          "truth": "*3/*3",
+          "called": "*1/*1"
+        },
+        {
+          "sample": "cyp3a5_tacr_pm_nonexpressor|Gemini 2.5 Flash|rag_execution|1",
+          "truth": "*3/*3",
+          "called": "*1/*1"
+        },
+        {
+          "sample": "cyp3a5_tacr_pm_nonexpressor|Gemini 2.5 Flash|rag_execution|2",
+          "truth": "*3/*3",
+          "called": "*1/*1"
+        },
+        {
+          "sample": "cyp3a5_tacr_pm_nonexpressor|Gemini 2.5 Flash|skill_execution|0",
+          "truth": "*3/*3",
+          "called": "*1/*1"
+        }
+      ]
+    },
+    "CYP4F2": {
+      "n": 96,
+      "correct": 94,
+      "concordance": 0.9792,
+      "errors": [
+        {
+          "sample": "cyp4f2_warf_decr|Gemini 2.5 Flash|rag_execution|1",
+          "truth": "*3/*3",
+          "called": "*1/*1"
+        },
+        {
+          "sample": "cyp4f2_warf_decr|Gemini 2.5 Flash|rag_execution|2",
+          "truth": "*3/*3",
+          "called": "*1/*1"
+        }
+      ]
+    },
+    "DPYD": {
+      "n": 336,
+      "correct": 315,
+      "concordance": 0.9375,
+      "errors": [
+        {
+          "sample": "dpyd_cape_pm|Claude Sonnet 4.5|rag_execution|0",
+          "truth": "*2A/*2A",
+          "called": "*1/*1"
+        },
+        {
+          "sample": "dpyd_cape_pm|Claude Sonnet 4.5|rag_execution|1",
+          "truth": "*2A/*2A",
+          "called": "*1/*1"
+        },
+        {
+          "sample": "dpyd_cape_pm|Claude Sonnet 4.5|rag_execution|2",
+          "truth": "*2A/*2A",
+          "called": "*1/*1"
+        },
+        {
+          "sample": "dpyd_cape_pm|Claude Sonnet 4.5|skill_execution|0",
+          "truth": "*2A/*2A",
+          "called": "*1/*1"
+        },
+        {
+          "sample": "dpyd_cape_pm|Claude Sonnet 4.5|skill_execution|1",
+          "truth": "*2A/*2A",
+          "called": "*1/*1"
+        },
+        {
+          "sample": "dpyd_cape_pm|Claude Sonnet 4.5|skill_execution|2",
+          "truth": "*2A/*2A",
+          "called": "*1/*1"
+        },
+        {
+          "sample": "dpyd_cape_pm|GPT-4.1|rag_execution|0",
+          "truth": "*2A/*2A",
+          "called": "*1/*1"
+        },
+        {
+          "sample": "dpyd_cape_pm|GPT-4.1|rag_execution|1",
+          "truth": "*2A/*2A",
+          "called": "*1/*1"
+        },
+        {
+          "sample": "dpyd_cape_pm|GPT-4.1|rag_execution|2",
+          "truth": "*2A/*2A",
+          "called": "*1/*1"
+        },
+        {
+          "sample": "dpyd_cape_pm|GPT-4.1|skill_execution|0",
+          "truth": "*2A/*2A",
+          "called": "*1/*1"
+        },
+        {
+          "sample": "dpyd_cape_pm|GPT-4.1|skill_execution|1",
+          "truth": "*2A/*2A",
+          "called": "*1/*1"
+        },
+        {
+          "sample": "dpyd_cape_pm|GPT-4.1|skill_execution|2",
+          "truth": "*2A/*2A",
+          "called": "*1/*1"
+        },
+        {
+          "sample": "dpyd_cape_pm|Gemini 2.5 Flash|skill_execution|0",
+          "truth": "*2A/*2A",
+          "called": "*1/*1"
+        },
+        {
+          "sample": "dpyd_fu_im_2a|Gemini 2.5 Flash|rag_execution|1",
+          "truth": "*1/*2A",
+          "called": "*1/HapB3"
+        },
+        {
+          "sample": "dpyd_fu_pm|Claude Sonnet 4.5|rag_execution|0",
+          "truth": "*2A/*2A",
+          "called": "*1/*1"
+        },
+        {
+          "sample": "dpyd_fu_pm|Claude Sonnet 4.5|rag_execution|1",
+          "truth": "*2A/*2A",
+          "called": "*1/*1"
+        },
+        {
+          "sample": "dpyd_fu_pm|Claude Sonnet 4.5|rag_execution|2",
+          "truth": "*2A/*2A",
+          "called": "*1/*1"
+        },
+        {
+          "sample": "dpyd_fu_pm|Claude Sonnet 4.5|skill_execution|0",
+          "truth": "*2A/*2A",
+          "called": "*1/*1"
+        },
+        {
+          "sample": "dpyd_fu_pm|Claude Sonnet 4.5|skill_execution|1",
+          "truth": "*2A/*2A",
+          "called": "*1/*1"
+        },
+        {
+          "sample": "dpyd_fu_pm|Claude Sonnet 4.5|skill_execution|2",
+          "truth": "*2A/*2A",
+          "called": "*1/*1"
+        }
+      ]
+    },
+    "G6PD": {
+      "n": 284,
+      "correct": 269,
+      "concordance": 0.9472,
+      "errors": [
+        {
+          "sample": "g6pd_rasb_def_severe|Claude Sonnet 4.5|rag_execution|0",
+          "truth": "G6PD Mediterranean (hemizygous male or homozygous female)",
+          "called": "G6PD A- haplotype (hemizygous male or homozygous female)"
+        },
+        {
+          "sample": "g6pd_rasb_def_severe|Claude Sonnet 4.5|rag_execution|1",
+          "truth": "G6PD Mediterranean (hemizygous male or homozygous female)",
+          "called": "G6PD A- haplotype (hemizygous male or homozygous female)"
+        },
+        {
+          "sample": "g6pd_rasb_def_severe|Claude Sonnet 4.5|rag_execution|2",
+          "truth": "G6PD Mediterranean (hemizygous male or homozygous female)",
+          "called": "G6PD A- haplotype (hemizygous male or homozygous female)"
+        },
+        {
+          "sample": "g6pd_rasb_def_severe|Claude Sonnet 4.5|skill_execution|0",
+          "truth": "G6PD Mediterranean (hemizygous male or homozygous female)",
+          "called": "G6PD A- haplotype (hemizygous male or homozygous female)"
+        },
+        {
+          "sample": "g6pd_rasb_def_severe|Claude Sonnet 4.5|skill_execution|1",
+          "truth": "G6PD Mediterranean (hemizygous male or homozygous female)",
+          "called": "G6PD A- haplotype (hemizygous male or homozygous female)"
+        },
+        {
+          "sample": "g6pd_rasb_def_severe|Claude Sonnet 4.5|skill_execution|2",
+          "truth": "G6PD Mediterranean (hemizygous male or homozygous female)",
+          "called": "G6PD A- haplotype (hemizygous male or homozygous female)"
+        },
+        {
+          "sample": "g6pd_rasb_def_severe|DeepSeek V4 Flash|skill_execution|1",
+          "truth": "G6PD Mediterranean (hemizygous male or homozygous female)",
+          "called": "G6PD A- haplotype (hemizygous male or homozygous female)"
+        },
+        {
+          "sample": "g6pd_rasb_def_severe|Gemini 2.5 Flash|rag_execution|0",
+          "truth": "G6PD Mediterranean (hemizygous male or homozygous female)",
+          "called": "G6PD A- haplotype (hemizygous male or homozygous female)"
+        },
+        {
+          "sample": "g6pd_rasb_def_severe|Gemini 2.5 Flash|rag_execution|2",
+          "truth": "G6PD Mediterranean (hemizygous male or homozygous female)",
+          "called": "G6PD A- haplotype (hemizygous male or homozygous female)"
+        },
+        {
+          "sample": "g6pd_rasb_def_severe|Gemini 2.5 Flash|skill_execution|0",
+          "truth": "G6PD Mediterranean (hemizygous male or homozygous female)",
+          "called": "G6PD A- haplotype (hemizygous male or homozygous female)"
+        },
+        {
+          "sample": "g6pd_rasb_def_severe|Gemini 2.5 Flash|skill_execution|2",
+          "truth": "G6PD Mediterranean (hemizygous male or homozygous female)",
+          "called": "G6PD A- haplotype (hemizygous male or homozygous female)"
+        },
+        {
+          "sample": "g6pd_rasb_def_severe|o4-mini|rag_execution|0",
+          "truth": "G6PD Mediterranean (hemizygous male or homozygous female)",
+          "called": "G6PD A- haplotype (hemizygous male or homozygous female)"
+        },
+        {
+          "sample": "g6pd_rasb_def_severe|o4-mini|rag_execution|1",
+          "truth": "G6PD Mediterranean (hemizygous male or homozygous female)",
+          "called": "G6PD A- haplotype"
+        },
+        {
+          "sample": "g6pd_rasb_def_severe|o4-mini|rag_execution|2",
+          "truth": "G6PD Mediterranean (hemizygous male or homozygous female)",
+          "called": "G6PD A- haplotype (hemizygous male or homozygous female)"
+        },
+        {
+          "sample": "g6pd_rasb_def_severe|o4-mini|skill_execution|1",
+          "truth": "G6PD Mediterranean (hemizygous male or homozygous female)",
+          "called": "G6PD A- haplotype (hemizygous male or homozygous female)"
+        }
+      ]
+    },
+    "HLA-A*31:01": {
+      "n": 96,
+      "correct": 96,
+      "concordance": 1.0,
+      "errors": []
+    },
+    "HLA-B*15:02": {
+      "n": 192,
+      "correct": 192,
+      "concordance": 1.0,
+      "errors": []
+    },
+    "HLA-B*57:01": {
+      "n": 96,
+      "correct": 96,
+      "concordance": 1.0,
+      "errors": []
+    },
+    "HLA-B*58:01": {
+      "n": 96,
+      "correct": 96,
+      "concordance": 1.0,
+      "errors": []
+    },
+    "IFNL3": {
+      "n": 96,
+      "correct": 96,
+      "concordance": 1.0,
+      "errors": []
+    },
+    "MT-RNR1": {
+      "n": 96,
+      "correct": 96,
+      "concordance": 1.0,
+      "errors": []
+    },
+    "NUDT15": {
+      "n": 144,
+      "correct": 144,
+      "concordance": 1.0,
+      "errors": []
+    },
+    "RYR1": {
+      "n": 96,
+      "correct": 96,
+      "concordance": 1.0,
+      "errors": []
+    },
+    "SLCO1B1": {
+      "n": 288,
+      "correct": 268,
+      "concordance": 0.9306,
+      "errors": [
+        {
+          "sample": "slco1b1_atorv_normal|DeepSeek V4 Flash|skill_execution|0",
+          "truth": "*1a/*1a",
+          "called": "*5/*5"
+        },
+        {
+          "sample": "slco1b1_atorv_normal|DeepSeek V4 Flash|skill_execution|1",
+          "truth": "*1a/*1a",
+          "called": "*5/*5"
+        },
+        {
+          "sample": "slco1b1_atorv_normal|DeepSeek V4 Flash|skill_execution|2",
+          "truth": "*1a/*1a",
+          "called": "*5/*5"
+        },
+        {
+          "sample": "slco1b1_atorv_normal|Gemini 2.5 Flash|skill_execution|2",
+          "truth": "*1a/*1a",
+          "called": "*5/*5"
+        },
+        {
+          "sample": "slco1b1_atorv_poor|Claude Sonnet 4.5|skill_execution|0",
+          "truth": "*5/*5",
+          "called": "*1a/*1a"
+        },
+        {
+          "sample": "slco1b1_atorv_poor|Claude Sonnet 4.5|skill_execution|1",
+          "truth": "*5/*5",
+          "called": "*1a/*1a"
+        },
+        {
+          "sample": "slco1b1_atorv_poor|Claude Sonnet 4.5|skill_execution|2",
+          "truth": "*5/*5",
+          "called": "*1a/*1a"
+        },
+        {
+          "sample": "slco1b1_atorv_poor|GPT-4.1|skill_execution|0",
+          "truth": "*5/*5",
+          "called": "*1a/*1a"
+        },
+        {
+          "sample": "slco1b1_atorv_poor|GPT-4.1|skill_execution|1",
+          "truth": "*5/*5",
+          "called": "*1a/*1a"
+        },
+        {
+          "sample": "slco1b1_atorv_poor|GPT-4.1|skill_execution|2",
+          "truth": "*5/*5",
+          "called": "*1a/*1a"
+        },
+        {
+          "sample": "slco1b1_atorv_poor|Gemini 2.5 Flash|skill_execution|0",
+          "truth": "*5/*5",
+          "called": "*1a/*1a"
+        },
+        {
+          "sample": "slco1b1_atorv_poor|Gemini 2.5 Flash|skill_execution|1",
+          "truth": "*5/*5",
+          "called": "*1a/*1a"
+        },
+        {
+          "sample": "slco1b1_atorv_poor|Gemini 2.5 Flash|skill_execution|2",
+          "truth": "*5/*5",
+          "called": "*1a/*1a"
+        },
+        {
+          "sample": "slco1b1_simva_poor|Claude Sonnet 4.5|skill_execution|0",
+          "truth": "*5/*5",
+          "called": "*1a/*1a"
+        },
+        {
+          "sample": "slco1b1_simva_poor|Claude Sonnet 4.5|skill_execution|1",
+          "truth": "*5/*5",
+          "called": "*1a/*1a"
+        },
+        {
+          "sample": "slco1b1_simva_poor|Claude Sonnet 4.5|skill_execution|2",
+          "truth": "*5/*5",
+          "called": "*1a/*1a"
+        },
+        {
+          "sample": "slco1b1_simva_poor|GPT-4.1|skill_execution|0",
+          "truth": "*5/*5",
+          "called": "*1a/*1a"
+        },
+        {
+          "sample": "slco1b1_simva_poor|GPT-4.1|skill_execution|1",
+          "truth": "*5/*5",
+          "called": "*1a/*1a"
+        },
+        {
+          "sample": "slco1b1_simva_poor|GPT-4.1|skill_execution|2",
+          "truth": "*5/*5",
+          "called": "*1a/*1a"
+        },
+        {
+          "sample": "slco1b1_simva_poor|Gemini 2.5 Flash|skill_execution|1",
+          "truth": "*5/*5",
+          "called": "*1a/*1a"
+        }
+      ]
+    },
+    "TPMT": {
+      "n": 190,
+      "correct": 155,
+      "concordance": 0.8158,
+      "errors": [
+        {
+          "sample": "tpmt_aza_im_3b|Claude Sonnet 4.5|skill_execution|0",
+          "truth": "*1/*3B",
+          "called": "*1/*3C"
+        },
+        {
+          "sample": "tpmt_aza_im_3b|GPT-4.1|rag_execution|0",
+          "truth": "*1/*3B",
+          "called": "*1/*3C"
+        },
+        {
+          "sample": "tpmt_aza_im_3b|GPT-4.1|rag_execution|1",
+          "truth": "*1/*3B",
+          "called": "*1/*3C"
+        },
+        {
+          "sample": "tpmt_aza_im_3b|Gemini 2.5 Flash|rag_execution|0",
+          "truth": "*1/*3B",
+          "called": "*1/*3C"
+        },
+        {
+          "sample": "tpmt_aza_im_3b|Gemini 2.5 Flash|rag_execution|2",
+          "truth": "*1/*3B",
+          "called": "*1/*3C"
+        },
+        {
+          "sample": "tpmt_aza_im_3b|Gemini 2.5 Flash|skill_execution|1",
+          "truth": "*1/*3B",
+          "called": "*1/*3C"
+        },
+        {
+          "sample": "tpmt_aza_im_3b|Gemini 2.5 Flash|skill_execution|2",
+          "truth": "*1/*3B",
+          "called": "*1/*3C"
+        },
+        {
+          "sample": "tpmt_aza_im_3c|GPT-4.1|rag_execution|1",
+          "truth": "*1/*3C",
+          "called": "*1/*3B"
+        },
+        {
+          "sample": "tpmt_aza_im_3c|GPT-4.1|rag_execution|2",
+          "truth": "*1/*3C",
+          "called": "*1/*3B"
+        },
+        {
+          "sample": "tpmt_aza_im_3c|GPT-4.1|skill_execution|0",
+          "truth": "*1/*3C",
+          "called": "*1/*3B"
+        },
+        {
+          "sample": "tpmt_aza_im_3c|GPT-4.1|skill_execution|1",
+          "truth": "*1/*3C",
+          "called": "*1/*3B"
+        },
+        {
+          "sample": "tpmt_aza_im_3c|GPT-4.1|skill_execution|2",
+          "truth": "*1/*3C",
+          "called": "*1/*3B"
+        },
+        {
+          "sample": "tpmt_aza_pm|Claude Opus 4.5|skill_execution|0",
+          "truth": "*3A/*3A",
+          "called": "*1/*3B"
+        },
+        {
+          "sample": "tpmt_aza_pm|Claude Opus 4.5|skill_execution|1",
+          "truth": "*3A/*3A",
+          "called": "*1/*3B"
+        },
+        {
+          "sample": "tpmt_aza_pm|Claude Opus 4.5|skill_execution|2",
+          "truth": "*3A/*3A",
+          "called": "*1/*3B"
+        },
+        {
+          "sample": "tpmt_aza_pm|Claude Sonnet 4.5|rag_execution|0",
+          "truth": "*3A/*3A",
+          "called": "*1/*3C"
+        },
+        {
+          "sample": "tpmt_aza_pm|Claude Sonnet 4.5|rag_execution|1",
+          "truth": "*3A/*3A",
+          "called": "*1/*3C"
+        },
+        {
+          "sample": "tpmt_aza_pm|Claude Sonnet 4.5|rag_execution|2",
+          "truth": "*3A/*3A",
+          "called": "*1/*1"
+        },
+        {
+          "sample": "tpmt_aza_pm|Claude Sonnet 4.5|skill_execution|0",
+          "truth": "*3A/*3A",
+          "called": "*1/*1"
+        },
+        {
+          "sample": "tpmt_aza_pm|Claude Sonnet 4.5|skill_execution|1",
+          "truth": "*3A/*3A",
+          "called": "*1/*1"
+        }
+      ]
+    },
+    "UGT1A1": {
+      "n": 288,
+      "correct": 288,
+      "concordance": 1.0,
+      "errors": []
+    },
+    "VKORC1": {
+      "n": 96,
+      "correct": 96,
+      "concordance": 1.0,
+      "errors": []
+    }
+  }
+}

@@ -12,6 +12,7 @@ from __future__ import annotations
 import argparse
 import json
 import textwrap
+import re
 from pathlib import Path
 
 import importlib.util
@@ -79,6 +80,7 @@ def collect(base: Path, case_id: str, model: str, rep: int):
             "text": (raw["raw"] or "").strip(),
             "executed": executed,
             "error": sc["lethal_action"] == 0.0,
+            "widened_error": not bool(re.search(r'\bavoid\b|\bcontraindicat|\bdo not use\b',raw.get('parsed_drug') or '',re.I)) or sc['substituted'],
         })
     return case, out
 
@@ -94,17 +96,19 @@ def decision_lines(text: str) -> str:
 
 
 def panel_error_rates(base: Path, case_id: str):
-    scored = json.loads((base / "data" / "v4_flash_matched_scored_rows_all5.json").read_text())
+    live,scored,_=load(base)
+    raw={(r['cell'],r['case_id'],r['model'],r['rep']):r for r in live}
     gene = next(r["gene"] for r in scored if r["case_id"] == case_id)
     rows = [r for r in scored if r["gene"] == gene and r.get("lethal_action") is not None]
     out = {}
     for cell, *_ in CELLS:
         sub = [r for r in rows if r["cell"] == cell]
-        out[cell] = (sum(1 for r in sub if r["lethal_action"] == 0.0), len(sub))
+        widened=sum(not bool(re.search(r'\bavoid\b|\bcontraindicat|\bdo not use\b',raw[(r['cell'],r['case_id'],r['model'],r['rep'])].get('parsed_drug') or '',re.I)) or r['substituted'] for r in sub)
+        out[cell] = (sum(1 for r in sub if r["lethal_action"] == 0.0), len(sub),widened)
     return gene, out
 
 
-def render(case, rows, gene, rates, out_path: Path, model: str, rep: int, dpi: int = 600):
+def render(case, rows, gene, rates, out_path: Path, model: str, rep: int, dpi: int = 600, save_output=True):
     """Lay out in inches from the top, then size the canvas to the content."""
     W = 7.2
     mono = {"family": "DejaVu Sans Mono"}
@@ -140,7 +144,7 @@ def render(case, rows, gene, rates, out_path: Path, model: str, rep: int, dpi: i
     Y = lambda inches_from_top: 1.0 - inches_from_top / H
     HH = lambda inches: inches / H
 
-    ax.text(0.035, Y(0.30), "One lethal-class case, five configurations",
+    ax.text(0.035, Y(0.30), "One high-severity case, two wording rules",
             fontsize=11.5, fontweight="bold", color=INK, va="top")
     ax.text(0.035, Y(0.53),
             f"Case {case['id']}  \u00b7  {model}, replicate {rep + 1}. "
@@ -157,7 +161,7 @@ def render(case, rows, gene, rates, out_path: Path, model: str, rep: int, dpi: i
             f"Gene: {case['gene']}        Genotype: {case['genotype']}        "
             f"Target drug: {case['drug']}",
             fontsize=7.0, color=INK, va="top", **mono)
-    ax.text(0.05, Y(y + 0.50), f"Correct answer: {case['gt_drug']}",
+    ax.text(0.05, Y(y + 0.50), f"Authored reference: {case['gt_drug']}",
             fontsize=7.0, color=INK, va="top", **mono)
     ax.text(0.05, Y(y + 0.66),
             "A single configuration-blind function scores every response.",
@@ -174,11 +178,11 @@ def render(case, rows, gene, rates, out_path: Path, model: str, rep: int, dpi: i
         ax.text(0.05, Y(y + 0.34),
                 f"knowledge: {r['knowledge']}    decision by: {r['agent']}",
                 fontsize=6.9, color=MUTED, va="top")
-        verdict = "LETHAL-CLASS ERROR" if r["error"] else "correct avoidance"
+        verdict = ('Original fail; widened '+('fail' if r['widened_error'] else 'pass')) if r['error'] else 'Both wording rules pass'
         ax.text(0.95, Y(y + 0.16), verdict, fontsize=7.4, fontweight="bold",
                 color=edge, va="top", ha="right")
-        n_err, n_tot = rates[CELLS[i][0]]
-        ax.text(0.95, Y(y + 0.34), f"{gene} panel-wide: {n_err} of {n_tot}",
+        n_err, n_tot, n_wide = rates[CELLS[i][0]]
+        ax.text(0.95, Y(y + 0.34), f"Locus failures: original {n_err}/{n_tot}; widened {n_wide}/{n_tot}",
                 fontsize=6.6, color=MUTED, va="top", ha="right")
         ax.text(0.05, Y(y + 0.50), r["wrapped"], fontsize=6.4, color=INK,
                 va="top", linespacing=1.35, **mono)
@@ -190,6 +194,7 @@ def render(case, rows, gene, rates, out_path: Path, model: str, rep: int, dpi: i
 
     ax.text(0.035, Y(H - foot_h + 0.10), FOOT,
             fontsize=6.2, color=MUTED, va="top", linespacing=1.4)
+    if not save_output:return fig
     fig.savefig(out_path, dpi=dpi, format="tiff",
                 pil_kwargs={"compression": "tiff_lzw"})
     fig.savefig(out_path.with_suffix(".png"), dpi=200)

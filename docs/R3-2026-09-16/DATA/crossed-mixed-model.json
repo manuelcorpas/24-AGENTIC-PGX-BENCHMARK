@@ -1,0 +1,52 @@
+{
+  "free_generation": {
+    "n": 2640,
+    "intercept": 0.7428030303027625,
+    "var_case": 0.08023052369495154,
+    "var_model": 0.005267136783089207,
+    "var_residual": 0.10432333704466637,
+    "converged": true,
+    "moments_case": 0.083810261708,
+    "moments_model": 0.004885072314
+  },
+  "rag_execution": {
+    "n": 2640,
+    "intercept": 0.9647727272726769,
+    "var_case": 0.008331917967430848,
+    "var_model": 0.000910711386352837,
+    "var_residual": 0.024942522665172412,
+    "converged": true,
+    "moments_case": 0.009286185721,
+    "moments_model": 0.000863033747
+  },
+  "rag_generation": {
+    "n": 2640,
+    "intercept": 0.822159090909232,
+    "var_case": 0.07351400242796488,
+    "var_model": 0.0011304675567165576,
+    "var_residual": 0.05391322583785236,
+    "converged": false,
+    "moments_case": 0.09076449868,
+    "moments_model": 0.002368536214
+  },
+  "skill_execution": {
+    "n": 2640,
+    "intercept": 0.9662878787878647,
+    "var_case": 0.010286596285243286,
+    "var_model": 0.0006094866603084276,
+    "var_residual": 0.02185808893887044,
+    "converged": true,
+    "moments_case": 0.011095184803,
+    "moments_model": 0.000590995179
+  },
+  "skill_generation": {
+    "n": 2640,
+    "intercept": 0.9655303030302865,
+    "var_case": 0.008142375689310803,
+    "var_model": 0.0006466221996203783,
+    "var_residual": 0.024656653584744562,
+    "converged": true,
+    "moments_case": 0.009086461203,
+    "moments_model": 0.000631169651
+  }
+}

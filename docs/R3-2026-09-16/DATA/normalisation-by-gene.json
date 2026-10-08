@@ -1,0 +1,86 @@
+{
+  "model": "Claude Opus 4.5",
+  "rendering": "vcf",
+  "rows": [
+    {
+      "gene": "CYP2B6",
+      "pairs": 51,
+      "coverage_no_definitions": 0.882,
+      "accuracy_no_definitions": 0.156,
+      "coverage_with_definitions": 0.98,
+      "accuracy_with_definitions": 1.0
+    },
+    {
+      "gene": "CYP2C19",
+      "pairs": 72,
+      "coverage_no_definitions": 1.0,
+      "accuracy_no_definitions": 0.819,
+      "coverage_with_definitions": 1.0,
+      "accuracy_with_definitions": 0.986
+    },
+    {
+      "gene": "CYP2C9",
+      "pairs": 72,
+      "coverage_no_definitions": 1.0,
+      "accuracy_no_definitions": 0.778,
+      "coverage_with_definitions": 1.0,
+      "accuracy_with_definitions": 1.0
+    },
+    {
+      "gene": "CYP2D6",
+      "pairs": 72,
+      "coverage_no_definitions": 0.931,
+      "accuracy_no_definitions": 0.03,
+      "coverage_with_definitions": 0.986,
+      "accuracy_with_definitions": 0.789
+    },
+    {
+      "gene": "CYP3A5",
+      "pairs": 59,
+      "coverage_no_definitions": 0.864,
+      "accuracy_no_definitions": 0.412,
+      "coverage_with_definitions": 0.966,
+      "accuracy_with_definitions": 0.982
+    },
+    {
+      "gene": "CYP4F2",
+      "pairs": 37,
+      "coverage_no_definitions": 0.946,
+      "accuracy_no_definitions": 0.4,
+      "coverage_with_definitions": 1.0,
+      "accuracy_with_definitions": 1.0
+    },
+    {
+      "gene": "NUDT15",
+      "pairs": 11,
+      "coverage_no_definitions": 0.909,
+      "accuracy_no_definitions": 0.0,
+      "coverage_with_definitions": 1.0,
+      "accuracy_with_definitions": 1.0
+    },
+    {
+      "gene": "SLCO1B1",
+      "pairs": 58,
+      "coverage_no_definitions": 1.0,
+      "accuracy_no_definitions": 0.086,
+      "coverage_with_definitions": 1.0,
+      "accuracy_with_definitions": 1.0
+    },
+    {
+      "gene": "TPMT",
+      "pairs": 68,
+      "coverage_no_definitions": 0.853,
+      "accuracy_no_definitions": 0.534,
+      "coverage_with_definitions": 1.0,
+      "accuracy_with_definitions": 1.0
+    },
+    {
+      "gene": "UGT1A1",
+      "pairs": 27,
+      "coverage_no_definitions": 0.889,
+      "accuracy_no_definitions": 0.0,
+      "coverage_with_definitions": 0.63,
+      "accuracy_with_definitions": 1.0
+    }
+  ]
+}

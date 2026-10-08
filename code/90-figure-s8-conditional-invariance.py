@@ -73,7 +73,7 @@ SUBTITLE = (
     "framing. The EUR minus AFR gap is zero only in the control, and largest "
     "under skill-execution."
 )
-YLABEL = "Phenotype accuracy, A1 (%)"
+YLABEL = "Phenotype concordance, A1 (%)"
 
 # The supplement holds Figure S8 at a fixed wp:extent whose ratio is 1.6577.
 # Drawing to any other ratio squashes the picture when the image bytes are
@@ -192,7 +192,7 @@ def report(arms: list[dict]) -> None:
               f"{arm['delta']:8.2f} {p['EUR']['n']:7d}")
 
 
-def draw(arms: list[dict]) -> None:
+def draw(arms: list[dict],save_output=True):
     import matplotlib
     matplotlib.use("Agg")
     import matplotlib.pyplot as plt
@@ -251,6 +251,7 @@ def draw(arms: list[dict]) -> None:
               frameon=False, fontsize=10.5)
 
     fig.tight_layout()
+    if not save_output:return fig
     FIGDIR.mkdir(exist_ok=True)
     png = FIGDIR / "FigureS8_conditional_invariance.png"
     tiff = FIGDIR / "FigureS8_conditional_invariance.tiff"

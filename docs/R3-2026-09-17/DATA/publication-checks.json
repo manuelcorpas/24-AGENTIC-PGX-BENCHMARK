@@ -1,0 +1,2609 @@
+{
+  "screen": {
+    "partition": {
+      "selected": 8,
+      "authored_only": 78,
+      "rag_only": 1,
+      "neither": 23
+    },
+    "outside_count": 102,
+    "near_miss_margin": 0.05,
+    "near_miss_thresholds": {
+      "authored_min": 0.9,
+      "rag_max": 0.15
+    },
+    "near_miss_ids": [
+      "cyp4f2_warf_decr"
+    ],
+    "cases": [
+      {
+        "case_id": "cftr_iva_nonresp",
+        "phenotype_means": {
+          "free_generation": 0.16666666666666666,
+          "rag_generation": 0.20833333333333334,
+          "rag_execution": 1.0,
+          "skill_generation": 1.0,
+          "skill_execution": 1.0
+        },
+        "authored_min": 1.0,
+        "rag_mean": 0.20833333333333334,
+        "group": "authored_only"
+      },
+      {
+        "case_id": "cftr_iva_resp",
+        "phenotype_means": {
+          "free_generation": 0.5208333333333334,
+          "rag_generation": 0.7916666666666666,
+          "rag_execution": 1.0,
+          "skill_generation": 1.0,
+          "skill_execution": 1.0
+        },
+        "authored_min": 1.0,
+        "rag_mean": 0.7916666666666666,
+        "group": "authored_only"
+      },
+      {
+        "case_id": "cyp2b6_efa_im",
+        "phenotype_means": {
+          "free_generation": 1.0,
+          "rag_generation": 1.0,
+          "rag_execution": 1.0,
+          "skill_generation": 1.0,
+          "skill_execution": 1.0
+        },
+        "authored_min": 1.0,
+        "rag_mean": 1.0,
+        "group": "authored_only"
+      },
+      {
+        "case_id": "cyp2b6_efa_nm",
+        "phenotype_means": {
+          "free_generation": 0.8333333333333334,
+          "rag_generation": 1.0,
+          "rag_execution": 1.0,
+          "skill_generation": 1.0,
+          "skill_execution": 1.0
+        },
+        "authored_min": 1.0,
+        "rag_mean": 1.0,
+        "group": "authored_only"
+      },
+      {
+        "case_id": "cyp2b6_efa_pm",
+        "phenotype_means": {
+          "free_generation": 1.0,
+          "rag_generation": 0.9583333333333334,
+          "rag_execution": 0.9166666666666666,
+          "skill_generation": 1.0,
+          "skill_execution": 1.0
+        },
+        "authored_min": 0.9166666666666666,
+        "rag_mean": 0.9583333333333334,
+        "group": "neither"
+      },
+      {
+        "case_id": "cyp2b6_efa_rm",
+        "phenotype_means": {
+          "free_generation": 0.16666666666666666,
+          "rag_generation": 0.6666666666666666,
+          "rag_execution": 0.4583333333333333,
+          "skill_generation": 0.4166666666666667,
+          "skill_execution": 0.5833333333333334
+        },
+        "authored_min": 0.4166666666666667,
+        "rag_mean": 0.6666666666666666,
+        "group": "neither"
+      },
+      {
+        "case_id": "cyp2c19_cital_im",
+        "phenotype_means": {
+          "free_generation": 1.0,
+          "rag_generation": 1.0,
+          "rag_execution": 1.0,
+          "skill_generation": 1.0,
+          "skill_execution": 1.0
+        },
+        "authored_min": 1.0,
+        "rag_mean": 1.0,
+        "group": "authored_only"
+      },
+      {
+        "case_id": "cyp2c19_cital_nm",
+        "phenotype_means": {
+          "free_generation": 0.9166666666666666,
+          "rag_generation": 1.0,
+          "rag_execution": 1.0,
+          "skill_generation": 1.0,
+          "skill_execution": 1.0
+        },
+        "authored_min": 1.0,
+        "rag_mean": 1.0,
+        "group": "authored_only"
+      },
+      {
+        "case_id": "cyp2c19_cital_pm",
+        "phenotype_means": {
+          "free_generation": 0.8333333333333334,
+          "rag_generation": 0.9583333333333334,
+          "rag_execution": 1.0,
+          "skill_generation": 0.9583333333333334,
+          "skill_execution": 0.9166666666666666
+        },
+        "authored_min": 0.9166666666666666,
+        "rag_mean": 0.9583333333333334,
+        "group": "neither"
+      },
+      {
+        "case_id": "cyp2c19_cital_rm",
+        "phenotype_means": {
+          "free_generation": 0.875,
+          "rag_generation": 1.0,
+          "rag_execution": 1.0,
+          "skill_generation": 1.0,
+          "skill_execution": 0.9583333333333334
+        },
+        "authored_min": 0.9583333333333334,
+        "rag_mean": 1.0,
+        "group": "authored_only"
+      },
+      {
+        "case_id": "cyp2c19_cital_um",
+        "phenotype_means": {
+          "free_generation": 0.9166666666666666,
+          "rag_generation": 0.875,
+          "rag_execution": 0.875,
+          "skill_generation": 1.0,
+          "skill_execution": 1.0
+        },
+        "authored_min": 0.875,
+        "rag_mean": 0.875,
+        "group": "neither"
+      },
+      {
+        "case_id": "cyp2c19_clop_im",
+        "phenotype_means": {
+          "free_generation": 1.0,
+          "rag_generation": 1.0,
+          "rag_execution": 1.0,
+          "skill_generation": 1.0,
+          "skill_execution": 1.0
+        },
+        "authored_min": 1.0,
+        "rag_mean": 1.0,
+        "group": "authored_only"
+      },
+      {
+        "case_id": "cyp2c19_clop_nm",
+        "phenotype_means": {
+          "free_generation": 0.9166666666666666,
+          "rag_generation": 1.0,
+          "rag_execution": 1.0,
+          "skill_generation": 1.0,
+          "skill_execution": 1.0
+        },
+        "authored_min": 1.0,
+        "rag_mean": 1.0,
+        "group": "authored_only"
+      },
+      {
+        "case_id": "cyp2c19_clop_pm",
+        "phenotype_means": {
+          "free_generation": 0.9166666666666666,
+          "rag_generation": 1.0,
+          "rag_execution": 0.9166666666666666,
+          "skill_generation": 1.0,
+          "skill_execution": 0.9583333333333334
+        },
+        "authored_min": 0.9166666666666666,
+        "rag_mean": 1.0,
+        "group": "neither"
+      },
+      {
+        "case_id": "cyp2c19_clop_rm",
+        "phenotype_means": {
+          "free_generation": 0.8333333333333334,
+          "rag_generation": 1.0,
+          "rag_execution": 1.0,
+          "skill_generation": 1.0,
+          "skill_execution": 1.0
+        },
+        "authored_min": 1.0,
+        "rag_mean": 1.0,
+        "group": "authored_only"
+      },
+      {
+        "case_id": "cyp2c19_clop_um",
+        "phenotype_means": {
+          "free_generation": 0.9166666666666666,
+          "rag_generation": 0.875,
+          "rag_execution": 0.875,
+          "skill_generation": 0.9583333333333334,
+          "skill_execution": 1.0
+        },
+        "authored_min": 0.875,
+        "rag_mean": 0.875,
+        "group": "neither"
+      },
+      {
+        "case_id": "cyp2c19_omep_im",
+        "phenotype_means": {
+          "free_generation": 1.0,
+          "rag_generation": 1.0,
+          "rag_execution": 1.0,
+          "skill_generation": 1.0,
+          "skill_execution": 1.0
+        },
+        "authored_min": 1.0,
+        "rag_mean": 1.0,
+        "group": "authored_only"
+      },
+      {
+        "case_id": "cyp2c19_omep_nm",
+        "phenotype_means": {
+          "free_generation": 0.9583333333333334,
+          "rag_generation": 1.0,
+          "rag_execution": 1.0,
+          "skill_generation": 1.0,
+          "skill_execution": 1.0
+        },
+        "authored_min": 1.0,
+        "rag_mean": 1.0,
+        "group": "authored_only"
+      },
+      {
+        "case_id": "cyp2c19_omep_pm",
+        "phenotype_means": {
+          "free_generation": 0.9166666666666666,
+          "rag_generation": 0.9583333333333334,
+          "rag_execution": 0.9583333333333334,
+          "skill_generation": 1.0,
+          "skill_execution": 1.0
+        },
+        "authored_min": 0.9583333333333334,
+        "rag_mean": 0.9583333333333334,
+        "group": "authored_only"
+      },
+      {
+        "case_id": "cyp2c19_omep_rm",
+        "phenotype_means": {
+          "free_generation": 0.875,
+          "rag_generation": 1.0,
+          "rag_execution": 1.0,
+          "skill_generation": 1.0,
+          "skill_execution": 1.0
+        },
+        "authored_min": 1.0,
+        "rag_mean": 1.0,
+        "group": "authored_only"
+      },
+      {
+        "case_id": "cyp2c19_omep_um",
+        "phenotype_means": {
+          "free_generation": 0.7916666666666666,
+          "rag_generation": 0.8333333333333334,
+          "rag_execution": 0.875,
+          "skill_generation": 1.0,
+          "skill_execution": 1.0
+        },
+        "authored_min": 0.875,
+        "rag_mean": 0.8333333333333334,
+        "group": "neither"
+      },
+      {
+        "case_id": "cyp2c19_vori_im",
+        "phenotype_means": {
+          "free_generation": 1.0,
+          "rag_generation": 1.0,
+          "rag_execution": 1.0,
+          "skill_generation": 1.0,
+          "skill_execution": 1.0
+        },
+        "authored_min": 1.0,
+        "rag_mean": 1.0,
+        "group": "authored_only"
+      },
+      {
+        "case_id": "cyp2c19_vori_nm",
+        "phenotype_means": {
+          "free_generation": 0.9166666666666666,
+          "rag_generation": 1.0,
+          "rag_execution": 1.0,
+          "skill_generation": 1.0,
+          "skill_execution": 1.0
+        },
+        "authored_min": 1.0,
+        "rag_mean": 1.0,
+        "group": "authored_only"
+      },
+      {
+        "case_id": "cyp2c19_vori_pm",
+        "phenotype_means": {
+          "free_generation": 0.875,
+          "rag_generation": 1.0,
+          "rag_execution": 0.875,
+          "skill_generation": 0.9583333333333334,
+          "skill_execution": 1.0
+        },
+        "authored_min": 0.875,
+        "rag_mean": 1.0,
+        "group": "neither"
+      },
+      {
+        "case_id": "cyp2c19_vori_rm",
+        "phenotype_means": {
+          "free_generation": 0.875,
+          "rag_generation": 1.0,
+          "rag_execution": 1.0,
+          "skill_generation": 1.0,
+          "skill_execution": 1.0
+        },
+        "authored_min": 1.0,
+        "rag_mean": 1.0,
+        "group": "authored_only"
+      },
+      {
+        "case_id": "cyp2c19_vori_um",
+        "phenotype_means": {
+          "free_generation": 0.875,
+          "rag_generation": 0.875,
+          "rag_execution": 0.875,
+          "skill_generation": 0.9583333333333334,
+          "skill_execution": 0.9583333333333334
+        },
+        "authored_min": 0.875,
+        "rag_mean": 0.875,
+        "group": "neither"
+      },
+      {
+        "case_id": "cyp2c9_celec_im",
+        "phenotype_means": {
+          "free_generation": 1.0,
+          "rag_generation": 1.0,
+          "rag_execution": 1.0,
+          "skill_generation": 1.0,
+          "skill_execution": 1.0
+        },
+        "authored_min": 1.0,
+        "rag_mean": 1.0,
+        "group": "authored_only"
+      },
+      {
+        "case_id": "cyp2c9_celec_nm",
+        "phenotype_means": {
+          "free_generation": 1.0,
+          "rag_generation": 1.0,
+          "rag_execution": 1.0,
+          "skill_generation": 1.0,
+          "skill_execution": 1.0
+        },
+        "authored_min": 1.0,
+        "rag_mean": 1.0,
+        "group": "authored_only"
+      },
+      {
+        "case_id": "cyp2c9_celec_pm",
+        "phenotype_means": {
+          "free_generation": 0.4166666666666667,
+          "rag_generation": 0.625,
+          "rag_execution": 0.5416666666666666,
+          "skill_generation": 0.5833333333333334,
+          "skill_execution": 0.4166666666666667
+        },
+        "authored_min": 0.4166666666666667,
+        "rag_mean": 0.625,
+        "group": "neither"
+      },
+      {
+        "case_id": "cyp2c9_phen_im",
+        "phenotype_means": {
+          "free_generation": 1.0,
+          "rag_generation": 1.0,
+          "rag_execution": 1.0,
+          "skill_generation": 1.0,
+          "skill_execution": 1.0
+        },
+        "authored_min": 1.0,
+        "rag_mean": 1.0,
+        "group": "authored_only"
+      },
+      {
+        "case_id": "cyp2c9_phen_nm",
+        "phenotype_means": {
+          "free_generation": 1.0,
+          "rag_generation": 1.0,
+          "rag_execution": 1.0,
+          "skill_generation": 1.0,
+          "skill_execution": 1.0
+        },
+        "authored_min": 1.0,
+        "rag_mean": 1.0,
+        "group": "authored_only"
+      },
+      {
+        "case_id": "cyp2c9_phen_pm",
+        "phenotype_means": {
+          "free_generation": 0.3333333333333333,
+          "rag_generation": 0.6666666666666666,
+          "rag_execution": 0.625,
+          "skill_generation": 0.6666666666666666,
+          "skill_execution": 0.5833333333333334
+        },
+        "authored_min": 0.5833333333333334,
+        "rag_mean": 0.6666666666666666,
+        "group": "neither"
+      },
+      {
+        "case_id": "cyp2c9_warf_im",
+        "phenotype_means": {
+          "free_generation": 1.0,
+          "rag_generation": 1.0,
+          "rag_execution": 1.0,
+          "skill_generation": 1.0,
+          "skill_execution": 1.0
+        },
+        "authored_min": 1.0,
+        "rag_mean": 1.0,
+        "group": "authored_only"
+      },
+      {
+        "case_id": "cyp2c9_warf_nm",
+        "phenotype_means": {
+          "free_generation": 0.875,
+          "rag_generation": 1.0,
+          "rag_execution": 1.0,
+          "skill_generation": 1.0,
+          "skill_execution": 1.0
+        },
+        "authored_min": 1.0,
+        "rag_mean": 1.0,
+        "group": "authored_only"
+      },
+      {
+        "case_id": "cyp2c9_warf_pm",
+        "phenotype_means": {
+          "free_generation": 1.0,
+          "rag_generation": 1.0,
+          "rag_execution": 1.0,
+          "skill_generation": 1.0,
+          "skill_execution": 1.0
+        },
+        "authored_min": 1.0,
+        "rag_mean": 1.0,
+        "group": "authored_only"
+      },
+      {
+        "case_id": "cyp2d6_amitrip_im",
+        "phenotype_means": {
+          "free_generation": 0.7291666666666666,
+          "rag_generation": 0.041666666666666664,
+          "rag_execution": 1.0,
+          "skill_generation": 1.0,
+          "skill_execution": 1.0
+        },
+        "authored_min": 1.0,
+        "rag_mean": 0.041666666666666664,
+        "group": "selected"
+      },
+      {
+        "case_id": "cyp2d6_amitrip_nm",
+        "phenotype_means": {
+          "free_generation": 1.0,
+          "rag_generation": 1.0,
+          "rag_execution": 1.0,
+          "skill_generation": 1.0,
+          "skill_execution": 1.0
+        },
+        "authored_min": 1.0,
+        "rag_mean": 1.0,
+        "group": "authored_only"
+      },
+      {
+        "case_id": "cyp2d6_amitrip_pm",
+        "phenotype_means": {
+          "free_generation": 0.875,
+          "rag_generation": 0.875,
+          "rag_execution": 0.875,
+          "skill_generation": 0.9583333333333334,
+          "skill_execution": 1.0
+        },
+        "authored_min": 0.875,
+        "rag_mean": 0.875,
+        "group": "neither"
+      },
+      {
+        "case_id": "cyp2d6_amitrip_um",
+        "phenotype_means": {
+          "free_generation": 1.0,
+          "rag_generation": 1.0,
+          "rag_execution": 1.0,
+          "skill_generation": 1.0,
+          "skill_execution": 1.0
+        },
+        "authored_min": 1.0,
+        "rag_mean": 1.0,
+        "group": "authored_only"
+      },
+      {
+        "case_id": "cyp2d6_codeine_im",
+        "phenotype_means": {
+          "free_generation": 0.9791666666666666,
+          "rag_generation": 0.4583333333333333,
+          "rag_execution": 1.0,
+          "skill_generation": 1.0,
+          "skill_execution": 1.0
+        },
+        "authored_min": 1.0,
+        "rag_mean": 0.4583333333333333,
+        "group": "authored_only"
+      },
+      {
+        "case_id": "cyp2d6_codeine_im_decreased",
+        "phenotype_means": {
+          "free_generation": 0.8333333333333334,
+          "rag_generation": 0.9166666666666666,
+          "rag_execution": 1.0,
+          "skill_generation": 0.9583333333333334,
+          "skill_execution": 1.0
+        },
+        "authored_min": 0.9583333333333334,
+        "rag_mean": 0.9166666666666666,
+        "group": "authored_only"
+      },
+      {
+        "case_id": "cyp2d6_codeine_nm",
+        "phenotype_means": {
+          "free_generation": 0.875,
+          "rag_generation": 1.0,
+          "rag_execution": 1.0,
+          "skill_generation": 1.0,
+          "skill_execution": 1.0
+        },
+        "authored_min": 1.0,
+        "rag_mean": 1.0,
+        "group": "authored_only"
+      },
+      {
+        "case_id": "cyp2d6_codeine_pm",
+        "phenotype_means": {
+          "free_generation": 1.0,
+          "rag_generation": 0.9583333333333334,
+          "rag_execution": 1.0,
+          "skill_generation": 1.0,
+          "skill_execution": 1.0
+        },
+        "authored_min": 1.0,
+        "rag_mean": 0.9583333333333334,
+        "group": "authored_only"
+      },
+      {
+        "case_id": "cyp2d6_codeine_um",
+        "phenotype_means": {
+          "free_generation": 1.0,
+          "rag_generation": 1.0,
+          "rag_execution": 1.0,
+          "skill_generation": 1.0,
+          "skill_execution": 1.0
+        },
+        "authored_min": 1.0,
+        "rag_mean": 1.0,
+        "group": "authored_only"
+      },
+      {
+        "case_id": "cyp2d6_ondan_nm",
+        "phenotype_means": {
+          "free_generation": 0.8333333333333334,
+          "rag_generation": 1.0,
+          "rag_execution": 1.0,
+          "skill_generation": 1.0,
+          "skill_execution": 1.0
+        },
+        "authored_min": 1.0,
+        "rag_mean": 1.0,
+        "group": "authored_only"
+      },
+      {
+        "case_id": "cyp2d6_ondan_pm",
+        "phenotype_means": {
+          "free_generation": 0.875,
+          "rag_generation": 0.875,
+          "rag_execution": 0.875,
+          "skill_generation": 0.9166666666666666,
+          "skill_execution": 0.875
+        },
+        "authored_min": 0.875,
+        "rag_mean": 0.875,
+        "group": "neither"
+      },
+      {
+        "case_id": "cyp2d6_ondan_um",
+        "phenotype_means": {
+          "free_generation": 1.0,
+          "rag_generation": 1.0,
+          "rag_execution": 1.0,
+          "skill_generation": 0.9583333333333334,
+          "skill_execution": 1.0
+        },
+        "authored_min": 0.9583333333333334,
+        "rag_mean": 1.0,
+        "group": "authored_only"
+      },
+      {
+        "case_id": "cyp2d6_parox_im",
+        "phenotype_means": {
+          "free_generation": 0.875,
+          "rag_generation": 0.5625,
+          "rag_execution": 1.0,
+          "skill_generation": 1.0,
+          "skill_execution": 1.0
+        },
+        "authored_min": 1.0,
+        "rag_mean": 0.5625,
+        "group": "authored_only"
+      },
+      {
+        "case_id": "cyp2d6_parox_nm",
+        "phenotype_means": {
+          "free_generation": 0.875,
+          "rag_generation": 0.9583333333333334,
+          "rag_execution": 1.0,
+          "skill_generation": 1.0,
+          "skill_execution": 1.0
+        },
+        "authored_min": 1.0,
+        "rag_mean": 0.9583333333333334,
+        "group": "authored_only"
+      },
+      {
+        "case_id": "cyp2d6_parox_pm",
+        "phenotype_means": {
+          "free_generation": 0.9166666666666666,
+          "rag_generation": 0.9166666666666666,
+          "rag_execution": 0.9166666666666666,
+          "skill_generation": 1.0,
+          "skill_execution": 0.9166666666666666
+        },
+        "authored_min": 0.9166666666666666,
+        "rag_mean": 0.9166666666666666,
+        "group": "neither"
+      },
+      {
+        "case_id": "cyp2d6_parox_um",
+        "phenotype_means": {
+          "free_generation": 0.9583333333333334,
+          "rag_generation": 1.0,
+          "rag_execution": 1.0,
+          "skill_generation": 0.9583333333333334,
+          "skill_execution": 1.0
+        },
+        "authored_min": 0.9583333333333334,
+        "rag_mean": 1.0,
+        "group": "authored_only"
+      },
+      {
+        "case_id": "cyp2d6_tamox_im",
+        "phenotype_means": {
+          "free_generation": 0.9583333333333334,
+          "rag_generation": 0.625,
+          "rag_execution": 1.0,
+          "skill_generation": 1.0,
+          "skill_execution": 1.0
+        },
+        "authored_min": 1.0,
+        "rag_mean": 0.625,
+        "group": "authored_only"
+      },
+      {
+        "case_id": "cyp2d6_tamox_nm",
+        "phenotype_means": {
+          "free_generation": 0.9583333333333334,
+          "rag_generation": 1.0,
+          "rag_execution": 1.0,
+          "skill_generation": 1.0,
+          "skill_execution": 1.0
+        },
+        "authored_min": 1.0,
+        "rag_mean": 1.0,
+        "group": "authored_only"
+      },
+      {
+        "case_id": "cyp2d6_tamox_pm",
+        "phenotype_means": {
+          "free_generation": 1.0,
+          "rag_generation": 0.9583333333333334,
+          "rag_execution": 1.0,
+          "skill_generation": 0.9583333333333334,
+          "skill_execution": 1.0
+        },
+        "authored_min": 0.9583333333333334,
+        "rag_mean": 0.9583333333333334,
+        "group": "authored_only"
+      },
+      {
+        "case_id": "cyp2d6_tamox_um",
+        "phenotype_means": {
+          "free_generation": 1.0,
+          "rag_generation": 1.0,
+          "rag_execution": 1.0,
+          "skill_generation": 1.0,
+          "skill_execution": 1.0
+        },
+        "authored_min": 1.0,
+        "rag_mean": 1.0,
+        "group": "authored_only"
+      },
+      {
+        "case_id": "cyp3a5_tacr_im",
+        "phenotype_means": {
+          "free_generation": 0.9583333333333334,
+          "rag_generation": 1.0,
+          "rag_execution": 1.0,
+          "skill_generation": 1.0,
+          "skill_execution": 1.0
+        },
+        "authored_min": 1.0,
+        "rag_mean": 1.0,
+        "group": "authored_only"
+      },
+      {
+        "case_id": "cyp3a5_tacr_nm_expressor",
+        "phenotype_means": {
+          "free_generation": 0.8125,
+          "rag_generation": 1.0,
+          "rag_execution": 1.0,
+          "skill_generation": 1.0,
+          "skill_execution": 1.0
+        },
+        "authored_min": 1.0,
+        "rag_mean": 1.0,
+        "group": "authored_only"
+      },
+      {
+        "case_id": "cyp3a5_tacr_pm_nonexpressor",
+        "phenotype_means": {
+          "free_generation": 0.625,
+          "rag_generation": 0.9166666666666666,
+          "rag_execution": 0.8333333333333334,
+          "skill_generation": 0.6666666666666666,
+          "skill_execution": 0.9166666666666666
+        },
+        "authored_min": 0.6666666666666666,
+        "rag_mean": 0.9166666666666666,
+        "group": "neither"
+      },
+      {
+        "case_id": "cyp4f2_warf_decr",
+        "phenotype_means": {
+          "free_generation": 0.0,
+          "rag_generation": 0.041666666666666664,
+          "rag_execution": 0.9166666666666666,
+          "skill_generation": 0.9583333333333334,
+          "skill_execution": 1.0
+        },
+        "authored_min": 0.9166666666666666,
+        "rag_mean": 0.041666666666666664,
+        "group": "rag_only"
+      },
+      {
+        "case_id": "cyp4f2_warf_normal",
+        "phenotype_means": {
+          "free_generation": 0.25,
+          "rag_generation": 0.25,
+          "rag_execution": 1.0,
+          "skill_generation": 1.0,
+          "skill_execution": 1.0
+        },
+        "authored_min": 1.0,
+        "rag_mean": 0.25,
+        "group": "authored_only"
+      },
+      {
+        "case_id": "dpyd_cape_im",
+        "phenotype_means": {
+          "free_generation": 0.875,
+          "rag_generation": 0.9166666666666666,
+          "rag_execution": 1.0,
+          "skill_generation": 1.0,
+          "skill_execution": 1.0
+        },
+        "authored_min": 1.0,
+        "rag_mean": 0.9166666666666666,
+        "group": "authored_only"
+      },
+      {
+        "case_id": "dpyd_cape_nm",
+        "phenotype_means": {
+          "free_generation": 0.5625,
+          "rag_generation": 1.0,
+          "rag_execution": 1.0,
+          "skill_generation": 1.0,
+          "skill_execution": 1.0
+        },
+        "authored_min": 1.0,
+        "rag_mean": 1.0,
+        "group": "authored_only"
+      },
+      {
+        "case_id": "dpyd_cape_pm",
+        "phenotype_means": {
+          "free_generation": 0.4375,
+          "rag_generation": 0.625,
+          "rag_execution": 0.75,
+          "skill_generation": 0.75,
+          "skill_execution": 0.7083333333333334
+        },
+        "authored_min": 0.7083333333333334,
+        "rag_mean": 0.625,
+        "group": "neither"
+      },
+      {
+        "case_id": "dpyd_fu_im_2a",
+        "phenotype_means": {
+          "free_generation": 0.875,
+          "rag_generation": 1.0,
+          "rag_execution": 1.0,
+          "skill_generation": 1.0,
+          "skill_execution": 1.0
+        },
+        "authored_min": 1.0,
+        "rag_mean": 1.0,
+        "group": "authored_only"
+      },
+      {
+        "case_id": "dpyd_fu_im_hapb3",
+        "phenotype_means": {
+          "free_generation": 1.0,
+          "rag_generation": 1.0,
+          "rag_execution": 1.0,
+          "skill_generation": 1.0,
+          "skill_execution": 1.0
+        },
+        "authored_min": 1.0,
+        "rag_mean": 1.0,
+        "group": "authored_only"
+      },
+      {
+        "case_id": "dpyd_fu_nm",
+        "phenotype_means": {
+          "free_generation": 0.5833333333333334,
+          "rag_generation": 1.0,
+          "rag_execution": 1.0,
+          "skill_generation": 1.0,
+          "skill_execution": 1.0
+        },
+        "authored_min": 1.0,
+        "rag_mean": 1.0,
+        "group": "authored_only"
+      },
+      {
+        "case_id": "dpyd_fu_pm",
+        "phenotype_means": {
+          "free_generation": 0.4583333333333333,
+          "rag_generation": 0.875,
+          "rag_execution": 0.875,
+          "skill_generation": 0.7083333333333334,
+          "skill_execution": 0.8333333333333334
+        },
+        "authored_min": 0.7083333333333334,
+        "rag_mean": 0.875,
+        "group": "neither"
+      },
+      {
+        "case_id": "g6pd_prim_def",
+        "phenotype_means": {
+          "free_generation": 1.0,
+          "rag_generation": 1.0,
+          "rag_execution": 1.0,
+          "skill_generation": 0.9583333333333334,
+          "skill_execution": 1.0
+        },
+        "authored_min": 0.9583333333333334,
+        "rag_mean": 1.0,
+        "group": "authored_only"
+      },
+      {
+        "case_id": "g6pd_prim_int",
+        "phenotype_means": {
+          "free_generation": 0.625,
+          "rag_generation": 0.9166666666666666,
+          "rag_execution": 1.0,
+          "skill_generation": 1.0,
+          "skill_execution": 1.0
+        },
+        "authored_min": 1.0,
+        "rag_mean": 0.9166666666666666,
+        "group": "authored_only"
+      },
+      {
+        "case_id": "g6pd_prim_normal",
+        "phenotype_means": {
+          "free_generation": 0.9583333333333334,
+          "rag_generation": 0.875,
+          "rag_execution": 0.875,
+          "skill_generation": 0.9583333333333334,
+          "skill_execution": 1.0
+        },
+        "authored_min": 0.875,
+        "rag_mean": 0.875,
+        "group": "neither"
+      },
+      {
+        "case_id": "g6pd_rasb_def_mild",
+        "phenotype_means": {
+          "free_generation": 1.0,
+          "rag_generation": 1.0,
+          "rag_execution": 1.0,
+          "skill_generation": 1.0,
+          "skill_execution": 1.0
+        },
+        "authored_min": 1.0,
+        "rag_mean": 1.0,
+        "group": "authored_only"
+      },
+      {
+        "case_id": "g6pd_rasb_def_severe",
+        "phenotype_means": {
+          "free_generation": 1.0,
+          "rag_generation": 1.0,
+          "rag_execution": 0.9583333333333334,
+          "skill_generation": 1.0,
+          "skill_execution": 1.0
+        },
+        "authored_min": 0.9583333333333334,
+        "rag_mean": 1.0,
+        "group": "authored_only"
+      },
+      {
+        "case_id": "g6pd_rasb_normal",
+        "phenotype_means": {
+          "free_generation": 1.0,
+          "rag_generation": 0.875,
+          "rag_execution": 1.0,
+          "skill_generation": 1.0,
+          "skill_execution": 1.0
+        },
+        "authored_min": 1.0,
+        "rag_mean": 0.875,
+        "group": "authored_only"
+      },
+      {
+        "case_id": "hlaa3101_carba_neg",
+        "phenotype_means": {
+          "free_generation": 0.20833333333333334,
+          "rag_generation": 0.08333333333333333,
+          "rag_execution": 1.0,
+          "skill_generation": 1.0,
+          "skill_execution": 1.0
+        },
+        "authored_min": 1.0,
+        "rag_mean": 0.08333333333333333,
+        "group": "selected"
+      },
+      {
+        "case_id": "hlaa3101_carba_pos",
+        "phenotype_means": {
+          "free_generation": 0.16666666666666666,
+          "rag_generation": 0.375,
+          "rag_execution": 1.0,
+          "skill_generation": 1.0,
+          "skill_execution": 1.0
+        },
+        "authored_min": 1.0,
+        "rag_mean": 0.375,
+        "group": "authored_only"
+      },
+      {
+        "case_id": "hlab1502_carba_neg",
+        "phenotype_means": {
+          "free_generation": 0.125,
+          "rag_generation": 0.4375,
+          "rag_execution": 1.0,
+          "skill_generation": 1.0,
+          "skill_execution": 1.0
+        },
+        "authored_min": 1.0,
+        "rag_mean": 0.4375,
+        "group": "authored_only"
+      },
+      {
+        "case_id": "hlab1502_carba_pos",
+        "phenotype_means": {
+          "free_generation": 0.20833333333333334,
+          "rag_generation": 0.625,
+          "rag_execution": 1.0,
+          "skill_generation": 1.0,
+          "skill_execution": 1.0
+        },
+        "authored_min": 1.0,
+        "rag_mean": 0.625,
+        "group": "authored_only"
+      },
+      {
+        "case_id": "hlab1502_oxcarba_neg",
+        "phenotype_means": {
+          "free_generation": 0.25,
+          "rag_generation": 0.3333333333333333,
+          "rag_execution": 1.0,
+          "skill_generation": 1.0,
+          "skill_execution": 1.0
+        },
+        "authored_min": 1.0,
+        "rag_mean": 0.3333333333333333,
+        "group": "authored_only"
+      },
+      {
+        "case_id": "hlab1502_oxcarba_pos",
+        "phenotype_means": {
+          "free_generation": 0.20833333333333334,
+          "rag_generation": 0.5,
+          "rag_execution": 1.0,
+          "skill_generation": 1.0,
+          "skill_execution": 1.0
+        },
+        "authored_min": 1.0,
+        "rag_mean": 0.5,
+        "group": "authored_only"
+      },
+      {
+        "case_id": "hlab5701_aba_neg",
+        "phenotype_means": {
+          "free_generation": 0.25,
+          "rag_generation": 0.041666666666666664,
+          "rag_execution": 1.0,
+          "skill_generation": 1.0,
+          "skill_execution": 1.0
+        },
+        "authored_min": 1.0,
+        "rag_mean": 0.041666666666666664,
+        "group": "selected"
+      },
+      {
+        "case_id": "hlab5701_aba_pos",
+        "phenotype_means": {
+          "free_generation": 0.25,
+          "rag_generation": 0.0,
+          "rag_execution": 1.0,
+          "skill_generation": 1.0,
+          "skill_execution": 1.0
+        },
+        "authored_min": 1.0,
+        "rag_mean": 0.0,
+        "group": "selected"
+      },
+      {
+        "case_id": "hlab5801_allo_neg",
+        "phenotype_means": {
+          "free_generation": 0.20833333333333334,
+          "rag_generation": 0.0,
+          "rag_execution": 1.0,
+          "skill_generation": 1.0,
+          "skill_execution": 1.0
+        },
+        "authored_min": 1.0,
+        "rag_mean": 0.0,
+        "group": "selected"
+      },
+      {
+        "case_id": "hlab5801_allo_pos",
+        "phenotype_means": {
+          "free_generation": 0.25,
+          "rag_generation": 0.0,
+          "rag_execution": 1.0,
+          "skill_generation": 1.0,
+          "skill_execution": 1.0
+        },
+        "authored_min": 1.0,
+        "rag_mean": 0.0,
+        "group": "selected"
+      },
+      {
+        "case_id": "ifnl3_pegifn_fav",
+        "phenotype_means": {
+          "free_generation": 0.3333333333333333,
+          "rag_generation": 1.0,
+          "rag_execution": 1.0,
+          "skill_generation": 1.0,
+          "skill_execution": 1.0
+        },
+        "authored_min": 1.0,
+        "rag_mean": 1.0,
+        "group": "authored_only"
+      },
+      {
+        "case_id": "ifnl3_pegifn_unf",
+        "phenotype_means": {
+          "free_generation": 0.25,
+          "rag_generation": 1.0,
+          "rag_execution": 1.0,
+          "skill_generation": 1.0,
+          "skill_execution": 1.0
+        },
+        "authored_min": 1.0,
+        "rag_mean": 1.0,
+        "group": "authored_only"
+      },
+      {
+        "case_id": "mtrnr1_amino_var",
+        "phenotype_means": {
+          "free_generation": 0.0,
+          "rag_generation": 0.0,
+          "rag_execution": 1.0,
+          "skill_generation": 1.0,
+          "skill_execution": 1.0
+        },
+        "authored_min": 1.0,
+        "rag_mean": 0.0,
+        "group": "selected"
+      },
+      {
+        "case_id": "mtrnr1_amino_wt",
+        "phenotype_means": {
+          "free_generation": 0.8333333333333334,
+          "rag_generation": 1.0,
+          "rag_execution": 1.0,
+          "skill_generation": 1.0,
+          "skill_execution": 1.0
+        },
+        "authored_min": 1.0,
+        "rag_mean": 1.0,
+        "group": "authored_only"
+      },
+      {
+        "case_id": "nudt15_thio_im",
+        "phenotype_means": {
+          "free_generation": 0.9583333333333334,
+          "rag_generation": 1.0,
+          "rag_execution": 1.0,
+          "skill_generation": 1.0,
+          "skill_execution": 1.0
+        },
+        "authored_min": 1.0,
+        "rag_mean": 1.0,
+        "group": "authored_only"
+      },
+      {
+        "case_id": "nudt15_thio_nm",
+        "phenotype_means": {
+          "free_generation": 0.8541666666666666,
+          "rag_generation": 0.9583333333333334,
+          "rag_execution": 1.0,
+          "skill_generation": 1.0,
+          "skill_execution": 1.0
+        },
+        "authored_min": 1.0,
+        "rag_mean": 0.9583333333333334,
+        "group": "authored_only"
+      },
+      {
+        "case_id": "nudt15_thio_pm",
+        "phenotype_means": {
+          "free_generation": 0.6666666666666666,
+          "rag_generation": 0.875,
+          "rag_execution": 1.0,
+          "skill_generation": 0.875,
+          "skill_execution": 1.0
+        },
+        "authored_min": 0.875,
+        "rag_mean": 0.875,
+        "group": "neither"
+      },
+      {
+        "case_id": "ryr1_anaes_norm",
+        "phenotype_means": {
+          "free_generation": 0.3541666666666667,
+          "rag_generation": 0.0,
+          "rag_execution": 1.0,
+          "skill_generation": 1.0,
+          "skill_execution": 1.0
+        },
+        "authored_min": 1.0,
+        "rag_mean": 0.0,
+        "group": "selected"
+      },
+      {
+        "case_id": "ryr1_anaes_susc",
+        "phenotype_means": {
+          "free_generation": 0.9583333333333334,
+          "rag_generation": 1.0,
+          "rag_execution": 1.0,
+          "skill_generation": 1.0,
+          "skill_execution": 1.0
+        },
+        "authored_min": 1.0,
+        "rag_mean": 1.0,
+        "group": "authored_only"
+      },
+      {
+        "case_id": "slco1b1_atorv_decr",
+        "phenotype_means": {
+          "free_generation": 0.75,
+          "rag_generation": 1.0,
+          "rag_execution": 1.0,
+          "skill_generation": 1.0,
+          "skill_execution": 1.0
+        },
+        "authored_min": 1.0,
+        "rag_mean": 1.0,
+        "group": "authored_only"
+      },
+      {
+        "case_id": "slco1b1_atorv_normal",
+        "phenotype_means": {
+          "free_generation": 0.875,
+          "rag_generation": 1.0,
+          "rag_execution": 1.0,
+          "skill_generation": 0.75,
+          "skill_execution": 0.8333333333333334
+        },
+        "authored_min": 0.75,
+        "rag_mean": 1.0,
+        "group": "neither"
+      },
+      {
+        "case_id": "slco1b1_atorv_poor",
+        "phenotype_means": {
+          "free_generation": 0.5,
+          "rag_generation": 1.0,
+          "rag_execution": 1.0,
+          "skill_generation": 0.75,
+          "skill_execution": 0.625
+        },
+        "authored_min": 0.625,
+        "rag_mean": 1.0,
+        "group": "neither"
+      },
+      {
+        "case_id": "slco1b1_simva_decr",
+        "phenotype_means": {
+          "free_generation": 0.625,
+          "rag_generation": 1.0,
+          "rag_execution": 1.0,
+          "skill_generation": 1.0,
+          "skill_execution": 1.0
+        },
+        "authored_min": 1.0,
+        "rag_mean": 1.0,
+        "group": "authored_only"
+      },
+      {
+        "case_id": "slco1b1_simva_normal",
+        "phenotype_means": {
+          "free_generation": 0.6666666666666666,
+          "rag_generation": 1.0,
+          "rag_execution": 1.0,
+          "skill_generation": 1.0,
+          "skill_execution": 1.0
+        },
+        "authored_min": 1.0,
+        "rag_mean": 1.0,
+        "group": "authored_only"
+      },
+      {
+        "case_id": "slco1b1_simva_poor",
+        "phenotype_means": {
+          "free_generation": 0.5,
+          "rag_generation": 1.0,
+          "rag_execution": 1.0,
+          "skill_generation": 0.875,
+          "skill_execution": 0.7083333333333334
+        },
+        "authored_min": 0.7083333333333334,
+        "rag_mean": 1.0,
+        "group": "neither"
+      },
+      {
+        "case_id": "tpmt_aza_im_3b",
+        "phenotype_means": {
+          "free_generation": 0.9583333333333334,
+          "rag_generation": 1.0,
+          "rag_execution": 0.9583333333333334,
+          "skill_generation": 1.0,
+          "skill_execution": 1.0
+        },
+        "authored_min": 0.9583333333333334,
+        "rag_mean": 1.0,
+        "group": "authored_only"
+      },
+      {
+        "case_id": "tpmt_aza_im_3c",
+        "phenotype_means": {
+          "free_generation": 1.0,
+          "rag_generation": 1.0,
+          "rag_execution": 1.0,
+          "skill_generation": 1.0,
+          "skill_execution": 1.0
+        },
+        "authored_min": 1.0,
+        "rag_mean": 1.0,
+        "group": "authored_only"
+      },
+      {
+        "case_id": "tpmt_aza_nm",
+        "phenotype_means": {
+          "free_generation": 0.7708333333333334,
+          "rag_generation": 0.875,
+          "rag_execution": 1.0,
+          "skill_generation": 1.0,
+          "skill_execution": 1.0
+        },
+        "authored_min": 1.0,
+        "rag_mean": 0.875,
+        "group": "authored_only"
+      },
+      {
+        "case_id": "tpmt_aza_pm",
+        "phenotype_means": {
+          "free_generation": 0.6666666666666666,
+          "rag_generation": 0.6666666666666666,
+          "rag_execution": 0.5,
+          "skill_generation": 0.75,
+          "skill_execution": 0.5
+        },
+        "authored_min": 0.5,
+        "rag_mean": 0.6666666666666666,
+        "group": "neither"
+      },
+      {
+        "case_id": "ugt1a1_ataz_im",
+        "phenotype_means": {
+          "free_generation": 0.8333333333333334,
+          "rag_generation": 1.0,
+          "rag_execution": 1.0,
+          "skill_generation": 1.0,
+          "skill_execution": 1.0
+        },
+        "authored_min": 1.0,
+        "rag_mean": 1.0,
+        "group": "authored_only"
+      },
+      {
+        "case_id": "ugt1a1_ataz_nm",
+        "phenotype_means": {
+          "free_generation": 0.625,
+          "rag_generation": 0.9166666666666666,
+          "rag_execution": 1.0,
+          "skill_generation": 1.0,
+          "skill_execution": 1.0
+        },
+        "authored_min": 1.0,
+        "rag_mean": 0.9166666666666666,
+        "group": "authored_only"
+      },
+      {
+        "case_id": "ugt1a1_ataz_pm",
+        "phenotype_means": {
+          "free_generation": 0.9166666666666666,
+          "rag_generation": 1.0,
+          "rag_execution": 1.0,
+          "skill_generation": 1.0,
+          "skill_execution": 1.0
+        },
+        "authored_min": 1.0,
+        "rag_mean": 1.0,
+        "group": "authored_only"
+      },
+      {
+        "case_id": "ugt1a1_iri_im",
+        "phenotype_means": {
+          "free_generation": 0.875,
+          "rag_generation": 1.0,
+          "rag_execution": 1.0,
+          "skill_generation": 1.0,
+          "skill_execution": 1.0
+        },
+        "authored_min": 1.0,
+        "rag_mean": 1.0,
+        "group": "authored_only"
+      },
+      {
+        "case_id": "ugt1a1_iri_nm",
+        "phenotype_means": {
+          "free_generation": 0.7291666666666666,
+          "rag_generation": 0.7708333333333334,
+          "rag_execution": 1.0,
+          "skill_generation": 1.0,
+          "skill_execution": 1.0
+        },
+        "authored_min": 1.0,
+        "rag_mean": 0.7708333333333334,
+        "group": "authored_only"
+      },
+      {
+        "case_id": "ugt1a1_iri_pm",
+        "phenotype_means": {
+          "free_generation": 0.875,
+          "rag_generation": 1.0,
+          "rag_execution": 1.0,
+          "skill_generation": 1.0,
+          "skill_execution": 1.0
+        },
+        "authored_min": 1.0,
+        "rag_mean": 1.0,
+        "group": "authored_only"
+      },
+      {
+        "case_id": "vkorc1_warf_normal",
+        "phenotype_means": {
+          "free_generation": 0.9166666666666666,
+          "rag_generation": 1.0,
+          "rag_execution": 1.0,
+          "skill_generation": 1.0,
+          "skill_execution": 1.0
+        },
+        "authored_min": 1.0,
+        "rag_mean": 1.0,
+        "group": "authored_only"
+      },
+      {
+        "case_id": "vkorc1_warf_sens",
+        "phenotype_means": {
+          "free_generation": 0.20833333333333334,
+          "rag_generation": 0.25,
+          "rag_execution": 1.0,
+          "skill_generation": 1.0,
+          "skill_execution": 1.0
+        },
+        "authored_min": 1.0,
+        "rag_mean": 0.25,
+        "group": "authored_only"
+      }
+    ]
+  },
+  "ryr1_diagnostic": {
+    "corrected_reference": {
+      "id": "ryr1_anaes_norm",
+      "gene": "RYR1",
+      "drug": "volatile-anaesthetics",
+      "genotype": "RYR1 no pathogenic variant",
+      "gt_diplotype": "RYR1 wildtype",
+      "gt_phenotype": "Uncertain susceptibility",
+      "gt_drug": "volatile-anaesthetics: a negative RYR1 result does not establish normal susceptibility; assess clinical findings, family history and other laboratory data to guide anaesthetic choice and further evaluation",
+      "gt_activity": "non-carrier",
+      "pop_note": {
+        "EUR": "RYR1 pathogenic variants ~1:2000 in EUR \u2014 anaesthesia screening relevant.",
+        "AMR": "RYR1 pathogenic variant frequency variable in Latin Americans.",
+        "AFR": "RYR1 pathogenic variants poorly characterised in African populations."
+      }
+    },
+    "n_responses": 120,
+    "responses": [
+      {
+        "cell": "free_generation",
+        "model": "GPT-5.2",
+        "rep": 0,
+        "parsed_drug": "Use volatile anaesthetics per standard practice; no RYR1-based restriction (remain prepared for MH management if clinically indicated)",
+        "a1_corrected": 0.0,
+        "a2_corrected": 0.5
+      },
+      {
+        "cell": "free_generation",
+        "model": "GPT-5.2",
+        "rep": 1,
+        "parsed_drug": "Volatile anaesthetics\u2014standard use acceptable; no RYR1-based restriction (follow routine anaesthetic precautions and clinical/family history assessment)",
+        "a1_corrected": 0.0,
+        "a2_corrected": 0.5
+      },
+      {
+        "cell": "free_generation",
+        "model": "GPT-5.2",
+        "rep": 2,
+        "parsed_drug": "Volatile anaesthetics can be used per standard practice; no RYR1-based restriction (still follow routine perioperative MH precautions)",
+        "a1_corrected": 0.0,
+        "a2_corrected": 0.5
+      },
+      {
+        "cell": "free_generation",
+        "model": "GPT-4.1",
+        "rep": 0,
+        "parsed_drug": "Use standard dosing for volatile anaesthetics",
+        "a1_corrected": 0.0,
+        "a2_corrected": 0.5
+      },
+      {
+        "cell": "free_generation",
+        "model": "GPT-4.1",
+        "rep": 1,
+        "parsed_drug": "Use volatile anaesthetics as standard; no dose adjustment needed",
+        "a1_corrected": 0.0,
+        "a2_corrected": 0.5
+      },
+      {
+        "cell": "free_generation",
+        "model": "GPT-4.1",
+        "rep": 2,
+        "parsed_drug": "Use standard precautions for volatile anaesthetics",
+        "a1_corrected": 0.0,
+        "a2_corrected": 0.5
+      },
+      {
+        "cell": "free_generation",
+        "model": "o3",
+        "rep": 0,
+        "parsed_drug": "Volatile anaesthetics may be used with standard practice; no genotype-based restrictions",
+        "a1_corrected": 0.0,
+        "a2_corrected": 0.5
+      },
+      {
+        "cell": "free_generation",
+        "model": "o3",
+        "rep": 1,
+        "parsed_drug": "Use volatile anaesthetics per standard practice; no special pharmacogenomic precautions required",
+        "a1_corrected": 0.0,
+        "a2_corrected": 0.5
+      },
+      {
+        "cell": "free_generation",
+        "model": "o3",
+        "rep": 2,
+        "parsed_drug": "Use volatile anaesthetics with standard practice; no genotype-based restrictions",
+        "a1_corrected": 0.0,
+        "a2_corrected": 0.5
+      },
+      {
+        "cell": "free_generation",
+        "model": "o4-mini",
+        "rep": 0,
+        "parsed_drug": "Volatile anesthetics \u2013 standard use, no dose adjustment",
+        "a1_corrected": 0.0,
+        "a2_corrected": 0.5
+      },
+      {
+        "cell": "free_generation",
+        "model": "o4-mini",
+        "rep": 1,
+        "parsed_drug": "Volatile anesthetics can be used per standard protocols",
+        "a1_corrected": 0.0,
+        "a2_corrected": 0.5
+      },
+      {
+        "cell": "free_generation",
+        "model": "o4-mini",
+        "rep": 2,
+        "parsed_drug": "Volatile anesthetics can be used per standard protocols",
+        "a1_corrected": 0.0,
+        "a2_corrected": 0.5
+      },
+      {
+        "cell": "free_generation",
+        "model": "Gemini 2.5 Flash",
+        "rep": 0,
+        "parsed_drug": "Volatile anesthetics can be used as per standard clinical practice.",
+        "a1_corrected": 0.0,
+        "a2_corrected": 0.5
+      },
+      {
+        "cell": "free_generation",
+        "model": "Gemini 2.5 Flash",
+        "rep": 1,
+        "parsed_drug": "Volatile anesthetics can be used according to standard clinical practice.",
+        "a1_corrected": 0.0,
+        "a2_corrected": 0.5
+      },
+      {
+        "cell": "free_generation",
+        "model": "Gemini 2.5 Flash",
+        "rep": 2,
+        "parsed_drug": "Volatile anaesthetics can be administered per standard clinical practice.",
+        "a1_corrected": 0.0,
+        "a2_corrected": 0.5
+      },
+      {
+        "cell": "free_generation",
+        "model": "Claude Opus 4.5",
+        "rep": 0,
+        "parsed_drug": "Standard precautions for volatile anesthetics (e.g., sevoflurane, desflurane, isoflurane); absence of detected RYR1 pathogenic variant does not completely rule out MH susceptibility; clinical and family history should guide management",
+        "a1_corrected": 0.0,
+        "a2_corrected": 0.5
+      },
+      {
+        "cell": "free_generation",
+        "model": "Claude Opus 4.5",
+        "rep": 1,
+        "parsed_drug": "Standard precautions apply; volatile anesthetics (e.g., sevoflurane, desflurane, isoflurane) may be used with routine monitoring, though absence of detected RYR1 variants does not completely exclude MH risk",
+        "a1_corrected": 0.0,
+        "a2_corrected": 0.5
+      },
+      {
+        "cell": "free_generation",
+        "model": "Claude Opus 4.5",
+        "rep": 2,
+        "parsed_drug": "Standard precautions for volatile anesthetics (e.g., sevoflurane, desflurane, isoflurane); however, absence of RYR1 pathogenic variant does not completely rule out MH susceptibility. Consider family history and clinical assessment. If MH risk factors exist, consider non-triggering anesthetics.",
+        "a1_corrected": 0.0,
+        "a2_corrected": 0.5
+      },
+      {
+        "cell": "free_generation",
+        "model": "Claude Sonnet 4.5",
+        "rep": 0,
+        "parsed_drug": "volatile-anaesthetics - No RYR1-related contraindication; standard dosing appropriate",
+        "a1_corrected": 0.0,
+        "a2_corrected": 0.5
+      },
+      {
+        "cell": "free_generation",
+        "model": "Claude Sonnet 4.5",
+        "rep": 1,
+        "parsed_drug": "volatile-anaesthetics - no restrictions, standard dosing appropriate",
+        "a1_corrected": 0.0,
+        "a2_corrected": 0.5
+      },
+      {
+        "cell": "free_generation",
+        "model": "Claude Sonnet 4.5",
+        "rep": 2,
+        "parsed_drug": "Volatile anesthetics (sevoflurane, isoflurane, desflurane, halothane) can be used safely with standard precautions",
+        "a1_corrected": 0.0,
+        "a2_corrected": 0.5
+      },
+      {
+        "cell": "rag_generation",
+        "model": "GPT-5.2",
+        "rep": 0,
+        "parsed_drug": "Use clinical findings, family history, and/or additional testing to guide use of halogenated volatile anesthetics; consider non-triggering alternatives if concern remains",
+        "a1_corrected": 0.0,
+        "a2_corrected": 0.5
+      },
+      {
+        "cell": "rag_generation",
+        "model": "GPT-5.2",
+        "rep": 1,
+        "parsed_drug": "Volatile anesthetics (and succinylcholine): use guided by clinical findings, family history, and/or additional testing; negative genetic result does not exclude MH risk",
+        "a1_corrected": 0.0,
+        "a2_corrected": 0.5
+      },
+      {
+        "cell": "rag_generation",
+        "model": "GPT-5.2",
+        "rep": 2,
+        "parsed_drug": "Volatile anesthetics (halogenated) may be used if clinically indicated; clinical findings, family history, and/or further testing should guide use",
+        "a1_corrected": 0.0,
+        "a2_corrected": 0.5
+      },
+      {
+        "cell": "rag_generation",
+        "model": "GPT-4.1",
+        "rep": 0,
+        "parsed_drug": "Use of volatile anesthetics should be guided by clinical findings, family history, further genetic testing, and other laboratory data.",
+        "a1_corrected": 0.0,
+        "a2_corrected": 0.5
+      },
+      {
+        "cell": "rag_generation",
+        "model": "GPT-4.1",
+        "rep": 1,
+        "parsed_drug": "Use clinical findings, family history, or further testing to guide anesthetic choice; not genetically classified as MH susceptible",
+        "a1_corrected": 0.0,
+        "a2_corrected": 0.5
+      },
+      {
+        "cell": "rag_generation",
+        "model": "GPT-4.1",
+        "rep": 2,
+        "parsed_drug": "Use of volatile anaesthetics should be guided by clinical findings, family history, or other data; these results do not eliminate malignant hyperthermia risk.",
+        "a1_corrected": 0.0,
+        "a2_corrected": 0.5
+      },
+      {
+        "cell": "rag_generation",
+        "model": "o3",
+        "rep": 0,
+        "parsed_drug": "Volatile anaesthetics may be used; apply standard care and consider clinical/family history before choosing halogenated agents or succinylcholine.",
+        "a1_corrected": 0.0,
+        "a2_corrected": 0.5
+      },
+      {
+        "cell": "rag_generation",
+        "model": "o3",
+        "rep": 1,
+        "parsed_drug": "Use standard anesthetic practice; choice of volatile anesthetics may proceed but should be guided by clinical findings, family history and other data.",
+        "a1_corrected": 0.0,
+        "a2_corrected": 0.5
+      },
+      {
+        "cell": "rag_generation",
+        "model": "o3",
+        "rep": 2,
+        "parsed_drug": "Volatile anesthetics may be used with standard precautions; base choice on clinical assessment, family history and other data because absence of a pathogenic variant does not exclude MH risk.",
+        "a1_corrected": 0.0,
+        "a2_corrected": 0.5
+      },
+      {
+        "cell": "rag_generation",
+        "model": "o4-mini",
+        "rep": 0,
+        "parsed_drug": "Volatile anesthetics should be used only after considering clinical findings, family history, further genetic testing and other laboratory data",
+        "a1_corrected": 0.0,
+        "a2_corrected": 0.5
+      },
+      {
+        "cell": "rag_generation",
+        "model": "o4-mini",
+        "rep": 1,
+        "parsed_drug": "Halogenated volatile anesthetics may be used; clinical findings, family history, and additional testing should guide anesthesia choice",
+        "a1_corrected": 0.0,
+        "a2_corrected": 0.5
+      },
+      {
+        "cell": "rag_generation",
+        "model": "o4-mini",
+        "rep": 2,
+        "parsed_drug": "Volatile anesthetics\u2014use clinical findings and family history to guide use; consider alternative non-triggering agents",
+        "a1_corrected": 0.0,
+        "a2_corrected": 0.5
+      },
+      {
+        "cell": "rag_generation",
+        "model": "Gemini 2.5 Flash",
+        "rep": 0,
+        "parsed_drug": "Guide use of volatile anesthetics based on clinical findings, family history, and other data.",
+        "a1_corrected": 0.0,
+        "a2_corrected": 0.5
+      },
+      {
+        "cell": "rag_generation",
+        "model": "Gemini 2.5 Flash",
+        "rep": 1,
+        "parsed_drug": "Clinical findings, family history, further genetic testing and other laboratory data should guide use of volatile anesthetics.",
+        "a1_corrected": 0.0,
+        "a2_corrected": 0.5
+      },
+      {
+        "cell": "rag_generation",
+        "model": "Gemini 2.5 Flash",
+        "rep": 2,
+        "parsed_drug": "Clinical findings, family history, further genetic testing and other laboratory data should guide use of volatile-anaesthetics.",
+        "a1_corrected": 0.0,
+        "a2_corrected": 0.5
+      },
+      {
+        "cell": "rag_generation",
+        "model": "Claude Opus 4.5",
+        "rep": 0,
+        "parsed_drug": "Clinical findings, family history, further genetic testing and other laboratory data should guide use of halogenated volatile anesthetics or depolarizing muscle relaxants.",
+        "a1_corrected": 0.0,
+        "a2_corrected": 0.5
+      },
+      {
+        "cell": "rag_generation",
+        "model": "Claude Opus 4.5",
+        "rep": 1,
+        "parsed_drug": "Clinical findings, family history, further genetic testing and other laboratory data should guide use of halogenated volatile anesthetics or depolarizing muscle relaxants.",
+        "a1_corrected": 0.0,
+        "a2_corrected": 0.5
+      },
+      {
+        "cell": "rag_generation",
+        "model": "Claude Opus 4.5",
+        "rep": 2,
+        "parsed_drug": "Clinical findings, family history, further genetic testing and other laboratory data should guide use of halogenated volatile anesthetics or depolarizing muscle relaxants.",
+        "a1_corrected": 0.0,
+        "a2_corrected": 0.5
+      },
+      {
+        "cell": "rag_generation",
+        "model": "Claude Sonnet 4.5",
+        "rep": 0,
+        "parsed_drug": "Clinical findings, family history, further genetic testing and other laboratory data should guide use of halogenated volatile anesthetics or depolarizing muscle relaxants.",
+        "a1_corrected": 0.0,
+        "a2_corrected": 0.5
+      },
+      {
+        "cell": "rag_generation",
+        "model": "Claude Sonnet 4.5",
+        "rep": 1,
+        "parsed_drug": "Clinical findings, family history, further genetic testing and other laboratory data should guide use of halogenated volatile anesthetics or depolarizing muscle relaxants.",
+        "a1_corrected": 0.0,
+        "a2_corrected": 0.5
+      },
+      {
+        "cell": "rag_generation",
+        "model": "Claude Sonnet 4.5",
+        "rep": 2,
+        "parsed_drug": "Clinical findings, family history, further genetic testing and other laboratory data should guide use of halogenated volatile anesthetics or depolarizing muscle relaxants.",
+        "a1_corrected": 0.0,
+        "a2_corrected": 0.5
+      },
+      {
+        "cell": "rag_execution",
+        "model": "Claude Opus 4.5",
+        "rep": 0,
+        "parsed_drug": "volatile-anaesthetics: standard use",
+        "a1_corrected": 0.0,
+        "a2_corrected": 0.5
+      },
+      {
+        "cell": "rag_execution",
+        "model": "Claude Opus 4.5",
+        "rep": 1,
+        "parsed_drug": "volatile-anaesthetics: standard use",
+        "a1_corrected": 0.0,
+        "a2_corrected": 0.5
+      },
+      {
+        "cell": "rag_execution",
+        "model": "Claude Opus 4.5",
+        "rep": 2,
+        "parsed_drug": "volatile-anaesthetics: standard use",
+        "a1_corrected": 0.0,
+        "a2_corrected": 0.5
+      },
+      {
+        "cell": "rag_execution",
+        "model": "Claude Sonnet 4.5",
+        "rep": 0,
+        "parsed_drug": "volatile-anaesthetics: standard use",
+        "a1_corrected": 0.0,
+        "a2_corrected": 0.5
+      },
+      {
+        "cell": "rag_execution",
+        "model": "Claude Sonnet 4.5",
+        "rep": 1,
+        "parsed_drug": "volatile-anaesthetics: standard use",
+        "a1_corrected": 0.0,
+        "a2_corrected": 0.5
+      },
+      {
+        "cell": "rag_execution",
+        "model": "Claude Sonnet 4.5",
+        "rep": 2,
+        "parsed_drug": "volatile-anaesthetics: standard use",
+        "a1_corrected": 0.0,
+        "a2_corrected": 0.5
+      },
+      {
+        "cell": "rag_execution",
+        "model": "GPT-5.2",
+        "rep": 0,
+        "parsed_drug": "volatile-anaesthetics: standard use",
+        "a1_corrected": 0.0,
+        "a2_corrected": 0.5
+      },
+      {
+        "cell": "rag_execution",
+        "model": "GPT-5.2",
+        "rep": 1,
+        "parsed_drug": "volatile-anaesthetics: standard use",
+        "a1_corrected": 0.0,
+        "a2_corrected": 0.5
+      },
+      {
+        "cell": "rag_execution",
+        "model": "GPT-5.2",
+        "rep": 2,
+        "parsed_drug": "volatile-anaesthetics: standard use",
+        "a1_corrected": 0.0,
+        "a2_corrected": 0.5
+      },
+      {
+        "cell": "rag_execution",
+        "model": "GPT-4.1",
+        "rep": 0,
+        "parsed_drug": "volatile-anaesthetics: standard use",
+        "a1_corrected": 0.0,
+        "a2_corrected": 0.5
+      },
+      {
+        "cell": "rag_execution",
+        "model": "GPT-4.1",
+        "rep": 1,
+        "parsed_drug": "volatile-anaesthetics: standard use",
+        "a1_corrected": 0.0,
+        "a2_corrected": 0.5
+      },
+      {
+        "cell": "rag_execution",
+        "model": "GPT-4.1",
+        "rep": 2,
+        "parsed_drug": "volatile-anaesthetics: standard use",
+        "a1_corrected": 0.0,
+        "a2_corrected": 0.5
+      },
+      {
+        "cell": "rag_execution",
+        "model": "o3",
+        "rep": 0,
+        "parsed_drug": "volatile-anaesthetics: standard use",
+        "a1_corrected": 0.0,
+        "a2_corrected": 0.5
+      },
+      {
+        "cell": "rag_execution",
+        "model": "o3",
+        "rep": 1,
+        "parsed_drug": "volatile-anaesthetics: standard use",
+        "a1_corrected": 0.0,
+        "a2_corrected": 0.5
+      },
+      {
+        "cell": "rag_execution",
+        "model": "o3",
+        "rep": 2,
+        "parsed_drug": "volatile-anaesthetics: standard use",
+        "a1_corrected": 0.0,
+        "a2_corrected": 0.5
+      },
+      {
+        "cell": "rag_execution",
+        "model": "o4-mini",
+        "rep": 0,
+        "parsed_drug": "volatile-anaesthetics: standard use",
+        "a1_corrected": 0.0,
+        "a2_corrected": 0.5
+      },
+      {
+        "cell": "rag_execution",
+        "model": "o4-mini",
+        "rep": 1,
+        "parsed_drug": "volatile-anaesthetics: standard use",
+        "a1_corrected": 0.0,
+        "a2_corrected": 0.5
+      },
+      {
+        "cell": "rag_execution",
+        "model": "o4-mini",
+        "rep": 2,
+        "parsed_drug": "volatile-anaesthetics: standard use",
+        "a1_corrected": 0.0,
+        "a2_corrected": 0.5
+      },
+      {
+        "cell": "rag_execution",
+        "model": "Gemini 2.5 Flash",
+        "rep": 0,
+        "parsed_drug": "volatile-anaesthetics: standard use",
+        "a1_corrected": 0.0,
+        "a2_corrected": 0.5
+      },
+      {
+        "cell": "rag_execution",
+        "model": "Gemini 2.5 Flash",
+        "rep": 1,
+        "parsed_drug": "volatile-anaesthetics: standard use",
+        "a1_corrected": 0.0,
+        "a2_corrected": 0.5
+      },
+      {
+        "cell": "rag_execution",
+        "model": "Gemini 2.5 Flash",
+        "rep": 2,
+        "parsed_drug": "volatile-anaesthetics: standard use",
+        "a1_corrected": 0.0,
+        "a2_corrected": 0.5
+      },
+      {
+        "cell": "skill_generation",
+        "model": "Claude Opus 4.5",
+        "rep": 0,
+        "parsed_drug": "volatile-anaesthetics: standard use",
+        "a1_corrected": 0.0,
+        "a2_corrected": 0.5
+      },
+      {
+        "cell": "skill_generation",
+        "model": "Claude Opus 4.5",
+        "rep": 1,
+        "parsed_drug": "volatile-anaesthetics: standard use",
+        "a1_corrected": 0.0,
+        "a2_corrected": 0.5
+      },
+      {
+        "cell": "skill_generation",
+        "model": "Claude Opus 4.5",
+        "rep": 2,
+        "parsed_drug": "volatile-anaesthetics: standard use",
+        "a1_corrected": 0.0,
+        "a2_corrected": 0.5
+      },
+      {
+        "cell": "skill_generation",
+        "model": "Claude Sonnet 4.5",
+        "rep": 0,
+        "parsed_drug": "volatile-anaesthetics: standard use",
+        "a1_corrected": 0.0,
+        "a2_corrected": 0.5
+      },
+      {
+        "cell": "skill_generation",
+        "model": "Claude Sonnet 4.5",
+        "rep": 1,
+        "parsed_drug": "volatile-anaesthetics: standard use",
+        "a1_corrected": 0.0,
+        "a2_corrected": 0.5
+      },
+      {
+        "cell": "skill_generation",
+        "model": "Claude Sonnet 4.5",
+        "rep": 2,
+        "parsed_drug": "volatile-anaesthetics: standard use",
+        "a1_corrected": 0.0,
+        "a2_corrected": 0.5
+      },
+      {
+        "cell": "skill_generation",
+        "model": "GPT-5.2",
+        "rep": 0,
+        "parsed_drug": "volatile-anaesthetics: standard use",
+        "a1_corrected": 0.0,
+        "a2_corrected": 0.5
+      },
+      {
+        "cell": "skill_generation",
+        "model": "GPT-5.2",
+        "rep": 1,
+        "parsed_drug": "volatile-anaesthetics: standard use",
+        "a1_corrected": 0.0,
+        "a2_corrected": 0.5
+      },
+      {
+        "cell": "skill_generation",
+        "model": "GPT-5.2",
+        "rep": 2,
+        "parsed_drug": "volatile-anaesthetics: standard use",
+        "a1_corrected": 0.0,
+        "a2_corrected": 0.5
+      },
+      {
+        "cell": "skill_generation",
+        "model": "GPT-4.1",
+        "rep": 0,
+        "parsed_drug": "volatile-anaesthetics: standard use",
+        "a1_corrected": 0.0,
+        "a2_corrected": 0.5
+      },
+      {
+        "cell": "skill_generation",
+        "model": "GPT-4.1",
+        "rep": 1,
+        "parsed_drug": "volatile-anaesthetics: standard use",
+        "a1_corrected": 0.0,
+        "a2_corrected": 0.5
+      },
+      {
+        "cell": "skill_generation",
+        "model": "GPT-4.1",
+        "rep": 2,
+        "parsed_drug": "volatile-anaesthetics: standard use",
+        "a1_corrected": 0.0,
+        "a2_corrected": 0.5
+      },
+      {
+        "cell": "skill_generation",
+        "model": "o3",
+        "rep": 0,
+        "parsed_drug": "volatile-anaesthetics: standard use",
+        "a1_corrected": 0.0,
+        "a2_corrected": 0.5
+      },
+      {
+        "cell": "skill_generation",
+        "model": "o3",
+        "rep": 1,
+        "parsed_drug": "volatile-anaesthetics: standard use",
+        "a1_corrected": 0.0,
+        "a2_corrected": 0.5
+      },
+      {
+        "cell": "skill_generation",
+        "model": "o3",
+        "rep": 2,
+        "parsed_drug": "volatile-anaesthetics: standard use",
+        "a1_corrected": 0.0,
+        "a2_corrected": 0.5
+      },
+      {
+        "cell": "skill_generation",
+        "model": "o4-mini",
+        "rep": 0,
+        "parsed_drug": "volatile-anaesthetics \u2013 standard use",
+        "a1_corrected": 0.0,
+        "a2_corrected": 0.5
+      },
+      {
+        "cell": "skill_generation",
+        "model": "o4-mini",
+        "rep": 1,
+        "parsed_drug": "volatile-anaesthetics: standard use",
+        "a1_corrected": 0.0,
+        "a2_corrected": 0.5
+      },
+      {
+        "cell": "skill_generation",
+        "model": "o4-mini",
+        "rep": 2,
+        "parsed_drug": "volatile-anaesthetics: standard use",
+        "a1_corrected": 0.0,
+        "a2_corrected": 0.5
+      },
+      {
+        "cell": "skill_generation",
+        "model": "Gemini 2.5 Flash",
+        "rep": 0,
+        "parsed_drug": "volatile-anaesthetics: standard use",
+        "a1_corrected": 0.0,
+        "a2_corrected": 0.5
+      },
+      {
+        "cell": "skill_generation",
+        "model": "Gemini 2.5 Flash",
+        "rep": 1,
+        "parsed_drug": "volatile-anaesthetics: standard use",
+        "a1_corrected": 0.0,
+        "a2_corrected": 0.5
+      },
+      {
+        "cell": "skill_generation",
+        "model": "Gemini 2.5 Flash",
+        "rep": 2,
+        "parsed_drug": "volatile-anaesthetics: standard use",
+        "a1_corrected": 0.0,
+        "a2_corrected": 0.5
+      },
+      {
+        "cell": "skill_execution",
+        "model": "Claude Opus 4.5",
+        "rep": 0,
+        "parsed_drug": "volatile-anaesthetics: standard use",
+        "a1_corrected": 0.0,
+        "a2_corrected": 0.5
+      },
+      {
+        "cell": "skill_execution",
+        "model": "Claude Opus 4.5",
+        "rep": 1,
+        "parsed_drug": "volatile-anaesthetics: standard use",
+        "a1_corrected": 0.0,
+        "a2_corrected": 0.5
+      },
+      {
+        "cell": "skill_execution",
+        "model": "Claude Opus 4.5",
+        "rep": 2,
+        "parsed_drug": "volatile-anaesthetics: standard use",
+        "a1_corrected": 0.0,
+        "a2_corrected": 0.5
+      },
+      {
+        "cell": "skill_execution",
+        "model": "Claude Sonnet 4.5",
+        "rep": 0,
+        "parsed_drug": "volatile-anaesthetics: standard use",
+        "a1_corrected": 0.0,
+        "a2_corrected": 0.5
+      },
+      {
+        "cell": "skill_execution",
+        "model": "Claude Sonnet 4.5",
+        "rep": 1,
+        "parsed_drug": "volatile-anaesthetics: standard use",
+        "a1_corrected": 0.0,
+        "a2_corrected": 0.5
+      },
+      {
+        "cell": "skill_execution",
+        "model": "Claude Sonnet 4.5",
+        "rep": 2,
+        "parsed_drug": "volatile-anaesthetics: standard use",
+        "a1_corrected": 0.0,
+        "a2_corrected": 0.5
+      },
+      {
+        "cell": "skill_execution",
+        "model": "GPT-5.2",
+        "rep": 0,
+        "parsed_drug": "volatile-anaesthetics: standard use",
+        "a1_corrected": 0.0,
+        "a2_corrected": 0.5
+      },
+      {
+        "cell": "skill_execution",
+        "model": "GPT-5.2",
+        "rep": 1,
+        "parsed_drug": "volatile-anaesthetics: standard use",
+        "a1_corrected": 0.0,
+        "a2_corrected": 0.5
+      },
+      {
+        "cell": "skill_execution",
+        "model": "GPT-5.2",
+        "rep": 2,
+        "parsed_drug": "volatile-anaesthetics: standard use",
+        "a1_corrected": 0.0,
+        "a2_corrected": 0.5
+      },
+      {
+        "cell": "skill_execution",
+        "model": "GPT-4.1",
+        "rep": 0,
+        "parsed_drug": "volatile-anaesthetics: standard use",
+        "a1_corrected": 0.0,
+        "a2_corrected": 0.5
+      },
+      {
+        "cell": "skill_execution",
+        "model": "GPT-4.1",
+        "rep": 1,
+        "parsed_drug": "volatile-anaesthetics: standard use",
+        "a1_corrected": 0.0,
+        "a2_corrected": 0.5
+      },
+      {
+        "cell": "skill_execution",
+        "model": "GPT-4.1",
+        "rep": 2,
+        "parsed_drug": "volatile-anaesthetics: standard use",
+        "a1_corrected": 0.0,
+        "a2_corrected": 0.5
+      },
+      {
+        "cell": "skill_execution",
+        "model": "o3",
+        "rep": 0,
+        "parsed_drug": "volatile-anaesthetics: standard use",
+        "a1_corrected": 0.0,
+        "a2_corrected": 0.5
+      },
+      {
+        "cell": "skill_execution",
+        "model": "o3",
+        "rep": 1,
+        "parsed_drug": "volatile-anaesthetics: standard use",
+        "a1_corrected": 0.0,
+        "a2_corrected": 0.5
+      },
+      {
+        "cell": "skill_execution",
+        "model": "o3",
+        "rep": 2,
+        "parsed_drug": "volatile-anaesthetics: standard use",
+        "a1_corrected": 0.0,
+        "a2_corrected": 0.5
+      },
+      {
+        "cell": "skill_execution",
+        "model": "o4-mini",
+        "rep": 0,
+        "parsed_drug": "volatile-anaesthetics: standard use",
+        "a1_corrected": 0.0,
+        "a2_corrected": 0.5
+      },
+      {
+        "cell": "skill_execution",
+        "model": "o4-mini",
+        "rep": 1,
+        "parsed_drug": "volatile-anaesthetics: standard use",
+        "a1_corrected": 0.0,
+        "a2_corrected": 0.5
+      },
+      {
+        "cell": "skill_execution",
+        "model": "o4-mini",
+        "rep": 2,
+        "parsed_drug": "volatile-anaesthetics: standard use",
+        "a1_corrected": 0.0,
+        "a2_corrected": 0.5
+      },
+      {
+        "cell": "skill_execution",
+        "model": "Gemini 2.5 Flash",
+        "rep": 0,
+        "parsed_drug": "volatile-anaesthetics: standard use",
+        "a1_corrected": 0.0,
+        "a2_corrected": 0.5
+      },
+      {
+        "cell": "skill_execution",
+        "model": "Gemini 2.5 Flash",
+        "rep": 1,
+        "parsed_drug": "volatile-anaesthetics: standard use",
+        "a1_corrected": 0.0,
+        "a2_corrected": 0.5
+      },
+      {
+        "cell": "skill_execution",
+        "model": "Gemini 2.5 Flash",
+        "rep": 2,
+        "parsed_drug": "volatile-anaesthetics: standard use",
+        "a1_corrected": 0.0,
+        "a2_corrected": 0.5
+      },
+      {
+        "cell": "free_generation",
+        "model": "DeepSeek V4 Flash",
+        "rep": 0,
+        "parsed_drug": "Volatile anaesthetics (e.g., sevoflurane, isoflurane, desflurane) can be used without increased MH risk",
+        "a1_corrected": 0.0,
+        "a2_corrected": 0.5
+      },
+      {
+        "cell": "free_generation",
+        "model": "DeepSeek V4 Flash",
+        "rep": 1,
+        "parsed_drug": "Volatile anaesthetics are safe to use (standard dosing, no increased MHS risk)",
+        "a1_corrected": 0.0,
+        "a2_corrected": 0.5
+      },
+      {
+        "cell": "free_generation",
+        "model": "DeepSeek V4 Flash",
+        "rep": 2,
+        "parsed_drug": "Volatile anaesthetics (e.g., sevoflurane, desflurane, isoflurane) are NOT contraindicated; standard precautions still recommended",
+        "a1_corrected": 0.0,
+        "a2_corrected": 0.5
+      },
+      {
+        "cell": "rag_generation",
+        "model": "DeepSeek V4 Flash",
+        "rep": 0,
+        "parsed_drug": "Halogenated volatile anesthetics are not absolutely contraindicated; clinical findings, family history, and further testing should guide use.",
+        "a1_corrected": 0.0,
+        "a2_corrected": 0.5
+      },
+      {
+        "cell": "rag_generation",
+        "model": "DeepSeek V4 Flash",
+        "rep": 1,
+        "parsed_drug": "Halogenated volatile anesthetics and succinylcholine are not absolutely contraindicated; use clinical judgment, family history, and other lab data",
+        "a1_corrected": 0.0,
+        "a2_corrected": 0.5
+      },
+      {
+        "cell": "rag_generation",
+        "model": "DeepSeek V4 Flash",
+        "rep": 2,
+        "parsed_drug": "Clinical findings, family history, further genetic testing and other laboratory data should guide use of halogenated volatile anesthetics or depolarizing muscle relaxants.",
+        "a1_corrected": 0.0,
+        "a2_corrected": 0.5
+      },
+      {
+        "cell": "rag_execution",
+        "model": "DeepSeek V4 Flash",
+        "rep": 0,
+        "parsed_drug": "volatile-anaesthetics: standard use",
+        "a1_corrected": 0.0,
+        "a2_corrected": 0.5
+      },
+      {
+        "cell": "rag_execution",
+        "model": "DeepSeek V4 Flash",
+        "rep": 1,
+        "parsed_drug": "volatile-anaesthetics: standard use",
+        "a1_corrected": 0.0,
+        "a2_corrected": 0.5
+      },
+      {
+        "cell": "rag_execution",
+        "model": "DeepSeek V4 Flash",
+        "rep": 2,
+        "parsed_drug": "volatile-anaesthetics: standard use",
+        "a1_corrected": 0.0,
+        "a2_corrected": 0.5
+      },
+      {
+        "cell": "skill_generation",
+        "model": "DeepSeek V4 Flash",
+        "rep": 0,
+        "parsed_drug": "volatile-anaesthetics: standard use",
+        "a1_corrected": 0.0,
+        "a2_corrected": 0.5
+      },
+      {
+        "cell": "skill_generation",
+        "model": "DeepSeek V4 Flash",
+        "rep": 1,
+        "parsed_drug": "volatile-anaesthetics: standard use",
+        "a1_corrected": 0.0,
+        "a2_corrected": 0.5
+      },
+      {
+        "cell": "skill_generation",
+        "model": "DeepSeek V4 Flash",
+        "rep": 2,
+        "parsed_drug": "volatile-anaesthetics: standard use",
+        "a1_corrected": 0.0,
+        "a2_corrected": 0.5
+      },
+      {
+        "cell": "skill_execution",
+        "model": "DeepSeek V4 Flash",
+        "rep": 0,
+        "parsed_drug": "volatile-anaesthetics: standard use",
+        "a1_corrected": 0.0,
+        "a2_corrected": 0.5
+      },
+      {
+        "cell": "skill_execution",
+        "model": "DeepSeek V4 Flash",
+        "rep": 1,
+        "parsed_drug": "volatile-anaesthetics: standard use",
+        "a1_corrected": 0.0,
+        "a2_corrected": 0.5
+      },
+      {
+        "cell": "skill_execution",
+        "model": "DeepSeek V4 Flash",
+        "rep": 2,
+        "parsed_drug": "volatile-anaesthetics: standard use",
+        "a1_corrected": 0.0,
+        "a2_corrected": 0.5
+      }
+    ],
+    "correct_reference_against_itself_a1": 0.0,
+    "correct_reference_against_itself_a2": 0.5,
+    "authored_execution_full_grid_fallback_mean": 0.9676136363636364,
+    "zero_credit_mean": 0.9630681818181818,
+    "interpretation": "The corrected recommendation matches no reference-action branch. Every nonempty RYR1 recommendation reaches the generic 0.5 fallback, including the corrected reference scored against itself. The resulting 96.76% is a software diagnostic, not clinically meaningful corrected-reference concordance. Zero-credit arithmetic sensitivity remains 96.31%."
+  },
+  "reparser_inventory": {
+    "total_rows": 9557,
+    "files": [
+      {
+        "path": "data/v3_input_normalisation.json",
+        "rows": 54,
+        "sha256": "ccda55a5dec71f2f1571848796a6bb89d63207cb2c04ee8f8fa1ccaa90747393",
+        "idempotent": true,
+        "raw_unchanged": true,
+        "reparse_tally": {
+          "rows": 54,
+          "recovered": 0,
+          "lost": 0,
+          "superseded_by_abstain": 0,
+          "changed_status": 0
+        }
+      },
+      {
+        "path": "data/v3_input_normalisation_main.json",
+        "rows": 3162,
+        "sha256": "0641a89cab390f16a85d616349abf2c3b51e721b3cad60c5238b2e11e1860537",
+        "idempotent": true,
+        "raw_unchanged": true,
+        "reparse_tally": {
+          "rows": 3162,
+          "recovered": 0,
+          "lost": 0,
+          "superseded_by_abstain": 0,
+          "changed_status": 0
+        }
+      },
+      {
+        "path": "data/v3_input_normalisation_o3.json",
+        "rows": 450,
+        "sha256": "999aff1c89558c9757d8d0b5064b629f9759e51c915c1a9619fbb327b121c9ed",
+        "idempotent": true,
+        "raw_unchanged": true,
+        "reparse_tally": {
+          "rows": 450,
+          "recovered": 0,
+          "lost": 0,
+          "superseded_by_abstain": 0,
+          "changed_status": 0
+        }
+      },
+      {
+        "path": "data/v3_input_normalisation_o3_retry.json",
+        "rows": 94,
+        "sha256": "e94aba448537cb98e179d8201b77bf14e5e588ab77fa2106937bfaa7b30b3602",
+        "idempotent": true,
+        "raw_unchanged": true,
+        "reparse_tally": {
+          "rows": 94,
+          "recovered": 0,
+          "lost": 0,
+          "superseded_by_abstain": 0,
+          "changed_status": 0
+        }
+      },
+      {
+        "path": "data/v3_input_normalisation_defs.json",
+        "rows": 482,
+        "sha256": "0c175eb2a2a2587eba15620b0a254ee206f75bcfc95a86c81d69c8a14088f0d1",
+        "idempotent": true,
+        "raw_unchanged": true,
+        "reparse_tally": {
+          "rows": 482,
+          "recovered": 0,
+          "lost": 0,
+          "superseded_by_abstain": 0,
+          "changed_status": 0
+        }
+      },
+      {
+        "path": "data/v3_input_normalisation_defs_o3.json",
+        "rows": 527,
+        "sha256": "0736ec45b53d5a8ad1c5b8769b58f3065200b41d47a52be005fbd9ac4cbcddf1",
+        "idempotent": true,
+        "raw_unchanged": true,
+        "reparse_tally": {
+          "rows": 527,
+          "recovered": 0,
+          "lost": 0,
+          "superseded_by_abstain": 0,
+          "changed_status": 0
+        }
+      },
+      {
+        "path": "data/v3_input_normalisation_defs_gpt52.json",
+        "rows": 527,
+        "sha256": "423a12165b0c6e0e3cc81e61a925ba9e4b48251ef1395bfb716a3d4efb3367ea",
+        "idempotent": true,
+        "raw_unchanged": true,
+        "reparse_tally": {
+          "rows": 527,
+          "recovered": 0,
+          "lost": 0,
+          "superseded_by_abstain": 0,
+          "changed_status": 0
+        }
+      },
+      {
+        "path": "data/v3_input_normalisation_defs_tail.json",
+        "rows": 45,
+        "sha256": "9f63d23d6ac1b072d83911af36151946827e007126dd611b79c8253fb4e5b109",
+        "idempotent": true,
+        "raw_unchanged": true,
+        "reparse_tally": {
+          "rows": 45,
+          "recovered": 0,
+          "lost": 0,
+          "superseded_by_abstain": 0,
+          "changed_status": 0
+        }
+      },
+      {
+        "path": "data/v3_input_normalisation_defs_deepseek.json",
+        "rows": 527,
+        "sha256": "fecf7ac2912eae82fd8bc1d03785e78439003b4fa9c8e3eca07a143809cf5b66",
+        "idempotent": true,
+        "raw_unchanged": true,
+        "reparse_tally": {
+          "rows": 527,
+          "recovered": 0,
+          "lost": 0,
+          "superseded_by_abstain": 0,
+          "changed_status": 0
+        }
+      },
+      {
+        "path": "data/v3_input_normalisation_defs_sonnet_gpt41_o4mini.json",
+        "rows": 1173,
+        "sha256": "398435c00821fe6a088bc18c12597cb3e3649d7faabc7da82b276c8b1aa7d539",
+        "idempotent": true,
+        "raw_unchanged": true,
+        "reparse_tally": {
+          "rows": 1173,
+          "recovered": 0,
+          "lost": 0,
+          "superseded_by_abstain": 0,
+          "changed_status": 0
+        }
+      },
+      {
+        "path": "data/v3_input_normalisation_defs_sonnet_gpt41_o4mini_rest.json",
+        "rows": 408,
+        "sha256": "b3602b6b0984692e9ee1e7ceebdf6f04544d8fa1d3755c2769b74e8bdc13b252",
+        "idempotent": true,
+        "raw_unchanged": true,
+        "reparse_tally": {
+          "rows": 408,
+          "recovered": 0,
+          "lost": 0,
+          "superseded_by_abstain": 0,
+          "changed_status": 0
+        }
+      },
+      {
+        "path": "data/v3_input_normalisation_nodefs_four.json",
+        "rows": 2108,
+        "sha256": "404d044e0def889bce71cf1ad958e2e87a9efc0afe83d5599099fef2f126a009",
+        "idempotent": true,
+        "raw_unchanged": true,
+        "reparse_tally": {
+          "rows": 2108,
+          "recovered": 0,
+          "lost": 0,
+          "superseded_by_abstain": 0,
+          "changed_status": 0
+        }
+      }
+    ]
+  }
+}

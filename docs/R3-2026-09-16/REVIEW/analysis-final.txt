@@ -1,0 +1,19 @@
+{
+  "ryr1_zero_credit": {
+    "definition": "Arithmetic sensitivity only; not corrected-reference output of the frozen scorer",
+    "n_zeroed": 24,
+    "denominator": 2640,
+    "original_sum": 2566.5,
+    "removed_credit": 24.0,
+    "recommendation_mean": 0.9630681818181818
+  },
+  "exclusion_max_change_pp": 0.7542743953294462,
+  "exclusion_authored_max_change_pp": 0.032318598832359324,
+  "recommendation_wording_disagreement": {
+    "free_generation": 15,
+    "rag_generation": 96,
+    "rag_execution": 0,
+    "skill_generation": 0,
+    "skill_execution": 0
+  }
+}

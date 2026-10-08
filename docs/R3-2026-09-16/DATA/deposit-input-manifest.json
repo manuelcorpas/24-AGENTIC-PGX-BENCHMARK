@@ -1,0 +1,314 @@
+{
+  "CORRECTIONS.md": {
+    "bytes": 31491,
+    "sha256": "4547f8b1da3cacc83f3e5cf2a4a49924bc7e872d651eb3a130b940d3398e48e0"
+  },
+  "MODEL-VERSIONS.md": {
+    "bytes": 2468,
+    "sha256": "f140313af21f09e7de2c859996ba7907228cb442ec856314bfb8b2fe7b13e65e"
+  },
+  "data/MANIFEST.md": {
+    "bytes": 7805,
+    "sha256": "5edc5ea626f485044df4e9c8233a97c14cf042a3a74913a1a775e7a28b487313"
+  },
+  "data/README.md": {
+    "bytes": 2842,
+    "sha256": "776a28bb8b44083dec2fc0d6d80f1c8fd03d936c4074a2bc14f54442c0e5c35a"
+  },
+  "data/v3_ancestry_four_cohorts.json": {
+    "bytes": 3809,
+    "sha256": "3215e25c19091c09a4b2a9766c15725b87a0a3b884dab8de2c20f28166f8ad60"
+  },
+  "data/v3_ancestry_matched.json": {
+    "bytes": 3809,
+    "sha256": "3215e25c19091c09a4b2a9766c15725b87a0a3b884dab8de2c20f28166f8ad60"
+  },
+  "data/v3_armA9_armBv2_POP.json": {
+    "bytes": 2126593,
+    "sha256": "22b2a22e7ff82b00625fb5d811d01d501e6d5cf68d0ae5e1fef00efadf6e550b"
+  },
+  "data/v3_caller_truth_eval.json": {
+    "bytes": 11667,
+    "sha256": "a556a732667d16a6bc9649e4034319e39183595551b784e4b4d9e27bdf231676"
+  },
+  "data/v3_cell_provenance.json": {
+    "bytes": 3418,
+    "sha256": "d03fc3377150b9408858871a742dd8df4defefec1eecb1335ed15fdd13d5b8bb"
+  },
+  "data/v3_extracted_rules.json": {
+    "bytes": 2640078,
+    "sha256": "7cdbaf44bc21aa1aae9aa329678dac72d105bfedd6b59e5802f78ca2ad86d64e"
+  },
+  "data/v3_five_cell_live.json": {
+    "bytes": 9884335,
+    "sha256": "bd4164f75c08b59cc4211b2030415859160657ad296bfdaa3d32c39ec50ab091"
+  },
+  "data/v3_five_cell_live_rows.json": {
+    "bytes": 4834990,
+    "sha256": "2656f9837ab147a30acc92c32353d4235d1fd66534bd9637657abcc07fc58acf"
+  },
+  "data/v3_five_cell_live_scored.json": {
+    "bytes": 3656,
+    "sha256": "e30d57881c2b2f503238008bb72c679c51cd80b9f00f730cd0bf870dfb8c38ee"
+  },
+  "data/v3_five_cell_live_stats.json": {
+    "bytes": 4793,
+    "sha256": "7932cc1ec93547f18b34b77e076db48af7e762e3b217b37f1237a512305ff5e2"
+  },
+  "data/v3_getrm_caller_truth.json": {
+    "bytes": 11667,
+    "sha256": "a556a732667d16a6bc9649e4034319e39183595551b784e4b4d9e27bdf231676"
+  },
+  "data/v3_getrm_disagreement_classes.json": {
+    "bytes": 4183,
+    "sha256": "4088330d97a3d19c2743cd9865dd655f9fc565db6450f3c0ed56309e2b7fcea1"
+  },
+  "data/v3_input_normalisation_defs.json": {
+    "bytes": 1003995,
+    "sha256": "0c175eb2a2a2587eba15620b0a254ee206f75bcfc95a86c81d69c8a14088f0d1"
+  },
+  "data/v3_input_normalisation_defs_gemini.json": {
+    "bytes": 957168,
+    "sha256": "f41e38195c1c1c4188d564ebcffa8bea7d9f599bb27626e8c5e73b83f3170d3f"
+  },
+  "data/v3_input_normalisation_defs_gpt52.json": {
+    "bytes": 229358,
+    "sha256": "423a12165b0c6e0e3cc81e61a925ba9e4b48251ef1395bfb716a3d4efb3367ea"
+  },
+  "data/v3_input_normalisation_defs_o3.json": {
+    "bytes": 227242,
+    "sha256": "0736ec45b53d5a8ad1c5b8769b58f3065200b41d47a52be005fbd9ac4cbcddf1"
+  },
+  "data/v3_input_normalisation_defs_sonnet_gpt41_o4mini.json": {
+    "bytes": 1234409,
+    "sha256": "398435c00821fe6a088bc18c12597cb3e3649d7faabc7da82b276c8b1aa7d539"
+  },
+  "data/v3_input_normalisation_defs_sonnet_gpt41_o4mini_rest.json": {
+    "bytes": 424210,
+    "sha256": "b3602b6b0984692e9ee1e7ceebdf6f04544d8fa1d3755c2769b74e8bdc13b252"
+  },
+  "data/v3_input_normalisation_defs_tail.json": {
+    "bytes": 97321,
+    "sha256": "9f63d23d6ac1b072d83911af36151946827e007126dd611b79c8253fb4e5b109"
+  },
+  "data/v3_input_normalisation_eval.json": {
+    "bytes": 8182,
+    "sha256": "7829a51a0032d47890b8056ac4bde0e79cd4c3e2a105a35214bab18deb1b5142"
+  },
+  "data/v3_input_normalisation_main.json": {
+    "bytes": 3856536,
+    "sha256": "0641a89cab390f16a85d616349abf2c3b51e721b3cad60c5238b2e11e1860537"
+  },
+  "data/v3_input_normalisation_nodefs_four.json": {
+    "bytes": 2004926,
+    "sha256": "404d044e0def889bce71cf1ad958e2e87a9efc0afe83d5599099fef2f126a009"
+  },
+  "data/v3_input_normalisation_nodefs_gemini.json": {
+    "bytes": 919533,
+    "sha256": "b5d625f144aee17088b10013d9d34de79ad04210a995c1191451cc2572571506"
+  },
+  "data/v3_input_normalisation_nodefs_o3_527.json": {
+    "bytes": 226734,
+    "sha256": "c381e4b0771865771a28735976824c0c819a17ed30fedfc280deb99495c50610"
+  },
+  "data/v3_input_normalisation_o3.json": {
+    "bytes": 216671,
+    "sha256": "999aff1c89558c9757d8d0b5064b629f9759e51c915c1a9619fbb327b121c9ed"
+  },
+  "data/v3_input_normalisation_o3_retry.json": {
+    "bytes": 65136,
+    "sha256": "e94aba448537cb98e179d8201b77bf14e5e588ab77fa2106937bfaa7b30b3602"
+  },
+  "data/v3_matched_scored_rows.json": {
+    "bytes": 2364486,
+    "sha256": "a1c414b4512fcf8c9f6305aa0a6ac252d77026e83d182e599cd0aa48fd4d6d20"
+  },
+  "data/v3_matched_scored_rows_all5.json": {
+    "bytes": 4834990,
+    "sha256": "2656f9837ab147a30acc92c32353d4235d1fd66534bd9637657abcc07fc58acf"
+  },
+  "data/v3_model_caller_eval.json": {
+    "bytes": 28997,
+    "sha256": "3530c40fe256091e3c849019c62e9c553b5e37d52010702b639a4571ce170637"
+  },
+  "data/v3_normalisation_disagreement_classes.json": {
+    "bytes": 764,
+    "sha256": "7a7d024bcc62e5c4216e937bf346912bd2380ff874e736084e64d796130d3d59"
+  },
+  "data/v3_normalisation_inputs.json": {
+    "bytes": 10067923,
+    "sha256": "f259b15ced64d195160b628467c8963cf4fa88b007681754ca5670f9bbaed10b"
+  },
+  "data/v3_pharmcat_comparison.json": {
+    "bytes": 55075,
+    "sha256": "59b1fddb490827132180c4bcb3fc5a2b7a87be78414edf264d85225ee2420961"
+  },
+  "data/v3_rag_genedrug_chunking.json": {
+    "bytes": 131332,
+    "sha256": "af111125ea80ad1d313ebf0604525bd85dede4aa9aa7ad832a3c97feaac27b53"
+  },
+  "data/v4_flash_adversarial_forward.json": {
+    "bytes": 61245,
+    "sha256": "c97a62391190e79fce0cdbfca27b3961e18985af42183efe61ea79c4a4a3673c"
+  },
+  "data/v4_flash_adversarial_forward_panel.json": {
+    "bytes": 65191,
+    "sha256": "fc87d0b737a510c70332b260fa41ab52a61ead267871699663d2258a9da1c788"
+  },
+  "data/v4_flash_adversarial_reverse.json": {
+    "bytes": 64770,
+    "sha256": "85ddab0746d730cf863dc197df0df674d7fbf7c6348157bcd9aadc3662492f73"
+  },
+  "data/v4_flash_adversarial_reverse_panel.json": {
+    "bytes": 70134,
+    "sha256": "14ed9ce16502c07a297fb77054e98d0ca70c3be2a548b6078686a61a6b5dd222"
+  },
+  "data/v4_flash_agent_vs_deterministic.json": {
+    "bytes": 15126,
+    "sha256": "670c3e9d5018ac136fdc03b0b11567289f28dd8168efb5bbaa789da71f2272e7"
+  },
+  "data/v4_flash_crossed_mixed_model.json": {
+    "bytes": 1467,
+    "sha256": "9755c99146da12438fd2db7787fca0aab17be3844f38fe88a1b910ea4ffde447"
+  },
+  "data/v4_flash_crossed_mixed_model.txt": {
+    "bytes": 1282,
+    "sha256": "cad3cc16c8284785c754bfb1372a6efa6f6921241a28b848f292fd48d5410671"
+  },
+  "data/v4_flash_eight_model_extracted_rules.json": {
+    "bytes": 3352015,
+    "sha256": "83e31bc148cb2b3069ae2df47dddf8fbe182239e54975753637867bb8f2b36e3"
+  },
+  "data/v4_flash_eight_model_five_cell.json": {
+    "bytes": 22634429,
+    "sha256": "85a91442ad860cc58d3ff4ce036b5b75132dc02f41ad94600472db4746393b21"
+  },
+  "data/v4_flash_eight_model_rag_drugkeyed.json": {
+    "bytes": 8684308,
+    "sha256": "f2e89038e92b070db2cc1e609cb4ddd2e3a089baf37c6b63ebec6f63380c05f2"
+  },
+  "data/v4_flash_eight_model_realgenome_provider_responses.jsonl": {
+    "bytes": 10867219,
+    "sha256": "5bdf73210184fe8a344af34da10c5e963456ea25f9878c696ba9658c7b0b30f8"
+  },
+  "data/v4_flash_extracted_rules.json": {
+    "bytes": 1312970,
+    "sha256": "6246ad628f91f7256ed54a8493ce6d2e61be78ac9de3296d42a981340bd52c8d"
+  },
+  "data/v4_flash_extracted_rules_eval.json": {
+    "bytes": 114342,
+    "sha256": "db8855dbc5a5108f918960b68eb286226261effac9b4743fe39f3432c4bbfa94"
+  },
+  "data/v4_flash_extracted_rules_eval.txt": {
+    "bytes": 3260,
+    "sha256": "bc99900a95155ac3baa5dd093b1929255b1d6e927ea3ac965fda300dc90ec82b"
+  },
+  "data/v4_flash_five_cell.json": {
+    "bytes": 15971738,
+    "sha256": "556949689fc4bfc0d39864e4c231099c2567bf4f2aec55f5eb8f4f728daa7b29"
+  },
+  "data/v4_flash_five_cell_report.txt": {
+    "bytes": 1319,
+    "sha256": "008bf568b5f51bc3010d84675bdce7dadc0df5c2ec1537f481312e6687b64779"
+  },
+  "data/v4_flash_five_cell_scored.json": {
+    "bytes": 3649,
+    "sha256": "86d579629d5dc397c56ffcc4e4823199c8c3940c148321158bb50d32db31bf72"
+  },
+  "data/v4_flash_hierarchical_stats.json": {
+    "bytes": 4785,
+    "sha256": "5677f1b0c665fef5df1e160354afed587456e3b89c9853970c26fcf1b56e4d1e"
+  },
+  "data/v4_flash_hierarchical_stats.txt": {
+    "bytes": 2302,
+    "sha256": "b1d83d910bae1bcfda3de37398c284bd984fde1ce9b4518497b48e69ea324daf"
+  },
+  "data/v4_flash_input_normalisation_defs.json": {
+    "bytes": 6878189,
+    "sha256": "eb352d9a8ea87624299abdb8d52bb9876cacf419e947d7d52d6513a9524c1a67"
+  },
+  "data/v4_flash_input_normalisation_eight_model_freeze.json": {
+    "bytes": 34562,
+    "sha256": "819fe73388d2598c9cab9435f63d22ad152b747292b562136ef660f8c38a2c2a"
+  },
+  "data/v4_flash_input_normalisation_nodefs.json": {
+    "bytes": 5202674,
+    "sha256": "23f86765f1174e3ad1261611277c845b8b2e21f8db550507aefc8e69a0327f64"
+  },
+  "data/v4_flash_lethal_case_stats.json": {
+    "bytes": 1797,
+    "sha256": "a6d5324051812918607e60f648217ec3c44dc74318c46976e534f0aa165b48db"
+  },
+  "data/v4_flash_lethal_case_stats.txt": {
+    "bytes": 834,
+    "sha256": "6243432fed02522855ba7b7e0d97450d4060172f63b1c54a9a41d323382c877f"
+  },
+  "data/v4_flash_matched_scored_rows_all5.json": {
+    "bytes": 4844891,
+    "sha256": "4095692e15a5d044b13c7ab1a06593a9770b75f96344b14e84271e874c895e9d"
+  },
+  "data/v4_flash_population_skill_arms.json": {
+    "bytes": 8562217,
+    "sha256": "88faa8f38fa15bc07016b7f2960d4dc55cca86231661b22d239870bacc20c639"
+  },
+  "data/v4_flash_population_skill_arms_panel.json": {
+    "bytes": 13328763,
+    "sha256": "514000cd98f29408539eb14b9e1beaeb8ce1c45322c5125f2dcfd3e85b9d9df2"
+  },
+  "data/v4_flash_population_three_arm.json": {
+    "bytes": 27590220,
+    "sha256": "74ddf155b060f82771235100f8c3e9d6a4ee6183d5d686bef064ec1f183e62cc"
+  },
+  "data/v4_flash_population_three_arm_panel.json": {
+    "bytes": 47990679,
+    "sha256": "b7a3e1ddad0edc1afa785ebc011ecce034fc8342207a89b5c3dfedb8bd55ebdd"
+  },
+  "data/v4_flash_rag_drugkeyed.json": {
+    "bytes": 6054142,
+    "sha256": "3cf293ecc612e6d20d4db5c03641f109ae26acdd940615e49cd36c8937f78be4"
+  },
+  "data/v4_flash_rag_drugkeyed_report.txt": {
+    "bytes": 581,
+    "sha256": "248a58013529c2eda8cea9a64b8a525ab1cb51427516ad64f724b18d0076123b"
+  },
+  "data/v4_flash_rag_drugkeyed_scored_rows.json": {
+    "bytes": 1932144,
+    "sha256": "89dd1647919b3c98e9011a62072900ba539b034a169c2ea4c73b0f99d11a3987"
+  },
+  "data/v4_flash_rag_drugkeyed_summary.json": {
+    "bytes": 1491,
+    "sha256": "ba27d9870ecac9d9f4f42c0ccee3f1c353bcbbae211005a1c8e9b436a6723341"
+  },
+  "data/v4_flash_realgenome_model_audit.json": {
+    "bytes": 6911,
+    "sha256": "92b1b1b6822c79dc9c4ed60c274b2a188e91453c14a00c1833e0a0cfa6672711"
+  },
+  "data/v4_flash_realgenome_model_audit.txt": {
+    "bytes": 3797,
+    "sha256": "997cee458c8b75a788ada61d31d4be1be21c760d308d1e5e15eb0dfc87d98731"
+  },
+  "data/v4_flash_realgenome_provider_responses.jsonl": {
+    "bytes": 1284079,
+    "sha256": "e27ea870505cb616a6b938383f5e5eedf4fa96798222616b8312948e219e3195"
+  },
+  "data/v4_flash_realgenome_scored.jsonl": {
+    "bytes": 11912656,
+    "sha256": "ae399fc642ef6e859eb6ec2f8b2c4e164626e0e4489f5a4e784109d659dcce01"
+  },
+  "data/v4_flash_supp_tables_s1_s3.txt": {
+    "bytes": 3113,
+    "sha256": "0169578944238b7594dabf4e2d970f3947db5cd26ebbb30539f6c23d7d8db816"
+  },
+  "docs/deepseek-v4-flash-rerun-audit-2026-08-30/FULL-RERUN-VALIDATION.json": {
+    "bytes": 2739,
+    "sha256": "d34e1afed9a84df91be62081868cc9c2524e0ca06d99723c0e4bea9163737358"
+  },
+  "docs/deepseek-v4-flash-rerun-audit-2026-08-30/RERUN-MANIFEST.json": {
+    "bytes": 11675,
+    "sha256": "a02b71f35813d6666b16390df44c66de1969dfb68f2127f3277be53d7644842e"
+  },
+  "docs/deepseek-v4-flash-rerun-audit-2026-08-30/SOURCE-HASHES.tsv": {
+    "bytes": 1648,
+    "sha256": "59c81ad0c7b5f240ac7c8eece8125d3daf6402a57aaff939d6140fcb5a925b53"
+  }
+}

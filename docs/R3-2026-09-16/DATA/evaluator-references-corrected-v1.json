@@ -1,0 +1,772 @@
+[
+  {
+    "id": "PGX-0001",
+    "gt_diplotype": "*4/*4",
+    "gt_phenotype": "Poor Metaboliser",
+    "gt_drug": "codeine: AVOID (no analgesic benefit; use non-opioid or non-CYP2D6 opioid)",
+    "gt_activity": "0.0"
+  },
+  {
+    "id": "PGX-0002",
+    "gt_diplotype": "*1/*4",
+    "gt_phenotype": "Intermediate Metaboliser",
+    "gt_drug": "codeine: standard starting dose; monitor for reduced analgesia",
+    "gt_activity": "1.0"
+  },
+  {
+    "id": "PGX-0003",
+    "gt_diplotype": "*1/*1",
+    "gt_phenotype": "Normal Metaboliser",
+    "gt_drug": "codeine: standard dosing",
+    "gt_activity": "2.0"
+  },
+  {
+    "id": "PGX-0004",
+    "gt_diplotype": "*1/*1xN (gene duplication)",
+    "gt_phenotype": "Ultra-rapid Metaboliser",
+    "gt_drug": "codeine: AVOID (potentially LETHAL morphine accumulation; respiratory depression risk)",
+    "gt_activity": "≥3.0"
+  },
+  {
+    "id": "PGX-0005",
+    "gt_diplotype": "*4/*10",
+    "gt_phenotype": "Intermediate Metaboliser",
+    "gt_drug": "codeine: reduce dose or alternative; *10 reduced function compounding *4 null",
+    "gt_activity": "0.5"
+  },
+  {
+    "id": "PGX-0006",
+    "gt_diplotype": "*4/*4",
+    "gt_phenotype": "Poor Metaboliser",
+    "gt_drug": "tamoxifen: alternative endocrine therapy (e.g. aromatase inhibitor)",
+    "gt_activity": "0.0"
+  },
+  {
+    "id": "PGX-0007",
+    "gt_diplotype": "*1/*4",
+    "gt_phenotype": "Intermediate Metaboliser",
+    "gt_drug": "tamoxifen: consider higher dose or alternative; reduced endoxifen formation",
+    "gt_activity": "1.0"
+  },
+  {
+    "id": "PGX-0008",
+    "gt_diplotype": "*1/*1",
+    "gt_phenotype": "Normal Metaboliser",
+    "gt_drug": "tamoxifen: standard dosing",
+    "gt_activity": "2.0"
+  },
+  {
+    "id": "PGX-0009",
+    "gt_diplotype": "*1/*1xN",
+    "gt_phenotype": "Ultra-rapid Metaboliser",
+    "gt_drug": "tamoxifen: standard dosing (UM is acceptable for tamoxifen efficacy)",
+    "gt_activity": "≥3.0"
+  },
+  {
+    "id": "PGX-0010",
+    "gt_diplotype": "*4/*4",
+    "gt_phenotype": "Poor Metaboliser",
+    "gt_drug": "ondansetron: standard dosing (PM acceptable for antiemetic efficacy)",
+    "gt_activity": "0.0"
+  },
+  {
+    "id": "PGX-0011",
+    "gt_diplotype": "*1/*1",
+    "gt_phenotype": "Normal Metaboliser",
+    "gt_drug": "ondansetron: standard dosing",
+    "gt_activity": "2.0"
+  },
+  {
+    "id": "PGX-0012",
+    "gt_diplotype": "*1/*1xN",
+    "gt_phenotype": "Ultra-rapid Metaboliser",
+    "gt_drug": "ondansetron: alternative antiemetic (e.g. granisetron); reduced efficacy in UM",
+    "gt_activity": "≥3.0"
+  },
+  {
+    "id": "PGX-0013",
+    "gt_diplotype": "*4/*4",
+    "gt_phenotype": "Poor Metaboliser",
+    "gt_drug": "paroxetine: alternative SSRI not metabolised by CYP2D6",
+    "gt_activity": "0.0"
+  },
+  {
+    "id": "PGX-0014",
+    "gt_diplotype": "*1/*4",
+    "gt_phenotype": "Intermediate Metaboliser",
+    "gt_drug": "paroxetine: standard starting dose; monitor for adverse effects",
+    "gt_activity": "1.0"
+  },
+  {
+    "id": "PGX-0015",
+    "gt_diplotype": "*1/*1",
+    "gt_phenotype": "Normal Metaboliser",
+    "gt_drug": "paroxetine: standard dosing",
+    "gt_activity": "2.0"
+  },
+  {
+    "id": "PGX-0016",
+    "gt_diplotype": "*1/*1xN",
+    "gt_phenotype": "Ultra-rapid Metaboliser",
+    "gt_drug": "paroxetine: alternative SSRI; reduced efficacy due to rapid clearance",
+    "gt_activity": "≥3.0"
+  },
+  {
+    "id": "PGX-0017",
+    "gt_diplotype": "*4/*4",
+    "gt_phenotype": "Poor Metaboliser",
+    "gt_drug": "amitriptyline: avoid use; consider alternative not metabolised by CYP2D6",
+    "gt_activity": "0.0"
+  },
+  {
+    "id": "PGX-0018",
+    "gt_diplotype": "*1/*4",
+    "gt_phenotype": "Intermediate Metaboliser",
+    "gt_drug": "amitriptyline: 25% dose reduction; monitor",
+    "gt_activity": "1.0"
+  },
+  {
+    "id": "PGX-0019",
+    "gt_diplotype": "*1/*1",
+    "gt_phenotype": "Normal Metaboliser",
+    "gt_drug": "amitriptyline: standard dosing",
+    "gt_activity": "2.0"
+  },
+  {
+    "id": "PGX-0020",
+    "gt_diplotype": "*1/*1xN",
+    "gt_phenotype": "Ultra-rapid Metaboliser",
+    "gt_drug": "amitriptyline: avoid use; alternative TCA not affected by CYP2D6",
+    "gt_activity": "≥3.0"
+  },
+  {
+    "id": "PGX-0021",
+    "gt_diplotype": "*2/*2",
+    "gt_phenotype": "Poor Metaboliser",
+    "gt_drug": "clopidogrel: AVOID (alternative antiplatelet — prasugrel or ticagrelor; reduced active metabolite, increased thrombotic risk)",
+    "gt_activity": "0.0"
+  },
+  {
+    "id": "PGX-0022",
+    "gt_diplotype": "*1/*2",
+    "gt_phenotype": "Intermediate Metaboliser",
+    "gt_drug": "clopidogrel: alternative antiplatelet recommended; reduced active metabolite",
+    "gt_activity": "1.0"
+  },
+  {
+    "id": "PGX-0023",
+    "gt_diplotype": "*1/*1",
+    "gt_phenotype": "Normal Metaboliser",
+    "gt_drug": "clopidogrel: standard dosing",
+    "gt_activity": "2.0"
+  },
+  {
+    "id": "PGX-0024",
+    "gt_diplotype": "*1/*17",
+    "gt_phenotype": "Rapid Metaboliser",
+    "gt_drug": "clopidogrel: standard dosing",
+    "gt_activity": "1.5"
+  },
+  {
+    "id": "PGX-0025",
+    "gt_diplotype": "*17/*17",
+    "gt_phenotype": "Ultra-rapid Metaboliser",
+    "gt_drug": "clopidogrel: standard dosing (UM may have increased bleeding risk; monitor)",
+    "gt_activity": "1.5+"
+  },
+  {
+    "id": "PGX-0026",
+    "gt_diplotype": "*2/*2",
+    "gt_phenotype": "Poor Metaboliser",
+    "gt_drug": "voriconazole: alternative antifungal (toxic accumulation expected)",
+    "gt_activity": "0.0"
+  },
+  {
+    "id": "PGX-0027",
+    "gt_diplotype": "*1/*2",
+    "gt_phenotype": "Intermediate Metaboliser",
+    "gt_drug": "voriconazole: standard dosing with therapeutic drug monitoring",
+    "gt_activity": "1.0"
+  },
+  {
+    "id": "PGX-0028",
+    "gt_diplotype": "*1/*1",
+    "gt_phenotype": "Normal Metaboliser",
+    "gt_drug": "voriconazole: standard dosing",
+    "gt_activity": "2.0"
+  },
+  {
+    "id": "PGX-0029",
+    "gt_diplotype": "*1/*17",
+    "gt_phenotype": "Rapid Metaboliser",
+    "gt_drug": "voriconazole: alternative antifungal (subtherapeutic levels likely)",
+    "gt_activity": "1.5"
+  },
+  {
+    "id": "PGX-0030",
+    "gt_diplotype": "*17/*17",
+    "gt_phenotype": "Ultra-rapid Metaboliser",
+    "gt_drug": "voriconazole: alternative antifungal (subtherapeutic levels — treatment failure risk)",
+    "gt_activity": "1.5+"
+  },
+  {
+    "id": "PGX-0031",
+    "gt_diplotype": "*2/*2",
+    "gt_phenotype": "Poor Metaboliser",
+    "gt_drug": "citalopram: 50% dose reduction or alternative SSRI",
+    "gt_activity": "0.0"
+  },
+  {
+    "id": "PGX-0032",
+    "gt_diplotype": "*1/*2",
+    "gt_phenotype": "Intermediate Metaboliser",
+    "gt_drug": "citalopram: standard dosing; monitor for adverse effects",
+    "gt_activity": "1.0"
+  },
+  {
+    "id": "PGX-0033",
+    "gt_diplotype": "*1/*1",
+    "gt_phenotype": "Normal Metaboliser",
+    "gt_drug": "citalopram: standard dosing",
+    "gt_activity": "2.0"
+  },
+  {
+    "id": "PGX-0034",
+    "gt_diplotype": "*1/*17",
+    "gt_phenotype": "Rapid Metaboliser",
+    "gt_drug": "citalopram: alternative SSRI (subtherapeutic likely)",
+    "gt_activity": "1.5"
+  },
+  {
+    "id": "PGX-0035",
+    "gt_diplotype": "*17/*17",
+    "gt_phenotype": "Ultra-rapid Metaboliser",
+    "gt_drug": "citalopram: alternative SSRI (treatment failure risk)",
+    "gt_activity": "1.5+"
+  },
+  {
+    "id": "PGX-0036",
+    "gt_diplotype": "*2/*2",
+    "gt_phenotype": "Poor Metaboliser",
+    "gt_drug": "omeprazole: standard dose may be excessive; consider 25-50% reduction",
+    "gt_activity": "0.0"
+  },
+  {
+    "id": "PGX-0037",
+    "gt_diplotype": "*1/*2",
+    "gt_phenotype": "Intermediate Metaboliser",
+    "gt_drug": "omeprazole: standard dosing",
+    "gt_activity": "1.0"
+  },
+  {
+    "id": "PGX-0038",
+    "gt_diplotype": "*1/*1",
+    "gt_phenotype": "Normal Metaboliser",
+    "gt_drug": "omeprazole: standard dosing",
+    "gt_activity": "2.0"
+  },
+  {
+    "id": "PGX-0039",
+    "gt_diplotype": "*1/*17",
+    "gt_phenotype": "Rapid Metaboliser",
+    "gt_drug": "omeprazole: increase dose 50-100% or alternative PPI; reduced efficacy",
+    "gt_activity": "1.5"
+  },
+  {
+    "id": "PGX-0040",
+    "gt_diplotype": "*17/*17",
+    "gt_phenotype": "Ultra-rapid Metaboliser",
+    "gt_drug": "omeprazole: increase dose or alternative PPI (treatment failure for H. pylori, reflux)",
+    "gt_activity": "1.5+"
+  },
+  {
+    "id": "PGX-0041",
+    "gt_diplotype": "*3/*3",
+    "gt_phenotype": "Poor Metaboliser",
+    "gt_drug": "warfarin: use validated pharmacogenetic dosing algorithm (e.g., IWPC or Gage) incorporating CYP2C9, VKORC1, and (in African ancestry) CYP2C9*5/*6/*8/*11; expected maintenance dose substantially lower than standard; consider alternative anticoagulant if algorithm unavailable",
+    "gt_activity": "0.0"
+  },
+  {
+    "id": "PGX-0042",
+    "gt_diplotype": "*1/*3",
+    "gt_phenotype": "Intermediate Metaboliser",
+    "gt_drug": "warfarin: use validated pharmacogenetic dosing algorithm (e.g., IWPC or Gage) incorporating CYP2C9, VKORC1, and (in African ancestry) CYP2C9*5/*6/*8/*11",
+    "gt_activity": "1.0"
+  },
+  {
+    "id": "PGX-0043",
+    "gt_diplotype": "*1/*1",
+    "gt_phenotype": "Normal Metaboliser",
+    "gt_drug": "warfarin: use validated pharmacogenetic dosing algorithm (e.g., IWPC or Gage); standard starting dose acceptable if algorithm unavailable",
+    "gt_activity": "2.0"
+  },
+  {
+    "id": "PGX-0044",
+    "gt_diplotype": "*3/*3",
+    "gt_phenotype": "Poor Metaboliser",
+    "gt_drug": "phenytoin: 50% dose reduction; monitor levels closely",
+    "gt_activity": "0.0"
+  },
+  {
+    "id": "PGX-0045",
+    "gt_diplotype": "*1/*3",
+    "gt_phenotype": "Intermediate Metaboliser",
+    "gt_drug": "phenytoin: 25% dose reduction with TDM",
+    "gt_activity": "1.0"
+  },
+  {
+    "id": "PGX-0046",
+    "gt_diplotype": "*1/*1",
+    "gt_phenotype": "Normal Metaboliser",
+    "gt_drug": "phenytoin: standard dosing",
+    "gt_activity": "2.0"
+  },
+  {
+    "id": "PGX-0047",
+    "gt_diplotype": "*3/*3",
+    "gt_phenotype": "Poor Metaboliser",
+    "gt_drug": "celecoxib: 50% dose reduction or alternative NSAID",
+    "gt_activity": "0.0"
+  },
+  {
+    "id": "PGX-0048",
+    "gt_diplotype": "*1/*3",
+    "gt_phenotype": "Intermediate Metaboliser",
+    "gt_drug": "celecoxib: standard dosing with caution",
+    "gt_activity": "1.0"
+  },
+  {
+    "id": "PGX-0049",
+    "gt_diplotype": "*1/*1",
+    "gt_phenotype": "Normal Metaboliser",
+    "gt_drug": "celecoxib: standard dosing",
+    "gt_activity": "2.0"
+  },
+  {
+    "id": "PGX-0050",
+    "gt_diplotype": "*1/*1",
+    "gt_phenotype": "Normal Metaboliser (Expressor)",
+    "gt_drug": "tacrolimus: increase dose 1.5-2x; rapid clearance",
+    "gt_activity": "2.0"
+  },
+  {
+    "id": "PGX-0051",
+    "gt_diplotype": "*1/*3",
+    "gt_phenotype": "Intermediate Metaboliser",
+    "gt_drug": "tacrolimus: increase dose 1.5x; partial expression",
+    "gt_activity": "1.0"
+  },
+  {
+    "id": "PGX-0052",
+    "gt_diplotype": "*3/*3",
+    "gt_phenotype": "Poor Metaboliser (Non-expressor)",
+    "gt_drug": "tacrolimus: standard dosing (slow clearance, normal target levels)",
+    "gt_activity": "0.0"
+  },
+  {
+    "id": "PGX-0053",
+    "gt_diplotype": "*6/*6",
+    "gt_phenotype": "Poor Metaboliser",
+    "gt_drug": "efavirenz: 50% dose reduction or alternative ART; CNS toxicity risk",
+    "gt_activity": "0.0"
+  },
+  {
+    "id": "PGX-0054",
+    "gt_diplotype": "*1/*6",
+    "gt_phenotype": "Intermediate Metaboliser",
+    "gt_drug": "efavirenz: standard dosing with monitoring; CNS adverse effect risk",
+    "gt_activity": "1.0"
+  },
+  {
+    "id": "PGX-0055",
+    "gt_diplotype": "*1/*1",
+    "gt_phenotype": "Normal Metaboliser",
+    "gt_drug": "efavirenz: standard dosing",
+    "gt_activity": "2.0"
+  },
+  {
+    "id": "PGX-0056",
+    "gt_diplotype": "*1/*4",
+    "gt_phenotype": "Rapid Metaboliser",
+    "gt_drug": "efavirenz: standard dosing; possible subtherapeutic levels",
+    "gt_activity": "1.5"
+  },
+  {
+    "id": "PGX-0057",
+    "gt_diplotype": "*2A/*2A",
+    "gt_phenotype": "Poor Metaboliser",
+    "gt_drug": "fluorouracil: AVOID (potentially LETHAL — complete DPD deficiency causes severe toxicity)",
+    "gt_activity": "0.0"
+  },
+  {
+    "id": "PGX-0058",
+    "gt_diplotype": "*1/*2A",
+    "gt_phenotype": "Intermediate Metaboliser",
+    "gt_drug": "fluorouracil: reduce starting dose by 50%",
+    "gt_activity": "1.0"
+  },
+  {
+    "id": "PGX-0059",
+    "gt_diplotype": "*1/HapB3",
+    "gt_phenotype": "Intermediate Metaboliser",
+    "gt_drug": "fluorouracil: reduce starting dose by 50%; HapB3 reduced function",
+    "gt_activity": "1.0"
+  },
+  {
+    "id": "PGX-0060",
+    "gt_diplotype": "*1/*1",
+    "gt_phenotype": "Normal Metaboliser",
+    "gt_drug": "fluorouracil: standard dosing",
+    "gt_activity": "2.0"
+  },
+  {
+    "id": "PGX-0061",
+    "gt_diplotype": "*2A/*2A",
+    "gt_phenotype": "Poor Metaboliser",
+    "gt_drug": "capecitabine: AVOID (potentially LETHAL — same DPD deficiency mechanism as 5-FU)",
+    "gt_activity": "0.0"
+  },
+  {
+    "id": "PGX-0062",
+    "gt_diplotype": "*1/*2A",
+    "gt_phenotype": "Intermediate Metaboliser",
+    "gt_drug": "capecitabine: reduce starting dose by 50%",
+    "gt_activity": "1.0"
+  },
+  {
+    "id": "PGX-0063",
+    "gt_diplotype": "*1/*1",
+    "gt_phenotype": "Normal Metaboliser",
+    "gt_drug": "capecitabine: standard dosing",
+    "gt_activity": "2.0"
+  },
+  {
+    "id": "PGX-0064",
+    "gt_diplotype": "*3A/*3A",
+    "gt_phenotype": "Poor Metaboliser",
+    "gt_drug": "azathioprine: AVOID (potentially LETHAL myelosuppression) or reduce dose by 90%",
+    "gt_activity": "0.0"
+  },
+  {
+    "id": "PGX-0065",
+    "gt_diplotype": "*1/*3B",
+    "gt_phenotype": "Intermediate Metaboliser",
+    "gt_drug": "azathioprine: reduce dose by 30-70%; monitor blood counts",
+    "gt_activity": "1.0"
+  },
+  {
+    "id": "PGX-0066",
+    "gt_diplotype": "*1/*3C",
+    "gt_phenotype": "Intermediate Metaboliser",
+    "gt_drug": "azathioprine: reduce dose by 30-70%; monitor blood counts",
+    "gt_activity": "1.0"
+  },
+  {
+    "id": "PGX-0067",
+    "gt_diplotype": "*1/*1",
+    "gt_phenotype": "Normal Metaboliser",
+    "gt_drug": "azathioprine: standard dosing",
+    "gt_activity": "2.0"
+  },
+  {
+    "id": "PGX-0068",
+    "gt_diplotype": "*3/*3",
+    "gt_phenotype": "Poor Metaboliser",
+    "gt_drug": "thiopurines: AVOID (potentially LETHAL myelosuppression) or reduce dose by 90%",
+    "gt_activity": "0.0"
+  },
+  {
+    "id": "PGX-0069",
+    "gt_diplotype": "*1/*3",
+    "gt_phenotype": "Intermediate Metaboliser",
+    "gt_drug": "thiopurines: reduce dose by 30-50%",
+    "gt_activity": "1.0"
+  },
+  {
+    "id": "PGX-0070",
+    "gt_diplotype": "*1/*1",
+    "gt_phenotype": "Normal Metaboliser",
+    "gt_drug": "thiopurines: standard dosing",
+    "gt_activity": "2.0"
+  },
+  {
+    "id": "PGX-0071",
+    "gt_diplotype": "*5/*5",
+    "gt_phenotype": "Poor Function",
+    "gt_drug": "simvastatin: avoid high dose (≥40mg); myopathy risk; alternative statin",
+    "gt_activity": "0.0"
+  },
+  {
+    "id": "PGX-0072",
+    "gt_diplotype": "*1a/*5",
+    "gt_phenotype": "Decreased Function",
+    "gt_drug": "simvastatin: limit to 20mg/day or alternative statin",
+    "gt_activity": "1.0"
+  },
+  {
+    "id": "PGX-0073",
+    "gt_diplotype": "*1a/*1a",
+    "gt_phenotype": "Normal Function",
+    "gt_drug": "simvastatin: standard dosing",
+    "gt_activity": "2.0"
+  },
+  {
+    "id": "PGX-0074",
+    "gt_diplotype": "*5/*5",
+    "gt_phenotype": "Poor Function",
+    "gt_drug": "atorvastatin: standard dose acceptable; lower myopathy risk than simvastatin",
+    "gt_activity": "0.0"
+  },
+  {
+    "id": "PGX-0075",
+    "gt_diplotype": "*1a/*5",
+    "gt_phenotype": "Decreased Function",
+    "gt_drug": "atorvastatin: standard dosing",
+    "gt_activity": "1.0"
+  },
+  {
+    "id": "PGX-0076",
+    "gt_diplotype": "*1a/*1a",
+    "gt_phenotype": "Normal Function",
+    "gt_drug": "atorvastatin: standard dosing",
+    "gt_activity": "2.0"
+  },
+  {
+    "id": "PGX-0077",
+    "gt_diplotype": "*28/*28",
+    "gt_phenotype": "Poor Metaboliser",
+    "gt_drug": "irinotecan: reduce dose by 30%; severe neutropenia/diarrhoea risk",
+    "gt_activity": "0.0"
+  },
+  {
+    "id": "PGX-0078",
+    "gt_diplotype": "*1/*28",
+    "gt_phenotype": "Intermediate Metaboliser",
+    "gt_drug": "irinotecan: standard dosing with monitoring; possible dose reduction at high doses",
+    "gt_activity": "1.0"
+  },
+  {
+    "id": "PGX-0079",
+    "gt_diplotype": "*1/*1",
+    "gt_phenotype": "Normal Metaboliser",
+    "gt_drug": "irinotecan: standard dosing",
+    "gt_activity": "2.0"
+  },
+  {
+    "id": "PGX-0080",
+    "gt_diplotype": "*28/*28",
+    "gt_phenotype": "Poor Metaboliser",
+    "gt_drug": "atazanavir: alternative protease inhibitor; hyperbilirubinaemia / jaundice risk",
+    "gt_activity": "0.0"
+  },
+  {
+    "id": "PGX-0081",
+    "gt_diplotype": "*1/*28",
+    "gt_phenotype": "Intermediate Metaboliser",
+    "gt_drug": "atazanavir: standard dosing; monitor bilirubin",
+    "gt_activity": "1.0"
+  },
+  {
+    "id": "PGX-0082",
+    "gt_diplotype": "*1/*1",
+    "gt_phenotype": "Normal Metaboliser",
+    "gt_drug": "atazanavir: standard dosing",
+    "gt_activity": "2.0"
+  },
+  {
+    "id": "PGX-0083",
+    "gt_diplotype": "HLA-B*57:01 positive",
+    "gt_phenotype": "Positive",
+    "gt_drug": "abacavir: AVOID (potentially LETHAL hypersensitivity reaction with rechallenge)",
+    "gt_activity": "carrier"
+  },
+  {
+    "id": "PGX-0084",
+    "gt_diplotype": "HLA-B*57:01 negative",
+    "gt_phenotype": "Negative",
+    "gt_drug": "abacavir: standard dosing",
+    "gt_activity": "non-carrier"
+  },
+  {
+    "id": "PGX-0085",
+    "gt_diplotype": "HLA-B*15:02 positive",
+    "gt_phenotype": "Positive",
+    "gt_drug": "carbamazepine: AVOID (potentially LETHAL — Stevens-Johnson syndrome / TEN risk)",
+    "gt_activity": "carrier"
+  },
+  {
+    "id": "PGX-0086",
+    "gt_diplotype": "HLA-B*15:02 negative",
+    "gt_phenotype": "Negative",
+    "gt_drug": "carbamazepine: standard dosing",
+    "gt_activity": "non-carrier"
+  },
+  {
+    "id": "PGX-0087",
+    "gt_diplotype": "HLA-B*15:02 positive",
+    "gt_phenotype": "Positive",
+    "gt_drug": "oxcarbazepine: AVOID (potentially LETHAL — SJS/TEN risk, cross-reactivity with carbamazepine)",
+    "gt_activity": "carrier"
+  },
+  {
+    "id": "PGX-0088",
+    "gt_diplotype": "HLA-B*15:02 negative",
+    "gt_phenotype": "Negative",
+    "gt_drug": "oxcarbazepine: standard dosing",
+    "gt_activity": "non-carrier"
+  },
+  {
+    "id": "PGX-0089",
+    "gt_diplotype": "HLA-A*31:01 positive",
+    "gt_phenotype": "Positive",
+    "gt_drug": "carbamazepine: AVOID (potentially LETHAL — DRESS/SJS/TEN risk)",
+    "gt_activity": "carrier"
+  },
+  {
+    "id": "PGX-0090",
+    "gt_diplotype": "HLA-A*31:01 negative",
+    "gt_phenotype": "Negative",
+    "gt_drug": "carbamazepine: standard dosing",
+    "gt_activity": "non-carrier"
+  },
+  {
+    "id": "PGX-0091",
+    "gt_diplotype": "HLA-B*58:01 positive",
+    "gt_phenotype": "Positive",
+    "gt_drug": "allopurinol: AVOID (potentially LETHAL SJS/TEN/DRESS risk)",
+    "gt_activity": "carrier"
+  },
+  {
+    "id": "PGX-0092",
+    "gt_diplotype": "HLA-B*58:01 negative",
+    "gt_phenotype": "Negative",
+    "gt_drug": "allopurinol: standard dosing",
+    "gt_activity": "non-carrier"
+  },
+  {
+    "id": "PGX-0093",
+    "gt_diplotype": "G6PD Mediterranean (hemizygous male or homozygous female)",
+    "gt_phenotype": "Deficient",
+    "gt_drug": "rasburicase: AVOID (potentially LETHAL acute haemolytic anaemia; Class II severe deficiency)",
+    "gt_activity": "0.0"
+  },
+  {
+    "id": "PGX-0094",
+    "gt_diplotype": "G6PD A- haplotype (hemizygous male or homozygous female)",
+    "gt_phenotype": "Deficient",
+    "gt_drug": "rasburicase: AVOID (haemolysis risk; Class III moderate deficiency, lower severity than Mediterranean)",
+    "gt_activity": "0.5"
+  },
+  {
+    "id": "PGX-0095",
+    "gt_diplotype": "G6PD B (wildtype, hemizygous male or homozygous female)",
+    "gt_phenotype": "Normal",
+    "gt_drug": "rasburicase: standard dosing",
+    "gt_activity": "2.0"
+  },
+  {
+    "id": "PGX-0096",
+    "gt_diplotype": "G6PD A- haplotype (hemizygous male or homozygous female)",
+    "gt_phenotype": "Deficient",
+    "gt_drug": "primaquine: AVOID (potentially LETHAL haemolysis in deficient individuals)",
+    "gt_activity": "0.5"
+  },
+  {
+    "id": "PGX-0097",
+    "gt_diplotype": "G6PD B/A- (heterozygous female)",
+    "gt_phenotype": "Variable",
+    "gt_drug": "primaquine: caution; assess quantitative G6PD enzyme activity before treatment",
+    "gt_activity": "1.0"
+  },
+  {
+    "id": "PGX-0098",
+    "gt_diplotype": "G6PD B (wildtype, hemizygous male or homozygous female)",
+    "gt_phenotype": "Normal",
+    "gt_drug": "primaquine: standard dosing",
+    "gt_activity": "2.0"
+  },
+  {
+    "id": "PGX-0099",
+    "gt_diplotype": "rs12979860 C/C (favourable)",
+    "gt_phenotype": "Favourable Response",
+    "gt_drug": "PEG-IFN-α: higher response rate; standard dosing",
+    "gt_activity": "responder"
+  },
+  {
+    "id": "PGX-0100",
+    "gt_diplotype": "rs12979860 T/T (unfavourable)",
+    "gt_phenotype": "Unfavourable Response",
+    "gt_drug": "PEG-IFN-α: lower response rate; consider direct-acting antivirals if available",
+    "gt_activity": "poor responder"
+  },
+  {
+    "id": "PGX-0101",
+    "gt_diplotype": "rs9923231 A/A (homozygous)",
+    "gt_phenotype": "Sensitive",
+    "gt_drug": "warfarin: use validated pharmacogenetic dosing algorithm (e.g., IWPC or Gage) incorporating VKORC1 + CYP2C9; expected lower maintenance dose",
+    "gt_activity": "low expression"
+  },
+  {
+    "id": "PGX-0102",
+    "gt_diplotype": "rs9923231 G/G (wildtype)",
+    "gt_phenotype": "Normal",
+    "gt_drug": "warfarin: use validated pharmacogenetic dosing algorithm (e.g., IWPC or Gage); standard dosing acceptable if algorithm unavailable",
+    "gt_activity": "normal expression"
+  },
+  {
+    "id": "PGX-0103",
+    "gt_diplotype": "*3/*3",
+    "gt_phenotype": "Decreased Function",
+    "gt_drug": "warfarin: use validated pharmacogenetic dosing algorithm incorporating CYP2C9 + VKORC1 + CYP4F2; CYP4F2*3 contributes ~5-10% higher maintenance dose only when combined with the other markers",
+    "gt_activity": "0.5"
+  },
+  {
+    "id": "PGX-0104",
+    "gt_diplotype": "*1/*1",
+    "gt_phenotype": "Normal Function",
+    "gt_drug": "warfarin: use validated pharmacogenetic dosing algorithm; standard dosing acceptable if algorithm unavailable",
+    "gt_activity": "2.0"
+  },
+  {
+    "id": "PGX-0105",
+    "gt_diplotype": "G551D mutation present",
+    "gt_phenotype": "Responsive",
+    "gt_drug": "ivacaftor: indicated; gating mutation responsive",
+    "gt_activity": "responder"
+  },
+  {
+    "id": "PGX-0106",
+    "gt_diplotype": "F508del homozygous (no gating mutation)",
+    "gt_phenotype": "Non-responsive",
+    "gt_drug": "ivacaftor: not indicated (use combination therapy with elexacaftor/tezacaftor)",
+    "gt_activity": "non-responder"
+  },
+  {
+    "id": "PGX-0107",
+    "gt_diplotype": "m.1555A>G",
+    "gt_phenotype": "Variant Carrier",
+    "gt_drug": "aminoglycosides: AVOID (potentially LETHAL ototoxicity — irreversible deafness)",
+    "gt_activity": "carrier"
+  },
+  {
+    "id": "PGX-0108",
+    "gt_diplotype": "m.1555A (wildtype)",
+    "gt_phenotype": "Normal",
+    "gt_drug": "aminoglycosides: standard dosing",
+    "gt_activity": "wildtype"
+  },
+  {
+    "id": "PGX-0109",
+    "gt_diplotype": "RYR1 pathogenic variant present",
+    "gt_phenotype": "Malignant Hyperthermia Susceptible",
+    "gt_drug": "volatile-anaesthetics: AVOID (potentially LETHAL malignant hyperthermia)",
+    "gt_activity": "carrier"
+  },
+  {
+    "id": "PGX-0110",
+    "gt_diplotype": "RYR1 wildtype",
+    "gt_phenotype": "Uncertain susceptibility",
+    "gt_drug": "volatile-anaesthetics: a negative RYR1 result does not establish normal susceptibility; assess clinical findings, family history and other laboratory data to guide anaesthetic choice and further evaluation",
+    "gt_activity": "non-carrier"
+  }
+]

@@ -1,33 +1,12 @@
 #!/usr/bin/env python3
-"""Regenerate supplementary Figures S2 and S3 from the five-cell scored rows.
+"""Supplementary phenotype and wording-rule plots for the five configurations.
 
-Both figures previously derived from the retired three-arm protocol and were
-plotted against aggregate A3, which the manuscript retires because it returns
-1.0 by definition on the 96 non-lethal cases and therefore measured case
-composition rather than model behaviour. Citing them from the main text meant
-the paper repudiated a metric and then leaned on two figures built from it, one
-of which carries the central safety mechanism.
-
-Nothing about the underlying phenomenon needed A3. Both figures are restated against the lethal-class safety action, restricted to
-the 336 lethal-class evaluations per cell where a required action is defined.
-
-The action axis is `lethal_action`, not `a2_recommendation`. They are different
-measures and only the first reproduces the manuscript: 137 errors under RAG
-generation and 54 under free generation. Plotting a2 instead put one cell in the
-"phenotype right, action wrong" quadrant for RAG generation, which would have
-contradicted the paper's own central mechanism.
-
-  S2  per lethal-class gene, phenotype accuracy against recommendation
-      accuracy, one panel per cell. Below the diagonal is information without
-      action: the model identifies the phenotype and does not act on it.
-  S3  the same lethal-class cells decomposed into the four
-      phenotype-by-recommendation quadrants, so correctness by coincidence
-      (right action, wrong phenotype) is separated from correctness proper.
-
-Usage:
-    python3 code/61-rescore-matched.py --input data/v3_five_cell_live.json \
-        --rows data/v3_matched_scored_rows_all5.json --out /tmp/o.json --report /tmp/r.txt
-    python3 code/86-figures-s2-s3-five-cell.py
+S2 plots per-gene phenotype concordance against original wording-rule acceptance
+among the 336 high-severity evaluations per configuration. S3 partitions those
+scores at 0.5 and shows the joint scoring categories. These lexical endpoints do
+not independently establish clinical action, safety or harm. Both wording rules
+are reported in main Figure 2; conclusions depending on the strict rule alone
+are withdrawn. R3 uses the complete attempted grid from the regeneration driver.
 """
 from __future__ import annotations
 
@@ -59,12 +38,13 @@ def load():
     return [r for r in rows if r.get("lethal_action") is not None]
 
 
-def figure_s2(lethal):
+def figure_s2(lethal, save_output=True):
     per = defaultdict(lambda: defaultdict(list))
     for r in lethal:
         per[r["cell"]][r["gene"]].append((r["a1_phenotype"], r["lethal_action"]))
 
-    fig, axes = plt.subplots(1, len(CELLS), figsize=(17.5, 4.0), sharex=True, sharey=True)
+    fig, grid = plt.subplots(3, 2, figsize=(7.2, 7.4), sharex=True, sharey=True)
+    axes=list(grid.flat);axes[-1].set_visible(False)
     for ax, (key, label) in zip(axes, CELLS):
         ax.plot([0, 1], [0, 1], color=GREY, lw=1, ls="--", zorder=1)
         ax.fill_between([0, 1], [0, 1], [0, 0], color=ORANGE, alpha=0.07, zorder=0)
@@ -75,31 +55,32 @@ def figure_s2(lethal):
             ax.scatter(x, y, s=52, zorder=3, color=ORANGE if below else BLUE,
                        edgecolor="white", linewidth=0.8)
             if below:
-                ax.annotate(gene, (x, y), fontsize=6.4, color=DARK,
-                            xytext=(3, -8), textcoords="offset points")
-        ax.set_title(label, fontsize=9.5)
+                ax.annotate(gene, (x, y), fontsize=7.2, color=DARK,
+                            xytext=(3, 8) if gene == 'HLA-A*31:01' else (3, -8),
+                            textcoords="offset points")
+        ax.set_title(label.replace('\n',' '), fontsize=8.5)
         ax.set_xlim(-0.04, 1.04); ax.set_ylim(-0.04, 1.04)
         ax.set_xticks([0, 0.5, 1]); ax.set_yticks([0, 0.5, 1])
         ax.set_xticklabels(["0", "50", "100"]); ax.set_yticklabels(["0", "50", "100"])
         ax.tick_params(labelsize=8)
         for s in ("top", "right"):
             ax.spines[s].set_visible(False)
-    axes[0].set_ylabel("Correct lethal-class action (%)", fontsize=9)
-    fig.text(0.5, 0.015, "Phenotype accuracy (%)", ha="center", fontsize=9)
-    fig.suptitle("Figure S2. Information without action, lethal-class loci",
-                 fontsize=12.5, fontweight="bold", y=0.99)
-    fig.text(0.5, 0.925,
-             "Each point is one lethal-class gene. The shaded region below the diagonal is "
-             "where the phenotype is identified and the required action is not taken.",
-             ha="center", fontsize=8.6, color="#555555")
-    fig.tight_layout(rect=[0, 0.04, 1, 0.90])
-    for ext in ("png", "tiff"):
-        fig.savefig(OUTDIR / f"FigureS2-information-without-action.{ext}", dpi=300,
-                    facecolor="white")
-    plt.close(fig)
+    fig.supylabel("Original wording rule accepted (%)", fontsize=9,x=0.02)
+    fig.supxlabel("Phenotype concordance (%)", fontsize=9,y=0.015)
+    fig.suptitle("Figure S2. Phenotype concordance and original wording rule",
+                 fontsize=10, fontweight="bold", y=0.99)
+    fig.text(0.5, 0.945,
+             "Each point is one high-severity gene. Shading marks lower wording acceptance.\nThese lexical classifications do not establish clinical harm.",
+             ha="center", va="top", fontsize=8, color="#555555")
+    fig.tight_layout(rect=[0.04, 0.04, 1, 0.925])
+    if save_output:
+        for ext in ("png", "tiff"):
+            fig.savefig(OUTDIR / f"FigureS2-information-without-action.{ext}", dpi=300, facecolor="white")
+        plt.close(fig)
+    return fig
 
 
-def figure_s3(lethal):
+def figure_s3(lethal, save_output=True):
     quad = defaultdict(lambda: [0, 0, 0, 0])
     for r in lethal:
         p_ok = r["a1_phenotype"] >= 0.5
@@ -107,10 +88,10 @@ def figure_s3(lethal):
         idx = 0 if (p_ok and a_ok) else 1 if (not p_ok and a_ok) else 2 if (p_ok and not a_ok) else 3
         quad[r["cell"]][idx] += 1
 
-    names = ["phenotype and action both correct",
-             "action correct, phenotype wrong (correctness by coincidence)",
-             "phenotype correct, action wrong (information without action)",
-             "both wrong"]
+    names = ["phenotype score >=0.5; wording accepted",
+             "phenotype score <0.5; wording accepted",
+             "phenotype score >=0.5; wording rejected",
+             "phenotype score <0.5; wording rejected"]
     colours = [BLUE, ORANGE, "#7A2306", GREY]
 
     fig, ax = plt.subplots(figsize=(11.5, 4.6))
@@ -129,19 +110,19 @@ def figure_s3(lethal):
     ax.set_yticks(list(ys))
     ax.set_yticklabels([l.replace("\n", " ") for _, l in CELLS], fontsize=9)
     ax.invert_yaxis()
-    ax.set_xlabel("Percentage of the 336 lethal-class evaluations per configuration", fontsize=9)
+    ax.set_xlabel("Percentage of 336 high-severity evaluations per configuration", fontsize=9)
     ax.set_xlim(0, 100)
     for s in ("top", "right", "left"):
         ax.spines[s].set_visible(False)
     handles = [plt.Rectangle((0, 0), 1, 1, color=c) for c in colours]
     ax.legend(handles, names, fontsize=8, loc="upper center",
               bbox_to_anchor=(0.5, -0.20), ncol=2, frameon=False)
-    ax.set_title("Figure S3. Correctness by coincidence, lethal-class evaluations",
+    ax.set_title("Figure S3. Joint phenotype scores and original wording classifications",
                  fontsize=12.5, fontweight="bold", loc="left")
     fig.tight_layout()
+    if not save_output:return fig
     for ext in ("png", "tiff"):
-        fig.savefig(OUTDIR / f"FigureS3-correctness-by-coincidence.{ext}", dpi=300,
-                    facecolor="white")
+        fig.savefig(OUTDIR / f"FigureS3-correctness-by-coincidence.{ext}", dpi=300, facecolor="white")
     plt.close(fig)
     return quad
 

@@ -1,0 +1,9 @@
+case_id,rag_execution,skill_generation,skill_execution,rag_generation,rag_equivalence_numerator,rag_n,disposition
+cyp2d6_amitrip_im,1.0,1.0,1.0,0.041666666666666664,1.0,24,Outdated retrieval interpretation
+hlab5701_aba_pos,1.0,1.0,1.0,0.0,24.0,24,Terminology mismatch
+hlab5701_aba_neg,1.0,1.0,1.0,0.041666666666666664,19.0,24,Terminology mismatch
+hlaa3101_carba_neg,1.0,1.0,1.0,0.08333333333333333,24.0,24,Terminology mismatch
+hlab5801_allo_pos,1.0,1.0,1.0,0.0,23.0,24,Terminology mismatch
+hlab5801_allo_neg,1.0,1.0,1.0,0.0,22.0,24,Terminology mismatch
+mtrnr1_amino_var,1.0,1.0,1.0,0.0,0.0,24,Terminology mismatch
+ryr1_anaes_norm,1.0,1.0,1.0,0.0,0.0,24,Confirmed reference error

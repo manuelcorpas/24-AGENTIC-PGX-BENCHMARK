@@ -1,26 +1,12 @@
 #!/usr/bin/env python3
-"""
-Revision figures, generated from the matched-factorial data (N1, N4, N5, N6).
+"""Revision figures computed from preserved benchmark and cohort data.
 
-EVERY NUMBER PLOTTED HERE IS READ FROM A DATA FILE. There is no np.random in
-this script and no hardcoded result: the figures are recomputed from
-data/v3_five_cell_live.json, data/v3_model_caller_eval.json and
-data/v3_ancestry_four_cohorts.json, so a figure can never drift from the text
-the text. --self-test verifies the inputs exist and the recomputed headline
-values match the report before anything is drawn.
-
-Figures produced:
-  FigureR1  the 2x3 factorial: knowledge representation x decision mechanism,
-            accuracy and lethal-class errors side by side
-  FigureR2  error localisation: end-to-end accuracy against input-call accuracy,
-            per gene, with the identity line
-  FigureR3  between-model spread collapsing as correctness moves into execution
-  FigureR4  ancestry coverage on both denominators, with the standardised and
-            cohort-specific columns that stop the disparity being explained away
-
-USAGE
-    python code/70-figures-revision.py --self-test
-    python code/70-figures-revision.py
+Figure R1 reads the R3 attempted-evaluation summary: original-reference
+recommendation concordance above both wording-rule counts. R2 localises
+phenotype disagreement against input-call concordance. R3 reports between-model
+phenotype concordance. R4 retains the four ancestry-coverage denominators.
+Use docs/R3-2026-09-16/SOURCE/01-regenerate.py for the complete current pipeline.
+Historical output paths remain available; no public figure is overwritten by R3.
 """
 from __future__ import annotations
 
@@ -62,7 +48,7 @@ FIGURE_R3_LABELS = [
 FIGURE_R2_LABEL_OFFSETS = {
     "HLA-B*15:02": (-8, 10),
     "NUDT15": (-38, -14),
-    "CYP2C19": (-48, 8),
+    "CYP2C19": (-48, -3),
     "CYP4F2": (6, -12),
     "CYP2D6": (5, 8),
     "CYP3A5": (5, -8),
@@ -124,61 +110,58 @@ def save(fig, stem: str) -> None:
 # ---------------------------------------------------------------- FigureR1
 
 def figure_r1(summary, save_output: bool = True):
-    fig, (axA, axB) = plt.subplots(1, 2, figsize=(10.8, 3.9))
-    xs = range(len(CELLS))
-    display_labels = [
-        "No\nknowledge",
-        "RAG\ngeneration",
-        "RAG call +\nauthored\nexecution",
-        "Authored\nrules,\ngenerated",
-        "Authored\nrules,\nexecuted",
-    ]
-    acc = [summary[c]["a2_recommendation_mean"] for c in CELLS]
-    axA.bar(xs, acc, color=[COLOURS[c] for c in CELLS], width=0.68)
-    for x, v in zip(xs, acc):
-        axA.text(x, v + 0.014, f"{v:.3f}", ha="center", va="bottom", fontsize=8)
-    axA.set_xticks(list(xs))
-    axA.set_xticklabels(display_labels, fontsize=8.5, linespacing=1.0)
-    axA.set_ylabel("Recommendation accuracy")
-    axA.set_ylim(0, 1.10)
-    axA.set_title("A  Recommendation accuracy", loc="left")
-
-    lethal = [summary[c]["lethal_errors"] for c in CELLS]
-    axB.bar(xs, lethal, color=[COLOURS[c] for c in CELLS], width=0.68)
-    for x, v in zip(xs, lethal):
-        axB.text(x, v + 2.2, str(v), ha="center", va="bottom", fontsize=8)
-    axB.set_xticks(list(xs))
-    axB.set_xticklabels(display_labels, fontsize=8.5, linespacing=1.0)
-    axB.set_ylabel("Lethal-class errors (of 336)")
-    axB.set_ylim(0, max(lethal) * 1.17)
-    axB.set_title("B  Lethal-class errors", loc="left")
-
-    handles = [plt.Rectangle((0, 0), 1, 1, color=GENERATION),
-               plt.Rectangle((0, 0), 1, 1, color=EXECUTION)]
-    fig.legend(
-        handles, ["model generates the answer", "code executes the rule"],
-        loc="lower center", bbox_to_anchor=(0.5, 0.005), frameon=False,
-        ncol=2, fontsize=8.5,
-    )
-    fig.subplots_adjust(left=0.08, right=0.98, top=0.88, bottom=0.235, wspace=0.24)
+    """Original-reference concordance and both wording rules on attempted units."""
+    blue, orange = "#3775BA", "#D95F02"
+    fig, (axA, axB) = plt.subplots(2, 1, figsize=(7.0, 6.6))
+    labels = ["Free generation", "RAG generation", "RAG-assisted execution",
+              "Authored-rule generation", "Authored-rule execution"]
+    ys = list(range(len(CELLS)))
+    values = [100 * summary[c]["a2_recommendation_mean"] for c in CELLS]
+    bars = axA.barh(ys, values, height=0.56, color=blue, edgecolor="#222222", linewidth=0.6)
+    for y, value in zip(ys, values):
+        axA.text(value + 1.5, y, f"{value:.1f}%", va="center", fontsize=8.5)
+    axA.set_xlim(0, 113)
+    axA.set_xticks([0, 25, 50, 75, 100])
+    axA.set_xlabel("Recommendation concordance with authored references (%)", fontsize=8.5)
+    axA.set_title("A  Original references, 110 cases", loc="left", fontsize=10, weight="bold")
+    for offset, key, colour, hatch, label in [
+        (-0.17, "strict_failures", blue, "", "Original rule"),
+        (0.17, "widened_failures", orange, "///", 'Also accepts “do not use” (post hoc)'),
+    ]:
+        vals = [summary[c][key] for c in CELLS]
+        axB.barh([y + offset for y in ys], vals, height=0.29, color=colour,
+                 edgecolor="#222222", linewidth=0.6, hatch=hatch, label=label)
+        for y, value in zip(ys, vals):
+            axB.text(value + 2, y + offset, str(value), va="center", fontsize=8.5)
+    axB.set_xlim(0, max(summary[c]["strict_failures"] for c in CELLS) * 1.16)
+    axB.set_xlabel("Wording-based failures in high-severity cases (of 336)", fontsize=8.5)
+    axB.set_title("B  Sensitivity to accepted wording", loc="left", fontsize=10, weight="bold")
+    for ax in (axA, axB):
+        ax.set_yticks(ys); ax.set_yticklabels(labels, fontsize=8.5)
+        ax.invert_yaxis(); ax.spines[["top", "right", "left"]].set_visible(False)
+        ax.tick_params(axis="y", length=0)
+        ax.set_axisbelow(True); ax.grid(axis="x", color="#e6e6e6", linewidth=0.5)
+    fig.legend(*axB.get_legend_handles_labels(), loc="lower center", ncol=1,
+               frameon=False, fontsize=8.5, bbox_to_anchor=(0.62, 0.002))
+    fig.subplots_adjust(left=0.29, right=0.97, top=0.94, bottom=0.16, hspace=0.64)
     if save_output:
-        save(fig, "FigureR1_matched_factorial")
+        save(fig, "FigureR1_matched_factorial_r3")
     return fig
 
 
 # ---------------------------------------------------------------- FigureR2
 
-def figure_r2(summary) -> None:
-    caller = json.loads(CALLER.read_text())
+def figure_r2(summary, rows=None, already_scored=False, save_output=True, caller=None):
+    caller = json.loads(CALLER.read_text()) if caller is None else caller
     genes = {g: v for g, v in caller["per_gene"].items() if v["n"] >= 60}
     xs = [v["concordance"] for v in genes.values()]
     ys = []
     # end-to-end accuracy per gene, execution cells only, from the raw rows
-    rows = json.loads(FIVE_CELL.read_text())
+    rows = json.loads(FIVE_CELL.read_text()) if rows is None else rows
     rs = _load("61-rescore-matched.py", "rs")
     for g in genes:
         sub = [r for r in rows if r["gene"] == g and r["cell"].endswith("execution")]
-        sc = [rs.score_row(r, rs.CASE_BY_ID[r["case_id"]])["a1_phenotype"] for r in sub]
+        sc = [r['a1_phenotype'] if already_scored else rs.score_row(r, rs.CASE_BY_ID[r["case_id"]])["a1_phenotype"] for r in sub]
         ys.append(sum(sc) / len(sc) if sc else 0.0)
 
     fig, ax = plt.subplots(figsize=(5.2, 5.0))
@@ -194,22 +177,23 @@ def figure_r2(summary) -> None:
         ax.annotate(g, (x, y), textcoords="offset points", xytext=offset,
                     fontsize=6.8)
     if high_cluster:
-        ax.text(0.98, 0.08, f"{len(high_cluster)} genes in high-accuracy cluster",
+        ax.text(0.98, 0.08, f"{len(high_cluster)} genes in high-concordance cluster",
                 transform=ax.transAxes, ha="right", fontsize=6.8)
-    ax.set_xlabel("input-call accuracy (model as caller)")
-    ax.set_ylabel("end-to-end phenotype accuracy")
+    ax.set_xlabel("Input-call concordance (model as caller)")
+    ax.set_ylabel("Phenotype concordance with authored references")
     ax.set_xlim(lo, 1.02)
     ax.set_ylim(lo, 1.02)
-    ax.set_title("Within authored execution, end-to-end accuracy\ntracks input-call accuracy", loc="left")
+    ax.set_title("Within authored execution, phenotype concordance\ntracks input-call concordance", loc="left")
     ax.text(0.02, 0.96, f"overall call concordance {caller['call_concordance']:.3f}",
             transform=ax.transAxes, fontsize=8, va="top")
     fig.tight_layout()
-    save(fig, "FigureR2_error_localisation")
+    if save_output:save(fig, "FigureR2_error_localisation")
+    return fig
 
 
 # ---------------------------------------------------------------- FigureR3
 
-def figure_r3(by_model) -> None:
+def figure_r3(by_model, save_output=True):
     fig, ax = plt.subplots(figsize=(7.2, 4.2))
     for i, cell in enumerate(CELLS):
         vals = list(by_model[cell].values())
@@ -221,17 +205,18 @@ def figure_r3(by_model) -> None:
                 ha="center", fontsize=7.5)
     ax.set_xticks(range(len(CELLS)))
     ax.set_xticklabels(FIGURE_R3_LABELS, fontsize=7.5, linespacing=1.0)
-    ax.set_ylabel("phenotype accuracy, one point per model")
+    ax.set_ylabel("Phenotype concordance, one point per model")
     ax.set_ylim(0.3, 1.04)
     ax.set_title("Between-model spread across the five matched configurations",
                  loc="left")
     fig.subplots_adjust(left=0.12, right=0.98, top=0.90, bottom=0.20)
-    save(fig, "FigureR3_model_spread")
+    if save_output:save(fig, "FigureR3_model_spread")
+    return fig
 
 
 # ---------------------------------------------------------------- FigureR4
 
-def figure_r4() -> None:
+def figure_r4(save_output=True):
     a = json.loads(ANCESTRY.read_text())
     cohorts = a["cohorts"]
     series = [
@@ -249,13 +234,14 @@ def figure_r4() -> None:
             ax.text(x, v + 0.012, f"{v:.2f}", ha="center", fontsize=6.6)
     ax.set_xticks(range(len(cohorts)))
     ax.set_xticklabels(cohorts)
-    ax.set_ylabel("coverage of the validated skill vocabulary")
+    ax.set_ylabel("Coverage of the authored skill vocabulary")
     ax.set_ylim(0, max(max(v for _, v, _ in series for v in v) * 1.25, 0.6))
     ax.legend(frameon=False, ncol=2, fontsize=7.5)
     ax.set_title("Coverage on four denominators: the disparity is relocated, not dissolved",
                  loc="left", fontsize=9.5)
     fig.tight_layout()
-    save(fig, "FigureR4_ancestry_coverage")
+    if save_output:save(fig, "FigureR4_ancestry_coverage")
+    return fig
 
 
 # ---------------------------------------------------------------- entry
@@ -297,7 +283,7 @@ def main(argv: list[str] | None = None) -> int:
     style()
     summary, rows, rs = scored_cells()
     print("rendering revision figures from data files:")
-    figure_r1(summary)
+    figure_r1(json.loads((BASE / "docs/R3-2026-09-16/DATA/analysis.json").read_text())["baseline"])
     figure_r2(summary)
     figure_r3(per_model_accuracy(rows, rs))
     figure_r4()

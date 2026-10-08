@@ -1,0 +1,19 @@
+# Third revision publication checks
+
+Prepared 17 September 2026. This update adds the complete 110-case screen partition, an explicitly defined threshold relaxation, a diagnostic of the unchanged frozen RYR1 scorer, and verification of all 9,557 rows registered by the historical reparser. The new Zenodo version reserved for these materials is `10.5281/zenodo.22806813`; use the public record's publication status as the authority for availability.
+
+Run `python code/99-publication-checks.py` from the repository root, or invoke its absolute path from another directory. The script writes only when run as a CLI and makes no model or network calls. `DATA/publication-checks.json` contains every case's five phenotype means, the threshold partition, all 120 RYR1 recommendation diagnostics, and the twelve reparser source hashes with row counts and idempotence checks. Existing third-revision analyses are regenerated with `python docs/R3-2026-09-16/SOURCE/01-regenerate.py` and the candidate audit with `python docs/R3-2026-09-16/SOURCE/02-build-audit.py`.
+
+The original screen selects eight cases. Of the 102 outside it, 78 pass the authored threshold only, one passes the RAG threshold only, and 23 pass neither. Relaxing both thresholds by five percentage points, to authored means at least 0.90 and RAG at most 0.15, adds one case: CYP4F2-warfarin, `cyp4f2_warf_decr`. This is an exploratory threshold-proximity check, not clinical adjudication or an estimate of missed errors.
+
+The frozen phenotype scorer has no uncertain-susceptibility category. The corrected recommendation matches no reference-action branch in `code/10-rescore-v3.py::score_a2`, so its generic 0.5 fallback is returned for all 120 nonempty RYR1 recommendations across the five configurations, including when the corrected recommendation is scored against itself. For authored-rule execution, this yields `(2,542.5 + 12) / 2,640 = 96.76%`. This is the frozen software's fallback diagnostic, not meaningful corrected-reference concordance. It is disclosed alongside, and does not replace, the 96.31% zero-credit arithmetic sensitivity, 97.19% exclusion analysis, and 97.22% original-reference result.
+
+The earlier staging inventory omitted `v3_input_normalisation.json` (54 rows) and `v3_input_normalisation_defs_deepseek.json` (527 rows). Both are historical inputs to the 9,557-row reparser audit and are included in this deposit. They do not replace the separately identified canonical V4 Flash panel. All twelve historical files reparse idempotently and retain their raw response strings.
+
+The confidential submission contains separate clean and native tracked-change documents. All new redline changes use the author name Manuel Corpas. The manuscript's AI-assistance disclosure remains explicit. Confidential manuscripts, response and cover letters, and document-builder source embedding that correspondence are excluded from the public deposit.
+
+## Decision record
+
+Evidence: preserved benchmark responses, frozen scorers, existing candidate audit, original submission files, the staged data inventory, and authenticated Zenodo version metadata. The selected action is a new version under the existing concept DOI, preserving the historical public version. Silent edits of historical references and expansion of the frozen scorer were rejected because they would change the evaluated artefacts. The near-miss margin is explicitly post hoc; it adds a transparent proximity count without claiming screen sensitivity. New document generation requires a published receipt, not merely a reserved DOI.
+
+Verification: six new publication tests were written first and observed failing, then passed after implementation. The complete repository suite passes 504 tests. All prior scoring, denominator, equivalence, figure and prompt-identity gates remain in place. Final deposit verification and document render checks are recorded with the confidential submission bundle.

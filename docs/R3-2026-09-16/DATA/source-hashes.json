@@ -1,0 +1,22 @@
+{
+  "data/v4_flash_eight_model_five_cell.json": "85a91442ad860cc58d3ff4ce036b5b75132dc02f41ad94600472db4746393b21",
+  "data/v3_five_cell_live.json": "bd4164f75c08b59cc4211b2030415859160657ad296bfdaa3d32c39ec50ab091",
+  "data/v4_flash_eight_model_extracted_rules.json": "83e31bc148cb2b3069ae2df47dddf8fbe182239e54975753637867bb8f2b36e3",
+  "specs/test_cases_v3.json": "6195478548b24da758eebde5aec0070b2a7c27b13a783e1ee4ecea690857419b",
+  "specs/cpic_rag_corpus_v3.json": "4bc076fc4313614b934f1e365ca97f9d24e170c913c1824891f8ac1e160e87c9",
+  "SCORING-PREREG.md": "57160490ca90b65dacc3f78905a975dbc3881ece74d9372f2843607dd9b8174f",
+  "real-genome-arm/scripts/08_caller_truth_eval.py": "739406b96944284259464b5ab75083c1d859ebafcb58ed32d92f42541214885f",
+  "real-genome-arm/scripts/07_executed_pipeline_n0.py": "106ad77f0689ab37f6317f7f6529429326a0650eab2c753a687ffbd53427f611",
+  "code/10-rescore-v3.py": "513b3d7fcdb9be1f0a999c0fbcabd18a6841bb72a7ebbd3164b33996b632e359",
+  "code/10b-rescore-v3-clinical-equivalence.py": "d0089da8d8ba99ca0a6b339e0360e78eccacd24520bf7735a221e4cb6b166e69",
+  "code/60-matched-factorial.py": "00bc2bd91d9e127aba497fd0e1c4f342e135e80953ec3132878ab8befe77ff26",
+  "code/61-rescore-matched.py": "d16cc461508ecd9add57b7d99686525835e1704501a184a50a83c6c2517a07b5",
+  "code/65-hierarchical-stats.py": "9078a1e1728977cda4c550c7d844f600fcdab98cfd9f9c258b4805a263b027ee",
+  "code/68-evaluate-extracted-rules.py": "ae237e85d0a4c058d39bf3fbdf346ac6620efdebdd9a020aa86cc4f7b9a0106a",
+  "code/70-figures-revision.py": "7db497b23b71dce449ac4934c08e8e4aff12260ae1a3f6278cb65b7443ede8d3",
+  "code/71-lethal-case-level-stats.py": "bce47c0f6eb6e33730672a2d6061b74612dfba694d142b5b85b86b385f068f52",
+  "code/73-crossed-mixed-model.py": "d879118dd4bbd8c56285f3edbb4bd9c209993cb5bda45f946e3a6cb8bc77c019",
+  "code/86-figures-s2-s3-five-cell.py": "743724e4982b6cbbea4192cd6d4b3b3cbad52f8edf3bba943a6bf699d6ae5404",
+  "code/_pgx_rules.py": "1b31f4cb603a619f6e9fa3e1682d5d80183471964d8c4a59ae5eddafca4dc2c7",
+  "code/98-third-revision.py": "a4f0dfce631c814f0982bd317a924f8bb66365f9b544e48198acd96a98bb1209"
+}
